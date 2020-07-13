@@ -1,7 +1,13 @@
 import moment from 'moment';
-import { BrowserInter } from './interface';
 moment.locale('zh-cn');
-
+interface BrowserInter {
+  chrome?: string;
+  ie?: string;
+  edge?: string;
+  firefox?: string;
+  safari?: string;
+  opera?: string;
+}
 const utils = {
     /**
    * 获取页面宽度

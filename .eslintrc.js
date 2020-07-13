@@ -52,6 +52,8 @@ const eslintrc = {
       'exports': 'always-multiline',
       'functions': 'never'
     }],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error"],
     'space-before-function-paren': ['error', 'always'], // 方法名后空格
     'semi': ['error'],
     "indent": [2, 4, { "SwitchCase": 1 }],// 缩进2
