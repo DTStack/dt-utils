@@ -1,0 +1,78 @@
+{
+  "name": "dt-utils",
+  "version": "1.0.0",
+  "description": "工具库",
+  "main": "lib/index.js",
+  "module": "lib/index.esm.js",
+  "typings": "lib/index.d.js",
+  "files": [
+    "lib",
+    "LICENSE",
+    "CHANGELOG.md",
+    "README.md"
+  ],
+  "sideEffects": "false",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simonwong/fly-helper.git"
+  },
+  "author": "linhe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/simonwong/fly-helper/issues"
+  },
+  "homepage": "https://github.com/simonwong/fly-helper#readme",
+  "scripts": {
+    "build": "gulp build",
+    "api": "api-extractor run",
+    "lint": "eslint --ext .js,.ts ./src",
+    "lint:fix": "eslint --fix --ext .js,.ts ./src",
+    "changelog": "gulp changelog",
+    "docs": "docsify serve docs",
+    "prepublishOnly": "yarn lint & yarn test & yarn changelog & yarn build"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.7.7",
+    "@microsoft/api-extractor": "^7.7.0",
+    "@types/fs-extra": "^8.0.1",
+    "@types/gulp": "^4.0.6",
+    "@types/jest": "^24.0.24",
+    "@types/node": "^13.1.0",
+    "@typescript-eslint/eslint-plugin": "^2.13.0",
+    "@typescript-eslint/parser": "^2.13.0",
+    "chalk": "^3.0.0",
+    "conventional-changelog-cli": "^2.0.31",
+    "eslint": "^6.8.0",
+    "eslint-plugin-jest": "^23.1.1",
+    "fs-extra": "^8.1.0",
+    "gulp": "^4.0.2",
+    "husky": "^3.1.0",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.5.0",
+    "rollup": "^1.27.14",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-eslint": "^7.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-typescript2": "^0.25.3",
+    "ts-jest": "^24.2.0",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.4"
+  },
+  "dependencies": {
+    "docsify-cli": "^4.4.1",
+    "lodash": "^4.17.15",
+    "moment": "^2.27.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged & jest -u"
+    }
+  },
+  "lint-staged": {
+    "*.{.ts,.js}": [
+      "eslint",
+      "git add"
+    ]
+  }
+}
