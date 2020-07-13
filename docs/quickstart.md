@@ -1,9 +1,9 @@
-# Quick start
+# 快速开始
 
 It is recommended to install `docsify-cli` globally, which helps initializing and previewing the website locally.
 
 ```bash
-npm i docsify-cli -g
+npm i dt-utils
 ```
 
 ## Initialize

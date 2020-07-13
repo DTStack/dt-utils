@@ -1,5 +1,6 @@
 import moment from 'moment';
 moment.locale('zh-cn');
+declare let APP: any;
 interface BrowserInter {
   chrome?: string;
   ie?: string;
@@ -357,6 +358,58 @@ const utils = {
     isEqualArr (arr1: string[], arr2: string[]): boolean {
         const toString = JSON.stringify;
         return toString(arr1.sort()) === toString(arr2.sort());
+    },
+    /**
+     *
+     *
+     * @param {*} a
+     * @param {*} b
+     * @returns boolean
+     */
+    isEqual (a: any, b: any): boolean {
+        for (const key in a) {
+            if ({}.hasOwnProperty.call(a, key) &&
+        (!{}.hasOwnProperty.call(b, key) || a[key] !== b[key])) {
+                return false;
+            }
+        }
+        for (const key in b) {
+            if ({}.hasOwnProperty.call(b, key) && !{}.hasOwnProperty.call(a, key)) {
+                return false;
+            }
+        }
+        return true;
+    },
+    /**
+     *
+     *
+     * @param {*} targetComponent
+     */
+    shouldRender (targetComponent: any) {
+        targetComponent.prototype.shouldComponentUpdate = function (props: any, state: any) {
+            return !this.isEqual(this.state, state) || !this.isEqual(this.props, props);
+        };
+    },
+    /**
+     *
+     * 输出应用版本以及运维信息
+     */
+    appInfo () {
+        window.console.log(`%cApp current version: v${APP.VERSION}`, 'font-family: Cabin, Helvetica, Arial, sans-serif;text-align: left;font-size:32px;color:#B21212;');
+    },
+    /**
+     * 数据Mock
+     * @param {Object} params
+     */
+    mock (params: any) {
+        return function (target: any, name: any, descriptor: any) {
+            console.log('target:', target, name, descriptor);
+            for (const props in params) {
+                if (target[props]) {
+                    target[props] = params[props];
+                }
+            }
+        };
     },
 };
 

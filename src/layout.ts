@@ -128,6 +128,7 @@ export const getNodeLevelAndCount = (node: any, childrenField: any) => {
 
         const children = node[childrenField || 'subTaskVOS'];
         if (children && children.length > 0) {
+            // eslint-disable-next-line @typescript-eslint/prefer-for-of
             for (let j = 0; j < children.length; j++) {
                 const l = getMaxLevel(children[j]);
                 max = l > max ? l : max;
@@ -183,6 +184,7 @@ export const getNodeIndexAndCount = (node: any, currentNode: any, childrenField:
     const loop = (node: any, l: number) => {
         const children = node[childrenField || 'subTaskVOS'];
         if (children) {
+            // eslint-disable-next-line @typescript-eslint/prefer-for-of
             for (let j = 0; j < children.length; j++) {
                 const o = children[j];
                 const lev = l + 1;

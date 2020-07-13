@@ -29,7 +29,8 @@
     "lint:fix": "eslint --fix --ext .js,.ts ./src",
     "changelog": "gulp changelog",
     "docs": "docsify serve docs",
-    "prepublishOnly": "yarn lint & yarn test & yarn changelog & yarn build"
+    "prepublishOnly": "yarn lint & yarn test & yarn changelog & yarn build",
+    "log": "conventional-changelog --config ./node_modules/vue-cli-plugin-commitlint/lib/log -i CHANGELOG.md -s -r 0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.7.7",
