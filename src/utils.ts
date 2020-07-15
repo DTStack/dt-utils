@@ -109,7 +109,12 @@ const utils = {
         precision = Math.pow(10, precision);
         return Math.round(num * precision * 100) / precision + '%';
     },
-
+    /**
+ *
+ *
+ * @param {Record<string, any>} [object={}]
+ * @returns
+ */
     getCssText (object: Record<string, any> = {}) {
         let str = '';
         for (const attr in object) {
@@ -119,7 +124,12 @@ const utils = {
         }
         return str;
     },
-
+    /**
+   *
+   *
+   * @param {(string | number | Date)} timestap
+   * @returns
+   */
     formatDateTime (timestap: string | number | Date) {
         return moment(timestap).format('YYYY-MM-DD HH:mm:ss');
     },

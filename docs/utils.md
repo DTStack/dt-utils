@@ -47,79 +47,164 @@ eg:
 ```js
   Utils.browserCheck(); //boolean 
 ```
+## getParameterByName
+根据参数名获取URL数据
 
-````js
-const utils = {
-    /**
-   * 根据参数名获取URL数据
-   * @param  {[type]} name [description]
-   * @param  {[type]} url  [description]
+```js
+ /**
+   * 获取图片的Base64格式
+   *  @param  {[type]} name [description]
+   * @param  {[type]} url  [description] 可选参数，默认当前域
    */
-    getParameterByName (name: string, url?: string) {
-        if (!url) { url = window.location.href; }
-        name = name.replace(/[\[\]]/g, '\\$&');
-        const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+  Utils.getParameterByName(); //boolean 
+```
 
-        const results = regex.exec(url);
-        if (!results) { return null; }
-        if (!results[2]) { return ''; }
-        return decodeURIComponent(results[2].replace(/\+/g, ' '));
-    },
+eg:
+```js
+  Utils.getParameterByName('name','http://baidu.com?name='1'); // 1 
+  Utils.getParameterByName('name'); // 1 
+```
+## getBase64
+获取图片的Base64格式
 
-    /**
+```js
+  /**
    * 获取图片的Base64格式
    * @param  {[type]}   img      [description]
    * @param  {Function} callback [description]
    */
-    getBase64 (img: any, callback: (img: any) => void) {
-        const reader = new FileReader();
-        reader.addEventListener('load', () => callback(reader.result));
-        reader.readAsDataURL(img);
-    },
+  Utils.getBase64(img,callback); 
+```
+## percent
+百分比转换
 
-    /**
-   * 百分比转换
+````js
+   /**
    * @param  {[type]} num       [description]
    * @param  {[type]} precision [description]
    */
-    percent (num: number, precision?: number) {
-        if (!num || num === Infinity) { return 0 + '%'; }
-        if (num > 1) { num = 1; }
-        precision = precision || 2;
-        precision = Math.pow(10, precision);
-        return Math.round(num * precision * 100) / precision + '%';
-    },
+  Utils.percent(num: number, precision?: number); 
+````
+eg:
 
-    getCssText (object: Record<string, any> = {}) {
-        let str = '';
-        for (const attr in object) {
-            if (object.hasOwnProperty(attr)) {
-                str += attr + ':' + object[attr] + ';';
-            }
-        }
-        return str;
-    },
+````js
+ Utils.percent(1); // 100%
+ Utils.percent(0.5); // 50%
+ Utils.percent(0.54); // 54%
+ Utils.percent(0.54321); // 54.32%
+ Utils.percent(0.54321,1); // 54.3%
+ Utils.percent(0.54321,2); // 54.32%
+ Utils.percent(0.54321,3); // 54.321%
+````
+## getCssText
+  样式对象转css style风格转字符串
 
-    formatDateTime (timestap: string | number | Date) {
-        return moment(timestap).format('YYYY-MM-DD HH:mm:ss');
-    },
+````js
+/**
+ * @param {Record<string, any>} [object={}]
+ * @returns String
+ */
+  Utils.getCssText(object: Record<string, any> = {}); 
+````
+eg:
 
-    formatDate (timestap: string | number | Date) {
-        return moment(timestap).format('YYYY-MM-DD');
-    },
-    formatDateHours (timestap: string | number | Date) {
-        return moment(timestap).format('YYYY-MM-DD HH:mm');
-    },
-    formatDayHours (timestap: string | number | Date) {
-        return moment(timestap).format('MM-DD HH:mm');
-    },
-    formatHours (timestap: string | number | Date) {
-        return moment(timestap).format('HH:mm');
-    },
-    formatMinute (timestap: string | number | Date) {
-        return moment(timestap).format('HH:mm:ss');
-    },
+````js
+  let styles = {
+    height:'100px',
+    width:'100px',
+    color:'red'
+  }
+  Utils.getCssText(styles); // 'height:100px;width:100px;color:red;'
+````
 
+## formatDateTime
+ 格式：`YYYY-MM-DD HH:mm:ss`
+
+```js
+  /**
+   * @param {(string | number | Date)} timestap
+   * @returns
+   */
+   Utils.formatDateTime (timestap: string | number | Date); 
+```
+eg:
+```js
+   Utils.formatDateTime(); 
+```
+
+## formatDate
+ 格式：`YYYY-MM-DD`
+
+```js
+  /**
+   * @param {(string | number | Date)} timestap
+   * @returns
+   */
+   Utils.formatDate (timestap: string | number | Date); 
+```
+eg:
+```js
+   Utils.formatDate(); 
+```
+## formatDateHours
+ 格式：`YYYY-MM-DD HH:mm`
+
+```js
+  /**
+   * @param {(string | number | Date)} timestap
+   * @returns
+   */
+   Utils.formatDateHours (timestap: string | number | Date); 
+```
+eg:
+```js
+   Utils.formatDateHours(); 
+```
+## formatDayHours
+ 格式：`MM-DD HH:mm`
+
+```js
+  /**
+   * @param {(string | number | Date)} timestap
+   * @returns
+   */
+   Utils.formatDayHours (timestap: string | number | Date); 
+```
+eg:
+```js
+   Utils.formatDayHours(); 
+```
+## formatHours
+ 格式：`HH:mm`
+
+```js
+  /**
+   * @param {(string | number | Date)} timestap
+   * @returns
+   */
+   Utils.formatHours (timestap: string | number | Date); 
+```
+eg:
+```js
+   Utils.formatHours(); 
+```
+## formatMinute
+ 格式：`HH:mm:ss`
+
+```js
+  /**
+   * @param {(string | number | Date)} timestap
+   * @returns
+   */
+   Utils.formatMinute (timestap: string | number | Date); 
+```
+eg:
+```js
+   Utils.formatMinute(); 
+```
+
+````js
+const utils = {
     /**
    * 去除空串
    */
