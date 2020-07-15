@@ -7,4 +7,8 @@
 
 * **clip:** 组合发布包 ([bed32df](https://github.com/PKaPI/utils-cli/commit/bed32df4f308b5c7d0eced97c5f5903c3ca2aaf5))
 * **commit:** 优化commit规范 ([c243c45](https://github.com/PKaPI/utils-cli/commit/c243c4577b82636456478c63941477fcb693041b))
+* **docs:** 补充utils文档说明 ([68fed39](https://github.com/PKaPI/utils-cli/commit/68fed39ea2897398503023f3b4d3bd21c18dd127))
+* **补充文档:** 添加工具函数文档说明 ([10c95ef](https://github.com/PKaPI/utils-cli/commit/10c95efb2a73bed3d83b28312d69ca9aa6b77bbd))
+
+
 

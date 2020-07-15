@@ -27,6 +27,7 @@ const log = {
 const paths = {
     root: path.join(__dirname, '/'),
     lib: path.join(__dirname, '/lib'),
+    docs: path.join(__dirname, '/docs'),
 };
 
 
@@ -122,7 +123,9 @@ export const changelog: TaskFunc = async (cb) => {
         resultArray.push(chunk);
     });
     changelogPipe.on('end', async () => {
+        const changelogDocPath: string = path.join(paths.docs, 'CHANGELOG.md');
         await fse.createWriteStream(changelogPath).write(resultArray.join(''));
+        await fse.createWriteStream(changelogDocPath).write(resultArray.join(''));
         cb();
     });
 };
