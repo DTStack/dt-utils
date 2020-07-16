@@ -1,7 +1,7 @@
 # localDb
 导入
 ````js
-  import { LocalD } form 'dt-utils';
+  import { LocalDB } form 'dt-utils';
 ````
 功能
 
