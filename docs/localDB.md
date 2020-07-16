@@ -33,6 +33,16 @@ set (key: string|number, value: any) {
 key：获取数据的可以标识
 ### 返回值
 返回空，字符串或者对象
+## clear
+清空localStorage
+### 参数
+无
+### 返回值
+无
+````js
+  LocalDB.clear()
+````
+
 ## isJSONStr
 判断是否是JSON string
 

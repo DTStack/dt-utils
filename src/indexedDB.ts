@@ -128,7 +128,7 @@ class LocalIndexedDB {
     /**
      * Delete all data in store object
      */
-    public clearAll () {
+    public clear () {
         return this.wrapStoreOperationPromise(function (store: IDBObjectStore) {
             return store.clear();
         });

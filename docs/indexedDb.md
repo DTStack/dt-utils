@@ -8,6 +8,9 @@ IndexedDB是实现数据持久存储在用户浏览器中的方法。因为它�
 + 启动一个事务并请求执行一些数据库操作，例如添加或检索数据。
 + 通过侦听正确的DOM事件来等待操作完成。
 + 对结果做一些事情（可以在请求对象上找到）。
+````
+  import { LocalIndexedDB } from 'dt-utils'
+````
 
 ## open
 该方法实现打开一个数据库，返回一个promise对象
@@ -15,7 +18,7 @@ IndexedDB是实现数据持久存储在用户浏览器中的方法。因为它�
 我们开始整个过程是这样的：
 ### 打开数据库
 ```js
-const request = indexedDB.open(数据库名, 数据库版本);
+const request = LocalIndexedDB.open(数据库名, 数据库版本);
 ```
 该open()函数的调用将返回一个IDBOpenDBRequest对象，open函数的结果是一个实例 IDBDatabase
 ### 生成处理程序
@@ -34,16 +37,6 @@ request.onerror = function(event) {
   // Do something with request.errorCode!
 };
 ```
-## getObjectStore
-> 定义事务模式
-
-要读取现有对象存储的记录，事务可以处于readonly或readwrite模式。要更改现有的对象库，事务必须处于readwrite模式。您使用打开此类交易IDBDatabase.transaction。该方法接受两个参数：（storeNames范围，定义为要访问的对象存储的数组）和事务的mode（readonly或readwrite）。该方法返回一个包含该IDBIndex.objectStore方法的事务对象，可用于访问对象存储。默认情况下，如果未指定任何模式，则事务将以readonly模式打开。
-
-## add
-add方法添加数据库值的键
-```js
-add (value: any, key?: string)
-```
 ## set
 set通过键值添加数据内容
 ```js
@@ -54,13 +47,23 @@ get通过键值得到数据内容
 ```js
 get (key: string)
 ```
+## add
+add方法添加数据库值的键
+```js
+add (value: any, key?: string)
+```
 ## delete
 delete通过键值删除数据内容
 ```js
 delete (key: string)
 ```
-## clearAll
-clearAll清除所有内容
+## clear
+clear清除所有内容
 ```js
-clearAll ()
+clear()
 ```
+## getObjectStore
+> 定义事务模式
+
+要读取现有对象存储的记录，事务可以处于readonly或readwrite模式。要更改现有的对象库，事务必须处于readwrite模式。您使用打开此类交易IDBDatabase.transaction。该方法接受两个参数：（storeNames范围，定义为要访问的对象存储的数组）和事务的mode（readonly或readwrite）。该方法返回一个包含该IDBIndex.objectStore方法的事务对象，可用于访问对象存储。默认情况下，如果未指定任何模式，则事务将以readonly模式打开。
+

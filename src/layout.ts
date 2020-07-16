@@ -3,9 +3,12 @@
  */
 
 /**
- * 根据父节点，计算当前节点的坐标
+ *
+ *根据父节点，计算当前节点的坐标
+ * @export
  * @param {*} relativeNode
  * @param {*} node
+ * @returns
  */
 export function getGeoByRelativeNode (relativeNode: any, node: any) {
     const getX = function (currentNode: any) {
@@ -40,7 +43,14 @@ export function getGeoByRelativeNode (relativeNode: any, node: any) {
     node.y = getY(node);
     return node;
 }
-
+/**
+ *
+ *
+ * @export
+ * @param {*} origin
+ * @param {*} node
+ * @returns
+ */
 export function getGeoByStartPoint (origin: any, node: any) {
     const { x: startX, y: startY } = origin;
 
@@ -77,22 +87,42 @@ export function getGeoByStartPoint (origin: any, node: any) {
     }
     return node;
 }
-
+/**
+ *
+ *
+ * @param {*} node
+ * @returns
+ */
 export const getNodeHeight = (node: any) => {
     const l = Math.abs(node.level);
     const rowHeight = (l + 1) * node.height + l * node.margin;
     return rowHeight;
 };
-
+/**
+ *
+ *
+ * @param {*} node
+ * @returns
+ */
 export const getNodeWidth = (node: any) => {
     const rowWidth = node.count * node.width + (node.count - 1) * node.margin;
     return rowWidth;
 };
-
+/**
+ *
+ *
+ * @param {*} currentNode
+ * @returns
+ */
 export const getRowWidth = (currentNode: any) => {
     return currentNode.count * currentNode.width + (currentNode.count - 1) * currentNode.margin;
 };
-
+/**
+ *
+ *
+ * @param {*} node
+ * @returns
+ */
 export const getParentNodeRelativeGeoX = (node: any) => {
     let geoX = 10;
     if (node.index === 1 && node.count === 1) {
@@ -107,7 +137,13 @@ export const getParentNodeRelativeGeoX = (node: any) => {
 
 /**
  * 统计节点信息
- */
+ *//**
+  *
+  *
+  * @param {*} node
+  * @param {*} childrenField
+  * @returns
+  */
 export const getNodeLevelAndCount = (node: any, childrenField: any) => {
     let count = 1;
     let maxLevel = 1;
@@ -146,7 +182,13 @@ export const getNodeLevelAndCount = (node: any, childrenField: any) => {
 
 /**
  * 统计节点信息
- */
+ *//**
+  *
+  *
+  * @param {*} data
+  * @param {*} currentNode
+  * @returns
+  */
 export const getRowCountOfSameLevel = (data: any, currentNode: any) => {
     let count = 0;
     let index = 0;
@@ -175,7 +217,14 @@ export const getRowCountOfSameLevel = (data: any, currentNode: any) => {
 
     return getReturn();
 };
-
+/**
+ *
+ *
+ * @param {*} node
+ * @param {*} currentNode
+ * @param {*} childrenField
+ * @returns
+ */
 export const getNodeIndexAndCount = (node: any, currentNode: any, childrenField: any) => {
     let count = 0;
     const level = 0;
