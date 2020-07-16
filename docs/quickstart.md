@@ -8,7 +8,7 @@ yarn add dt-utils
 ## 使用
 
 ````js
-  import { Utils,Cookie,LocalIndexedDB,LocalD,CopyUtils } from 'dt-utils';
+  import { Utils,Cookie,Layout,CopyUtils,LocalIndexedDB,LocalDB } from 'dt-utils';
 ````
 
 ## Package Managers

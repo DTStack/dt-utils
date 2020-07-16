@@ -10,28 +10,6 @@ interface BrowserInter {
   opera?: string;
 }
 const utils = {
-    /**
-   * 获取页面宽度
-   * @return {[type]} [description]
-   */
-    pageWidth () {
-        return Math.max(
-            document.documentElement.clientWidth,
-            window.innerWidth || 0
-        );
-    },
-
-    /**
-   * 获取页面高度
-   * @return {[type]} [description]
-   */
-    pageHeight () {
-        return Math.max(
-            document.documentElement.clientHeight,
-            window.innerHeight || 0
-        );
-    },
-
     checkExist (prop: any) {
         return prop !== undefined && prop !== null && prop !== '';
     },
