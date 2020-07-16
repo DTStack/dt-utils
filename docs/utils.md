@@ -204,16 +204,33 @@ eg:
 ```
 
 ## trim
-去除空串
-
-## trimlr
-去除字符串两头空格
+去除头尾空格
+```js
+    /**
+    * @returns string
+    */
+    trimlr (str: string)
+```
+eg:
+```js
+trim(' 12 3 1    23  ') // "12 3 1    23"
+```
 
 ## removeAllSpaces
-去除全部空串
+去除字符串全部空串
+```js
+    /**
+    * @returns string
+    */
+    removeAllSpaces (str: string)
+```
+eg:
+```js
+removeAllSpaces(' aa bb ') // "aabb"
+```
 
 ## getCookie
-原生 JavaScript 获取 cookie 值
+原生 JavaScript 获取 cookie 值，根据传入参数制定
 ```js
 getCookie (name: string)
 ```
@@ -239,39 +256,66 @@ setCookie (name: string, value: string | number | object | boolean, days?: numbe
 ## convertBytes
 转换 Byte 转换为小于1024值最大单位
 ```js
-convertBytes (value: number)
+convertBytes (value: number): string
+```
+eg:
+```js
+convertBytes(102) // 102 B
+convertBytes(1024) // 1 KB
+convertBytes(1024*1024) // 1 MB
 ```
 
 ## formatTime
 时间转换 3661s--->1小时1分钟1秒
+```js
+formatTime (value: number): string
+```
+eg:
+```js
+formatTime(36) // 36s
+formatTime(360) // 6m
+formatTime(3600) // 1h
+```
 
 ## toQfw
 千位分割
+```js
+toQfw (str: string): string
+```
+eg:
+```js
+toQfw('123123') // "123,123"
+```
 
 ## textOverflowExchange
 文字溢出转换
 ```js
-textOverflowExchange (text: string, length: number)
+textOverflowExchange (str: string, num: number): string
+```
+eg:
+```js
+textOverflowExchange('my name is sichen', 10) // "my name is..."
 ```
 
 ## jsonFormat
 json格式化
 
-格式化内容: text
-
-格式化占位符: space
 ```js
+// 格式化内容: text
+// 格式化占位符: space
 jsonFormat (text: string, space?: number)
 ```
+
 ## sortByCompareFunctions
 多函数排序，匹配到0为止
 ```js
 sortByCompareFunctions (arr: any[], ...compareFunctions: any[])
 ```
+
 ## exchangeOrder
 转换排序字段
 ```js
-exchangeOrder (order: string) {
+exchangeOrder (order: string): string {
     switch (order) {
         case 'ascend':
             return 'asc';
@@ -282,21 +326,41 @@ exchangeOrder (order: string) {
     }
 }
 ```
+eg:
+```js
+exchangeOrder('ascend') // 'asc'
+exchangeOrder('descend') // 'desc'
+exchangeOrder('abc') // undefined
+```
+
+
 ## generateAKey
 生成一个随机key
+
+eg:
+```js
+generateAKey(): string // "1594806665598655835"
+```
 
 ## isJSONStr
 判断是否是JSON string
 ```js
-// str 所要验证的字符串
-isJSONStr (str: string)
-// return {Boolean} 是否是JSON字符串
+isJSONStr (str: string): boolean
 ```
+eg:
+```js
+isJSONStr('name') // false
+```
+
 
 ## getRandomStr
 随机生成一串len位同时包含数字、大小写字母的字符串
 ```js
-getRandomStr (len: number): string
+    getRandomStr (len: number): string
+```
+eg:
+```js
+getRandomStr(10) // "5vK6vT6sL8"
 ```
 
 ## isEqualArr
@@ -304,15 +368,32 @@ getRandomStr (len: number): string
 ```js
 isEqualArr (arr1: any[], arr2: any[]): boolean
 ```
+eg:
+```js
+isEqualArr([1,2,3], [1,2,3]) // true
+isEqualArr([1,2,3],[1,3,2]) // true
+```
 
 ## isEqual
 简单地判断对象是否相等
-
+```js
+isEqual (a: any, b: any): boolean
+```
+eg:
+```js
+isEqual({name:'sichen'},{name:'sichen'}) // true
+```
 
 ## shouldRender
+```js
+shouldRender (targetComponent: any):boolean
+```
 
 ## appInfo
 输出应用版本以及运维信息
+```js
+appInfo()
+```
 
 ## mock
 数据Mock

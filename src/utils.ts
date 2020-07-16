@@ -158,7 +158,9 @@ const utils = {
             ? str.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '')
             : str;
     },
-
+    /**
+     * 与上面方法重了
+     */
     trimlr (str: string) {
         const res = str.replace(/^\s*/, ''); // 去左边
         return res.replace(/\s*$/, ''); // 去右边
