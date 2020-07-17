@@ -5,6 +5,6 @@
 - [Cookie](cookie.md)
 - [Layout](layout.md)
 - [CopyUtils](copy.md)
-- [IndexedDB](indexeddb.md)
-- [LocalDB](localdb.md)
+- [IndexedDB](idb.md)
+- [LocalDB](ldb.md)
 - [更新日志](changelog.md)
