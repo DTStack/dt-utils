@@ -15,18 +15,19 @@
       alias: {
         '.*?/awesome': 'https://raw.githubusercontent.com/PKaPI/utils-cli/master/README.md',
         '.*?/changelog': 'https://raw.githubusercontent.com/PKaPI/utils-cli/master/CHANGELOG.md',
-        '/.*/_navbar.md': '/_navbar.md',
         '/zh-cn/(.*)': 'https://cdn.jsdelivr.net/gh/docsifyjs/docs-zh@master/$1',
       },
       name: 'dt-utils',
+      repo: 'https://github.com/PKaPI/utils-cli',
       auto2top: true,
-      executeScript: true,
+      // executeScript: true,
       loadSidebar: true,
       loadNavbar: true,
       mergeNavbar: true,
       maxLevel: 4,
       subMaxLevel: 2,
       ga: 'UA-106147152-1',
+      noEmoji: false,
       search: {
         noData: {
           '/de-de/': 'Keine Ergebnisse!',
@@ -41,9 +42,18 @@
         }
       },
       formatUpdated: '{MM}/{DD} {HH}:{mm}',
+      formatUpdated: function(time) {
+        return time;
+      },
+    }
+  </script>
+  <script>
+    if (typeof navigator.serviceWorker !== 'undefined') {
+      navigator.serviceWorker.register('sw.js')
     }
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/ga.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js" type="text/javascript">
 </script>

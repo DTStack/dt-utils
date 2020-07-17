@@ -15,7 +15,7 @@
 存贮数据的唯一标识，所要存贮的数据
 ### 返回值
 无
-### eg：
+### 例如：
 ```js
 set (key: string|number, value: any) {
     if (!value) delete window.localStorage[key]
@@ -50,7 +50,7 @@ key：获取数据的可以标识
 str：所要验证的字符串
 ### 返回值
 {Boolean}是否是JSON字符串
-### eg：
+### 例如：
 ```js
 isJSONStr (str: string) {
     return (
