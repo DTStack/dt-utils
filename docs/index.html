@@ -12,6 +12,12 @@
   <div id="app"></div>
   <script>
     window.$docsify = {
+      alias: {
+        '.*?/awesome': 'https://raw.githubusercontent.com/PKaPI/utils-cli/master/README.md',
+        '.*?/changelog': 'https://raw.githubusercontent.com/PKaPI/utils-cli/master/CHANGELOG.md',
+        '/.*/_navbar.md': '/_navbar.md',
+        '/zh-cn/(.*)': 'https://cdn.jsdelivr.net/gh/docsifyjs/docs-zh@master/$1',
+      },
       name: 'dt-utils',
       auto2top: true,
       executeScript: true,
