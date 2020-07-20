@@ -1,7 +1,7 @@
 {
   "name": "dt-utils",
   "version": "1.0.0",
-  "description": "工具库",
+  "description": "袋鼠云前端常用工具库",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
   "typings": "lib/index.d.js",
@@ -14,14 +14,17 @@
   "sideEffects": "false",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/DTStack/dt-utils"
   },
   "author": "linhe",
   "license": "MIT",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/DTStack/dt-utils/issues"
   },
-  "homepage": "",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@DTStack"
+  },
+  "homepage": "https://dtstack.github.io/dt-utils/",
   "scripts": {
     "build": "gulp build",
     "api": "api-extractor run",
