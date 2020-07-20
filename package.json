@@ -62,11 +62,11 @@
     "ts-jest": "^24.2.0",
     "ts-node": "^8.5.4",
     "typescript": "^3.7.4",
-    "vue-cli-plugin-commitlint": "^1.0.4"
+    "vue-cli-plugin-commitlint": "^1.0.4",
+    "@commitlint/config-conventional": "^9.1.1",
+    "docsify-cli": "^4.4.1"
   },
   "dependencies": {
-    "@commitlint/config-conventional": "^9.1.1",
-    "docsify-cli": "^4.4.1",
     "lodash": "^4.17.15",
     "moment": "^2.27.0"
   },
