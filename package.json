@@ -1,6 +1,6 @@
 {
   "name": "dt-utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "袋鼠云前端常用工具库",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
@@ -20,9 +20,6 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/DTStack/dt-utils/issues"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@DTStack"
   },
   "homepage": "https://dtstack.github.io/dt-utils/",
   "scripts": {
