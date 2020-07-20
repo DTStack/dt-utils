@@ -32,6 +32,7 @@
     "lint:fix": "eslint --fix --ext .js,.ts ./src",
     "changelog": "gulp changelog",
     "docs": "docsify serve docs",
+    "test": "jest --no-chche",
     "prepublishOnly": "yarn lint & yarn test & yarn changelog & yarn build"
   },
   "devDependencies": {

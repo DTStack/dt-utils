@@ -10,19 +10,12 @@ interface BrowserInter {
   opera?: string;
 }
 const utils = {
-    checkExist (prop: any) {
-        return prop !== undefined && prop !== null && prop !== '';
-    },
-
-    isMacOs () {
-        return navigator.userAgent.indexOf('Macintosh') > -1;
-    },
-
-    isWindows () {
-        return navigator.userAgent.indexOf('Windows') > -1;
-    },
-    isMobileDevice () {
-        return (typeof window.orientation !== 'undefined') || (navigator.userAgent.indexOf('IEMobile') !== -1);
+    /**
+     *
+     * 输出应用版本以及运维信息
+     */
+    appInfo () {
+        window.console.log(`%cApp current version: v${APP.VERSION}`, 'font-family: Cabin, Helvetica, Arial, sans-serif;text-align: left;font-size:32px;color:#B21212;');
     },
     /**
    * @description 浏览器类型和版本检测
@@ -43,10 +36,35 @@ const utils = {
                             // tslint:disable-next-line:no-unused-expression
                                 : (s = ua.match(/version\/([\d\.]+).*safari/)) ? Sys.safari = s[1] : 0;
         if (
-            (Sys.chrome && parseInt(Sys.chrome.split('.')[0], 10) >= 66) ||
-      Sys.firefox
+            (Sys.chrome && parseInt(Sys.chrome.split('.')[0], 10) >= 66) || Sys.firefox
         ) { return true; }
         return false;
+    },
+    checkExist (prop: any) {
+        return prop !== undefined && prop !== null && prop !== '';
+    },
+    /**
+   * 转换 Byte 转换为小于1024值最大单位
+   * @param value 'B' | 'KB' | 'MB' | 'GB' | 'TB' | 'PB' 转换原始值
+   */
+    convertBytes (value: number) {
+        const units = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+        let i = 0;
+        while (value >= 1024) {
+            value = Number((value / 1024).toFixed(2));
+            i++;
+        }
+        return `${value} ${units[i]}`;
+    },
+    isMacOs () {
+        return navigator.userAgent.indexOf('Macintosh') > -1;
+    },
+
+    isWindows () {
+        return navigator.userAgent.indexOf('Windows') > -1;
+    },
+    isMobileDevice () {
+        return (typeof window.orientation !== 'undefined') || (navigator.userAgent.indexOf('IEMobile') !== -1);
     },
     /**
    * 根据参数名获取URL数据
@@ -103,32 +121,6 @@ const utils = {
         return str;
     },
     /**
-   *
-   *
-   * @param {(string | number | Date)} timestap
-   * @returns
-   */
-    formatDateTime (timestap: string | number | Date) {
-        return moment(timestap).format('YYYY-MM-DD HH:mm:ss');
-    },
-
-    formatDate (timestap: string | number | Date) {
-        return moment(timestap).format('YYYY-MM-DD');
-    },
-    formatDateHours (timestap: string | number | Date) {
-        return moment(timestap).format('YYYY-MM-DD HH:mm');
-    },
-    formatDayHours (timestap: string | number | Date) {
-        return moment(timestap).format('MM-DD HH:mm');
-    },
-    formatHours (timestap: string | number | Date) {
-        return moment(timestap).format('HH:mm');
-    },
-    formatMinute (timestap: string | number | Date) {
-        return moment(timestap).format('HH:mm:ss');
-    },
-
-    /**
    * 去除空串
    */
     trim (str: string) {
@@ -149,85 +141,6 @@ const utils = {
             ? str.replace(/\s*/g, '') // 去除全部空串
             : str;
     },
-
-    /**
-   * 原生 JavaScript 获取 cookie 值
-   * @param name
-   */
-    getCookie (name: string) {
-        const arr = document.cookie.match(
-            new RegExp('(^| )' + name + '=([^;]*)(;|$)')
-        );
-        if (arr != null) { return unescape(decodeURI(arr[2])); }
-        return null;
-    },
-
-    deleteCookie (name: string, domain?: string, path?: string) {
-        const d = new Date(0);
-        domain = domain ? `; domain=${domain}` : '';
-        path = path || '/';
-        document.cookie =
-      name + '=; expires=' + d.toUTCString() + domain + '; path=' + path;
-    },
-
-    deleteAllCookies (domain: string, path: string) {
-        const cookies = document.cookie.split(';');
-        // eslint-disable-next-line @typescript-eslint/prefer-for-of
-        for (let i = 0; i < cookies.length; i++) {
-            if (cookies[i]) {
-                this.deleteCookie(cookies[i].split('=')[0], domain, path);
-            }
-        }
-    },
-
-    setCookie (name: string, value: string | number | object | boolean, days?: number) {
-        let expires = '';
-        if (days) {
-            const date = new Date();
-            date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-            expires = '; expires=' + date.toUTCString();
-        }
-        document.cookie = name + '=' + value + expires + '; path=/';
-    },
-
-    /**
-   * 转换 Byte 转换为小于1024值最大单位
-   * @param value 'B' | 'KB' | 'MB' | 'GB' | 'TB' | 'PB' 转换原始值
-   */
-    convertBytes (value: number) {
-        const units = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-        let i = 0;
-        while (value >= 1024) {
-            value = Number((value / 1024).toFixed(2));
-            i++;
-        }
-        return `${value} ${units[i]}`;
-    },
-
-    /**
-   * 时间转换 3661s--->1小时1分钟1秒
-   */
-    formatTime (time = 0) {
-        let second = 0;
-        let minute = 0;
-        let hour = 0;
-
-        function _formatHour (timestap: number) {
-            hour = Math.floor(timestap / 3600);
-            return timestap - hour * 3600;
-        }
-        function _formatMinute (timestap: number) {
-            minute = Math.floor(timestap / 60);
-            return timestap - minute * 60;
-        }
-        function _formatSecond (timestap: number) {
-            second = timestap;
-            return second;
-        }
-        _formatSecond(_formatMinute(_formatHour(time)));
-        return `${hour ? hour + 'h' : ''}${minute ? minute + 'm' : ''}${second ? second + 's' : ''}` || '0s';
-    },
-
     // 千位分割
     toQfw (str: string) {
         if (!str) {
@@ -379,13 +292,6 @@ const utils = {
         targetComponent.prototype.shouldComponentUpdate = function (props: any, state: any) {
             return !this.isEqual(this.state, state) || !this.isEqual(this.props, props);
         };
-    },
-    /**
-     *
-     * 输出应用版本以及运维信息
-     */
-    appInfo () {
-        window.console.log(`%cApp current version: v${APP.VERSION}`, 'font-family: Cabin, Helvetica, Arial, sans-serif;text-align: left;font-size:32px;color:#B21212;');
     },
     /**
      * 数据Mock
