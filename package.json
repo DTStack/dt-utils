@@ -1,5 +1,5 @@
 {
-  "name": "dt-utils",
+  "name": "@dtinsight/dt-utils",
   "version": "1.0.1",
   "description": "袋鼠云前端常用工具库",
   "main": "lib/index.js",
@@ -14,7 +14,7 @@
   "sideEffects": "false",
   "repository": {
     "type": "git",
-    "url": "https://github.com/DTStack/dt-utils"
+    "url": "git+https://github.com/DTStack/dt-utils.git"
   },
   "author": "linhe",
   "license": "MIT",
@@ -86,5 +86,13 @@
       "eslint",
       "git add"
     ]
-  }
+  },
+  "directories": {
+    "doc": "docs",
+    "lib": "lib",
+    "test": "test"
+  },
+  "keywords": [
+    "uitls"
+  ]
 }
