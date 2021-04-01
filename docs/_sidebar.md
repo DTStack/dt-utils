@@ -1,7 +1,6 @@
 <!-- docs/_sidebar.md -->
 - [快速开始](quickstart.md)
 - [Utils](utils.md)
-- [Date](date.md)
 - [Cookie](cookie.md)
 - [Layout](layout.md)
 - [CopyUtils](copy.md)

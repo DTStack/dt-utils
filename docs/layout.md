@@ -1,7 +1,7 @@
 # 布局相关
 导入
 ````js
-  import { Layout } form 'dt-utils';
+  import { Layout } from '@dtinsight/dt-utils';
 ````
 ## pageWidth
 获取页面宽度

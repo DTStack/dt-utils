@@ -1,4 +1,2 @@
-# dt-utils
+# @dtinsight/dt-utils
   袋鼠云实用工具库，日常开发场景中常用功能函数分装、存储相关功能函数分装，具有统一性、模块化等特点
-## 功能划分
- dt-utils、dt-store

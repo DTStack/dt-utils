@@ -1,6 +1,6 @@
 # 操作Cookie
-````
-  import { Cookie } from 'dt-utils'
+````js
+  import { Cookie } from '@dtinsight/dt-utils'
 ````
 ## getCookie
 原生 JavaScript 获取 cookie 值，根据传入参数制定

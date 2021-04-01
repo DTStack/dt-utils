@@ -1,6 +1,6 @@
 # Copy工具类
 ````js
- import { CopyUtils } from 'dt-utils';
+ import { CopyUtils } from '@dtinsight/dt-utils';
 
 ````
 ### 使用

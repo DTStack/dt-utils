@@ -1,5 +1,3 @@
-import moment from 'moment';
-moment.locale('zh-cn');
 declare let APP: any;
 interface BrowserInter {
   chrome?: string;
@@ -225,6 +223,32 @@ const utils = {
         );
     },
     /**
+     *
+     *  校验手机
+     * @param {*} tel
+     * @returns
+     */
+    isPhoneNumber (tel: string){
+        const reg = /^0?1[3|4|5|6|7|8][0-9]\d{8}$/;
+        return reg.test(tel);
+    },
+    /**
+      *  判断是否是函数
+      *
+      * @param {*} arg
+      * @returns
+      */
+    isFunction (arg: any) {
+        if (arg) {
+            if (typeof (/./) !== 'function') {
+                return typeof arg === 'function';
+            } else {
+                return Object.prototype.toString.call(arg) === '[object Function]';
+            }
+        }
+        return false;
+    },
+    /**
    * 随机生成一串6位同时包含数字、大小写字母的字符串
    * @param len number
    */
@@ -306,6 +330,26 @@ const utils = {
                 }
             }
         };
+    },
+    /**
+     *
+     * 计算字符串长度(英文占1个字符，中文汉字占2个字符)
+     * @param {*} str
+     * @returns number
+     */
+    getStrlen (str: string){    
+        let len = 0;  
+        for (let i = 0; i < str.length; i++) {   
+            const c = str.charCodeAt(i);   
+            //单字节加1   
+            if ((c >= 0x0001 && c <= 0x007e) || (0xff60 <= c && c <= 0xff9f)) {   
+                len++;   
+            }   
+            else {   
+                len += 2;   
+            }   
+        }   
+        return len;  
     },
 };
 

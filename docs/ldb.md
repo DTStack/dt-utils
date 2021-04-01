@@ -2,7 +2,7 @@
 
 导入
 ````js
-  import { LocalDB } form 'dt-utils';
+  import { LocalDB } from '@dtinsight/dt-utils';
 ````
 功能
 
