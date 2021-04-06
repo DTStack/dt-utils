@@ -1,13 +1,31 @@
 # 工具库更新日志
 
+<a name="1.0.3"></a>
+## [1.0.3](https://github.com/DTStack/dt-utils/compare/v1.0.2...v1.0.3) (2021-04-06)
+
+
+### Features
+
+* **utils:** add utils and modify docs ([7b951b2](https://github.com/DTStack/dt-utils/commit/7b951b2))
+* **utils:** modify the document directory ([494c2e8](https://github.com/DTStack/dt-utils/commit/494c2e8))
+
+
+
+<a name="1.0.2"></a>
+## [1.0.2](https://github.com/DTStack/dt-utils/compare/v1.0.1...v1.0.2) (2021-04-01)
+
+
+
 <a name="1.0.1"></a>
-## [1.0.1](https://github.com/DTStack/dt-utils/compare/v1.0.0...v1.0.1) (2020-07-20)
+## [1.0.1](https://github.com/DTStack/dt-utils/compare/v1.0.0...v1.0.1) (2021-01-20)
 
 
 ### Features
 
 * **docs:** 补充介绍文档 ([3b2ba81](https://github.com/DTStack/dt-utils/commit/3b2ba81))
 * **package:** update package dev dependencies ([3cf5655](https://github.com/DTStack/dt-utils/commit/3cf5655))
+* **publish:** update name ([a12a55e](https://github.com/DTStack/dt-utils/commit/a12a55e))
+* **test:** add test for utils ([931244c](https://github.com/DTStack/dt-utils/commit/931244c))
 
 
 
