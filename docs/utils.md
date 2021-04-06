@@ -288,10 +288,3 @@ Utils.exchangeOrder('abc') // undefined
 ```js
 Utils.shouldRender (targetComponent: any):boolean
 ```
-
-## mock
-数据Mock
-```js
-// param {Object} params
-Utils.mock (params: any)
-```

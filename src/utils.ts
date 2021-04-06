@@ -318,20 +318,6 @@ const utils = {
         };
     },
     /**
-     * 数据Mock
-     * @param {Object} params
-     */
-    mock (params: any) {
-        return function (target: any, name: any, descriptor: any) {
-            console.log('target:', target, name, descriptor);
-            for (const props in params) {
-                if (target[props]) {
-                    target[props] = params[props];
-                }
-            }
-        };
-    },
-    /**
      *
      * 计算字符串长度(英文占1个字符，中文汉字占2个字符)
      * @param {*} str

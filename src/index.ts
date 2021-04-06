@@ -5,5 +5,3 @@ export { default as LocalDB } from './localDB';
 export { default as LocalIndexedDB } from './indexedDB';
 
 
-
-

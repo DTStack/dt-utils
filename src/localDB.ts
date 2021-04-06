@@ -26,21 +26,14 @@ const localDb = {
      */
     get (key: string|number) {
         const str = window.localStorage[key] || '';
-        return this.isJSONStr(str) ? JSON.parse(str) : str;
+        function isJSONStr (str: string) {
+            return (
+                (str.charAt(0) === '{' && str.charAt(str.length - 1) === '}') ||
+                (str.charAt(0) === '[' && str.charAt(str.length - 1) === ']')
+            );
+        }
+        return isJSONStr(str) ? JSON.parse(str) : str;
     },
-
-    /**
-     * 判断是否是JSON string
-     * @param  {String}  str 所要验证的字符串
-     * @return {Boolean}   是否是JSON字符串
-     */
-    isJSONStr (str: string) {
-        return (
-            (str.charAt(0) === '{' && str.charAt(str.length - 1) === '}') ||
-            (str.charAt(0) === '[' && str.charAt(str.length - 1) === ']')
-        );
-    },
-
     /**
      * 清空localStorage
      * @return 无返回NULL

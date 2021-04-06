@@ -43,20 +43,3 @@ key：获取数据的可以标识
 ````js
   LocalDB.clear()
 ````
-
-## isJSONStr
-判断是否是JSON string
-
-### 参数
-str：所要验证的字符串
-### 返回值
-{Boolean}是否是JSON字符串
-### eg：
-```js
-isJSONStr (str: string) {
-    return (
-        (str.charAt(0) === '{' && str.charAt(str.length - 1) === '}') ||
-        (str.charAt(0) === '[' && str.charAt(str.length - 1) === ']')
-    )
-}
-```
