@@ -219,7 +219,7 @@ const utils = {
         str = this.trimlr(str);
         return (
             (str.charAt(0) === '{' && str.charAt(str.length - 1) === '}') ||
-      (str.charAt(0) === '[' && str.charAt(str.length - 1) === ']')
+            (str.charAt(0) === '[' && str.charAt(str.length - 1) === ']')
         );
     },
     /**
@@ -296,7 +296,7 @@ const utils = {
     isEqual (a: any, b: any): boolean {
         for (const key in a) {
             if ({}.hasOwnProperty.call(a, key) &&
-        (!{}.hasOwnProperty.call(b, key) || a[key] !== b[key])) {
+          (!{}.hasOwnProperty.call(b, key) || a[key] !== b[key])) {
                 return false;
             }
         }
