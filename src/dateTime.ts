@@ -57,6 +57,31 @@ const dateTime = {
     formatMinute (timeData: string | number | Date) {
         return dayjs(timeData).format('HH:mm:ss');
     },
+    /**
+   * 把秒转换成 HH[h]mm[m]ss[s] 的格式
+   * @param {number} secondTime 秒
+   * @return {string}
+   */
+    formatSecond (secondTime = 0) {
+        let second = 0;
+        let minute = 0;
+        let hour = 0;
+
+        function _formatHour (timestap: number) {
+            hour = Math.floor(timestap / 3600);
+            return timestap - hour * 3600;
+        }
+        function _formatMinute (timestap: number) {
+            minute = Math.floor(timestap / 60);
+            return timestap - minute * 60;
+        }
+        function _formatSecond (timestap: number) {
+            second = timestap;
+            return second;
+        }
+        _formatSecond(_formatMinute(_formatHour(secondTime)));
+        return `${hour ? hour + 'h' : ''}${minute ? minute + 'm' : ''}${second ? second + 's' : ''}` || '0s';
+    },
 };
 
 export default dateTime;

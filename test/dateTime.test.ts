@@ -6,6 +6,7 @@ const {
     formatDayHours,
     formatHours,
     formatMinute,
+    formatSecond,
 } = DateTime;
 
 describe('utils.dateTime', () => {
@@ -115,6 +116,24 @@ describe('utils.dateTime', () => {
         const dateTime = 11111111111;
         const expected = '22:25:11';
         const newVal = formatMinute(dateTime);
+        expect(newVal).toEqual(expected);
+    });
+    test('formatSecond number to HH[h]mm[m]ss[s]', () => {
+        const dateTime = 11111;
+        const expected = '3h5m11s';
+        const newVal = formatSecond(dateTime);
+        expect(newVal).toEqual(expected);
+    });
+    test('formatSecond number to mm[m]ss[s]', () => {
+        const dateTime = 111;
+        const expected = '1m51s';
+        const newVal = formatSecond(dateTime);
+        expect(newVal).toEqual(expected);
+    });
+    test('formatSecond number to ss[s]', () => {
+        const dateTime = 11;
+        const expected = '11s';
+        const newVal = formatSecond(dateTime);
         expect(newVal).toEqual(expected);
     });
 });
