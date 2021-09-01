@@ -27,7 +27,7 @@ const localDb = {
      */
     get (key: string|number) {
         const str = window.localStorage[key] || '';
-        return Utils.isJSONStr(str) ? JSON?.parse(str) : str;
+        return Utils.isJSONStr(str) ? JSON.parse(str) : str;
     },
     /**
      * 清空localStorage
