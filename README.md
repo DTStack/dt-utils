@@ -1,6 +1,6 @@
 # dt-utils
 工具库
-## 安装包
+## 安装依赖
 ```bash
 npm install @dtinsight/dt-utils
 yarn add @dtinsight/dt-utils
@@ -12,6 +12,6 @@ pnpm install @dtinsight/dt-utils
 ## 使用
 
 ````js
-  import { Utils,Cookie,Layout,CopyUtils,LocalIndexedDB,LocalDB } from '@dtinsight/dt-utils';
+  import { Utils, Cookie, DateTime, Layout, CopyUtils, LocalIndexedDB, LocalDB } from '@dtinsight/dt-utils';
 ````
 

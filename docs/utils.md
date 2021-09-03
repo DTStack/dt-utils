@@ -7,8 +7,8 @@
 ## appInfo
 输出应用版本以及运维信息
 ```js
-//需声明APP.VERSION
-appInfo()
+  // 需声明APP.VERSION
+  Utils.appInfo()
 ```
 
 
@@ -18,7 +18,7 @@ appInfo()
 `true`表示通过兼容性检测,`false`表示不通过兼容性检测
 
 ```js
-  Utils.browserCheck(); //boolean 
+  Utils.browserCheck(); // boolean 
 ```
 ## checkExist
 检查属性是否存在
@@ -170,6 +170,18 @@ Utils.getRandomStr(10) // "5vK6vT6sL8"
 
 ````
 ## trim
+去除空格
+```js
+    /**
+    * @returns string
+    */
+    Utils.trim (str: string)
+```
+例如:
+```js
+Utils.trim(' 12 3 1    23  ') // "123123"
+```
+## trimlr
 去除头尾空格
 ```js
     /**
