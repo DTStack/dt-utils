@@ -1,3 +1,4 @@
+import Utils from './utils';
 /**
  * 封装localStorage
  * 增加对JSON对象的转换
@@ -26,13 +27,7 @@ const localDb = {
      */
     get (key: string|number) {
         const str = window.localStorage[key] || '';
-        function isJSONStr (str: string) {
-            return (
-                (str.charAt(0) === '{' && str.charAt(str.length - 1) === '}') ||
-                (str.charAt(0) === '[' && str.charAt(str.length - 1) === ']')
-            );
-        }
-        return isJSONStr(str) ? JSON.parse(str) : str;
+        return Utils.isJSONStr(str) ? JSON.parse(str) : str;
     },
     /**
      * 清空localStorage

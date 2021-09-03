@@ -7,7 +7,13 @@ const cookie = {
         const arr = document.cookie.match(
             new RegExp('(^| )' + name + '=([^;]*)(;|$)')
         );
-        if (arr != null) { return unescape(decodeURI(arr[2])); }
+        if (arr != null) {
+            try {
+                return unescape(decodeURI(arr[2]));
+            } catch (error) {
+                return arr[2];
+            }
+        }
         return null;
     },
 
@@ -16,7 +22,7 @@ const cookie = {
         domain = domain ? `; domain=${domain}` : '';
         path = path || '/';
         document.cookie =
-      name + '=; expires=' + d.toUTCString() + domain + '; path=' + path;
+            name + '=; expires=' + d.toUTCString() + domain + '; path=' + path;
     },
 
     deleteAllCookies (domain: string, path: string) {
@@ -29,14 +35,18 @@ const cookie = {
         }
     },
 
-    setCookie (name: string, value: string | number | object | boolean, days?: number) {
+    setCookie (name: string, value: string | number | object | boolean, days?: number, domainStr?: string) {
         let expires = '';
         if (days) {
             const date = new Date();
             date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
             expires = '; expires=' + date.toUTCString();
         }
-        document.cookie = name + '=' + value + expires + '; path=/';
+        let domain = '';
+        if (domainStr) {
+            domain = '; domain=' + domainStr;
+        }
+        document.cookie = name + '=' + value + expires + domain + '; path=/';
     },
 };
 
