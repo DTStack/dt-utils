@@ -288,3 +288,13 @@ Utils.exchangeOrder('abc') // undefined
 ```js
 Utils.shouldRender (targetComponent: any):boolean
 ```
+## isObj
+判断是否为对象
+```js
+Utils.isObj (obj?: any): boolean
+```
+例如:
+```js
+Utils.isObj({}) // true
+Utils.isObj('123') // false
+```
