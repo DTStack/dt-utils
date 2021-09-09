@@ -1,6 +1,6 @@
 import assert from 'assert';
 import Utils from '../src/utils';
-const { convertBytes, checkExist, getCssText, trim, trimlr, isMacOs, isWindows, isMobileDevice, getParameterByName, percent, removeAllSpaces, toQfw, textOverflowExchange, exchangeOrder, isEqualArr } = Utils;
+const { convertBytes, checkExist, getCssText, trim, trimlr, isMacOs, isWindows, isMobileDevice, getParameterByName, percent, removeAllSpaces, toQfw, textOverflowExchange, exchangeOrder, isEqualArr, isObj } = Utils;
 describe('utils.convertBytes', () => {
     test('convert byte to unit B', () => {
         const byte = 10.24;
@@ -122,6 +122,15 @@ describe('utils:', () => {
         });
         test('\'张 三\'=> 张 三', () => {
             assert.strictEqual(trimlr('张 三'), '张 三');
+        });
+    });
+
+    describe('isObj Test', () => {
+        test('return true if value is object', () => {
+            expect(isObj({})).toBeTruthy();
+        });
+        test('return false if value is not object', () => {
+            expect(isObj('123')).toBeFalsy();
         });
     });
 });
