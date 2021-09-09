@@ -337,6 +337,16 @@ const utils = {
         }   
         return len;  
     },
+    transformArray (arr: any[], num: number) {
+        const length = arr.length;
+        const res: any[] = [];
+        let i = 0;
+        while (i * num < length) {
+            res.push(arr.slice(i * num, (i + 1) * num));
+            i++;
+        }
+        return res;
+    },
 };
 
 export default utils;
