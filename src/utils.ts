@@ -337,6 +337,14 @@ const utils = {
         }   
         return len;  
     },
+    isEmpty (data?: any) {
+        if (data === '') return true;
+        if (data === null) return true;
+        if (data === undefined) return true;
+        if (Array.prototype.isPrototypeOf(data) && data.length === 0) return true;
+        if (Object.prototype.isPrototypeOf(data) && Object.keys(data).length === 0) return true;
+        return false;
+    },
 };
 
 export default utils;
