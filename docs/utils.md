@@ -288,3 +288,12 @@ Utils.exchangeOrder('abc') // undefined
 ```js
 Utils.shouldRender (targetComponent: any):boolean
 ```
+## transformArray
+一维数组根据指定位数转换成二维数组
+```js
+Utils.transformArray (arr: any[], num: number): any[]
+```
+例如:
+```js
+Utils.transformArray(['1', '2', '3', '4'], 2) // [['1', '2'], ['3', '4']]
+```
