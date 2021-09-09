@@ -288,3 +288,17 @@ Utils.exchangeOrder('abc') // undefined
 ```js
 Utils.shouldRender (targetComponent: any):boolean
 ```
+## isEmpty
+判空
+```js
+Utils.isEmpty (data?: any): boolean
+```
+例如:
+```js
+Utils.isEmpty('') // true
+Utils.isEmpty(null) // true
+Utils.isEmpty(undefined) // true
+Utils.isEmpty([]) // true
+Utils.isEmpty({}) // true
+Utils.isEmpty('123') // false
+```
