@@ -337,6 +337,9 @@ const utils = {
         }   
         return len;  
     },
+    isObj (obj?: any) {
+        return Object.prototype.toString.call(obj) === '[object Object]';
+    },
 };
 
 export default utils;
