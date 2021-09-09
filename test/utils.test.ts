@@ -1,6 +1,6 @@
 import assert from 'assert';
 import Utils from '../src/utils';
-const { convertBytes, checkExist, getCssText, trim, trimlr, isMacOs, isWindows, isMobileDevice, getParameterByName, percent, removeAllSpaces, toQfw, textOverflowExchange, exchangeOrder, isEqualArr } = Utils;
+const { convertBytes, checkExist, getCssText, trim, trimlr, isMacOs, isWindows, isMobileDevice, getParameterByName, percent, removeAllSpaces, toQfw, textOverflowExchange, exchangeOrder, isEqualArr, transformArray } = Utils;
 describe('utils.convertBytes', () => {
     test('convert byte to unit B', () => {
         const byte = 10.24;
@@ -122,6 +122,13 @@ describe('utils:', () => {
         });
         test('\'张 三\'=> 张 三', () => {
             assert.strictEqual(trimlr('张 三'), '张 三');
+        });
+    });
+
+    describe('transformArray Test', () => {
+        test('return the two-dimensional array', () => {
+            const arr = ['1', '2', '3', '4', '5', '6']
+            expect(transformArray(arr, 2)).toEqual([['1', '2'], ['3', '4'], ['5', '6']])
         });
     });
 });
