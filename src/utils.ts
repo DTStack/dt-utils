@@ -337,6 +337,16 @@ const utils = {
         }   
         return len;  
     },
+    transformArray<T> (arr: T[], num: number): T[] {
+        const length = arr.length;
+        const res: any[] = [];
+        let i = 0;
+        while (i * num < length) {
+            res.push(arr.slice(i * num, (i + 1) * num));
+            i++;
+        }
+        return res;
+    },
     isEmpty (data?: any) {
         if (data === '') return true;
         if (data === null) return true;
