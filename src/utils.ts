@@ -358,6 +358,14 @@ const utils = {
     isObj (obj?: any) {
         return Object.prototype.toString.call(obj) === '[object Object]';
     },
+    removeEmpty (obj?: any) {
+        if (!obj || !utils.isObj(obj)) return;
+        Object.entries(obj).forEach(([key, val]) => {
+            if (val && utils.isObj(val)) utils.removeEmpty(val);
+            else if (utils.isEmpty(val)) delete obj[key];
+        });
+        return obj;
+    },
 };
 
 export default utils;
