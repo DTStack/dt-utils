@@ -337,6 +337,35 @@ const utils = {
         }   
         return len;  
     },
+    transformArray<T> (arr: T[], num: number): T[] {
+        const length = arr.length;
+        const res: any[] = [];
+        let i = 0;
+        while (i * num < length) {
+            res.push(arr.slice(i * num, (i + 1) * num));
+            i++;
+        }
+        return res;
+    },
+    isEmpty (data?: any) {
+        if (data === '') return true;
+        if (data === null) return true;
+        if (data === undefined) return true;
+        if (Array.prototype.isPrototypeOf(data) && data.length === 0) return true;
+        if (Object.prototype.isPrototypeOf(data) && Object.keys(data).length === 0) return true;
+        return false;
+    },
+    isObj (obj?: any) {
+        return Object.prototype.toString.call(obj) === '[object Object]';
+    },
+    removeEmpty (obj?: any) {
+        if (!obj || !utils.isObj(obj)) return;
+        Object.entries(obj).forEach(([key, val]) => {
+            if (val && utils.isObj(val)) utils.removeEmpty(val);
+            else if (utils.isEmpty(val)) delete obj[key];
+        });
+        return obj;
+    },
 };
 
 export default utils;
