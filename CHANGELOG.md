@@ -1,4 +1,27 @@
-# 工具库更新日志
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [1.0.4](https://github.com/DTStack/dt-utils/compare/v1.0.3...v1.0.4) (2021-09-10)
+
+
+### Features
+
+* add a time formatting method file ([65c2356](https://github.com/DTStack/dt-utils/commit/65c2356789ed70991d2c295b685c2967f59752e1))
+* add formatSecond method ([eab731c](https://github.com/DTStack/dt-utils/commit/eab731c6a499c1ad54b2e75d99fc7b4a17129a0e))
+* add isEmpty methods ([2baed54](https://github.com/DTStack/dt-utils/commit/2baed54ddf5e992e183f6bf828e7e389b9cebb19))
+* add isObj methods ([02dc937](https://github.com/DTStack/dt-utils/commit/02dc9379e7437418f18a41637c6798ce067163d8))
+* add removeEmpty doc ([7bcf98f](https://github.com/DTStack/dt-utils/commit/7bcf98f53f181b7f3a1d03b92b519650a4750cdf))
+* add removeEmpty methods ([8c0c56f](https://github.com/DTStack/dt-utils/commit/8c0c56f9ab4a4924a287fc947f871197c4c8a604))
+* add removeEmpty unit test ([1b8f1cc](https://github.com/DTStack/dt-utils/commit/1b8f1ccb0b7f0d01042af3d8a5ca01e9380aa498))
+* add transformArray methods ([25d616b](https://github.com/DTStack/dt-utils/commit/25d616b96e4e77b6f03f3ba8467e6b761c585a4f))
+* transformArray define generic parameters ([3a8641c](https://github.com/DTStack/dt-utils/commit/3a8641c8647d8bcdf6f69834b73f513b98ce5723))
+* update cookie methods ([062d17c](https://github.com/DTStack/dt-utils/commit/062d17c2d14d77e8af38067c7d7c34a372960310))
+
+
+### Bug Fixes
+
+* export CopyUtils and sort export by document ([95f684b](https://github.com/DTStack/dt-utils/commit/95f684b9ee07597d56eafc11a157ff353461c9b9))
 
 <a name="1.0.3"></a>
 ## [1.0.3](https://github.com/DTStack/dt-utils/compare/v1.0.2...v1.0.3) (2021-04-06)
@@ -51,6 +74,3 @@
 * add to complete ([1b438f8](https://github.com/DTStack/dt-utils/commit/1b438f8))
 * modify the document ([1118f2e](https://github.com/DTStack/dt-utils/commit/1118f2e))
 * **补充文档:** 添加工具函数文档说明 ([10c95ef](https://github.com/DTStack/dt-utils/commit/10c95ef))
-
-
-

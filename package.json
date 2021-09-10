@@ -1,6 +1,6 @@
 {
   "name": "@dtinsight/dt-utils",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "袋鼠云前端常用工具库",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
@@ -30,7 +30,8 @@
     "changelog": "gulp changelog",
     "docs": "docsify serve docs",
     "test": "jest --no-chche",
-    "prepublishOnly": "yarn lint & yarn test & yarn changelog & yarn build"
+    "prepublishOnly": "yarn lint & yarn test & yarn changelog & yarn build",
+    "release": "./scripts/release.sh"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.7.7",
@@ -68,7 +69,8 @@
   },
   "dependencies": {
     "dayjs": "^1.10.6",
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.15",
+    "standard-version": "^9.3.1"
   },
   "config": {
     "commitizen": {
