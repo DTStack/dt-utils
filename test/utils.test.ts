@@ -1,6 +1,6 @@
 import assert from 'assert';
 import Utils from '../src/utils';
-const { convertBytes, checkExist, getCssText, trim, trimlr, isMacOs, isWindows, isMobileDevice, getParameterByName, percent, removeAllSpaces, toQfw, textOverflowExchange, exchangeOrder, isEqualArr, isObj } = Utils;
+const { convertBytes, checkExist, getCssText, trim, trimlr, isMacOs, isWindows, isMobileDevice, getParameterByName, percent, removeAllSpaces, toQfw, textOverflowExchange, exchangeOrder, isEqualArr, isEmpty, isObj } = Utils;
 describe('utils.convertBytes', () => {
     test('convert byte to unit B', () => {
         const byte = 10.24;
@@ -122,6 +122,34 @@ describe('utils:', () => {
         });
         test('\'张 三\'=> 张 三', () => {
             assert.strictEqual(trimlr('张 三'), '张 三');
+        });
+    });
+
+    describe('IsEmpty Test', () => {
+        test('return true if value is empty string', () => {
+            expect(isEmpty('')).toBeTruthy()
+        });
+
+        test('return true if value is null', () => {
+            expect(isEmpty(null)).toBeTruthy()
+        });
+
+        test('return true if value is undefined', () => {
+            expect(isEmpty(undefined)).toBeTruthy()
+        });
+
+        test('return true if value is empty array', () => {
+            expect(isEmpty([])).toBeTruthy()
+        });
+
+        test('return true if value is empty object', () => {
+            expect(isEmpty({})).toBeTruthy()
+        });
+
+        test('return false if value is other conditions', () => {
+            expect(isEmpty('123')).toBeFalsy()
+            expect(isEmpty([1])).toBeFalsy()
+            expect(isEmpty({ id:1 })).toBeFalsy()
         });
     });
 
