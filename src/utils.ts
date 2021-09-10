@@ -347,6 +347,17 @@ const utils = {
         }
         return res;
     },
+    isEmpty (data?: any) {
+        if (data === '') return true;
+        if (data === null) return true;
+        if (data === undefined) return true;
+        if (Array.prototype.isPrototypeOf(data) && data.length === 0) return true;
+        if (Object.prototype.isPrototypeOf(data) && Object.keys(data).length === 0) return true;
+        return false;
+    },
+    isObj (obj?: any) {
+        return Object.prototype.toString.call(obj) === '[object Object]';
+    },
 };
 
 export default utils;

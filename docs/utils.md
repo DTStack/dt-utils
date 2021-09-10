@@ -297,3 +297,27 @@ Utils.transformArray<T> (arr: T[], num: number): T[]
 ```js
 Utils.transformArray(['1', '2', '3', '4'], 2) // [['1', '2'], ['3', '4']]
 ```
+## isEmpty
+判空
+```js
+Utils.isEmpty (data?: any): boolean
+```
+例如:
+```js
+Utils.isEmpty('') // true
+Utils.isEmpty(null) // true
+Utils.isEmpty(undefined) // true
+Utils.isEmpty([]) // true
+Utils.isEmpty({}) // true
+Utils.isEmpty('123') // false
+```
+## isObj
+判断是否为对象
+```js
+Utils.isObj (obj?: any): boolean
+```
+例如:
+```js
+Utils.isObj({}) // true
+Utils.isObj('123') // false
+```
