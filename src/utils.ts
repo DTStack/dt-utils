@@ -345,6 +345,9 @@ const utils = {
         if (Object.prototype.isPrototypeOf(data) && Object.keys(data).length === 0) return true;
         return false;
     },
+    isObj (obj?: any) {
+        return Object.prototype.toString.call(obj) === '[object Object]';
+    },
 };
 
 export default utils;

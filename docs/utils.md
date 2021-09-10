@@ -302,3 +302,13 @@ Utils.isEmpty([]) // true
 Utils.isEmpty({}) // true
 Utils.isEmpty('123') // false
 ```
+## isObj
+判断是否为对象
+```js
+Utils.isObj (obj?: any): boolean
+```
+例如:
+```js
+Utils.isObj({}) // true
+Utils.isObj('123') // false
+```
