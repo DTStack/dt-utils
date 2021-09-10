@@ -337,7 +337,7 @@ const utils = {
         }   
         return len;  
     },
-    transformArray (arr: any[], num: number) {
+    transformArray<T> (arr: T[], num: number): T[] {
         const length = arr.length;
         const res: any[] = [];
         let i = 0;

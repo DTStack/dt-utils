@@ -291,7 +291,7 @@ Utils.shouldRender (targetComponent: any):boolean
 ## transformArray
 一维数组根据指定位数转换成二维数组
 ```js
-Utils.transformArray (arr: any[], num: number): any[]
+Utils.transformArray<T> (arr: T[], num: number): T[]
 ```
 例如:
 ```js
