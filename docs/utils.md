@@ -321,3 +321,12 @@ Utils.isObj (obj?: any): boolean
 Utils.isObj({}) // true
 Utils.isObj('123') // false
 ```
+## removeEmpty
+剔除对象中value为'',null,undefined,[]的元素
+```js
+Utils.removeEmpty (obj?: any): any
+```
+例如:
+```js
+Utils.removeEmpty({ a: 'test', b: undefined, c: { d: undefined } }) // { a: 'test', c: {} }
+```
