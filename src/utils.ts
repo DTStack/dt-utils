@@ -1,11 +1,13 @@
+import _ from 'lodash';
+
 declare let APP: any;
 interface BrowserInter {
-  chrome?: string;
-  ie?: string;
-  edge?: string;
-  firefox?: string;
-  safari?: string;
-  opera?: string;
+    chrome?: string;
+    ie?: string;
+    edge?: string;
+    firefox?: string;
+    safari?: string;
+    opera?: string;
 }
 const utils = {
     /**
@@ -31,7 +33,7 @@ const utils = {
                     : (s = ua.match(/firefox\/([\d\.]+)/)) ? Sys.firefox = s[1]
                         : (s = ua.match(/(?:opera|opr).([\d\.]+)/)) ? Sys.opera = s[1]
                             : (s = ua.match(/chrome\/([\d\.]+)/)) ? Sys.chrome = s[1]
-                            // tslint:disable-next-line:no-unused-expression
+                                // tslint:disable-next-line:no-unused-expression
                                 : (s = ua.match(/version\/([\d\.]+).*safari/)) ? Sys.safari = s[1] : 0;
         if (
             (Sys.chrome && parseInt(Sys.chrome.split('.')[0], 10) >= 66) || Sys.firefox
@@ -206,7 +208,7 @@ const utils = {
    * 生成一个key
    */
     generateAKey () {
-    // tslint:disable-next-line:no-bitwise
+        // tslint:disable-next-line:no-bitwise
         return '' + new Date().getTime() + ~~(Math.random() * 1000000);
     },
 
@@ -228,7 +230,7 @@ const utils = {
      * @param {*} tel
      * @returns
      */
-    isPhoneNumber (tel: string){
+    isPhoneNumber (tel: string) {
         const reg = /^0?1[3|4|5|6|7|8][0-9]\d{8}$/;
         return reg.test(tel);
     },
@@ -296,7 +298,7 @@ const utils = {
     isEqual (a: any, b: any): boolean {
         for (const key in a) {
             if ({}.hasOwnProperty.call(a, key) &&
-          (!{}.hasOwnProperty.call(b, key) || a[key] !== b[key])) {
+                (!{}.hasOwnProperty.call(b, key) || a[key] !== b[key])) {
                 return false;
             }
         }
@@ -323,19 +325,19 @@ const utils = {
      * @param {*} str
      * @returns number
      */
-    getStrlen (str: string){    
-        let len = 0;  
-        for (let i = 0; i < str.length; i++) {   
-            const c = str.charCodeAt(i);   
+    getStrlen (str: string) {
+        let len = 0;
+        for (let i = 0; i < str.length; i++) {
+            const c = str.charCodeAt(i);
             //单字节加1   
-            if ((c >= 0x0001 && c <= 0x007e) || (0xff60 <= c && c <= 0xff9f)) {   
-                len++;   
-            }   
-            else {   
-                len += 2;   
-            }   
-        }   
-        return len;  
+            if ((c >= 0x0001 && c <= 0x007e) || (0xff60 <= c && c <= 0xff9f)) {
+                len++;
+            }
+            else {
+                len += 2;
+            }
+        }
+        return len;
     },
     transformArray<T> (arr: T[], num: number): T[][] {
         const length = arr.length;
@@ -365,6 +367,36 @@ const utils = {
             else if (utils.isEmpty(val)) delete obj[key];
         });
         return obj;
+    },
+    mergeDeep (object1: any, object2: any) {
+        if (object1 == null || object2 == null) {
+            return object2;
+        } else if (!_.isPlainObject(object1) || !_.isPlainObject(object2)) {
+            return object2;
+        } else if (object1 === object2) {
+            return object2;
+        } else {
+            if ('_isMergeAtom' in object2) {
+                const isMergeAtom = object2._isMergeAtom;
+                delete object2._isMergeAtom;
+
+                if (isMergeAtom) {
+                    return object2;
+                }
+            }
+            const obj = {
+                ...object1,
+            };
+            _.forEach(object2, (value, key) => {
+                if (key in object1) {
+                    obj[key] = utils.mergeDeep(object1[key], value);
+                } else {
+                    obj[key] = value;
+                }
+            });
+
+            return obj;
+        }
     },
 };
 
