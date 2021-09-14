@@ -10,20 +10,23 @@ class LocalIndexedDB {
     private _version!: number;
     private _database!: string;
     private _storeName!: string;
+    private _openLog!: boolean
 
     /**
      * Constructor a new indexedDB object
      * @param database database name
      * @param version database version
      * @param storeName store object name
+     * @param openLog - 是否打印 indexedDB 变化
      */
-    constructor (database: string, version: number, storeName: string) {
+    constructor (database: string, version: number, storeName: string, openLog = false) {
         if (!('indexedDB' in window)) {
             console.log('This browser doesn\'t support IndexedDB');
         } else {
             this._storeName = storeName;
             this._version = version;
             this._database = database;
+            this._openLog = openLog
         }
     }
 
@@ -34,7 +37,6 @@ class LocalIndexedDB {
     public open () {
         return new Promise<IDBDatabase>((resolve, reject) => {
             try {
-                // eslint-disable-next-line @typescript-eslint/no-this-alias
                 const self = this;
                 if (self._db) {
                     return resolve(self._db);
@@ -98,7 +100,7 @@ class LocalIndexedDB {
      * @param value the value of store object
      */
     public set (key: string, value: any) {
-        console.log('IndexedDB set', key, value);
+        this.log('IndexedDB set', key, value);
         return this.wrapStoreOperationPromise(function (store: IDBObjectStore) {
             return store.put(value, key);
         });
@@ -109,7 +111,7 @@ class LocalIndexedDB {
      * @param key the key of store object
      */
     public get (key: string) {
-        console.log('IndexedDB get', key);
+        this.log('IndexedDB get', key);
         return this.wrapStoreOperationPromise(function (store: IDBObjectStore) {
             return store.get(key);
         });
@@ -162,7 +164,9 @@ class LocalIndexedDB {
     }
 
     private log (...args: any) {
-        console.log('indexDB log:', args);
+        if (this._openLog) {
+            console.log(...args)
+        }
     }
 }
 
