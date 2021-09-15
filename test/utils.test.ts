@@ -127,36 +127,36 @@ describe('utils:', () => {
 
     describe('transformArray Test', () => {
         test('return the two-dimensional array', () => {
-            const arr = ['1', '2', '3', '4', '5', '6']
-            expect(transformArray(arr, 2)).toEqual([['1', '2'], ['3', '4'], ['5', '6']])
-        })
+            const arr = ['1', '2', '3', '4', '5', '6'];
+            expect(transformArray(arr, 2)).toEqual([['1', '2'], ['3', '4'], ['5', '6']]);
+        });
     });
     
     describe('IsEmpty Test', () => {
         test('return true if value is empty string', () => {
-            expect(isEmpty('')).toBeTruthy()
+            expect(isEmpty('')).toBeTruthy();
         });
 
         test('return true if value is null', () => {
-            expect(isEmpty(null)).toBeTruthy()
+            expect(isEmpty(null)).toBeTruthy();
         });
 
         test('return true if value is undefined', () => {
-            expect(isEmpty(undefined)).toBeTruthy()
+            expect(isEmpty(undefined)).toBeTruthy();
         });
 
         test('return true if value is empty array', () => {
-            expect(isEmpty([])).toBeTruthy()
+            expect(isEmpty([])).toBeTruthy();
         });
 
         test('return true if value is empty object', () => {
-            expect(isEmpty({})).toBeTruthy()
+            expect(isEmpty({})).toBeTruthy();
         });
 
         test('return false if value is other conditions', () => {
-            expect(isEmpty('123')).toBeFalsy()
-            expect(isEmpty([1])).toBeFalsy()
-            expect(isEmpty({ id:1 })).toBeFalsy()
+            expect(isEmpty('123')).toBeFalsy();
+            expect(isEmpty([1])).toBeFalsy();
+            expect(isEmpty({ id:1 })).toBeFalsy();
         });
     });
 
