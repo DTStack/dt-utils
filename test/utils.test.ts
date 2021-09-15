@@ -1,6 +1,6 @@
 import assert from 'assert';
 import Utils from '../src/utils';
-const { convertBytes, checkExist, getCssText, trim, trimAll, isMacOs, isWindows, isMobileDevice, getParameterByName, percent, removeAllSpaces, toQfw, textOverflowExchange, exchangeOrder, isEqualArr, isEmpty, isObj, transformArray, removeEmpty } = Utils;
+const { convertBytes, checkExist, getCssText, trim, trimAll, isMacOs, isWindows, isMobileDevice, getParameterByName, percent, toQfw, textOverflowExchange, exchangeOrder, isEqualArr, isEmpty, isObj, transformArray, removeEmpty } = Utils;
 describe('utils.convertBytes', () => {
     test('convert byte to unit B', () => {
         const byte = 10.24;
@@ -60,9 +60,6 @@ describe('utils:', () => {
     });
     test('percent(0.54321,1)=>50%', () => {
         assert.strictEqual(percent(0.54321, 1), '54.3%');
-    });
-    test('removeAllSpaces(\' aa bb \')=>aabb', () => {
-        assert.strictEqual(removeAllSpaces(' aa bb '), 'aabb');
     });
     test('toQfw(\'123123\')=>123,123', () => {
         assert.strictEqual(toQfw('123123'), '123,123');

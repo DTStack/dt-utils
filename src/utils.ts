@@ -139,11 +139,6 @@ const utils = {
         return str.replace(/\s/g, '');
     },
 
-    removeAllSpaces (str: string) {
-        return typeof str === 'string'
-            ? str.replace(/\s*/g, '') // 去除全部空串
-            : str;
-    },
     // 千位分割
     toQfw (str: string) {
         if (!str) {

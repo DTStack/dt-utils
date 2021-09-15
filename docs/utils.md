@@ -213,19 +213,6 @@ Utils.textOverflowExchange (str: string, num: number): string
 Utils.textOverflowExchange('my name is sichen', 10) // "my name is..."
 ```
 
-
-## removeAllSpaces
-去除字符串全部空串
-```js
-    /**
-    * @returns string
-    */
-    Utils.removeAllSpaces (str: string)
-```
-例如:
-```js
-Utils.removeAllSpaces(' aa bb ') // "aabb"
-```
 ## percent
 百分比转换
 
