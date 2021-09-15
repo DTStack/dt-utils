@@ -59,7 +59,14 @@ const eslintrc = {
     "indent": [2, 4, { "SwitchCase": 1 }],// 缩进2
     'quotes': ['error', 'single'], // 单引号
     'no-param-reassign': 0, // 传入参数可修改
-    'no-restricted-globals': ['error', 'event'] // 部分全局变量禁止直接使用
+    'no-restricted-globals': ['error', 'event'], // 部分全局变量禁止直接使用
+    '@typescript-eslint/no-this-alias': [
+      'error',
+      {
+        'allowDestructuring': true, // Allow `const { props, state } = this`; false by default
+        'allowedNames': ['self'] // Allow `const self = this`; `[]` by default
+      }
+    ]
   },
 }
 

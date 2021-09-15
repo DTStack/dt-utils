@@ -10,7 +10,7 @@ class LocalIndexedDB {
     private _version!: number;
     private _database!: string;
     private _storeName!: string;
-    private _openLog!: boolean
+    private _openLog!: boolean;
 
     /**
      * Constructor a new indexedDB object
@@ -26,7 +26,7 @@ class LocalIndexedDB {
             this._storeName = storeName;
             this._version = version;
             this._database = database;
-            this._openLog = openLog
+            this._openLog = openLog;
         }
     }
 
@@ -165,7 +165,7 @@ class LocalIndexedDB {
 
     private log (...args: any) {
         if (this._openLog) {
-            console.log(...args)
+            console.log(...args);
         }
     }
 }
