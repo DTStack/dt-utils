@@ -170,7 +170,7 @@ Utils.getRandomStr(10) // "5vK6vT6sL8"
 
 ````
 ## trim
-去除空格
+去除前后空格
 ```js
     /**
     * @returns string
@@ -179,19 +179,19 @@ Utils.getRandomStr(10) // "5vK6vT6sL8"
 ```
 例如:
 ```js
-Utils.trim(' 12 3 1    23  ') // "123123"
+Utils.trim(' 12 3 1    23  ') // "12 3 1    23"
 ```
-## trimlr
-去除头尾空格
+## trimAll
+去除所有空格
 ```js
     /**
     * @returns string
     */
-    Utils.trimlr (str: string)
+    Utils.trimAll (str: string)
 ```
 例如:
 ```js
-Utils.trim(' 12 3 1    23  ') // "12 3 1    23"
+Utils.trimAll(' 12 3 1    23  ') // "123123"
 ```
 ## toQfw
 千位分割

@@ -118,20 +118,25 @@ const utils = {
         }
         return str;
     },
+
     /**
-   * 去除空串
-   */
-    trim (str: string) {
-        return typeof str === 'string'
-            ? str.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '')
-            : str;
-    },
-    /**
-     * 与上面方法重了
+     * @description: 去除字符串前后空格
+     * @param: str 带有空格的字符串
+     * @returns: 返回去除前后空格的字符串
      */
-    trimlr (str: string) {
-        const res = str.replace(/^\s*/, ''); // 去左边
-        return res.replace(/\s*$/, ''); // 去右边
+    trim (str: string) {
+        if (typeof str !== 'string') return str;
+        return str.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+    },
+
+    /**
+     * @description: 去除字符串的所有空格
+     * @param: str 带有空格的字符串
+     * @returns: 返回去除所有空格的字符串
+     */
+    trimAll (str: string) {
+        if (typeof str !== 'string') return str;
+        return str.replace(/\s/g, '');
     },
 
     removeAllSpaces (str: string) {
@@ -216,7 +221,7 @@ const utils = {
    * @return {Boolean}   是否是JSON字符串
    */
     isJSONStr (str: string) {
-        str = utils.trimlr(str);
+        str = utils.trim(str);
         return (
             (str.charAt(0) === '{' && str.charAt(str.length - 1) === '}') ||
             (str.charAt(0) === '[' && str.charAt(str.length - 1) === ']')
