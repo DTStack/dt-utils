@@ -342,3 +342,15 @@ Utils.removeEmpty (obj?: any): any
 ```js
 Utils.removeEmpty({ a: 'test', b: undefined, c: { d: undefined } }) // { a: 'test', c: {} }
 ```
+
+## mergeDeep
+
+将两个对象进行深拷贝合并，对象内的同名对象也进行一次深拷贝合并
+
+```js
+mergeDeep(
+    { a: 123, b: 321, innerObj: { a: 123, c: 456 } },
+    { a: 'cover', c: 456, innerObj: { a: 'cover', b: 321 } }
+)
+// { a: 'cover', b: 321, c: 456, innerObj: { a: 'cover', b: 321, c: 456 } }
+```
