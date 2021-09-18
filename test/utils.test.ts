@@ -1,6 +1,28 @@
-import assert from 'assert';
+import * as assert from 'assert';
 import Utils from '../src/utils';
-const { convertBytes, checkExist, getCssText, trim, trimAll, isMacOs, isWindows, isMobileDevice, getParameterByName, percent, toQfw, textOverflowExchange, exchangeOrder, isEqualArr, isEmpty, isObj, transformArray, removeEmpty } = Utils;
+
+const {
+    convertBytes,
+    checkExist,
+    getCssText,
+    trim,
+    trimAll,
+    isMacOs,
+    isWindows,
+    isMobileDevice,
+    getParameterByName,
+    percent,
+    toQfw,
+    textOverflowExchange,
+    exchangeOrder,
+    isEqualArr,
+    isEmpty,
+    isObj,
+    transformArray,
+    removeEmpty,
+    mergeDeep,
+} = Utils;
+
 describe('utils.convertBytes', () => {
     test('convert byte to unit B', () => {
         const byte = 10.24;
@@ -77,8 +99,8 @@ describe('utils:', () => {
         assert.strictEqual(isEqualArr(['1', '2', '3'], ['1', '2', '3']), true);
     });
     /**
-   * checkExist
-   */
+     * checkExist
+     */
     describe('checkExist', () => {
         test(' undefined => false ', () => {
             assert.strictEqual(checkExist(undefined), false);
@@ -94,14 +116,14 @@ describe('utils:', () => {
         });
     });
     /**
-    * getCssText
-    */
+     * getCssText
+     */
     describe('getCssText', () => {
         test(' {height:\'100px\',width:\'100px\'} => height:100px;width:100px; ', () => {
             assert.strictEqual(getCssText({ height: '100px', width: '100px' }), 'height:100px;width:100px;');
         });
     });
-    
+
     /**
      * trim
      */
@@ -119,7 +141,7 @@ describe('utils:', () => {
             assert.strictEqual(trim('张 三'), '张 三');
         });
     });
-    
+
     /**
      * trimAll
      */
@@ -141,7 +163,7 @@ describe('utils:', () => {
             expect(transformArray(arr, 2)).toEqual([['1', '2'], ['3', '4'], ['5', '6']]);
         });
     });
-    
+
     describe('IsEmpty Test', () => {
         test('return true if value is empty string', () => {
             expect(isEmpty('')).toBeTruthy();
@@ -166,7 +188,7 @@ describe('utils:', () => {
         test('return false if value is other conditions', () => {
             expect(isEmpty('123')).toBeFalsy();
             expect(isEmpty([1])).toBeFalsy();
-            expect(isEmpty({ id:1 })).toBeFalsy();
+            expect(isEmpty({ id: 1 })).toBeFalsy();
         });
     });
 
@@ -185,6 +207,31 @@ describe('utils:', () => {
         });
         test('return processed data if object includes undefined', () => {
             expect(removeEmpty({ a: 'test', b: undefined, c: { d: undefined } })).toEqual({ a: 'test', c: {} });
+        });
+    });
+    describe('mergeDeep test', () => {
+        test('basic var', () => {
+            expect(mergeDeep(
+                { a: 123, c: 321 },
+                { a: 'cover', b: 456 }
+            )).toEqual({ a: 'cover', b: 456, c: 321 });
+        });
+        test('complex var', () => {
+            expect(mergeDeep(
+                { a: 123, b: 321, innerObj: { a: 123, c: 456 } },
+                { a: 'cover', c: 456, innerObj: { a: 'cover', b: 321 } }
+            )).toEqual({ a: 'cover', b: 321, c: 456, innerObj: { a: 'cover', b: 321, c: 456 } });
+        });
+        test('empty var', () => {
+            expect(mergeDeep(null, null)).toEqual(null);
+            expect(mergeDeep({ name: 1 }, null)).toEqual({ name: 1 });
+            expect(mergeDeep(null, { name: 2 })).toEqual({ name: 2 });
+        });
+        test('_isMergeAtom case', () => {
+            expect(mergeDeep(
+                { a: 123, c: 321 },
+                { a: 'cover', b: 456, _isMergeAtom: true }
+            )).toEqual({ a: 'cover', b: 456 });
         });
     });
 });
