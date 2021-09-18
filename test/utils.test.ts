@@ -6,13 +6,12 @@ const {
     checkExist,
     getCssText,
     trim,
-    trimlr,
+    trimAll,
     isMacOs,
     isWindows,
     isMobileDevice,
     getParameterByName,
     percent,
-    removeAllSpaces,
     toQfw,
     textOverflowExchange,
     exchangeOrder,
@@ -23,6 +22,7 @@ const {
     removeEmpty,
     mergeDeep,
 } = Utils;
+
 describe('utils.convertBytes', () => {
     test('convert byte to unit B', () => {
         const byte = 10.24;
@@ -83,9 +83,6 @@ describe('utils:', () => {
     test('percent(0.54321,1)=>50%', () => {
         assert.strictEqual(percent(0.54321, 1), '54.3%');
     });
-    test('removeAllSpaces(\' aa bb \')=>aabb', () => {
-        assert.strictEqual(removeAllSpaces(' aa bb '), 'aabb');
-    });
     test('toQfw(\'123123\')=>123,123', () => {
         assert.strictEqual(toQfw('123123'), '123,123');
     });
@@ -126,6 +123,7 @@ describe('utils:', () => {
             assert.strictEqual(getCssText({ height: '100px', width: '100px' }), 'height:100px;width:100px;');
         });
     });
+
     /**
      * trim
      */
@@ -142,8 +140,20 @@ describe('utils:', () => {
         test('\'张 三\'=> 张三', () => {
             assert.strictEqual(trim('张 三'), '张 三');
         });
-        test('\'张 三\'=> 张 三', () => {
-            assert.strictEqual(trimlr('张 三'), '张 三');
+    });
+
+    /**
+     * trimAll
+     */
+    describe('trimAll', () => {
+        test(' . 12 3  => .123', () => {
+            assert.strictEqual(trimAll(' . 12 3 '), '.123');
+        });
+        test(' . 12 3 => .123', () => {
+            assert.strictEqual(trimAll(' . 12 3'), '.123');
+        });
+        test('. 12 3 => .123', () => {
+            assert.strictEqual(trimAll('. 12 3'), '.123');
         });
     });
 
