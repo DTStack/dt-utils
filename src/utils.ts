@@ -368,9 +368,9 @@ const utils = {
         });
         return obj;
     },
-    mergeDeep (object1: any, object2: any) {
+    mergeDeep (object1: Record<string, any>, object2: Record<string, any>) {
         if (object1 == null || object2 == null) {
-            return object2;
+            return object1 || object2;
         } else if (!_.isPlainObject(object1) || !_.isPlainObject(object2)) {
             return object2;
         } else if (object1 === object2) {

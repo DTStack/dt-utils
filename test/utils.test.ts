@@ -212,6 +212,17 @@ describe('utils:', () => {
                 { a: 'cover', c: 456, innerObj: { a: 'cover', b: 321 } }
             )).toEqual({ a: 'cover', b: 321, c: 456, innerObj: { a: 'cover', b: 321, c: 456 } });
         });
+        test('empty var', () => {
+            expect(mergeDeep(null, null)).toEqual(null);
+            expect(mergeDeep({ name: 1 }, null)).toEqual({ name: 1 });
+            expect(mergeDeep(null, { name: 2 })).toEqual({ name: 2 });
+        });
+        test('_isMergeAtom case', () => {
+            expect(mergeDeep(
+                { a: 123, c: 321 },
+                { a: 'cover', b: 456, _isMergeAtom: true }
+            )).toEqual({ a: 'cover', b: 456 });
+        });
     });
 });
 
