@@ -25,6 +25,11 @@ prefix="v"
 git pull origin $branch
 echo "Current pull origin $branch."
 
+
+echo "yarn prepublishOnly"
+yarn prepublishOnly
+
+
 # Auto generate version number and tag
 standard-version -r $release --tag-prefix $prefix --infile CHANGELOG.md
 
