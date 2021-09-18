@@ -25,8 +25,8 @@
   "scripts": {
     "build": "gulp build",
     "api": "api-extractor run",
-    "lint": "eslint --ext .js,.ts ./src",
-    "lint:fix": "eslint --fix --ext .js,.ts ./src",
+    "lint": "eslint --ext .js,.ts ./src ./test",
+    "lint:fix": "eslint --fix --ext .js,.ts ./src ./test",
     "changelog": "gulp changelog",
     "docs": "docsify serve docs",
     "test": "jest --no-chche",

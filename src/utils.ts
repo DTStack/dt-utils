@@ -23,7 +23,7 @@ const utils = {
    */
     browserCheck () {
         const Sys: BrowserInter = {};
-        if (this.isMobileDevice()) { return true; } // 忽略移动设备
+        if (utils.isMobileDevice()) { return true; } // 忽略移动设备
         const ua = navigator.userAgent.toLowerCase();
         let s;
         // eslint:disable:no-conditional-assignment
@@ -218,7 +218,7 @@ const utils = {
    * @return {Boolean}   是否是JSON字符串
    */
     isJSONStr (str: string) {
-        str = this.trimlr(str);
+        str = utils.trimlr(str);
         return (
             (str.charAt(0) === '{' && str.charAt(str.length - 1) === '}') ||
             (str.charAt(0) === '[' && str.charAt(str.length - 1) === ']')
@@ -316,7 +316,7 @@ const utils = {
      */
     shouldRender (targetComponent: any) {
         targetComponent.prototype.shouldComponentUpdate = function (props: any, state: any) {
-            return !this.isEqual(this.state, state) || !this.isEqual(this.props, props);
+            return !utils.isEqual(this.state, state) || !utils.isEqual(this.props, props);
         };
     },
     /**
