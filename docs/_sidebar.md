@@ -8,4 +8,4 @@
 - [IndexedDB](idb.md)
 - [LocalDB](ldb.md)
 - [贡献指南](contribution-guide.md)
-- [更新日志](changelog.md)
+- [更新日志](CHANGELOG.md)
