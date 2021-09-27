@@ -1,4 +1,4 @@
-# dt-utils | <a href="CHANGELOG.md" target="_black">CHANGELOG</a>
+# dt-utils | <a href="./docs/CHANGELOG.md" target="_black">CHANGELOG</a>
 工具库
 ## 安装依赖
 ```bash

@@ -1,8 +1,5 @@
 # 工具库更新日志
 
-## [1.0.6](https://github.com/DTStack/dt-utils/compare/v1.0.5...v1.0.6) (2021-09-27)
-
-
 
 ## [1.0.5](https://github.com/DTStack/dt-utils/compare/v1.0.4...v1.0.5) (2021-09-18)
 
