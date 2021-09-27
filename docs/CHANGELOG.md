@@ -1,6 +1,4 @@
-# Changelog
-
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+# 工具库更新日志
 
 ## [1.0.6](https://github.com/DTStack/dt-utils/compare/v1.0.5...v1.0.6) (2021-09-27)
 
@@ -96,3 +94,6 @@ All notable changes to this project will be documented in this file. See [standa
 * **test:** add test utils for jest ([e950d12](https://github.com/DTStack/dt-utils/commit/e950d127330cb3b2ce6a00154b05324558e23b70))
 * **优化:** 优化文档目录调整结构 ([548f338](https://github.com/DTStack/dt-utils/commit/548f338e80e910aa249de0e9b3a18d35096a3db2))
 * **补充文档:** 添加工具函数文档说明 ([10c95ef](https://github.com/DTStack/dt-utils/commit/10c95efb2a73bed3d83b28312d69ca9aa6b77bbd))
+
+
+

@@ -109,6 +109,7 @@ export const build = series(clearLibFile, buildByRollup, apiExtractorGenerate, c
 // 自定义生成 changelog
 export const changelog: TaskFunc = async (cb) => {
     const changelogPath: string = path.join(paths.root, 'CHANGELOG.md');
+    const changelogDocPath: string = path.join(paths.docs, 'CHANGELOG.md');
     // 对命令 conventional-changelog -p angular -i CHANGELOG.md -w -r 0
     const changelogPipe = await conventionalChangelog({
         preset: 'angular',
@@ -123,8 +124,8 @@ export const changelog: TaskFunc = async (cb) => {
         resultArray.push(chunk);
     });
     changelogPipe.on('end', async () => {
-        // const changelogDocPath: string = path.join(paths.docs, 'CHANGELOG.md');
         await fse.createWriteStream(changelogPath).write(resultArray.join(''));
+        await fse.createWriteStream(changelogDocPath).write(resultArray.join(''));
         cb();
     });
 };
