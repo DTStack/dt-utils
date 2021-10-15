@@ -4,14 +4,6 @@
   import { Utils } from '@dtinsight/dt-utils';
 ````
 
-## appInfo
-输出应用版本以及运维信息
-```js
-  // 需声明APP.VERSION
-  Utils.appInfo()
-```
-
-
 ## browserCheck
 浏览器类型和版本检测
 
