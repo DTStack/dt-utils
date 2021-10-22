@@ -413,8 +413,8 @@ const utils = {
         const { url, payload, finallyCallback, successCallback, errorCallback } = params;
         fetch(url, { method: 'POST', body: JSON.stringify(payload) })
             .then((response) => {
-                let jsonResult = response.clone();
-                let blobResult = response.clone();
+                const jsonResult = response.clone();
+                const blobResult = response.clone();
                 jsonResult
                     .json()
                     .then(() => {
@@ -430,7 +430,7 @@ const utils = {
                         }
                         blobResult.blob().then((blob) => {
                             const href = URL.createObjectURL(blob);
-                            let dom = document.createElement('a');
+                            const dom = document.createElement('a');
                             dom.setAttribute('href', href);
                             dom.setAttribute(
                                 'download',
