@@ -409,16 +409,16 @@ const utils = {
       * @param {function} errorCallback    导出失败的回调函数
       * @param {function} errorCallback    导出失败的回调函数，控制一些visible显示隐藏
     * */
-     downLoadData(params: DownloadParams) {
+    downLoadData (params: DownloadParams) {
         const { url, payload, finallyCallback, successCallback, errorCallback } = params;
         fetch(url, { method: 'POST', body: JSON.stringify(payload) })
             .then((response) => {
-                let jsonResult = response.clone();
-                let blobResult = response.clone();
+                const jsonResult = response.clone();
+                const blobResult = response.clone();
                 jsonResult
                     .json()
                     .then(() => {
-                        errorCallback(response)
+                        errorCallback(response);
                     })
                     .catch(() => {
                         let { fileName } = params;
@@ -430,7 +430,7 @@ const utils = {
                         }
                         blobResult.blob().then((blob) => {
                             const href = URL.createObjectURL(blob);
-                            let dom = document.createElement('a');
+                            const dom = document.createElement('a');
                             dom.setAttribute('href', href);
                             dom.setAttribute(
                                 'download',
@@ -445,7 +445,7 @@ const utils = {
             .finally(() => {
                 finallyCallback && finallyCallback();
             });
-    }
+    },
 };
 
 export default utils;
