@@ -14,8 +14,8 @@ interface DownloadParams {
     fileName?: string,
     payload?: object,
     finallyCallback?: () => void,
-    successCallback?: (res: any) => void,
-    errorCallback: (res: any) => void
+    successCallback?: (res: Response) => void,
+    errorCallback: (res: Response) => void
 }
 
 const utils = {
@@ -404,10 +404,10 @@ const utils = {
       * 下载文件
       * @param {string}   url              请求地址
       * @param {string}   fileName         输出名字，如果不传就是后端写入文件名
-      * @param {object}   payload           请求数据
+      * @param {object}   payload          请求数据
       * @param {function} successCallback  导出正确的回调函数，处理一些message展示
       * @param {function} errorCallback    导出失败的回调函数
-      * @param {function} errorCallback    导出失败的回调函数，控制一些visible显示隐藏
+      * @param {function} finallyCallback  导出失败的回调函数，控制一些visible显示隐藏
     * */
     downLoadData (params: DownloadParams) {
         const { url, payload, finallyCallback, successCallback, errorCallback } = params;
