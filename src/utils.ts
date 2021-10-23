@@ -415,6 +415,7 @@ const utils = {
             .then((response) => {
                 const jsonResult = response.clone();
                 const blobResult = response.clone();
+                if (response.status !== 200) errorCallback(response);
                 jsonResult
                     .json()
                     .then(() => {
