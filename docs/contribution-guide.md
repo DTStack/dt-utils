@@ -20,9 +20,9 @@
 
 如需开发功能，请遵循以下流程：
 
-1、请 `fork` 本项目，`clone` 自己的仓库，按照上述分支定义从 `master` 分支新建 `feat` 分支进行开发，分支命名用下划线加上版本号，如：`feat_1.x_xxx`
+1、请 `fork` 本项目，`clone` 自己的仓库，按照上述分支定义从 `master` 分支新建 `feat` 分支进行开发，分支命名用下划线加上版本号、功能名，如：`feat_1.x_xxx`
 
-2、`feat` 分支开发完毕后请向相应人员提 PR，期望合入 `release` 分支，待相应人员 review 代码后合入
+2、`feat` 分支开发完毕后，本地执行 `yarn lint & yarn test` 命令，通过后向相应人员提 PR，期望合入 `release` 分支，待相应人员 review 代码后合入
 
 
 ## Bugs
