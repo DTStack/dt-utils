@@ -9,6 +9,15 @@ interface BrowserInter {
     safari?: string;
     opera?: string;
 }
+interface DownloadParams {
+    url: string,
+    fileName?: string,
+    payload?: object,
+    finallyCallback?: () => void,
+    successCallback?: (res: Response) => void,
+    errorCallback: (res: Response) => void
+}
+
 const utils = {
     /**
    * @description 浏览器类型和版本检测
@@ -390,6 +399,53 @@ const utils = {
 
             return obj;
         }
+    },
+    /**
+      * 下载文件
+      * @param {string}   url              请求地址
+      * @param {string}   fileName         输出名字，如果不传就是后端写入文件名
+      * @param {object}   payload          请求数据
+      * @param {function} successCallback  导出正确的回调函数，处理一些message展示
+      * @param {function} errorCallback    导出失败的回调函数
+      * @param {function} finallyCallback  导出失败的回调函数，控制一些visible显示隐藏
+    * */
+    downLoadData (params: DownloadParams) {
+        const { url, payload, finallyCallback, successCallback, errorCallback } = params;
+        fetch(url, { method: 'POST', body: JSON.stringify(payload) })
+            .then((response) => {
+                const jsonResult = response.clone();
+                const blobResult = response.clone();
+                if (response.status !== 200) return errorCallback(response);
+                jsonResult
+                    .json()
+                    .then(() => {
+                        errorCallback(response);
+                    })
+                    .catch(() => {
+                        let { fileName } = params;
+                        if (!fileName) {
+                            const disposition = blobResult.headers.get(
+                                'Content-disposition'
+                            ) || '';
+                            fileName = disposition.split('filename=')[1];
+                        }
+                        blobResult.blob().then((blob) => {
+                            const href = URL.createObjectURL(blob);
+                            const dom = document.createElement('a');
+                            dom.setAttribute('href', href);
+                            dom.setAttribute(
+                                'download',
+                                decodeURIComponent(fileName || '')
+                            );
+                            dom.click();
+                            URL.revokeObjectURL(href);
+                            successCallback && successCallback(response);
+                        });
+                    });
+            })
+            .finally(() => {
+                finallyCallback && finallyCallback();
+            });
     },
 };
 
