@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.7](https://github.com/DTStack/dt-utils/compare/v1.0.6...v1.0.7) (2021-10-25)
+
+
+### Features
+
+* add download data ([c376a00](https://github.com/DTStack/dt-utils/commit/c376a00eb571006fc3949b47f09d237ab39c08b1))
+* add judge status ([228c3ec](https://github.com/DTStack/dt-utils/commit/228c3ec4d371b42849218d6796b7701668b34995))
+* add return ([29f3c2a](https://github.com/DTStack/dt-utils/commit/29f3c2a55e8c8452bc4ba5428ac0518e779dfb15))
+* update info and ts ([75efdfc](https://github.com/DTStack/dt-utils/commit/75efdfcc4dcca74e13aa5562d78f6f76ec8b8009))
+* update let to const ([854d1f0](https://github.com/DTStack/dt-utils/commit/854d1f080213b489769077b36617567499197b7f))
+* update lint ([3f9dcc5](https://github.com/DTStack/dt-utils/commit/3f9dcc5d64bccb360882b8ed306498e3e632873a))
+
 ### [1.0.6](https://github.com/DTStack/dt-utils/compare/v1.0.5...v1.0.6) (2021-09-27)
 
 

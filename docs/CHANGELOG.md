@@ -1,12 +1,18 @@
 # 工具库更新日志
 
-## [1.0.6](https://github.com/DTStack/dt-utils/compare/v1.0.5...v1.0.6) (2021-09-27)
+## [1.0.7](https://github.com/DTStack/dt-utils/compare/v1.0.6...v1.0.7) (2021-10-25)
 
 
 ### Features
 
+* add download data ([c376a00](https://github.com/DTStack/dt-utils/commit/c376a00eb571006fc3949b47f09d237ab39c08b1))
+* add judge status ([228c3ec](https://github.com/DTStack/dt-utils/commit/228c3ec4d371b42849218d6796b7701668b34995))
+* add return ([29f3c2a](https://github.com/DTStack/dt-utils/commit/29f3c2a55e8c8452bc4ba5428ac0518e779dfb15))
 * change log and contribution guide ([b42740d](https://github.com/DTStack/dt-utils/commit/b42740d48db1460356debba41348f05cb79095b5))
 * remove path root changelog ([65ce7ac](https://github.com/DTStack/dt-utils/commit/65ce7ac69831cc73bad40279ef2a45f98d8e5be4))
+* update info and ts ([75efdfc](https://github.com/DTStack/dt-utils/commit/75efdfcc4dcca74e13aa5562d78f6f76ec8b8009))
+* update let to const ([854d1f0](https://github.com/DTStack/dt-utils/commit/854d1f080213b489769077b36617567499197b7f))
+* update lint ([3f9dcc5](https://github.com/DTStack/dt-utils/commit/3f9dcc5d64bccb360882b8ed306498e3e632873a))
 
 
 
@@ -84,22 +90,22 @@
 
 ### Features
 
+* **补充文档:** 添加工具函数文档说明 ([10c95ef](https://github.com/DTStack/dt-utils/commit/10c95efb2a73bed3d83b28312d69ca9aa6b77bbd))
+* **优化:** 优化文档目录调整结构 ([548f338](https://github.com/DTStack/dt-utils/commit/548f338e80e910aa249de0e9b3a18d35096a3db2))
 * add to complete ([1b438f8](https://github.com/DTStack/dt-utils/commit/1b438f8d7d7c8366ac1572dc63d4401bf14d8d8e))
 * **change:** 更新同步changelog ([a88614c](https://github.com/DTStack/dt-utils/commit/a88614c6a20d52dd1750fc0599d1c33aa1ed40a3))
 * **clip:** 组合发布包 ([bed32df](https://github.com/DTStack/dt-utils/commit/bed32df4f308b5c7d0eced97c5f5903c3ca2aaf5))
 * **commit:** 优化commit规范 ([c243c45](https://github.com/DTStack/dt-utils/commit/c243c4577b82636456478c63941477fcb693041b))
-* **docs:** 修改docs changelog ([b51c2ea](https://github.com/DTStack/dt-utils/commit/b51c2ea538edea15388d9b23147b123dc2d2d258))
-* **docs:** 测试文件名修改 ([becdb58](https://github.com/DTStack/dt-utils/commit/becdb58820f30b937c20c9a7a339ae2a2a673005))
-* **docs:** 添加提交校验 ([1f1aeac](https://github.com/DTStack/dt-utils/commit/1f1aeac4ea325c0f9ad814f75e697dc1489c156b))
-* **docs:** 补充utils文档说明 ([68fed39](https://github.com/DTStack/dt-utils/commit/68fed39ea2897398503023f3b4d3bd21c18dd127))
-* **docs:** 调整文档目录结构 ([f53f5d2](https://github.com/DTStack/dt-utils/commit/f53f5d2d24491acba58ef6af977dae31a4866f26))
 * **doc:** 调整目录 ([1017768](https://github.com/DTStack/dt-utils/commit/1017768c860b61e44945d4c87e98f4fb3fc13df9))
+* **docs:** 补充utils文档说明 ([68fed39](https://github.com/DTStack/dt-utils/commit/68fed39ea2897398503023f3b4d3bd21c18dd127))
+* **docs:** 测试文件名修改 ([becdb58](https://github.com/DTStack/dt-utils/commit/becdb58820f30b937c20c9a7a339ae2a2a673005))
+* **docs:** 调整文档目录结构 ([f53f5d2](https://github.com/DTStack/dt-utils/commit/f53f5d2d24491acba58ef6af977dae31a4866f26))
+* **docs:** 添加提交校验 ([1f1aeac](https://github.com/DTStack/dt-utils/commit/1f1aeac4ea325c0f9ad814f75e697dc1489c156b))
+* **docs:** 修改docs changelog ([b51c2ea](https://github.com/DTStack/dt-utils/commit/b51c2ea538edea15388d9b23147b123dc2d2d258))
 * **layout:** update layout api and docs ([bc07cfc](https://github.com/DTStack/dt-utils/commit/bc07cfcd3704443cbd6d1564f1dabefe0627b8b8))
 * modify the document ([1118f2e](https://github.com/DTStack/dt-utils/commit/1118f2ee7f5c70bf7f2fd49594711be7b93bc709))
 * **package:** update package.json for init ([6e95646](https://github.com/DTStack/dt-utils/commit/6e9564697e6617bc67c1132cc70415a10df8c173))
 * **test:** add test utils for jest ([e950d12](https://github.com/DTStack/dt-utils/commit/e950d127330cb3b2ce6a00154b05324558e23b70))
-* **优化:** 优化文档目录调整结构 ([548f338](https://github.com/DTStack/dt-utils/commit/548f338e80e910aa249de0e9b3a18d35096a3db2))
-* **补充文档:** 添加工具函数文档说明 ([10c95ef](https://github.com/DTStack/dt-utils/commit/10c95efb2a73bed3d83b28312d69ca9aa6b77bbd))
 
 
 
