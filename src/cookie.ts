@@ -17,6 +17,19 @@ const cookie = {
         return null;
     },
 
+    getAllCookies () {
+        let cookies = {};
+        try {
+             document.cookie.split('; ').forEach(item=>{
+                const msg = item.split('=')
+                cookies[msg[0]] = msg[1]
+            })
+        } catch {
+            throw(new Error ('Cookie解析失败，请检查Cookie格式！'))
+        } 
+        return cookies
+    }
+
     deleteCookie (name: string, domain?: string, path?: string) {
         const d = new Date(0);
         domain = domain ? `; domain=${domain}` : '';
