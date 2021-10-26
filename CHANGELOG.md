@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.8](https://github.com/DTStack/dt-utils/compare/v1.0.7...v1.0.8) (2021-10-26)
+
+
+### Features
+
+* add getAllCookies ([889e1ec](https://github.com/DTStack/dt-utils/commit/889e1ec9272d206c046f9dd58ef7ee46bb5e3289))
+
 ### [1.0.7](https://github.com/DTStack/dt-utils/compare/v1.0.6...v1.0.7) (2021-10-25)
 
 
