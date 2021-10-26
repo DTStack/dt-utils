@@ -17,6 +17,7 @@ const cookie = {
         return null;
     },
 
+    // 获取全部 cookie
     getAllCookies () {
         const cookies = {};
         try {
