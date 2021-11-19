@@ -142,7 +142,6 @@ const utils = {
         if (typeof str !== 'string') return str;
         return str.replace(/\s/g, '');
     },
-
     // 千位分割
     toQfw (str: string) {
         if (!str) {
@@ -153,6 +152,18 @@ const utils = {
         str = str.replace(re, ',');
         return str;
     },
+
+    // 转换为千分位
+    getThousandth (num: string | number) {
+        num = `${ num }`;
+        if (!num.includes('.')) {
+            num += '.';
+        }
+        return num.replace(/(\d)(?=(\d{3})+\.)/g, ($0, $1) => {
+            return `${ $1 },`;
+        }).replace(/\.$/, '');
+    },
+
     // 文字溢出转换
     textOverflowExchange (text: string, length: number) {
         if (text && text.length > length) {

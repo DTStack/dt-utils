@@ -13,6 +13,7 @@ const {
     getParameterByName,
     percent,
     toQfw,
+    getThousandth,
     textOverflowExchange,
     exchangeOrder,
     isEqualArr,
@@ -86,6 +87,26 @@ describe('utils:', () => {
     test('toQfw(\'123123\')=>123,123', () => {
         assert.strictEqual(toQfw('123123'), '123,123');
     });
+
+    test('getThousandth(123456)', () => {
+        assert.strictEqual(getThousandth(123456), '123,456');
+    });
+    test('getThousandth(\'123456\')', () => {
+        assert.strictEqual(getThousandth('123456'), '123,456');
+    });
+    test('getThousandth(1234567)', () => {
+        assert.strictEqual(getThousandth(1234567), '1,234,567');
+    });
+    test('getThousandth(\'1234567\')', () => {
+        assert.strictEqual(getThousandth('1234567'), '1,234,567');
+    });
+    test('getThousandth(1234.56789)', () => {
+        assert.strictEqual(getThousandth(1234.56789), '1,234.56789');
+    });
+    test('getThousandth(\'1234.56789\')', () => {
+        assert.strictEqual(getThousandth('1234.56789'), '1,234.56789');
+    });
+
     test('textOverflowExchange(\'my name is linhe\')=>"my name is..."', () => {
         assert.strictEqual(textOverflowExchange('my name is linhe', 10), 'my name is...');
     });
