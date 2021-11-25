@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.9](https://github.com/DTStack/dt-utils/compare/v1.0.8...v1.0.9) (2021-11-25)
+
+
+### Features
+
+* add getThousandth to utils ([a79e797](https://github.com/DTStack/dt-utils/commit/a79e79755f944e5df7d0d7b61ac64803cd169725))
+
 ### [1.0.8](https://github.com/DTStack/dt-utils/compare/v1.0.7...v1.0.8) (2021-10-26)
 
 
