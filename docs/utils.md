@@ -195,6 +195,17 @@ Utils.toQfw (str: string): string
 Utils.toQfw('123123') // "123,123"
 ```
 
+## getThousandth
+转换为千分位
+```js
+Utils.getThousandth (str: number | string): string
+```
+例如:
+```js
+Utils.getThousandth('1234567') // "1,234,567"
+Utils.getThousandth(1234.56789) // "1,234.56789"
+```
+
 ## textOverflowExchange
 文字溢出转换
 ```js
