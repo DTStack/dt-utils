@@ -88,6 +88,12 @@ describe('utils:', () => {
         assert.strictEqual(toQfw('123123'), '123,123');
     });
 
+    test('getThousandth(null)', () => {
+        assert.strictEqual(getThousandth(null), '0');
+    });
+    test('getThousandth(undefined)', () => {
+        assert.strictEqual(getThousandth(undefined), '0');
+    });
     test('getThousandth(123456)', () => {
         assert.strictEqual(getThousandth(123456), '123,456');
     });
