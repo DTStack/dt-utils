@@ -185,15 +185,6 @@ Utils.trim(' 12 3 1    23  ') // "12 3 1    23"
 ```js
 Utils.trimAll(' 12 3 1    23  ') // "123123"
 ```
-## toQfw
-千位分割
-```js
-Utils.toQfw (str: string): string
-```
-例如:
-```js
-Utils.toQfw('123123') // "123,123"
-```
 
 ## getThousandth
 转换为千分位

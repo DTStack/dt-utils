@@ -12,7 +12,6 @@ const {
     isMobileDevice,
     getParameterByName,
     percent,
-    toQfw,
     getThousandth,
     textOverflowExchange,
     exchangeOrder,
@@ -83,9 +82,6 @@ describe('utils:', () => {
     });
     test('percent(0.54321,1)=>50%', () => {
         assert.strictEqual(percent(0.54321, 1), '54.3%');
-    });
-    test('toQfw(\'123123\')=>123,123', () => {
-        assert.strictEqual(toQfw('123123'), '123,123');
     });
 
     test('getThousandth(null)', () => {

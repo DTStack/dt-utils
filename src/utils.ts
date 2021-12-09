@@ -142,16 +142,6 @@ const utils = {
         if (typeof str !== 'string') return str;
         return str.replace(/\s/g, '');
     },
-    // 千位分割
-    toQfw (str: string) {
-        if (!str) {
-            return 0;
-        }
-        str = str.toString ? str.toString() : str;
-        const re = /(?=(?!(\b))(\d{3})+$)/g;
-        str = str.replace(re, ',');
-        return str;
-    },
 
     // 转换为千分位
     getThousandth (num: string | number) {
