@@ -146,14 +146,9 @@ const utils = {
     // 转换为千分位
     getThousandth (num: string | number) {
         if (num === null || num === undefined) return '0';
-
         num = `${ num }`;
-        if (!num.includes('.')) {
-            num += '.';
-        }
-        return num.replace(/(\d)(?=(\d{3})+\.)/g, ($0, $1) => {
-            return `${ $1 },`;
-        }).replace(/\.$/, '');
+        const [integer, decimal] = num.split('.');
+        return `${integer.replace(/(\d)(?=(\d{3})+$)/g, '$1,')}${decimal ? `.${decimal}` : ''}`;
     },
 
     // 文字溢出转换
