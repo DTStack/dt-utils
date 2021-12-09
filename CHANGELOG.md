@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/DTStack/dt-utils/compare/v1.0.9...v1.1.0) (2021-12-09)
+
+
+### Features
+
+* add three Base64 related methods ([afbe638](https://github.com/DTStack/dt-utils/commit/afbe6386f701a39ef388044c758a929e3f3559af))
+
+
+### Bug Fixes
+
+* return '0' when num is null or undefined ([421aaf1](https://github.com/DTStack/dt-utils/commit/421aaf12a27be7f8160019beb35edf60530cffa9))
+
 ### [1.0.9](https://github.com/DTStack/dt-utils/compare/v1.0.8...v1.0.9) (2021-11-25)
 
 
