@@ -24,12 +24,12 @@
   Utils.checkExist(undefined) // false
 ```
 ## isMacOs
-判断设备是否是Mac
+判断设备是否是 Mac
 ```js
   Utils.isMacOs(); //boolean
 ```
 ## isWindows
-判断设备是否是Windows
+判断设备是否是 Windows
 ```js
   Utils.isWindows(); //boolean
 ```
@@ -46,7 +46,7 @@ Utils.isPhoneNumber('15688723782333') // false
 
 ````
 ## isJSONStr
-判断是否是JSON string
+判断是否是 JSON string
 ```js
 Utils.isJSONStr (str: string): boolean
 ```
@@ -83,7 +83,7 @@ Utils.isEqual (a: any, b: any): boolean
 Utils.isEqual({name:'sichen'},{name:'sichen'}) // true
 ```
 ## getParameterByName
-根据参数名获取URL数据
+根据参数名获取 URL 数据
 
 ```js
  /**
@@ -100,7 +100,7 @@ Utils.isEqual({name:'sichen'},{name:'sichen'}) // true
   Utils.getParameterByName('name'); // 1 
 ```
 ## getBase64
-获取图片的Base64格式
+获取图片的 Base64 格式
 
 ```js
   /**
@@ -111,7 +111,7 @@ Utils.isEqual({name:'sichen'},{name:'sichen'}) // true
   Utils.getBase64(img,callback); 
 ```
 ## getCssText
-  样式对象转css style风格转字符串
+  样式对象转 css style 风格转字符串
 
 ````js
 /**
@@ -131,7 +131,7 @@ Utils.isEqual({name:'sichen'},{name:'sichen'}) // true
   Utils.getCssText(styles); // 'height:100px;width:100px;color:red;'
 ````
 ## generateAKey
-生成一个随机key
+生成一个随机 key
 
 例如:
 ```js
@@ -140,7 +140,7 @@ Utils.generateAKey(): string // "1594806665598655835"
 
 
 ## getRandomStr
-随机生成一串len位同时包含数字、大小写字母的字符串
+随机生成一串 len 位同时包含数字、大小写字母的字符串
 ```js
     Utils.getRandomStr (len: number): string
 ```
@@ -149,7 +149,7 @@ Utils.generateAKey(): string // "1594806665598655835"
 Utils.getRandomStr(10) // "5vK6vT6sL8"
 ```
 ## getStrlen
-计算字符串长度(英文占1个字符，中文汉字占2个字符)
+计算字符串长度(英文占 1 个字符，中文汉字占 2 个字符)
 
 ```` js
  /**
@@ -239,7 +239,7 @@ Utils.textOverflowExchange('my name is sichen', 10) // "my name is..."
 ````
 
 ## convertBytes
-转换 Byte 转换为小于1024值最大单位
+转换 Byte 转换为小于 1024 值最大单位
 ```js
 Utils.convertBytes (value: number): string
 ```
@@ -250,7 +250,7 @@ Utils.convertBytes(1024) // 1 KB
 Utils.convertBytes(1024*1024) // 1 MB
 ```
 ## jsonFormat
-json格式化
+Json 格式化
 
 ```js
 // 格式化内容: text
@@ -259,7 +259,7 @@ Utils.jsonFormat (text: string, space?: number)
 ```
 
 ## sortByCompareFunctions
-多函数排序，匹配到0为止
+多函数排序，匹配到 0 为止
 ```js
 Utils.sortByCompareFunctions (arr: any[], ...compareFunctions: any[])
 ```
@@ -324,7 +324,7 @@ Utils.isObj({}) // true
 Utils.isObj('123') // false
 ```
 ## removeEmpty
-剔除对象中value为'',null,undefined,[]的元素
+剔除对象中 value 为'',null,undefined,[]的元素
 ```js
 Utils.removeEmpty (obj?: any): any
 ```
@@ -344,4 +344,31 @@ mergeDeep(
     { a: 'cover', c: 456, innerObj: { a: 'cover', b: 321 } }
 )
 // { a: 'cover', b: 321, c: 456, innerObj: { a: 'cover', b: 321, c: 456 } }
+```
+
+## isUtf8
+判断字符串格式是否为 utf-8
+
+`true`表示格式为 utf-8,`false`表示格式为非 utf-8 格式
+
+```js
+  Utils.isUtf8('test'); // boolean 
+```
+
+## utf16to8
+结合上一方法使用，先判断字符串格式是否为 utf-8,不是的话,将其转为 utf-8
+
+返回值为 utf-8 格式的字符串
+
+```js
+  Utils.utf16to8('test'); // string 
+```
+
+## base64Encode
+结合上一方法使用，先判断字符串格式是否为 utf-8,不是的话,将其转为 utf-8，然后将其进行 base64 嘉木
+
+返回值为 utf-8 格式的字符串
+
+```js
+  Utils.base64Encode('test'); // string 
 ```

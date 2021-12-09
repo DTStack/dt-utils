@@ -42,48 +42,6 @@ const utils = {
         ) { return true; }
         return false;
     },
-    isUtf8 (s: string) {
-        const lastnames = ['ä', 'å', 'æ', 'ç', 'è', 'é'];
-        lastnames.forEach(element => {
-            if (s && s.indexOf(element) > -1) {
-                return false;
-            }
-        });
-        return true;
-    },
-    utf16to8 (str: string) {
-        if (typeof str !== 'string') return str;
-        if (!this.isUtf8(str)) return str;
-        let out: string, i: number, c: number;
-        out = '';
-        const len = str.length || 0;
-        for (i = 0; i < len; i++) {
-            c = str.charCodeAt(i);
-            if (c >= 0x0001 && c <= 0x007f) {
-                out += str.charAt(i);
-            } else if (c > 0x07ff) {
-                out += String.fromCharCode(0xe0 | ((c >> 12) & 0x0f));
-                out += String.fromCharCode(0x80 | ((c >> 6) & 0x3f));
-                out += String.fromCharCode(0x80 | ((c >> 0) & 0x3f));
-            } else {
-                out += String.fromCharCode(0xc0 | ((c >> 6) & 0x1f));
-                out += String.fromCharCode(0x80 | ((c >> 0) & 0x3f));
-            }
-        }
-        return out;
-    },
-    base64Encode (value: string) {
-        let result = value;
-        if (!result) {
-            return result;
-        }
-        try {
-            result = btoa(this.utf16to8(value));
-        } catch (err) {
-            console.log(err);
-        }
-        return result;
-    },
     checkExist (prop: any) {
         return prop !== undefined && prop !== null && prop !== '';
     },
@@ -499,6 +457,48 @@ const utils = {
             .finally(() => {
                 finallyCallback && finallyCallback();
             });
+    },
+    isUtf8 (s: string) {
+        const lastnames = ['ä', 'å', 'æ', 'ç', 'è', 'é'];
+        lastnames.forEach(element => {
+            if (s && s.indexOf(element) > -1) {
+                return false;
+            }
+        });
+        return true;
+    },
+    utf16to8 (str: string) {
+        if (typeof str !== 'string') return str;
+        if (!this.isUtf8(str)) return str;
+        let out: string, i: number, c: number;
+        out = '';
+        const len = str.length || 0;
+        for (i = 0; i < len; i++) {
+            c = str.charCodeAt(i);
+            if (c >= 0x0001 && c <= 0x007f) {
+                out += str.charAt(i);
+            } else if (c > 0x07ff) {
+                out += String.fromCharCode(0xe0 | ((c >> 12) & 0x0f));
+                out += String.fromCharCode(0x80 | ((c >> 6) & 0x3f));
+                out += String.fromCharCode(0x80 | ((c >> 0) & 0x3f));
+            } else {
+                out += String.fromCharCode(0xc0 | ((c >> 6) & 0x1f));
+                out += String.fromCharCode(0x80 | ((c >> 0) & 0x3f));
+            }
+        }
+        return out;
+    },
+    base64Encode (value: string) {
+        let result = value;
+        if (!result) {
+            return result;
+        }
+        try {
+            result = btoa(this.utf16to8(value));
+        } catch (err) {
+            console.log(err);
+        }
+        return result;
     },
 };
 
