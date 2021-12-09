@@ -155,6 +155,8 @@ const utils = {
 
     // 转换为千分位
     getThousandth (num: string | number) {
+        if (num === null || num === undefined) return '0';
+
         num = `${ num }`;
         if (!num.includes('.')) {
             num += '.';
