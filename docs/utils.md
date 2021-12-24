@@ -330,10 +330,10 @@ Utils.removeEmpty({ a: 'test', b: undefined, c: { d: undefined } }) // { a: 'tes
 如果 obj2 存在 _isMergeAtom 属性，则直接使用 obj2，不再与 obj1 合并
 
 ```js
-mergeDeep(
+  Utils.mergeDeep(
     { a: 123, b: 321, innerObj: { a: 123, c: 456 } },
     { a: 'cover', c: 456, innerObj: { a: 'cover', b: 321 } }
-)
+  )
 // { a: 'cover', b: 321, c: 456, innerObj: { a: 'cover', b: 321, c: 456 } }
 ```
 ## downloadData
