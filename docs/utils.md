@@ -336,6 +336,20 @@ mergeDeep(
 )
 // { a: 'cover', b: 321, c: 456, innerObj: { a: 'cover', b: 321, c: 456 } }
 ```
+## downloadData
+处理下载文件
+如果不传文件名fileName，会从`response`的`Content-disposition`读取
+
+```js
+downLoadData({
+    url: 'downloadUrl',
+    payload: { a: 1, b: 2 },
+    fileName: 'test.pdf',
+    successCallback: () => message.info('下载成功'),
+    errorCallback: () => message.error('下载失败'),
+    finallyCallback: () => this.setState({ visiable: false })
+})
+```
 
 ## isUtf8
 判断字符串格式是否为 utf-8

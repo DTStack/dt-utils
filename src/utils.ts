@@ -405,41 +405,34 @@ const utils = {
       * @param {object}   payload          请求数据
       * @param {function} successCallback  导出正确的回调函数，处理一些message展示
       * @param {function} errorCallback    导出失败的回调函数
-      * @param {function} finallyCallback  导出失败的回调函数，控制一些visible显示隐藏
+      * @param {function} finallyCallback  成功/失败都会执行回调函数，例如控制一些visible显示隐藏
     * */
     downLoadData (params: DownloadParams) {
         const { url, payload, finallyCallback, successCallback, errorCallback } = params;
         fetch(url, { method: 'POST', body: JSON.stringify(payload) })
             .then((response) => {
-                const jsonResult = response.clone();
-                const blobResult = response.clone();
                 if (response.status !== 200) return errorCallback(response);
-                jsonResult
-                    .json()
-                    .then(() => {
-                        errorCallback(response);
-                    })
-                    .catch(() => {
-                        let { fileName } = params;
-                        if (!fileName) {
-                            const disposition = blobResult.headers.get(
-                                'Content-disposition'
-                            ) || '';
-                            fileName = disposition.split('filename=')[1];
-                        }
-                        blobResult.blob().then((blob) => {
-                            const href = URL.createObjectURL(blob);
-                            const dom = document.createElement('a');
-                            dom.setAttribute('href', href);
-                            dom.setAttribute(
-                                'download',
-                                decodeURIComponent(fileName || '')
-                            );
-                            dom.click();
-                            URL.revokeObjectURL(href);
-                            successCallback && successCallback(response);
-                        });
-                    });
+                const contentType = response.headers.get('Content-type') || ''
+                if (contentType.includes('application/json')) return errorCallback(response)
+                let { fileName } = params;
+                if (!fileName) {
+                    const disposition = response.headers.get(
+                        'Content-disposition'
+                    ) || '';
+                    fileName = disposition.split('filename=')[1];
+                }
+                response.blob().then((blob) => {
+                    const href = URL.createObjectURL(blob);
+                    const dom = document.createElement('a');
+                    dom.setAttribute('href', href);
+                    dom.setAttribute(
+                        'download',
+                        decodeURIComponent(fileName || '')
+                    );
+                    dom.click();
+                    URL.revokeObjectURL(href);
+                    successCallback && successCallback(response);
+                });
             })
             .finally(() => {
                 finallyCallback && finallyCallback();
@@ -488,5 +481,4 @@ const utils = {
         return result;
     },
 };
-
 export default utils;
