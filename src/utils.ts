@@ -412,8 +412,8 @@ const utils = {
         fetch(url, { method: 'POST', body: JSON.stringify(payload) })
             .then((response) => {
                 if (response.status !== 200) return errorCallback(response);
-                const contentType = response.headers.get('Content-type') || ''
-                if (contentType.includes('application/json')) return errorCallback(response)
+                const contentType = response.headers.get('Content-type') || '';
+                if (contentType.includes('application/json')) return errorCallback(response);
                 let { fileName } = params;
                 if (!fileName) {
                     const disposition = response.headers.get(
