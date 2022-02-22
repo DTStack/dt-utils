@@ -1,5 +1,14 @@
 # 工具库更新日志
 
+## [1.1.1](https://github.com/DTStack/dt-utils/compare/v1.1.0...v1.1.1) (2022-02-22)
+
+
+### Bug Fixes
+
+* fix cant download json ([a4fb84e](https://github.com/DTStack/dt-utils/commit/a4fb84e34690c02c09080b251888787ede4f6d5e))
+
+
+
 # [1.1.0](https://github.com/DTStack/dt-utils/compare/v1.0.9...v1.1.0) (2021-12-09)
 
 
