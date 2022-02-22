@@ -23,11 +23,9 @@ pnpm install @dtinsight/dt-utils
 
 ## 分支管理
 
-我们长期维护 master, release 分支，在创建分支前，请先了解一下分支规范。
+我们长期维护 master 分支，在创建分支前，请先了解一下分支规范。
 
 + **master**： 主干分支，用于发包
-
-+ **release**： 预发包分支
 
 + **feat**： 新特性分支
 
@@ -40,7 +38,7 @@ pnpm install @dtinsight/dt-utils
 
 1、请 `fork` 本项目，`clone` 自己的仓库，按照上述分支定义从 `master` 分支新建 `feat` 分支进行开发，分支命名用下划线加上版本号，如：`feat_1.x_xxx`
 
-2、`feat` 分支开发完毕后请向相应人员提 PR，期望合入 `release` 分支，待相应人员 review 代码后合入
+2、`feat` 分支开发完毕后请向相应人员提 PR，期望合入 `master` 分支，待相应人员 review 代码后合入
 
 
 ## Bugs
@@ -51,7 +49,7 @@ pnpm install @dtinsight/dt-utils
 
 1、请从 **master** 分支中新建 **fix** 分支进行修复，分支命名用下划线加上版本号，如：**hotfix_1.x_xxx**
 
-2、相关问题修复完毕后请向相应人员提 PR，期望合入**release** 分支，待相应人员 review 代码后合入
+2、相关问题修复完毕后请向相应人员提 PR，期望合入**master** 分支，待相应人员 review 代码后合入
 
 
 ## 第一次贡献
