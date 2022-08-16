@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.2](https://github.com/DTStack/dt-utils/compare/v1.1.0...v1.1.2) (2022-08-16)
+
+
+### Features
+
+* [#64](https://github.com/DTStack/dt-utils/issues/64) localDB add remove function ([d4c80bb](https://github.com/DTStack/dt-utils/commit/d4c80bb06a32569b84554e852018a4b178ff2526))
+* getThousandth get '' return '0' ([bde6994](https://github.com/DTStack/dt-utils/commit/bde69946b4a0181b07e9204d197df98b45117175))
+
+
+### Bug Fixes
+
+* fix cant download json ([a4fb84e](https://github.com/DTStack/dt-utils/commit/a4fb84e34690c02c09080b251888787ede4f6d5e))
+
 ### [1.1.1](https://github.com/DTStack/dt-utils/compare/v1.1.0...v1.1.1) (2022-02-22)
 
 
