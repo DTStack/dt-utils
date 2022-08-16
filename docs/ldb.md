@@ -1,4 +1,4 @@
-# localDb
+# LocalDB
 
 导入
 ````js
@@ -6,10 +6,10 @@
 ````
 功能
 
-封装localStorage，增加对JSON对象的转换，方法声明localDb对象定义相关方法
+封装 localStorage，增加对 JSON 对象的转换，方法声明 LocalDB 对象定义相关方法
 
 ## set
-按key存贮数据value到localStorage
+按 key 存贮数据 value 到 localStorage
 
 ### 参数
 (key, value)
@@ -27,15 +27,23 @@ set (key: string|number, value: any) {
     }
 }
 ```
+
 ## get
-通过key从localStorage获取数据
+通过 key 从 localStorage 获取数据
 
 ### 参数
-key：获取数据的可以标识
+key：获取数据的唯一标识
 ### 返回值
 返回空，字符串或者对象
+
+## remove
+通过 key 从 localStorage 删除数据
+
+### 参数
+key：删除数据的唯一标识
+
 ## clear
-清空localStorage
+清空 localStorage
 ### 参数
 无
 ### 返回值
