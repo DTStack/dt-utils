@@ -51,4 +51,10 @@ describe('utils.LocalDB', () => {
         };
         expect(value).toEqual(expected);
     });
+    test('remove the key', () => {
+        window.localStorage.setItem('name', 'Tom');
+        LocalDB.remove('name');
+        const value = LocalDB.get('name');
+        expect(value).toEqual('');
+    });
 });
