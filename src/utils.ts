@@ -145,7 +145,7 @@ const utils = {
 
     // 转换为千分位
     getThousandth (num: string | number) {
-        if (num === null || num === undefined) return '0';
+        if (num === null || num === undefined || num === '') return '0';
         num = `${ num }`;
         const [integer, decimal] = num.split('.');
         return `${integer.replace(/(\d)(?=(\d{3})+$)/g, '$1,')}${decimal ? `.${decimal}` : ''}`;

@@ -84,6 +84,9 @@ describe('utils:', () => {
         assert.strictEqual(percent(0.54321, 1), '54.3%');
     });
 
+    test('getThousandth("")', () => {
+        assert.strictEqual(getThousandth(''), '0');
+    });
     test('getThousandth(null)', () => {
         assert.strictEqual(getThousandth(null), '0');
     });

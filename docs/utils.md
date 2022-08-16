@@ -193,6 +193,7 @@ Utils.getThousandth (str: number | string): string
 ```
 例如:
 ```js
+Utils.getThousandth('') // "0"
 Utils.getThousandth('1234567') // "1,234,567"
 Utils.getThousandth(1234.56789) // "1,234.56789"
 ```
