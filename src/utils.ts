@@ -28,14 +28,12 @@ const utils = {
         if (utils.isMobileDevice()) { return true; } // 忽略移动设备
         const ua = navigator.userAgent.toLowerCase();
         let s;
-        // eslint:disable:no-conditional-assignment
         (s = ua.match(/rv:([\d.]+)\) like gecko/)) ? Sys.ie = s[1]
             : (s = ua.match(/msie ([\d\.]+)/)) ? Sys.ie = s[1]
                 : (s = ua.match(/edge\/([\d\.]+)/)) ? Sys.edge = s[1]
                     : (s = ua.match(/firefox\/([\d\.]+)/)) ? Sys.firefox = s[1]
                         : (s = ua.match(/(?:opera|opr).([\d\.]+)/)) ? Sys.opera = s[1]
                             : (s = ua.match(/chrome\/([\d\.]+)/)) ? Sys.chrome = s[1]
-                                // tslint:disable-next-line:no-unused-expression
                                 : (s = ua.match(/version\/([\d\.]+).*safari/)) ? Sys.safari = s[1] : 0;
         if (
             (Sys.chrome && parseInt(Sys.chrome.split('.')[0], 10) >= 66) || Sys.firefox
@@ -208,7 +206,6 @@ const utils = {
    * 生成一个key
    */
     generateAKey () {
-        // tslint:disable-next-line:no-bitwise
         return '' + new Date().getTime() + ~~(Math.random() * 1000000);
     },
 

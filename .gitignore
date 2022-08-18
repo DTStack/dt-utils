@@ -107,5 +107,5 @@ lib
 temp
 
 # ide
-.vscode
+# .vscode
 .idea
