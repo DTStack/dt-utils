@@ -1,5 +1,8 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-cond-assign */
 import _ from 'lodash';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 declare let APP: any;
 interface BrowserInter {
     chrome?: string;
@@ -249,6 +252,7 @@ const utils = {
      */
     isFunction(arg: any) {
         if (arg) {
+            // eslint-disable-next-line no-constant-condition
             if (typeof /./ !== 'function') {
                 return typeof arg === 'function';
             } else {
