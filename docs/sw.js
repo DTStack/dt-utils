@@ -7,12 +7,7 @@
  * ========================================================== */
 
 const RUNTIME = 'docsify';
-const HOSTNAME_WHITELIST = [
-    self.location.hostname,
-    'fonts.gstatic.com',
-    'fonts.googleapis.com',
-    'cdn.jsdelivr.net',
-];
+const HOSTNAME_WHITELIST = [self.location.hostname, 'fonts.gstatic.com', 'fonts.googleapis.com', 'cdn.jsdelivr.net'];
 
 // The Util Function to hack URLs of intercepted requests
 const getFixedUrl = (req) => {
@@ -42,7 +37,7 @@ const getFixedUrl = (req) => {
  *
  *  waitUntil(): activating ====> activated
  */
-self.addEventListener('activate', event => {
+self.addEventListener('activate', (event) => {
     event.waitUntil(self.clients.claim());
 });
 
@@ -52,16 +47,16 @@ self.addEventListener('activate', event => {
  *
  *  void respondWith(Promise<Response> r)
  */
-self.addEventListener('fetch', event => {
+self.addEventListener('fetch', (event) => {
     // Skip some of cross-origin requests, like those for Google Analytics.
     if (HOSTNAME_WHITELIST.indexOf(new URL(event.request.url).hostname) > -1) {
-    // Stale-while-revalidate
-    // similar to HTTP's stale-while-revalidate: https://www.mnot.net/blog/2007/12/12/stale
-    // Upgrade from Jake's to Surma's: https://gist.github.com/surma/eb441223daaedf880801ad80006389f1
+        // Stale-while-revalidate
+        // similar to HTTP's stale-while-revalidate: https://www.mnot.net/blog/2007/12/12/stale
+        // Upgrade from Jake's to Surma's: https://gist.github.com/surma/eb441223daaedf880801ad80006389f1
         const cached = caches.match(event.request);
         const fixedUrl = getFixedUrl(event.request);
         const fetched = fetch(fixedUrl, { cache: 'no-store' });
-        const fetchedCopy = fetched.then(resp => resp.clone());
+        const fetchedCopy = fetched.then((resp) => resp.clone());
 
         // Call respondWith() with whatever we get first.
         // If the fetch fails (e.g disconnected), wait for the cache.
@@ -69,10 +64,12 @@ self.addEventListener('fetch', event => {
         // If neither yields a response, return offline pages.
         event.respondWith(
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            Promise.race([fetched.catch(_ => cached), cached])
-                .then(resp => resp || fetched)
+            Promise.race([fetched.catch((_) => cached), cached])
+                .then((resp) => resp || fetched)
                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                .catch(_ => { /* eat any errors */ })
+                .catch((_) => {
+                    /* eat any errors */
+                })
         );
 
         // Update the cache with the version we fetched (only for ok status)
@@ -80,7 +77,9 @@ self.addEventListener('fetch', event => {
             Promise.all([fetchedCopy, caches.open(RUNTIME)])
                 .then(([response, cache]) => response.ok && cache.put(event.request, response))
                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                .catch(_ => { /* eat any errors */ })
+                .catch((_) => {
+                    /* eat any errors */
+                })
         );
     }
 });

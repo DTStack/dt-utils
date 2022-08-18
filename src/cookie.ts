@@ -1,12 +1,10 @@
 const cookie = {
     /**
-   * 原生 JavaScript 获取 cookie 值
-   * @param name
-   */
-    getCookie (name: string) {
-        const arr = document.cookie.match(
-            new RegExp('(^| )' + name + '=([^;]*)(;|$)')
-        );
+     * 原生 JavaScript 获取 cookie 值
+     * @param name
+     */
+    getCookie(name: string) {
+        const arr = document.cookie.match(new RegExp('(^| )' + name + '=([^;]*)(;|$)'));
         if (arr != null) {
             try {
                 return unescape(decodeURI(arr[2]));
@@ -18,28 +16,27 @@ const cookie = {
     },
 
     // 获取全部 cookie
-    getAllCookies () {
+    getAllCookies() {
         const cookies = {};
         try {
-            document.cookie.split('; ').forEach(item=>{
+            document.cookie.split('; ').forEach((item) => {
                 const msg = item.split('=');
                 cookies[msg[0]] = msg[1];
             });
         } catch {
-            throw(new Error ('Cookie解析失败，请检查Cookie格式！'));
-        } 
+            throw new Error('Cookie解析失败，请检查Cookie格式！');
+        }
         return cookies;
     },
 
-    deleteCookie (name: string, domain?: string, path?: string) {
+    deleteCookie(name: string, domain?: string, path?: string) {
         const d = new Date(0);
         domain = domain ? `; domain=${domain}` : '';
         path = path || '/';
-        document.cookie =
-            name + '=; expires=' + d.toUTCString() + domain + '; path=' + path;
+        document.cookie = name + '=; expires=' + d.toUTCString() + domain + '; path=' + path;
     },
 
-    deleteAllCookies (domain: string, path: string) {
+    deleteAllCookies(domain: string, path: string) {
         const cookies = document.cookie.split(';');
         for (let i = 0; i < cookies.length; i++) {
             if (cookies[i]) {
@@ -48,7 +45,7 @@ const cookie = {
         }
     },
 
-    setCookie (name: string, value: string | number | object | boolean, days?: number, domainStr?: string) {
+    setCookie(name: string, value: string | number | object | boolean, days?: number, domainStr?: string) {
         let expires = '';
         if (days) {
             const date = new Date();

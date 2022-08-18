@@ -18,7 +18,7 @@ const paths = {
 const rollupConfig: RollupOptions = {
     input: paths.input,
     output: [
-    // 输出 commonjs 规范的代码
+        // 输出 commonjs 规范的代码
         {
             file: path.join(paths.output, 'index.js'),
             format: 'cjs',
@@ -34,7 +34,7 @@ const rollupConfig: RollupOptions = {
     // external: ['lodash'], // 指出应将哪些模块视为外部模块，如 Peer dependencies 中的依赖
     // plugins 需要注意引用顺序
     plugins: [
-    // 验证导入的文件
+        // 验证导入的文件
         eslint({
             throwOnError: true, // lint 结果有错误将会抛出异常
             throwOnWarning: true,
@@ -58,10 +58,7 @@ const rollupConfig: RollupOptions = {
             // 只转换源代码，不运行外部依赖
             exclude: 'node_modules/**',
             // babel 默认不支持 ts 需要手动添加
-            extensions: [
-                ...DEFAULT_EXTENSIONS,
-                '.ts',
-            ],
+            extensions: [...DEFAULT_EXTENSIONS, '.ts'],
         }),
     ],
 };

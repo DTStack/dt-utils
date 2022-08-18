@@ -96,29 +96,29 @@ describe('utils:', () => {
     test('getThousandth(123456)', () => {
         assert.strictEqual(getThousandth(123456), '123,456');
     });
-    test('getThousandth(\'123456\')', () => {
+    test("getThousandth('123456')", () => {
         assert.strictEqual(getThousandth('123456'), '123,456');
     });
     test('getThousandth(1234567)', () => {
         assert.strictEqual(getThousandth(1234567), '1,234,567');
     });
-    test('getThousandth(\'1234567\')', () => {
+    test("getThousandth('1234567')", () => {
         assert.strictEqual(getThousandth('1234567'), '1,234,567');
     });
     test('getThousandth(1234.56789)', () => {
         assert.strictEqual(getThousandth(1234.56789), '1,234.56789');
     });
-    test('getThousandth(\'1234.56789\')', () => {
+    test("getThousandth('1234.56789')", () => {
         assert.strictEqual(getThousandth('1234.56789'), '1,234.56789');
     });
 
     test('textOverflowExchange(\'my name is linhe\')=>"my name is..."', () => {
         assert.strictEqual(textOverflowExchange('my name is linhe', 10), 'my name is...');
     });
-    test('exchangeOrder(\'ascend\')=>asc', () => {
+    test("exchangeOrder('ascend')=>asc", () => {
         assert.strictEqual(exchangeOrder('ascend'), 'asc');
     });
-    test('exchangeOrder(\'descend\')=>desc', () => {
+    test("exchangeOrder('descend')=>desc", () => {
         assert.strictEqual(exchangeOrder('descend'), 'desc');
     });
     test('isEqualArr([1,2,3],[1,2,3])=>true', () => {
@@ -131,7 +131,7 @@ describe('utils:', () => {
         test(' undefined => false ', () => {
             assert.strictEqual(checkExist(undefined), false);
         });
-        test(' \'\' => false ', () => {
+        test(" '' => false ", () => {
             assert.strictEqual(checkExist(''), false);
         });
         test(' null => false ', () => {
@@ -145,7 +145,7 @@ describe('utils:', () => {
      * getCssText
      */
     describe('getCssText', () => {
-        test(' {height:\'100px\',width:\'100px\'} => height:100px;width:100px; ', () => {
+        test(" {height:'100px',width:'100px'} => height:100px;width:100px; ", () => {
             assert.strictEqual(getCssText({ height: '100px', width: '100px' }), 'height:100px;width:100px;');
         });
     });
@@ -154,16 +154,16 @@ describe('utils:', () => {
      * trim
      */
     describe('trim', () => {
-        test('\' 张三 \'=> 张三 ', () => {
+        test("' 张三 '=> 张三 ", () => {
             assert.strictEqual(trim(' 张三 '), '张三');
         });
-        test('\' 张三\'=> 张三 ', () => {
+        test("' 张三'=> 张三 ", () => {
             assert.strictEqual(trim(' 张三'), '张三');
         });
-        test('\'张三 \'=> 张三', () => {
+        test("'张三 '=> 张三", () => {
             assert.strictEqual(trim('张三 '), '张三');
         });
-        test('\'张 三\'=> 张三', () => {
+        test("'张 三'=> 张三", () => {
             assert.strictEqual(trim('张 三'), '张 三');
         });
     });
@@ -186,7 +186,11 @@ describe('utils:', () => {
     describe('transformArray Test', () => {
         test('return the two-dimensional array', () => {
             const arr = ['1', '2', '3', '4', '5', '6'];
-            expect(transformArray(arr, 2)).toEqual([['1', '2'], ['3', '4'], ['5', '6']]);
+            expect(transformArray(arr, 2)).toEqual([
+                ['1', '2'],
+                ['3', '4'],
+                ['5', '6'],
+            ]);
         });
     });
 
@@ -237,16 +241,15 @@ describe('utils:', () => {
     });
     describe('mergeDeep test', () => {
         test('basic var', () => {
-            expect(mergeDeep(
-                { a: 123, c: 321 },
-                { a: 'cover', b: 456 }
-            )).toEqual({ a: 'cover', b: 456, c: 321 });
+            expect(mergeDeep({ a: 123, c: 321 }, { a: 'cover', b: 456 })).toEqual({ a: 'cover', b: 456, c: 321 });
         });
         test('complex var', () => {
-            expect(mergeDeep(
-                { a: 123, b: 321, innerObj: { a: 123, c: 456 } },
-                { a: 'cover', c: 456, innerObj: { a: 'cover', b: 321 } }
-            )).toEqual({ a: 'cover', b: 321, c: 456, innerObj: { a: 'cover', b: 321, c: 456 } });
+            expect(mergeDeep({ a: 123, b: 321, innerObj: { a: 123, c: 456 } }, { a: 'cover', c: 456, innerObj: { a: 'cover', b: 321 } })).toEqual({
+                a: 'cover',
+                b: 321,
+                c: 456,
+                innerObj: { a: 'cover', b: 321, c: 456 },
+            });
         });
         test('empty var', () => {
             expect(mergeDeep(null, null)).toEqual(null);
@@ -254,11 +257,7 @@ describe('utils:', () => {
             expect(mergeDeep(null, { name: 2 })).toEqual({ name: 2 });
         });
         test('_isMergeAtom case', () => {
-            expect(mergeDeep(
-                { a: 123, c: 321 },
-                { a: 'cover', b: 456, _isMergeAtom: true }
-            )).toEqual({ a: 'cover', b: 456 });
+            expect(mergeDeep({ a: 123, c: 321 }, { a: 'cover', b: 456, _isMergeAtom: true })).toEqual({ a: 'cover', b: 456 });
         });
     });
 });
-

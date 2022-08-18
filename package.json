@@ -1,100 +1,100 @@
 {
-  "name": "@dtinsight/dt-utils",
-  "version": "1.1.2",
-  "description": "袋鼠云前端常用工具库",
-  "main": "lib/index.js",
-  "module": "lib/index.esm.js",
-  "typings": "lib/index.d.js",
-  "files": [
-    "lib",
-    "LICENSE",
-    "CHANGELOG.md",
-    "README.md"
-  ],
-  "sideEffects": "false",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DTStack/dt-utils.git"
-  },
-  "author": "linhe",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/DTStack/dt-utils/issues"
-  },
-  "homepage": "https://dtstack.github.io/dt-utils/",
-  "scripts": {
-    "build": "gulp build",
-    "api": "api-extractor run",
-    "prettier": "npx prettier --check .",
-    "prettier:fix": "npx prettier --write .",
-    "lint": "npx eslint --ext .js,.ts ./src ./test",
-    "lint:fix": "npx eslint --fix --ext .js,.ts ./src ./test",
-    "changelog": "gulp changelog",
-    "docs": "docsify serve docs",
-    "test": "jest --no-chche",
-    "release": "./scripts/release.sh",
-    "prepublishOnly": "yarn lint & yarn test & yarn changelog & yarn build"
-  },
-  "devDependencies": {
-    "@babel/preset-env": "^7.7.7",
-    "@commitlint/config-conventional": "^9.1.1",
-    "@microsoft/api-extractor": "^7.7.0",
-    "@types/fs-extra": "^8.0.1",
-    "@types/gulp": "^4.0.6",
-    "@types/jest": "^24.0.24",
-    "@types/node": "^13.1.0",
-    "chalk": "^3.0.0",
-    "commitizen": "^4.0.3",
-    "commitlint": "^8.2.0",
-    "conventional-changelog-cli": "^2.0.31",
-    "docsify-cli": "^4.4.1",
-    "fs-extra": "^8.1.0",
-    "gulp": "^4.0.2",
-    "husky": "^3.1.0",
-    "jest": "^24.9.0",
-    "ko-lint-config": "^2.2.6",
-    "lint-staged": "^9.5.0",
-    "prettier": "^2.7.1",
-    "right-pad": "^1.0.1",
-    "rollup": "^1.27.14",
-    "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-eslint": "^7.0.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-typescript2": "^0.25.3",
-    "ts-jest": "^24.2.0",
-    "ts-node": "^8.5.4",
-    "typescript": "^3.7.4",
-    "vue-cli-plugin-commitlint": "^1.0.4"
-  },
-  "dependencies": {
-    "dayjs": "^1.10.6",
-    "lodash": "^4.17.21",
-    "standard-version": "^9.3.1"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/vue-cli-plugin-commitlint/lib/cz"
-    }
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged & jest -u"
-    }
-  },
-  "lint-staged": {
-    "*.{.ts,.js}": [
-      "eslint",
-      "git add"
+    "name": "@dtinsight/dt-utils",
+    "version": "1.1.2",
+    "description": "袋鼠云前端常用工具库",
+    "main": "lib/index.js",
+    "module": "lib/index.esm.js",
+    "typings": "lib/index.d.js",
+    "files": [
+        "lib",
+        "LICENSE",
+        "CHANGELOG.md",
+        "README.md"
+    ],
+    "sideEffects": "false",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DTStack/dt-utils.git"
+    },
+    "author": "linhe",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/DTStack/dt-utils/issues"
+    },
+    "homepage": "https://dtstack.github.io/dt-utils/",
+    "scripts": {
+        "build": "gulp build",
+        "api": "api-extractor run",
+        "prettier": "npx prettier --check *.{js,json,ts}",
+        "prettier:fix": "npx prettier --write *.{js,json,ts}",
+        "lint": "npx eslint --ext .js,.ts ./src ./test",
+        "lint:fix": "npx eslint --fix --ext .js,.ts ./src ./test",
+        "changelog": "gulp changelog",
+        "docs": "docsify serve docs",
+        "test": "jest --no-chche",
+        "release": "./scripts/release.sh",
+        "prepublishOnly": "yarn lint & yarn test & yarn changelog & yarn build"
+    },
+    "devDependencies": {
+        "@babel/preset-env": "^7.7.7",
+        "@commitlint/config-conventional": "^9.1.1",
+        "@microsoft/api-extractor": "^7.7.0",
+        "@types/fs-extra": "^8.0.1",
+        "@types/gulp": "^4.0.6",
+        "@types/jest": "^24.0.24",
+        "@types/node": "^13.1.0",
+        "chalk": "^3.0.0",
+        "commitizen": "^4.0.3",
+        "commitlint": "^8.2.0",
+        "conventional-changelog-cli": "^2.0.31",
+        "docsify-cli": "^4.4.1",
+        "fs-extra": "^8.1.0",
+        "gulp": "^4.0.2",
+        "husky": "^3.1.0",
+        "jest": "^24.9.0",
+        "ko-lint-config": "^2.2.6",
+        "lint-staged": "^9.5.0",
+        "prettier": "^2.7.1",
+        "right-pad": "^1.0.1",
+        "rollup": "^1.27.14",
+        "rollup-plugin-babel": "^4.3.3",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-eslint": "^7.0.0",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-typescript2": "^0.25.3",
+        "ts-jest": "^24.2.0",
+        "ts-node": "^8.5.4",
+        "typescript": "^3.7.4",
+        "vue-cli-plugin-commitlint": "^1.0.4"
+    },
+    "dependencies": {
+        "dayjs": "^1.10.6",
+        "lodash": "^4.17.21",
+        "standard-version": "^9.3.1"
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/vue-cli-plugin-commitlint/lib/cz"
+        }
+    },
+    "husky": {
+        "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+            "pre-commit": "lint-staged & jest -u"
+        }
+    },
+    "lint-staged": {
+        "*.{.ts,.js}": [
+            "eslint",
+            "git add"
+        ]
+    },
+    "directories": {
+        "doc": "docs",
+        "lib": "lib",
+        "test": "test"
+    },
+    "keywords": [
+        "uitls"
     ]
-  },
-  "directories": {
-    "doc": "docs",
-    "lib": "lib",
-    "test": "test"
-  },
-  "keywords": [
-    "uitls"
-  ]
 }
