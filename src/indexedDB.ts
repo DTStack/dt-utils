@@ -19,9 +19,9 @@ class LocalIndexedDB {
      * @param storeName store object name
      * @param openLog - 是否打印 indexedDB 变化
      */
-    constructor (database: string, version: number, storeName: string, openLog = false) {
+    constructor(database: string, version: number, storeName: string, openLog = false) {
         if (!('indexedDB' in window)) {
-            console.log('This browser doesn\'t support IndexedDB');
+            console.log("This browser doesn't support IndexedDB");
         } else {
             this._storeName = storeName;
             this._version = version;
@@ -34,7 +34,7 @@ class LocalIndexedDB {
      * Open the database indicated in constructor function.
      * This method return a Promise object which success will resolve db instance.
      */
-    public open () {
+    public open() {
         return new Promise<IDBDatabase>((resolve, reject) => {
             try {
                 const self = this;
@@ -80,7 +80,7 @@ class LocalIndexedDB {
         });
     }
 
-    private getObjectStore (storeName: string, mode: IDBTransactionMode) {
+    private getObjectStore(storeName: string, mode: IDBTransactionMode) {
         if (this._db) {
             const transaction = this._db.transaction([storeName], mode);
             return transaction.objectStore(storeName);
@@ -88,7 +88,7 @@ class LocalIndexedDB {
         return null;
     }
 
-    public add (value: any, key?: string) {
+    public add(value: any, key?: string) {
         return this.wrapStoreOperationPromise(function (store: IDBObjectStore) {
             return store.add(value, key);
         });
@@ -99,7 +99,7 @@ class LocalIndexedDB {
      * @param key the key of store object
      * @param value the value of store object
      */
-    public set (key: string, value: any) {
+    public set(key: string, value: any) {
         this.log('IndexedDB set', key, value);
         return this.wrapStoreOperationPromise(function (store: IDBObjectStore) {
             return store.put(value, key);
@@ -110,7 +110,7 @@ class LocalIndexedDB {
      * Get the value with the given key
      * @param key the key of store object
      */
-    public get (key: string) {
+    public get(key: string) {
         this.log('IndexedDB get', key);
         return this.wrapStoreOperationPromise(function (store: IDBObjectStore) {
             return store.get(key);
@@ -121,7 +121,7 @@ class LocalIndexedDB {
      * Delete records in store with the given key
      * @param key the key of store object
      */
-    public delete (key: string) {
+    public delete(key: string) {
         return this.wrapStoreOperationPromise(function (store: IDBObjectStore) {
             return store.delete(key);
         });
@@ -130,7 +130,7 @@ class LocalIndexedDB {
     /**
      * Delete all data in store object
      */
-    public clear () {
+    public clear() {
         return this.wrapStoreOperationPromise(function (store: IDBObjectStore) {
             return store.clear();
         });
@@ -139,7 +139,7 @@ class LocalIndexedDB {
     /**
      * Get the store object
      */
-    public getStore () {
+    public getStore() {
         return this.getObjectStore(this._storeName, 'readwrite');
     }
 
@@ -147,7 +147,7 @@ class LocalIndexedDB {
      * Wrap the database request result as promise object
      * @param operate A function which operate store
      */
-    public wrapStoreOperationPromise<T = IDBRequest> (operate: (store: IDBObjectStore) => IDBRequest): Promise<T> {
+    public wrapStoreOperationPromise<T = IDBRequest>(operate: (store: IDBObjectStore) => IDBRequest): Promise<T> {
         return new Promise((resolve, reject) => {
             try {
                 const store = this.getObjectStore(this._storeName, 'readwrite');
@@ -163,7 +163,7 @@ class LocalIndexedDB {
         });
     }
 
-    private log (...args: any) {
+    private log(...args: any) {
         if (this._openLog) {
             console.log(...args);
         }

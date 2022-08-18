@@ -1,13 +1,5 @@
 import DateTime from '../src/dateTime';
-const {
-    formatDate,
-    formatDateHours,
-    formatDateTime,
-    formatDayHours,
-    formatHours,
-    formatMinute,
-    formatSecond,
-} = DateTime;
+const { formatDate, formatDateHours, formatDateTime, formatDayHours, formatHours, formatMinute, formatSecond } = DateTime;
 
 describe('utils.dateTime', () => {
     test('formatDate timestamp to YYYY-MM-DD', () => {

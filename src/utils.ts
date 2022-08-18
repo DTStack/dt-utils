@@ -10,24 +10,27 @@ interface BrowserInter {
     opera?: string;
 }
 interface DownloadParams {
-    url: string,
-    fileName?: string,
-    payload?: object,
-    finallyCallback?: () => void,
-    successCallback?: (res: Response) => void,
-    errorCallback: (res: Response) => void
+    url: string;
+    fileName?: string;
+    payload?: object;
+    finallyCallback?: () => void;
+    successCallback?: (res: Response) => void;
+    errorCallback: (res: Response) => void;
 }
 
 const utils = {
     /**
-   * @description 浏览器类型和版本检测
-   * @returns {Boolean} `true`表示通过兼容性检测,`false`表示不通过兼容性检测
-   */
-    browserCheck () {
+     * @description 浏览器类型和版本检测
+     * @returns {Boolean} `true`表示通过兼容性检测,`false`表示不通过兼容性检测
+     */
+    browserCheck() {
         const Sys: BrowserInter = {};
-        if (utils.isMobileDevice()) { return true; } // 忽略移动设备
+        if (utils.isMobileDevice()) {
+            return true;
+        } // 忽略移动设备
         const ua = navigator.userAgent.toLowerCase();
         let s;
+        // prettier-ignore
         (s = ua.match(/rv:([\d.]+)\) like gecko/)) ? Sys.ie = s[1]
             : (s = ua.match(/msie ([\d\.]+)/)) ? Sys.ie = s[1]
                 : (s = ua.match(/edge\/([\d\.]+)/)) ? Sys.edge = s[1]
@@ -35,19 +38,19 @@ const utils = {
                         : (s = ua.match(/(?:opera|opr).([\d\.]+)/)) ? Sys.opera = s[1]
                             : (s = ua.match(/chrome\/([\d\.]+)/)) ? Sys.chrome = s[1]
                                 : (s = ua.match(/version\/([\d\.]+).*safari/)) ? Sys.safari = s[1] : 0;
-        if (
-            (Sys.chrome && parseInt(Sys.chrome.split('.')[0], 10) >= 66) || Sys.firefox
-        ) { return true; }
+        if ((Sys.chrome && parseInt(Sys.chrome.split('.')[0], 10) >= 66) || Sys.firefox) {
+            return true;
+        }
         return false;
     },
-    checkExist (prop: any) {
+    checkExist(prop: any) {
         return prop !== undefined && prop !== null && prop !== '';
     },
     /**
-   * 转换 Byte 转换为小于1024值最大单位
-   * @param value 'B' | 'KB' | 'MB' | 'GB' | 'TB' | 'PB' 转换原始值
-   */
-    convertBytes (value: number) {
+     * 转换 Byte 转换为小于1024值最大单位
+     * @param value 'B' | 'KB' | 'MB' | 'GB' | 'TB' | 'PB' 转换原始值
+     */
+    convertBytes(value: number) {
         const units = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
         let i = 0;
         while (value >= 1024) {
@@ -56,62 +59,72 @@ const utils = {
         }
         return `${value} ${units[i]}`;
     },
-    isMacOs () {
+    isMacOs() {
         return navigator.userAgent.indexOf('Macintosh') > -1;
     },
 
-    isWindows () {
+    isWindows() {
         return navigator.userAgent.indexOf('Windows') > -1;
     },
-    isMobileDevice () {
-        return (typeof window.orientation !== 'undefined') || (navigator.userAgent.indexOf('IEMobile') !== -1);
+    isMobileDevice() {
+        return typeof window.orientation !== 'undefined' || navigator.userAgent.indexOf('IEMobile') !== -1;
     },
     /**
-   * 根据参数名获取URL数据
-   * @param  {[type]} name [description]
-   * @param  {[type]} url  [description]
-   */
-    getParameterByName (name: string, url?: string) {
-        if (!url) { url = window.location.href; }
+     * 根据参数名获取URL数据
+     * @param  {[type]} name [description]
+     * @param  {[type]} url  [description]
+     */
+    getParameterByName(name: string, url?: string) {
+        if (!url) {
+            url = window.location.href;
+        }
         name = name.replace(/[\[\]]/g, '\\$&');
         const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
 
         const results = regex.exec(url);
-        if (!results) { return null; }
-        if (!results[2]) { return ''; }
+        if (!results) {
+            return null;
+        }
+        if (!results[2]) {
+            return '';
+        }
         return decodeURIComponent(results[2].replace(/\+/g, ' '));
     },
 
     /**
-   * 获取图片的Base64格式
-   * @param  {[type]}   img      [description]
-   * @param  {Function} callback [description]
-   */
-    getBase64 (img: any, callback: (img: any) => void) {
+     * 获取图片的Base64格式
+     * @param  {[type]}   img      [description]
+     * @param  {Function} callback [description]
+     */
+    getBase64(img: any, callback: (img: any) => void) {
         const reader = new FileReader();
         reader.addEventListener('load', () => callback(reader.result));
         reader.readAsDataURL(img);
     },
 
     /**
-   * 百分比转换
-   * @param  {[type]} num       [description]
-   * @param  {[type]} precision [description]
-   */
-    percent (num: number, precision?: number) {
-        if (!num || num === Infinity) { return 0 + '%'; }
-        if (num > 1) { num = 1; }
+     * 百分比转换
+     * @param  {[type]} num       [description]
+     * @param  {[type]} precision [description]
+     */
+    percent(num: number, precision?: number) {
+        if (!num || num === Infinity) {
+            return 0 + '%';
+        }
+        if (num > 1) {
+            num = 1;
+        }
         precision = precision || 2;
         precision = Math.pow(10, precision);
         return Math.round(num * precision * 100) / precision + '%';
     },
     /**
- *
- *
- * @param {Record<string, any>} [object={}]
- * @returns
- */
-    getCssText (object: Record<string, any> = {}) {
+     *
+     *
+     * @param {Record<string, any>} [object={}]
+     * @returns
+     */
+    getCssText(object: Record<string, any> = {}) {
         let str = '';
         for (const attr in object) {
             if (object.hasOwnProperty(attr)) {
@@ -126,7 +139,7 @@ const utils = {
      * @param: str 带有空格的字符串
      * @returns: 返回去除前后空格的字符串
      */
-    trim (str: string) {
+    trim(str: string) {
         if (typeof str !== 'string') return str;
         return str.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
     },
@@ -136,32 +149,32 @@ const utils = {
      * @param: str 带有空格的字符串
      * @returns: 返回去除所有空格的字符串
      */
-    trimAll (str: string) {
+    trimAll(str: string) {
         if (typeof str !== 'string') return str;
         return str.replace(/\s/g, '');
     },
 
     // 转换为千分位
-    getThousandth (num: string | number) {
+    getThousandth(num: string | number) {
         if (num === null || num === undefined || num === '') return '0';
-        num = `${ num }`;
+        num = `${num}`;
         const [integer, decimal] = num.split('.');
         return `${integer.replace(/(\d)(?=(\d{3})+$)/g, '$1,')}${decimal ? `.${decimal}` : ''}`;
     },
 
     // 文字溢出转换
-    textOverflowExchange (text: string, length: number) {
+    textOverflowExchange(text: string, length: number) {
         if (text && text.length > length) {
             return text.substring(0, length) + '...';
         }
         return text;
     },
     /**
-   * json格式化
-   * @param {格式化内容} text
-   * @param {格式化占位符} space
-   */
-    jsonFormat (text: string, space?: number) {
+     * json格式化
+     * @param {格式化内容} text
+     * @param {格式化占位符} space
+     */
+    jsonFormat(text: string, space?: number) {
         if (!text) {
             return text;
         }
@@ -175,9 +188,9 @@ const utils = {
         }
     },
     /**
-   * 多函数排序，匹配到0为止
-   */
-    sortByCompareFunctions (arr: any[], ...compareFunctions: any[]) {
+     * 多函数排序，匹配到0为止
+     */
+    sortByCompareFunctions(arr: any[], ...compareFunctions: any[]) {
         arr.sort((a, b) => {
             let result = 0;
             for (const func of compareFunctions) {
@@ -190,9 +203,9 @@ const utils = {
         });
     },
     /**
-   * 转换排序字段
-   */
-    exchangeOrder (order: string) {
+     * 转换排序字段
+     */
+    exchangeOrder(order: string) {
         switch (order) {
             case 'ascend':
                 return 'asc';
@@ -203,23 +216,20 @@ const utils = {
         }
     },
     /**
-   * 生成一个key
-   */
-    generateAKey () {
+     * 生成一个key
+     */
+    generateAKey() {
         return '' + new Date().getTime() + ~~(Math.random() * 1000000);
     },
 
     /**
-   * 判断是否是JSON string
-   * @param  {String}  str 所要验证的字符串
-   * @return {Boolean}   是否是JSON字符串
-   */
-    isJSONStr (str: string) {
+     * 判断是否是JSON string
+     * @param  {String}  str 所要验证的字符串
+     * @return {Boolean}   是否是JSON字符串
+     */
+    isJSONStr(str: string) {
         str = utils.trim(str);
-        return (
-            (str.charAt(0) === '{' && str.charAt(str.length - 1) === '}') ||
-            (str.charAt(0) === '[' && str.charAt(str.length - 1) === ']')
-        );
+        return (str.charAt(0) === '{' && str.charAt(str.length - 1) === '}') || (str.charAt(0) === '[' && str.charAt(str.length - 1) === ']');
     },
     /**
      *
@@ -227,19 +237,19 @@ const utils = {
      * @param {*} tel
      * @returns
      */
-    isPhoneNumber (tel: string) {
+    isPhoneNumber(tel: string) {
         const reg = /^0?1[3|4|5|6|7|8][0-9]\d{8}$/;
         return reg.test(tel);
     },
     /**
-      *  判断是否是函数
-      *
-      * @param {*} arg
-      * @returns
-      */
-    isFunction (arg: any) {
+     *  判断是否是函数
+     *
+     * @param {*} arg
+     * @returns
+     */
+    isFunction(arg: any) {
         if (arg) {
-            if (typeof (/./) !== 'function') {
+            if (typeof /./ !== 'function') {
                 return typeof arg === 'function';
             } else {
                 return Object.prototype.toString.call(arg) === '[object Function]';
@@ -248,14 +258,14 @@ const utils = {
         return false;
     },
     /**
-   * 随机生成一串6位同时包含数字、大小写字母的字符串
-   * @param len number
-   */
-    getRandomStr (len: number): string {
+     * 随机生成一串6位同时包含数字、大小写字母的字符串
+     * @param len number
+     */
+    getRandomStr(len: number): string {
         const numChar = '0123456789';
         const lowerCaseChar = 'abcdefghijklmnopqrstuvwxyz';
         const upperCaseChar = 'ABCDEFGHIJKLMNOPQRSTUVXYZ';
-        function getChar (baseChar: string) {
+        function getChar(baseChar: string) {
             const randomIndex = Math.random() * (baseChar.length - 1);
             return baseChar.charAt(randomIndex);
         }
@@ -276,12 +286,12 @@ const utils = {
         return str;
     },
     /**
-   * simply judge whether the array is equal
-   * @param arr1
-   * @param arr2
-   * @returns arr1 === arr2
-   */
-    isEqualArr (arr1: string[], arr2: string[]): boolean {
+     * simply judge whether the array is equal
+     * @param arr1
+     * @param arr2
+     * @returns arr1 === arr2
+     */
+    isEqualArr(arr1: string[], arr2: string[]): boolean {
         const toString = JSON.stringify;
         return toString(arr1.sort()) === toString(arr2.sort());
     },
@@ -292,10 +302,9 @@ const utils = {
      * @param {*} b
      * @returns boolean
      */
-    isEqual (a: any, b: any): boolean {
+    isEqual(a: any, b: any): boolean {
         for (const key in a) {
-            if ({}.hasOwnProperty.call(a, key) &&
-                (!{}.hasOwnProperty.call(b, key) || a[key] !== b[key])) {
+            if ({}.hasOwnProperty.call(a, key) && (!{}.hasOwnProperty.call(b, key) || a[key] !== b[key])) {
                 return false;
             }
         }
@@ -311,7 +320,7 @@ const utils = {
      *
      * @param {*} targetComponent
      */
-    shouldRender (targetComponent: any) {
+    shouldRender(targetComponent: any) {
         targetComponent.prototype.shouldComponentUpdate = function (props: any, state: any) {
             return !utils.isEqual(this.state, state) || !utils.isEqual(this.props, props);
         };
@@ -322,21 +331,20 @@ const utils = {
      * @param {*} str
      * @returns number
      */
-    getStrlen (str: string) {
+    getStrlen(str: string) {
         let len = 0;
         for (let i = 0; i < str.length; i++) {
             const c = str.charCodeAt(i);
-            //单字节加1   
-            if ((c >= 0x0001 && c <= 0x007e) || (0xff60 <= c && c <= 0xff9f)) {
+            // 单字节加1
+            if ((c >= 0x0001 && c <= 0x007e) || (c >= 0xff60 && c <= 0xff9f)) {
                 len++;
-            }
-            else {
+            } else {
                 len += 2;
             }
         }
         return len;
     },
-    transformArray<T> (arr: T[], num: number): T[][] {
+    transformArray<T>(arr: T[], num: number): T[][] {
         const length = arr.length;
         const res: T[][] = [];
         let i = 0;
@@ -346,7 +354,7 @@ const utils = {
         }
         return res;
     },
-    isEmpty (data?: any) {
+    isEmpty(data?: any) {
         if (data === '') return true;
         if (data === null) return true;
         if (data === undefined) return true;
@@ -354,10 +362,10 @@ const utils = {
         if (Object.prototype.isPrototypeOf(data) && Object.keys(data).length === 0) return true;
         return false;
     },
-    isObj (obj?: any) {
+    isObj(obj?: any) {
         return Object.prototype.toString.call(obj) === '[object Object]';
     },
-    removeEmpty (obj?: any) {
+    removeEmpty(obj?: any) {
         if (!obj || !utils.isObj(obj)) return;
         Object.entries(obj).forEach(([key, val]) => {
             if (val && utils.isObj(val)) utils.removeEmpty(val);
@@ -365,7 +373,7 @@ const utils = {
         });
         return obj;
     },
-    mergeDeep (object1: Record<string, any>, object2: Record<string, any>) {
+    mergeDeep(object1: Record<string, any>, object2: Record<string, any>) {
         if (object1 == null || object2 == null) {
             return object1 || object2;
         } else if (!_.isPlainObject(object1) || !_.isPlainObject(object2)) {
@@ -396,15 +404,15 @@ const utils = {
         }
     },
     /**
-      * 下载文件
-      * @param {string}   url              请求地址
-      * @param {string}   fileName         输出名字，如果不传就是后端写入文件名
-      * @param {object}   payload          请求数据
-      * @param {function} successCallback  导出正确的回调函数，处理一些message展示
-      * @param {function} errorCallback    导出失败的回调函数
-      * @param {function} finallyCallback  成功/失败都会执行回调函数，例如控制一些visible显示隐藏
-    * */
-    downLoadData (params: DownloadParams) {
+     * 下载文件
+     * @param {string}   url              请求地址
+     * @param {string}   fileName         输出名字，如果不传就是后端写入文件名
+     * @param {object}   payload          请求数据
+     * @param {function} successCallback  导出正确的回调函数，处理一些message展示
+     * @param {function} errorCallback    导出失败的回调函数
+     * @param {function} finallyCallback  成功/失败都会执行回调函数，例如控制一些visible显示隐藏
+     * */
+    downLoadData(params: DownloadParams) {
         const { url, payload, finallyCallback, successCallback, errorCallback } = params;
         fetch(url, { method: 'POST', body: JSON.stringify(payload) })
             .then((response) => {
@@ -413,19 +421,14 @@ const utils = {
                 if (contentType.includes('application/json')) return errorCallback(response);
                 let { fileName } = params;
                 if (!fileName) {
-                    const disposition = response.headers.get(
-                        'Content-disposition'
-                    ) || '';
+                    const disposition = response.headers.get('Content-disposition') || '';
                     fileName = disposition.split('filename=')[1];
                 }
                 response.blob().then((blob) => {
                     const href = URL.createObjectURL(blob);
                     const dom = document.createElement('a');
                     dom.setAttribute('href', href);
-                    dom.setAttribute(
-                        'download',
-                        decodeURIComponent(fileName || '')
-                    );
+                    dom.setAttribute('download', decodeURIComponent(fileName || ''));
                     dom.click();
                     URL.revokeObjectURL(href);
                     successCallback && successCallback(response);
@@ -435,16 +438,16 @@ const utils = {
                 finallyCallback && finallyCallback();
             });
     },
-    isUtf8 (s: string) {
+    isUtf8(s: string) {
         const lastnames = ['ä', 'å', 'æ', 'ç', 'è', 'é'];
-        lastnames.forEach(element => {
+        lastnames.forEach((element) => {
             if (s && s.indexOf(element) > -1) {
                 return false;
             }
         });
         return true;
     },
-    utf16to8 (str: string) {
+    utf16to8(str: string) {
         if (typeof str !== 'string') return str;
         if (!this.isUtf8(str)) return str;
         let out: string, i: number, c: number;
@@ -465,7 +468,7 @@ const utils = {
         }
         return out;
     },
-    base64Encode (value: string) {
+    base64Encode(value: string) {
         let result = value;
         if (!result) {
             return result;
