@@ -41,7 +41,6 @@ const cookie = {
 
     deleteAllCookies (domain: string, path: string) {
         const cookies = document.cookie.split(';');
-        // eslint-disable-next-line @typescript-eslint/prefer-for-of
         for (let i = 0; i < cookies.length; i++) {
             if (cookies[i]) {
                 this.deleteCookie(cookies[i].split('=')[0], domain, path);
