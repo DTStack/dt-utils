@@ -59,7 +59,6 @@
         "rollup": "^1.27.14",
         "rollup-plugin-babel": "^4.3.3",
         "rollup-plugin-commonjs": "^10.1.0",
-        "rollup-plugin-eslint": "^7.0.0",
         "rollup-plugin-node-resolve": "^5.2.0",
         "rollup-plugin-typescript2": "^0.25.3",
         "ts-jest": "^24.2.0",
