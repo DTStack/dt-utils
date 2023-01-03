@@ -17,7 +17,9 @@ const cookie = {
 
     // 获取全部 cookie
     getAllCookies() {
-        const cookies = {};
+        const cookies: {
+            [key in string]: string;
+        } = {};
         try {
             document.cookie.split('; ').forEach((item) => {
                 const msg = item.split('=');
