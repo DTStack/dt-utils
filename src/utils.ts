@@ -70,7 +70,10 @@ const utils = {
         return navigator.userAgent.indexOf('Windows') > -1;
     },
     isMobileDevice() {
-        return typeof window.orientation !== 'undefined' || navigator.userAgent.indexOf('IEMobile') !== -1;
+        return (
+            typeof window.orientation !== 'undefined' ||
+            navigator.userAgent.indexOf('IEMobile') !== -1
+        );
     },
     /**
      * 根据参数名获取URL数据
@@ -232,7 +235,10 @@ const utils = {
      */
     isJSONStr(str: string) {
         str = utils.trim(str);
-        return (str.charAt(0) === '{' && str.charAt(str.length - 1) === '}') || (str.charAt(0) === '[' && str.charAt(str.length - 1) === ']');
+        return (
+            (str.charAt(0) === '{' && str.charAt(str.length - 1) === '}') ||
+            (str.charAt(0) === '[' && str.charAt(str.length - 1) === ']')
+        );
     },
     /**
      *
@@ -308,7 +314,10 @@ const utils = {
      */
     isEqual(a: any, b: any): boolean {
         for (const key in a) {
-            if ({}.hasOwnProperty.call(a, key) && (!{}.hasOwnProperty.call(b, key) || a[key] !== b[key])) {
+            if (
+                {}.hasOwnProperty.call(a, key) &&
+                (!{}.hasOwnProperty.call(b, key) || a[key] !== b[key])
+            ) {
                 return false;
             }
         }

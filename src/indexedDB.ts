@@ -147,7 +147,9 @@ class LocalIndexedDB {
      * Wrap the database request result as promise object
      * @param operate A function which operate store
      */
-    public wrapStoreOperationPromise<T = IDBRequest>(operate: (store: IDBObjectStore) => IDBRequest): Promise<T> {
+    public wrapStoreOperationPromise<T = IDBRequest>(
+        operate: (store: IDBObjectStore) => IDBRequest
+    ): Promise<T> {
         return new Promise((resolve, reject) => {
             try {
                 const store = this.getObjectStore(this._storeName, 'readwrite');

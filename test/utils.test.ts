@@ -72,7 +72,10 @@ describe('utils:', () => {
         assert.strictEqual(isMobileDevice(), false);
     });
     test('getParameterByName()=>张三', () => {
-        assert.strictEqual(getParameterByName('name', 'http://gitlab.prod.dtstack.cn?name=张三'), '张三');
+        assert.strictEqual(
+            getParameterByName('name', 'http://gitlab.prod.dtstack.cn?name=张三'),
+            '张三'
+        );
     });
     test('percent(1)=>100%', () => {
         assert.strictEqual(percent(1), '100%');
@@ -146,7 +149,10 @@ describe('utils:', () => {
      */
     describe('getCssText', () => {
         test(" {height:'100px',width:'100px'} => height:100px;width:100px; ", () => {
-            assert.strictEqual(getCssText({ height: '100px', width: '100px' }), 'height:100px;width:100px;');
+            assert.strictEqual(
+                getCssText({ height: '100px', width: '100px' }),
+                'height:100px;width:100px;'
+            );
         });
     });
 
@@ -236,15 +242,27 @@ describe('utils:', () => {
             expect(removeEmpty('123')).toBeUndefined();
         });
         test('return processed data if object includes undefined', () => {
-            expect(removeEmpty({ a: 'test', b: undefined, c: { d: undefined } })).toEqual({ a: 'test', c: {} });
+            expect(removeEmpty({ a: 'test', b: undefined, c: { d: undefined } })).toEqual({
+                a: 'test',
+                c: {},
+            });
         });
     });
     describe('mergeDeep test', () => {
         test('basic var', () => {
-            expect(mergeDeep({ a: 123, c: 321 }, { a: 'cover', b: 456 })).toEqual({ a: 'cover', b: 456, c: 321 });
+            expect(mergeDeep({ a: 123, c: 321 }, { a: 'cover', b: 456 })).toEqual({
+                a: 'cover',
+                b: 456,
+                c: 321,
+            });
         });
         test('complex var', () => {
-            expect(mergeDeep({ a: 123, b: 321, innerObj: { a: 123, c: 456 } }, { a: 'cover', c: 456, innerObj: { a: 'cover', b: 321 } })).toEqual({
+            expect(
+                mergeDeep(
+                    { a: 123, b: 321, innerObj: { a: 123, c: 456 } },
+                    { a: 'cover', c: 456, innerObj: { a: 'cover', b: 321 } }
+                )
+            ).toEqual({
                 a: 'cover',
                 b: 321,
                 c: 456,
@@ -257,7 +275,9 @@ describe('utils:', () => {
             expect(mergeDeep(null, { name: 2 })).toEqual({ name: 2 });
         });
         test('_isMergeAtom case', () => {
-            expect(mergeDeep({ a: 123, c: 321 }, { a: 'cover', b: 456, _isMergeAtom: true })).toEqual({ a: 'cover', b: 456 });
+            expect(
+                mergeDeep({ a: 123, c: 321 }, { a: 'cover', b: 456, _isMergeAtom: true })
+            ).toEqual({ a: 'cover', b: 456 });
         });
     });
 });

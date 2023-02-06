@@ -47,7 +47,12 @@ const cookie = {
         }
     },
 
-    setCookie(name: string, value: string | number | object | boolean, days?: number, domainStr?: string) {
+    setCookie(
+        name: string,
+        value: string | number | object | boolean,
+        days?: number,
+        domainStr?: string
+    ) {
         let expires = '';
         if (days) {
             const date = new Date();

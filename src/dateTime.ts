@@ -80,7 +80,10 @@ const dateTime = {
             return second;
         }
         _formatSecond(_formatMinute(_formatHour(secondTime)));
-        return `${hour ? hour + 'h' : ''}${minute ? minute + 'm' : ''}${second ? second + 's' : ''}` || '0s';
+        return (
+            `${hour ? hour + 'h' : ''}${minute ? minute + 'm' : ''}${second ? second + 's' : ''}` ||
+            '0s'
+        );
     },
 };
 
