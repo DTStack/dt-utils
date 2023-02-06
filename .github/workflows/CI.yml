@@ -64,7 +64,7 @@ jobs:
             - name: Prettier check
               run: yarn prettier
 
-    lint:
+    eslint:
         needs: [setup]
         runs-on: ubuntu-latest
         steps:
@@ -83,7 +83,7 @@ jobs:
                   key: node_modules-${{ hashFiles('**/package-temp-dir/yarn.lock') }}
 
             - name: Eslint check
-              run: yarn lint
+              run: yarn eslint
 
     test:
         needs: [setup]
@@ -113,7 +113,7 @@ jobs:
 
     build:
         runs-on: ubuntu-latest
-        needs: [setup, prettier, lint, test]
+        needs: [setup, prettier, eslint, test]
         steps:
             - uses: actions/checkout@v2
 

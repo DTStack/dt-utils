@@ -6479,10 +6479,10 @@ known-css-properties@^0.25.0:
   resolved "https://registry.npmjs.org/known-css-properties/-/known-css-properties-0.25.0.tgz#6ebc4d4b412f602e5cfbeb4086bd544e34c0a776"
   integrity sha512-b0/9J1O9Jcyik1GC6KC42hJ41jKwdO/Mq8Mdo5sYN+IuRTXs2YFHZC3kZSx6ueusqa95x3wLYe/ytKjbAfGixA==
 
-ko-lint-config@*:
-  version "2.2.16"
-  resolved "https://registry.npmjs.org/ko-lint-config/-/ko-lint-config-2.2.16.tgz#548d659df7bcf91bf6bf4a05220aec69c767e111"
-  integrity sha512-bEOX/B56itgL9h9FIGTwoc5WXoSPL9HZ6UwVRKsXjShJ9N5ZzVdaOSaGcrgMb9FTfc/HarnvfK+1kiSmX9URhA==
+ko-lint-config@^2.2.18:
+  version "2.2.18"
+  resolved "https://registry.npmjs.org/ko-lint-config/-/ko-lint-config-2.2.18.tgz#ea61ef0a89a4e23b478b0390e69a715cdf08280a"
+  integrity sha512-ls5jymX9GjE8atROtwyoIpsOvjYSlXvHwoHH1sZqvJfrS5xHiy+zBe2KP67O1VNudRnIGyJb9J2QqkRdZyCSXA==
   dependencies:
     "@typescript-eslint/eslint-plugin" "5.30.0"
     "@typescript-eslint/parser" "5.30.0"
@@ -7973,7 +7973,7 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@2.7.1, prettier@^2.7.1:
+prettier@2.7.1:
   version "2.7.1"
   resolved "https://registry.npmjs.org/prettier/-/prettier-2.7.1.tgz#e235806850d057f97bb08368a4f7d899f7760c64"
   integrity sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==
