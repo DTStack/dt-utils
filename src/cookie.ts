@@ -33,9 +33,10 @@ const cookie = {
 
     deleteCookie(name: string, domain?: string, path?: string) {
         const d = new Date(0);
-        domain = domain ? `; domain=${domain}` : '';
-        path = path || '/';
-        document.cookie = name + '=; expires=' + d.toUTCString() + domain + '; path=' + path;
+        const domainTemp = domain ? `; domain=${domain}` : '';
+        const pathTemp = path || '/';
+        document.cookie =
+            name + '=; expires=' + d.toUTCString() + domainTemp + '; path=' + pathTemp;
     },
 
     deleteAllCookies(domain: string, path: string) {

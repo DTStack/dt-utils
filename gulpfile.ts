@@ -119,8 +119,7 @@ export const changelog: TaskFunc = async (cb) => {
     const resultArray = ['# 工具库更新日志\n\n'];
     changelogPipe.on('data', (chunk) => {
         // 原来的 commits 路径是进入提交列表
-        chunk = chunk.replace(/\/commits\//g, '/commit/');
-        resultArray.push(chunk);
+        resultArray.push(chunk.replace(/\/commits\//g, '/commit/'));
     });
     changelogPipe.on('end', async () => {
         // await fse.createWriteStream(changelogPath).write(resultArray.join(''));

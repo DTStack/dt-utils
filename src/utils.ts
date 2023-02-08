@@ -54,13 +54,14 @@ const utils = {
      * @param value 'B' | 'KB' | 'MB' | 'GB' | 'TB' | 'PB' 转换原始值
      */
     convertBytes(value: number) {
+        let valueTemp = value;
         const units = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
         let i = 0;
-        while (value >= 1024) {
-            value = Number((value / 1024).toFixed(2));
+        while (valueTemp >= 1024) {
+            valueTemp = Number((valueTemp / 1024).toFixed(2));
             i++;
         }
-        return `${value} ${units[i]}`;
+        return `${valueTemp} ${units[i]}`;
     },
     isMacOs() {
         return navigator.userAgent.indexOf('Macintosh') > -1;
@@ -81,13 +82,14 @@ const utils = {
      * @param  {[type]} url  [description]
      */
     getParameterByName(name: string, url?: string) {
-        if (!url) {
-            url = window.location.href;
+        let urlTemp = url;
+        if (!urlTemp) {
+            urlTemp = window.location.href;
         }
-        name = name.replace(/[\[\]]/g, '\\$&');
-        const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+        const nameTemp = name.replace(/[\[\]]/g, '\\$&');
+        const regex = new RegExp('[?&]' + nameTemp + '(=([^&#]*)|&|#|$)');
 
-        const results = regex.exec(url);
+        const results = regex.exec(urlTemp);
         if (!results) {
             return null;
         }
@@ -114,15 +116,16 @@ const utils = {
      * @param  {[type]} precision [description]
      */
     percent(num: number, precision?: number) {
-        if (!num || num === Infinity) {
+        let numTemp = num;
+        if (!numTemp || numTemp === Infinity) {
             return 0 + '%';
         }
-        if (num > 1) {
-            num = 1;
+        if (numTemp > 1) {
+            numTemp = 1;
         }
-        precision = precision || 2;
-        precision = Math.pow(10, precision);
-        return Math.round(num * precision * 100) / precision + '%';
+        let precisionTemp = precision || 2;
+        precisionTemp = Math.pow(10, precisionTemp);
+        return Math.round(numTemp * precisionTemp * 100) / precisionTemp + '%';
     },
     /**
      *
@@ -162,9 +165,10 @@ const utils = {
 
     // 转换为千分位
     getThousandth(num: string | number) {
-        if (num === null || num === undefined || num === '') return '0';
-        num = `${num}`;
-        const [integer, decimal] = num.split('.');
+        let numTemp = num;
+        if (numTemp === null || numTemp === undefined || numTemp === '') return '0';
+        numTemp = `${num}`;
+        const [integer, decimal] = numTemp.split('.');
         return `${integer.replace(/(\d)(?=(\d{3})+$)/g, '$1,')}${decimal ? `.${decimal}` : ''}`;
     },
 
@@ -234,10 +238,10 @@ const utils = {
      * @return {Boolean}   是否是JSON字符串
      */
     isJSONStr(str: string) {
-        str = utils.trim(str);
+        const strTemp = utils.trim(str);
         return (
-            (str.charAt(0) === '{' && str.charAt(str.length - 1) === '}') ||
-            (str.charAt(0) === '[' && str.charAt(str.length - 1) === ']')
+            (strTemp.charAt(0) === '{' && strTemp.charAt(strTemp.length - 1) === '}') ||
+            (strTemp.charAt(0) === '[' && strTemp.charAt(strTemp.length - 1) === ']')
         );
     },
     /**
