@@ -25,15 +25,15 @@
     "scripts": {
         "build": "gulp build",
         "api": "api-extractor run",
-        "prettier": "npx prettier --check *.{js,json,ts}",
-        "prettier:fix": "npx prettier --write *.{js,json,ts}",
-        "lint": "npx eslint --ext .js,.ts ./src ./test",
-        "lint:fix": "npx eslint --fix --ext .js,.ts ./src ./test",
+        "prettier": "npx prettier --check **/*.{js,json,ts}",
+        "prettier:fix": "npx prettier --write **/*.{js,json,ts}",
+        "eslint": "npx eslint --ext .js,.ts ./src ./test",
+        "eslint:fix": "npx eslint --fix --ext .js,.ts ./src ./test",
         "changelog": "gulp changelog",
         "docs": "docsify serve docs",
         "test": "jest --no-chche",
         "release": "./scripts/release.sh",
-        "prepublishOnly": "yarn lint & yarn test & yarn changelog & yarn build"
+        "prepublishOnly": "yarn eslint & yarn test & yarn changelog & yarn build"
     },
     "devDependencies": {
         "@babel/preset-env": "^7.7.7",
@@ -52,9 +52,8 @@
         "gulp": "^4.0.2",
         "husky": "^3.1.0",
         "jest": "^24.9.0",
-        "ko-lint-config": "^2.2.6",
+        "ko-lint-config": "^2.2.18",
         "lint-staged": "^9.5.0",
-        "prettier": "^2.7.1",
         "right-pad": "^1.0.1",
         "rollup": "^1.27.14",
         "rollup-plugin-babel": "^4.3.3",

@@ -57,7 +57,9 @@ const buildByRollup: TaskFunc = async (cb) => {
 const apiExtractorGenerate: TaskFunc = async (cb) => {
     const apiExtractorJsonPath: string = path.join(__dirname, './api-extractor.json');
     // 加载并解析 api-extractor.json 文件
-    const extractorConfig: ExtractorConfig = await ExtractorConfig.loadFileAndPrepare(apiExtractorJsonPath);
+    const extractorConfig: ExtractorConfig = await ExtractorConfig.loadFileAndPrepare(
+        apiExtractorJsonPath
+    );
     // 判断是否存在 index.d.ts 文件，这里必须异步先访问一边，不然后面找不到会报错
     const isExist: boolean = await fse.pathExists(extractorConfig.mainEntryPointFilePath);
 
@@ -84,7 +86,10 @@ const apiExtractorGenerate: TaskFunc = async (cb) => {
         log.progress('API Extractor completed successfully');
         cb();
     } else {
-        log.error(`API Extractor completed with ${extractorResult.errorCount} errors` + ` and ${extractorResult.warningCount} warnings`);
+        log.error(
+            `API Extractor completed with ${extractorResult.errorCount} errors` +
+                ` and ${extractorResult.warningCount} warnings`
+        );
     }
 };
 
@@ -114,8 +119,7 @@ export const changelog: TaskFunc = async (cb) => {
     const resultArray = ['# 工具库更新日志\n\n'];
     changelogPipe.on('data', (chunk) => {
         // 原来的 commits 路径是进入提交列表
-        chunk = chunk.replace(/\/commits\//g, '/commit/');
-        resultArray.push(chunk);
+        resultArray.push(chunk.replace(/\/commits\//g, '/commit/'));
     });
     changelogPipe.on('end', async () => {
         // await fse.createWriteStream(changelogPath).write(resultArray.join(''));
