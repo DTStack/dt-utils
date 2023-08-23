@@ -18,12 +18,12 @@
 无
 ### eg：
 ```js
-set (key: string|number, value: any) {
-    if (!value) delete window.localStorage[key]
-    else {
-        const val = typeof value === 'object'
-            ? JSON.stringify(value) : value
-        window.localStorage[key] = val
+set(key: string | number, value: any) {
+    if (value === null || value === undefined) {
+        delete window.localStorage[key];
+    } else {
+        const val = typeof value === 'object' ? JSON.stringify(value) : value;
+        window.localStorage[key] = val;
     }
 }
 ```
@@ -35,6 +35,18 @@ set (key: string|number, value: any) {
 key：获取数据的唯一标识
 ### 返回值
 返回空，字符串或者对象
+
+### eg：
+```js
+get(key: string | number) {
+    const str = window.localStorage[key] || '';
+    try {
+        return Utils.isJSONStr(str) ? JSON.parse(str) : str;
+    } catch (error) {
+        return str;
+    }
+}
+```
 
 ## remove
 通过 key 从 localStorage 删除数据
