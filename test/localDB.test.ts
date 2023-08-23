@@ -51,6 +51,11 @@ describe('utils.LocalDB', () => {
         };
         expect(value).toEqual(expected);
     });
+    test('get the key to the json string storage', () => {
+        window.localStorage.setItem('jsonStr', '{"string":1');
+        const value = LocalDB.get('jsonStr');
+        expect(value).toEqual('{"string":1');
+    });
     test('remove the key', () => {
         window.localStorage.setItem('name', 'Tom');
         LocalDB.remove('name');

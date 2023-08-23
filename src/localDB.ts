@@ -12,8 +12,9 @@ const localDB = {
      * @param {String, Object} value 所要存贮的数据
      */
     set(key: string | number, value: any) {
-        if (!value) delete window.localStorage[key];
-        else {
+        if (value === null || value === undefined) {
+            delete window.localStorage[key];
+        } else {
             const val = typeof value === 'object' ? JSON.stringify(value) : value;
             window.localStorage[key] = val;
         }
@@ -26,7 +27,11 @@ const localDB = {
      */
     get(key: string | number) {
         const str = window.localStorage[key] || '';
-        return Utils.isJSONStr(str) ? JSON.parse(str) : str;
+        try {
+            return Utils.isJSONStr(str) ? JSON.parse(str) : str;
+        } catch (error) {
+            return str;
+        }
     },
 
     /**
