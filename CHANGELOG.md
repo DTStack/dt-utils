@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/DTStack/dt-utils/compare/v1.1.0...v1.2.0) (2023-08-24)
+
+
+### Features
+
+* [#64](https://github.com/DTStack/dt-utils/issues/64) localDB add remove function ([d4c80bb](https://github.com/DTStack/dt-utils/commit/d4c80bb06a32569b84554e852018a4b178ff2526))
+* getThousandth get '' return '0' ([bde6994](https://github.com/DTStack/dt-utils/commit/bde69946b4a0181b07e9204d197df98b45117175))
+
+
+### Bug Fixes
+
+* [#82](https://github.com/DTStack/dt-utils/issues/82) optimize localStorage's get and set function ([53d8978](https://github.com/DTStack/dt-utils/commit/53d8978d136f5ae80366f998c7922c546747caa9))
+* **#80:**  example Change the edge matching rule of the browser to edg ([5808bc0](https://github.com/DTStack/dt-utils/commit/5808bc05f948da9a18291346dcd8e92d01186844)), closes [#80](https://github.com/DTStack/dt-utils/issues/80)
+* cookie ts type completion ([09c0196](https://github.com/DTStack/dt-utils/commit/09c019668c8bfec2a58d142c06aeb3f829924987))
+* fix cant download json ([a4fb84e](https://github.com/DTStack/dt-utils/commit/a4fb84e34690c02c09080b251888787ede4f6d5e))
+
 ### [1.1.2](https://github.com/DTStack/dt-utils/compare/v1.1.0...v1.1.2) (2022-08-16)
 
 
