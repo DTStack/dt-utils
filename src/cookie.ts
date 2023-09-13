@@ -52,7 +52,8 @@ const cookie = {
         name: string,
         value: string | number | object | boolean,
         days?: number,
-        domainStr?: string
+        domainStr?: string,
+        path: string = '/'
     ) {
         let expires = '';
         if (days) {
@@ -64,7 +65,7 @@ const cookie = {
         if (domainStr) {
             domain = '; domain=' + domainStr;
         }
-        document.cookie = name + '=' + value + expires + domain + '; path=/';
+        document.cookie = name + '=' + value + expires + domain + '; path=' + path;
     },
 };
 
