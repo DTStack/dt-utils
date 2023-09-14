@@ -3,8 +3,8 @@ const cookie = {
      * 原生 JavaScript 获取 cookie 值
      * @param name
      */
-    getCookie(name: string) {
-        const arr = document.cookie.match(new RegExp('(^| )' + name + '=([^;]*)(;|$)'));
+    getCookie(name: string, cookiesStr: string = document.cookie) {
+        const arr = cookiesStr.match(new RegExp('(^| )' + name + '=([^;]*)(;|$)'));
         if (arr != null) {
             try {
                 return unescape(decodeURI(arr[2]));
@@ -52,7 +52,8 @@ const cookie = {
         name: string,
         value: string | number | object | boolean,
         days?: number,
-        domainStr?: string
+        domainStr?: string,
+        path: string = '/'
     ) {
         let expires = '';
         if (days) {
@@ -64,7 +65,7 @@ const cookie = {
         if (domainStr) {
             domain = '; domain=' + domainStr;
         }
-        document.cookie = name + '=' + value + expires + domain + '; path=/';
+        document.cookie = name + '=' + value + expires + domain + '; path=' + path;
     },
 };
 
