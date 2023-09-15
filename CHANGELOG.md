@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/DTStack/dt-utils/compare/v1.2.0...v1.3.0) (2023-09-15)
+
+
+### Features
+
+* allow cookiesStr params for getCookie ([#86](https://github.com/DTStack/dt-utils/issues/86)) ([7b3e6ae](https://github.com/DTStack/dt-utils/commit/7b3e6aea4494e8f257a162679d18ba3165573c0c))
+
 ## [1.2.0](https://github.com/DTStack/dt-utils/compare/v1.1.0...v1.2.0) (2023-08-24)
 
 
