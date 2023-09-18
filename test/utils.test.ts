@@ -21,6 +21,8 @@ const {
     transformArray,
     removeEmpty,
     mergeDeep,
+    getUrlPathname,
+    getUrlQueryParams,
 } = Utils;
 
 describe('utils.convertBytes', () => {
@@ -279,5 +281,29 @@ describe('utils:', () => {
                 mergeDeep({ a: 123, c: 321 }, { a: 'cover', b: 456, _isMergeAtom: true })
             ).toEqual({ a: 'cover', b: 456 });
         });
+    });
+    describe('getUrlPathname test', () => {
+        expect(getUrlPathname('/test/getUrlPathname', { a: 1, b: 2 })).toEqual(
+            '/test/getUrlPathname?a=1&b=2'
+        );
+        expect(getUrlPathname('/test/getUrlPathname', { a: 1, b: undefined })).toEqual(
+            '/test/getUrlPathname?a=1&b=undefined'
+        );
+        expect(getUrlPathname('/test/getUrlPathname', { a: 1, b: null })).toEqual(
+            '/test/getUrlPathname?a=1&b=null'
+        );
+        expect(getUrlPathname('/test/getUrlPathname', { a: 1, b: '' })).toEqual(
+            '/test/getUrlPathname?a=1&b='
+        );
+    });
+    describe('getUrlQueryParams test', () => {
+        expect(getUrlQueryParams('/test/getUrlPathname?a=1')).toEqual({ a: '1' });
+        expect(getUrlQueryParams('/test/getUrlPathname?a=1&b=2')).toEqual({ a: '1', b: '2' });
+        expect(getUrlQueryParams('/test/getUrlPathname?a=1&b=undefined')).toEqual({
+            a: '1',
+            b: 'undefined',
+        });
+        expect(getUrlQueryParams('/test/getUrlPathname?a=1&b=null')).toEqual({ a: '1', b: 'null' });
+        expect(getUrlQueryParams('/test/getUrlPathname?a=1&b=')).toEqual({ a: '1', b: '' });
     });
 });

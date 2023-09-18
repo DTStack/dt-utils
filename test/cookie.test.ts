@@ -44,55 +44,54 @@ Object.defineProperty(window.document, 'cookie', {
 });
 
 describe('test cookie utils', () => {
-
     beforeEach(() => {
-        cookies = []
-    })
+        cookies = [];
+    });
 
     test('should get cookie value with name', () => {
         document.cookie = 'a=1; domain=; path=/';
         expect(cookie.getCookie('a')).toBe('1');
-        expect(cookie.getCookie('a', 'a=2; c=3;')).toBe('2')
-    })
+        expect(cookie.getCookie('a', 'a=2; c=3;')).toBe('2');
+    });
 
     test('should return all cookies object', () => {
         document.cookie = 'a=1; domain=; path=/';
         document.cookie = 'b=2; domain=; path=/';
-        expect(cookie.getAllCookies()).toEqual({ a: "1", b: "2" });
-    })
+        expect(cookie.getAllCookies()).toEqual({ a: '1', b: '2' });
+    });
 
     test('should support set cookie', () => {
         cookie.setCookie('a', '1');
-        expect(cookie.getCookie('a')).toBe('1')
+        expect(cookie.getCookie('a')).toBe('1');
 
         const day = 3;
         cookie.setCookie('b', '2', day, 'test');
-        const foundCookie = cookies.find(item => item.name === 'b' && item.domain === 'test')
+        const foundCookie = cookies.find((item) => item.name === 'b' && item.domain === 'test');
         expect(foundCookie).not.toBeUndefined();
 
         const expires = new Date(foundCookie!.expires as string).getTime();
-        const expiresNow = new Date(Date.now() + day * 24 * 60 * 60 * 1000).getTime()
-        expect(expires).toBeLessThan(expiresNow)
-    })
+        const expiresNow = new Date(Date.now() + day * 24 * 60 * 60 * 1000).getTime();
+        expect(expires).toBeLessThan(expiresNow);
+    });
 
     test('should support delete cookie', () => {
         cookie.setCookie('a', 1);
-        cookie.deleteCookie('a')
+        cookie.deleteCookie('a');
         expect(cookie.getCookie('a')).toBeNull();
 
         cookie.setCookie('b', 1, 3, 'test', '/test');
-        cookie.deleteCookie('b')
+        cookie.deleteCookie('b');
         expect(cookie.getCookie('b')).not.toBeNull();
-        cookie.deleteCookie('b', 'test', '/test')
+        cookie.deleteCookie('b', 'test', '/test');
         expect(cookie.getCookie('b')).toBeNull();
-    })
+    });
 
     test('should suppport delete all cookies', () => {
         cookie.setCookie('a', 1, 3, 'test', '/');
         cookie.setCookie('b', 2, 3, 'test', '/');
-        cookie.deleteAllCookies('', '/')
+        cookie.deleteAllCookies('', '/');
         expect(cookie.getAllCookies()).not.toEqual({});
-        cookie.deleteAllCookies('test', '/')
+        cookie.deleteAllCookies('test', '/');
         expect(cookie.getAllCookies()).toEqual({});
-    })
-})
+    });
+});

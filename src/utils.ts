@@ -102,7 +102,37 @@ const utils = {
         }
         return decodeURIComponent(results[2].replace(/\+/g, ' '));
     },
+    /**
+     *
+     * @param pathname 地址
+     * @param queryParams url参数
+     * @returns 两者结合生成的完整url地址
+     */
+    getUrlPathname(pathname: string, queryParams = {}) {
+        const queryString = Object.entries(queryParams)
+            .map(([key, value]) => `${key}=${value}`)
+            .filter((item) => item)
+            .join('&');
 
+        return pathname + (queryString ? `?${queryString}` : '');
+    },
+    /**
+     *
+     * @param search location.search
+     * @returns query 参数
+     */
+    getUrlQueryParams(search: string) {
+        const queryString = decodeURIComponent(search.split('?')[1]);
+        if (!queryString) {
+            return {};
+        }
+        const queryParams: Record<string, string> = {};
+        queryString.split('&').forEach((query) => {
+            const [key, value] = query.split('=');
+            queryParams[key] = value;
+        });
+        return queryParams;
+    },
     /**
      * 获取图片的Base64格式
      * @param  {[type]}   img      [description]

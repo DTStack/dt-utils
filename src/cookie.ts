@@ -53,7 +53,7 @@ const cookie = {
         value: string | number | object | boolean,
         days?: number,
         domainStr?: string,
-        path: string = '/'
+        path = '/'
     ) {
         let expires = '';
         if (days) {
