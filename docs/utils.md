@@ -10,7 +10,7 @@
 `true`表示通过兼容性检测,`false`表示不通过兼容性检测
 
 ```js
-  Utils.browserCheck(); // boolean 
+  Utils.browserCheck(); // boolean
 ```
 ## checkExist
 检查属性是否存在
@@ -91,13 +91,13 @@ Utils.isEqual({name:'sichen'},{name:'sichen'}) // true
    *  @param  {[type]} name [description]
    * @param  {[type]} url  [description] 可选参数，默认当前域
    */
-  Utils.getParameterByName(); //boolean 
+  Utils.getParameterByName(); //boolean
 ```
 
 例如:
 ```js
-  Utils.getParameterByName('name','http://baidu.com?name='1'); // 1 
-  Utils.getParameterByName('name'); // 1 
+  Utils.getParameterByName('name','http://baidu.com?name='1'); // 1
+  Utils.getParameterByName('name'); // 1
 ```
 ## getBase64
 获取图片的 Base64 格式
@@ -108,7 +108,7 @@ Utils.isEqual({name:'sichen'},{name:'sichen'}) // true
    * @param  {[type]}   img      [description]
    * @param  {Function} callback [description]
    */
-  Utils.getBase64(img,callback); 
+  Utils.getBase64(img,callback);
 ```
 ## getCssText
   样式对象转 css style 风格转字符串
@@ -118,7 +118,7 @@ Utils.isEqual({name:'sichen'},{name:'sichen'}) // true
  * @param {Record<string, any>} [object={}]
  * @returns String
  */
-  Utils.getCssText(object: Record<string, any> = {}); 
+  Utils.getCssText(object: Record<string, any> = {});
 ````
 例如:
 
@@ -216,7 +216,7 @@ Utils.textOverflowExchange('my name is sichen', 10) // "my name is..."
    * @param  {[type]} num       [description]
    * @param  {[type]} precision [description]
    */
-  Utils.percent(num: number, precision?: number); 
+  Utils.percent(num: number, precision?: number);
 ````
 例如:
 
@@ -327,7 +327,7 @@ Utils.removeEmpty({ a: 'test', b: undefined, c: { d: undefined } }) // { a: 'tes
 
 ## mergeDeep
 
-将两个对象进行深拷贝合并，对象内的同名对象也进行一次深拷贝合并  
+将两个对象进行深拷贝合并，对象内的同名对象也进行一次深拷贝合并
 如果 obj2 存在 _isMergeAtom 属性，则直接使用 obj2，不再与 obj1 合并
 
 ```js
@@ -358,7 +358,7 @@ downLoadData({
 `true`表示格式为 utf-8,`false`表示格式为非 utf-8 格式
 
 ```js
-  Utils.isUtf8('test'); // boolean 
+  Utils.isUtf8('test'); // boolean
 ```
 
 ## utf16to8
@@ -367,7 +367,7 @@ downLoadData({
 返回值为 utf-8 格式的字符串
 
 ```js
-  Utils.utf16to8('test'); // string 
+  Utils.utf16to8('test'); // string
 ```
 
 ## base64Encode
@@ -376,5 +376,22 @@ downLoadData({
 返回值为 utf-8 格式的字符串
 
 ```js
-  Utils.base64Encode('test'); // string 
+  Utils.base64Encode('test'); // string
+```
+
+## getFullUrlPath
+传入地址和 url 参数生成完整的 url 地址
+```js
+  Utils.getFullUrlPath('/test/getUrlPathname', { a: 1, b: 2 });  // /test/getUrlPathname?a=1&b=2
+  Utils.getFullUrlPath('/test/getUrlPathname', { a: 1, b: undefined });  // /test/getUrlPathname?a=1&b=undefined
+  Utils.getFullUrlPath('/test/getUrlPathname', { a: 1, b: null });  // /test/getUrlPathname?a=1&b=null
+  Utils.getFullUrlPath('/test/getUrlPathname', { a: 1, b: '' });  // /test/getUrlPathname?a=1&b=
+```
+
+## getQueryVariable
+根据传入的 search，返回对象
+```js
+  Utils.getQueryVariable('?a=1&b=2');  // { a: '1', b: '2' }
+  Utils.getQueryVariable('?a=1&b=undefined');  // { a: '1', b: 'undefined' }
+  Utils.getQueryVariable('?a=1&b=null');  // { a: '1', b: 'null' }
 ```

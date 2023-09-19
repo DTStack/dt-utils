@@ -108,12 +108,9 @@ const utils = {
      * @param queryParams url参数
      * @returns 两者结合生成的完整url地址
      */
-    getUrlPathname(pathname: string, queryParams = {}) {
-        const queryString = Object.entries(queryParams)
-            .map(([key, value]) => `${key}=${value}`)
-            .filter((item) => item)
-            .join('&');
-
+    getFullUrlPath(pathname: string, queryParams = {}) {
+        const params = new URLSearchParams(queryParams);
+        const queryString = params.toString();
         return pathname + (queryString ? `?${queryString}` : '');
     },
     /**
@@ -121,17 +118,9 @@ const utils = {
      * @param search location.search
      * @returns query 参数
      */
-    getUrlQueryParams(search: string) {
-        const queryString = decodeURIComponent(search.split('?')[1]);
-        if (!queryString) {
-            return {};
-        }
-        const queryParams: Record<string, string> = {};
-        queryString.split('&').forEach((query) => {
-            const [key, value] = query.split('=');
-            queryParams[key] = value;
-        });
-        return queryParams;
+    getQueryVariable(search: string) {
+        const searchParams = new URLSearchParams(search);
+        return Object.fromEntries(searchParams.entries());
     },
     /**
      * 获取图片的Base64格式
