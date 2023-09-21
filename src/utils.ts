@@ -102,7 +102,26 @@ const utils = {
         }
         return decodeURIComponent(results[2].replace(/\+/g, ' '));
     },
-
+    /**
+     *
+     * @param pathname 地址
+     * @param queryParams url参数
+     * @returns 两者生成的完整url地址
+     */
+    generateFullUrlPath(pathname: string, queryParams = {}) {
+        const params = new URLSearchParams(queryParams);
+        const queryString = params.toString();
+        return pathname + (queryString ? `?${queryString}` : '');
+    },
+    /**
+     *
+     * @param search location.search
+     * @returns query 参数
+     */
+    getQueryParameters(search: string) {
+        const searchParams = new URLSearchParams(search);
+        return Object.fromEntries(searchParams.entries());
+    },
     /**
      * 获取图片的Base64格式
      * @param  {[type]}   img      [description]

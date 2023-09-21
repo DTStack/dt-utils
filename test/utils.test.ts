@@ -21,6 +21,8 @@ const {
     transformArray,
     removeEmpty,
     mergeDeep,
+    generateFullUrlPath,
+    getQueryParameters,
 } = Utils;
 
 describe('utils.convertBytes', () => {
@@ -279,5 +281,38 @@ describe('utils:', () => {
                 mergeDeep({ a: 123, c: 321 }, { a: 'cover', b: 456, _isMergeAtom: true })
             ).toEqual({ a: 'cover', b: 456 });
         });
+    });
+    describe('generateFullUrlPath test', () => {
+        expect(generateFullUrlPath('/test/getUrlPathname', { a: 1, b: 2 })).toEqual(
+            '/test/getUrlPathname?a=1&b=2'
+        );
+        expect(generateFullUrlPath('/test/getUrlPathname', { a: 1, b: undefined })).toEqual(
+            '/test/getUrlPathname?a=1&b=undefined'
+        );
+        expect(generateFullUrlPath('/test/getUrlPathname', { a: 1, b: null })).toEqual(
+            '/test/getUrlPathname?a=1&b=null'
+        );
+        expect(generateFullUrlPath('/test/getUrlPathname', { a: 1, b: '' })).toEqual(
+            '/test/getUrlPathname?a=1&b='
+        );
+    });
+    describe('getQueryParameters test', () => {
+        expect(
+            getQueryParameters(
+                '?metaType=1&tabsKey=&tableId=1&dataSourceType=1&name=t_dtinsight_test'
+            )
+        ).toEqual({
+            dataSourceType: '1',
+            metaType: '1',
+            name: 't_dtinsight_test',
+            tableId: '1',
+            tabsKey: '',
+        });
+        expect(getQueryParameters('?a=1&b=2')).toEqual({ a: '1', b: '2' });
+        expect(getQueryParameters('?a=1&b=undefined')).toEqual({
+            a: '1',
+            b: 'undefined',
+        });
+        expect(getQueryParameters('?a=1&b=null')).toEqual({ a: '1', b: 'null' });
     });
 });
