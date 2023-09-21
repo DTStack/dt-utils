@@ -106,9 +106,9 @@ const utils = {
      *
      * @param pathname 地址
      * @param queryParams url参数
-     * @returns 两者结合生成的完整url地址
+     * @returns 两者生成的完整url地址
      */
-    getFullUrlPath(pathname: string, queryParams = {}) {
+    createFullUrlPath(pathname: string, queryParams = {}) {
         const params = new URLSearchParams(queryParams);
         const queryString = params.toString();
         return pathname + (queryString ? `?${queryString}` : '');
@@ -118,7 +118,7 @@ const utils = {
      * @param search location.search
      * @returns query 参数
      */
-    getQueryVariable(search: string) {
+    getQueryParameters(search: string) {
         const searchParams = new URLSearchParams(search);
         return Object.fromEntries(searchParams.entries());
     },

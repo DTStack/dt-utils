@@ -21,8 +21,8 @@ const {
     transformArray,
     removeEmpty,
     mergeDeep,
-    getFullUrlPath,
-    getQueryVariable,
+    createFullUrlPath,
+    getQueryParameters,
 } = Utils;
 
 describe('utils.convertBytes', () => {
@@ -282,23 +282,23 @@ describe('utils:', () => {
             ).toEqual({ a: 'cover', b: 456 });
         });
     });
-    describe('getFullUrlPath test', () => {
-        expect(getFullUrlPath('/test/getUrlPathname', { a: 1, b: 2 })).toEqual(
+    describe('createFullUrlPath test', () => {
+        expect(createFullUrlPath('/test/getUrlPathname', { a: 1, b: 2 })).toEqual(
             '/test/getUrlPathname?a=1&b=2'
         );
-        expect(getFullUrlPath('/test/getUrlPathname', { a: 1, b: undefined })).toEqual(
+        expect(createFullUrlPath('/test/getUrlPathname', { a: 1, b: undefined })).toEqual(
             '/test/getUrlPathname?a=1&b=undefined'
         );
-        expect(getFullUrlPath('/test/getUrlPathname', { a: 1, b: null })).toEqual(
+        expect(createFullUrlPath('/test/getUrlPathname', { a: 1, b: null })).toEqual(
             '/test/getUrlPathname?a=1&b=null'
         );
-        expect(getFullUrlPath('/test/getUrlPathname', { a: 1, b: '' })).toEqual(
+        expect(createFullUrlPath('/test/getUrlPathname', { a: 1, b: '' })).toEqual(
             '/test/getUrlPathname?a=1&b='
         );
     });
-    describe('getQueryVariable test', () => {
+    describe('getQueryParameters test', () => {
         expect(
-            getQueryVariable(
+            getQueryParameters(
                 '?metaType=1&tabsKey=&tableId=1&dataSourceType=1&name=t_dtinsight_test'
             )
         ).toEqual({
@@ -308,11 +308,11 @@ describe('utils:', () => {
             tableId: '1',
             tabsKey: '',
         });
-        expect(getQueryVariable('?a=1&b=2')).toEqual({ a: '1', b: '2' });
-        expect(getQueryVariable('?a=1&b=undefined')).toEqual({
+        expect(getQueryParameters('?a=1&b=2')).toEqual({ a: '1', b: '2' });
+        expect(getQueryParameters('?a=1&b=undefined')).toEqual({
             a: '1',
             b: 'undefined',
         });
-        expect(getQueryVariable('?a=1&b=null')).toEqual({ a: '1', b: 'null' });
+        expect(getQueryParameters('?a=1&b=null')).toEqual({ a: '1', b: 'null' });
     });
 });
