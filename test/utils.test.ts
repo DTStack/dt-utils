@@ -21,7 +21,7 @@ const {
     transformArray,
     removeEmpty,
     mergeDeep,
-    createFullUrlPath,
+    generateFullUrlPath,
     getQueryParameters,
 } = Utils;
 
@@ -282,17 +282,17 @@ describe('utils:', () => {
             ).toEqual({ a: 'cover', b: 456 });
         });
     });
-    describe('createFullUrlPath test', () => {
-        expect(createFullUrlPath('/test/getUrlPathname', { a: 1, b: 2 })).toEqual(
+    describe('generateFullUrlPath test', () => {
+        expect(generateFullUrlPath('/test/getUrlPathname', { a: 1, b: 2 })).toEqual(
             '/test/getUrlPathname?a=1&b=2'
         );
-        expect(createFullUrlPath('/test/getUrlPathname', { a: 1, b: undefined })).toEqual(
+        expect(generateFullUrlPath('/test/getUrlPathname', { a: 1, b: undefined })).toEqual(
             '/test/getUrlPathname?a=1&b=undefined'
         );
-        expect(createFullUrlPath('/test/getUrlPathname', { a: 1, b: null })).toEqual(
+        expect(generateFullUrlPath('/test/getUrlPathname', { a: 1, b: null })).toEqual(
             '/test/getUrlPathname?a=1&b=null'
         );
-        expect(createFullUrlPath('/test/getUrlPathname', { a: 1, b: '' })).toEqual(
+        expect(generateFullUrlPath('/test/getUrlPathname', { a: 1, b: '' })).toEqual(
             '/test/getUrlPathname?a=1&b='
         );
     });

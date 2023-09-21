@@ -379,13 +379,13 @@ downLoadData({
   Utils.base64Encode('test'); // string
 ```
 
-## createFullUrlPath
+## generateFullUrlPath
 传入地址和 url 参数生成完整的 url 地址
 ```js
-  Utils.createFullUrlPath('/test/getUrlPathname', { a: 1, b: 2 });  // /test/getUrlPathname?a=1&b=2
-  Utils.createFullUrlPath('/test/getUrlPathname', { a: 1, b: undefined });  // /test/getUrlPathname?a=1&b=undefined
-  Utils.createFullUrlPath('/test/getUrlPathname', { a: 1, b: null });  // /test/getUrlPathname?a=1&b=null
-  Utils.createFullUrlPath('/test/getUrlPathname', { a: 1, b: '' });  // /test/getUrlPathname?a=1&b=
+  Utils.generateFullUrlPath('/test/getUrlPathname', { a: 1, b: 2 });  // /test/getUrlPathname?a=1&b=2
+  Utils.generateFullUrlPath('/test/getUrlPathname', { a: 1, b: undefined });  // /test/getUrlPathname?a=1&b=undefined
+  Utils.generateFullUrlPath('/test/getUrlPathname', { a: 1, b: null });  // /test/getUrlPathname?a=1&b=null
+  Utils.generateFullUrlPath('/test/getUrlPathname', { a: 1, b: '' });  // /test/getUrlPathname?a=1&b=
 ```
 
 ## getQueryParameters

@@ -108,7 +108,7 @@ const utils = {
      * @param queryParams url参数
      * @returns 两者生成的完整url地址
      */
-    createFullUrlPath(pathname: string, queryParams = {}) {
+    generateFullUrlPath(pathname: string, queryParams = {}) {
         const params = new URLSearchParams(queryParams);
         const queryString = params.toString();
         return pathname + (queryString ? `?${queryString}` : '');
