@@ -79,6 +79,18 @@ describe('utils:', () => {
             '张三'
         );
     });
+    test('getParameterByName()=>null', () => {
+        assert.strictEqual(
+            getParameterByName('name', 'http://gitlab.prod.dtstack.cn?name=null'),
+            null
+        );
+    });
+    test('getParameterByName()=>undefined', () => {
+        assert.strictEqual(
+            getParameterByName('name', 'http://gitlab.prod.dtstack.cn?name=undefined'),
+            undefined
+        );
+    });
     test('percent(1)=>100%', () => {
         assert.strictEqual(percent(1), '100%');
     });
