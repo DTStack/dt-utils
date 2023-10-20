@@ -100,7 +100,15 @@ const utils = {
         if (!results[2]) {
             return '';
         }
-        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+
+        const paramValue = decodeURIComponent(results[2].replace(/\+/g, ' '));
+        if (paramValue === 'null') {
+            return null;
+        }
+        if (paramValue === 'undefined') {
+            return undefined;
+        }
+        return paramValue;
     },
     /**
      *
