@@ -128,7 +128,17 @@ const utils = {
      */
     getQueryParameters(search: string) {
         const searchParams = new URLSearchParams(search);
-        return Object.fromEntries(searchParams.entries());
+        const paramValue = Object.fromEntries(searchParams.entries());
+        for (const key in paramValue) {
+            if (paramValue[key] === 'null') {
+                (paramValue[key] as any) = null;
+            }
+            if (paramValue[key] === 'undefined') {
+                (paramValue[key] as any) = undefined;
+            }
+        }
+
+        return paramValue;
     },
     /**
      * 获取图片的Base64格式
