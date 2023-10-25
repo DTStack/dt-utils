@@ -323,8 +323,8 @@ describe('utils:', () => {
         expect(getQueryParameters('?a=1&b=2')).toEqual({ a: '1', b: '2' });
         expect(getQueryParameters('?a=1&b=undefined')).toEqual({
             a: '1',
-            b: 'undefined',
+            b: undefined,
         });
-        expect(getQueryParameters('?a=1&b=null')).toEqual({ a: '1', b: 'null' });
+        expect(getQueryParameters('?a=1&b=null')).toEqual({ a: '1', b: null });
     });
 });
