@@ -2,7 +2,7 @@
     "compilerOptions": {
         /* 基础配置 */
         "target": "esnext",
-        "lib": ["dom", "esnext"],
+        "lib": ["dom", "DOM.Iterable", "esnext"],
         "removeComments": false,
         "declaration": true,
         "sourceMap": true,
