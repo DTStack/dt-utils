@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/DTStack/dt-utils/compare/v1.3.0...v1.4.0) (2023-11-16)
+
+
+### Features
+
+* **utils:** add getUrlPathname and getUrlQueryParams for router ([#88](https://github.com/DTStack/dt-utils/issues/88)) ([78b243d](https://github.com/DTStack/dt-utils/commit/78b243d7cc22c0dac5af6e9105a0a1470ff5db55))
+
+
+### Bug Fixes
+
+* [#90](https://github.com/DTStack/dt-utils/issues/90) optimize getParameterByName's return ([#91](https://github.com/DTStack/dt-utils/issues/91)) ([1158b6b](https://github.com/DTStack/dt-utils/commit/1158b6b66075772bc60ef619ab989db6e7799ca7))
+* [#92](https://github.com/DTStack/dt-utils/issues/92) optimize getQueryParameters's return ([#93](https://github.com/DTStack/dt-utils/issues/93)) ([fb6b482](https://github.com/DTStack/dt-utils/commit/fb6b482223a2f54c3274d907aee8cba24945878e))
+* [#95](https://github.com/DTStack/dt-utils/issues/95) sideEffects should be boolean false ([#96](https://github.com/DTStack/dt-utils/issues/96)) ([b87e664](https://github.com/DTStack/dt-utils/commit/b87e6643e974d2cda74372fc66e70b831896e1ba))
+* add DOM.Iterable lib in tsconfig ([#94](https://github.com/DTStack/dt-utils/issues/94)) ([ea98f18](https://github.com/DTStack/dt-utils/commit/ea98f189187b4111ee43c795ed39fcbbab32b7b9))
+
 ## [1.3.0](https://github.com/DTStack/dt-utils/compare/v1.2.0...v1.3.0) (2023-09-15)
 
 
