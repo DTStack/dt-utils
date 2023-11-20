@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/DTStack/dt-utils/compare/v1.4.0...v1.5.0) (2023-11-20)
+
+
+### Features
+
+* **downloaddata:** add headers for fetch in downLoadData ([#98](https://github.com/DTStack/dt-utils/issues/98)) ([81a7f67](https://github.com/DTStack/dt-utils/commit/81a7f6781685ef4106c88d06630851071d48ff8b)), closes [#97](https://github.com/DTStack/dt-utils/issues/97)
+
+
+### Bug Fixes
+
+* **downloaddata:** add headers for fetch in downLoadData ([#98](https://github.com/DTStack/dt-utils/issues/98)) ([416cfe6](https://github.com/DTStack/dt-utils/commit/416cfe606a07e328a9d4e7a26f01c04bd61b4ac1)), closes [#97](https://github.com/DTStack/dt-utils/issues/97)
+
 ## [1.4.0](https://github.com/DTStack/dt-utils/compare/v1.3.0...v1.4.0) (2023-11-16)
 
 
