@@ -12,10 +12,11 @@ interface BrowserInter {
     safari?: string;
     opera?: string;
 }
-interface DownloadParams {
+export interface DownloadParams {
     url: string;
     fileName?: string;
     payload?: object;
+    headers?: HeadersInit;
     finallyCallback?: () => void;
     successCallback?: (res: Response) => void;
     errorCallback: (res: Response) => void;
@@ -471,8 +472,8 @@ const utils = {
      * @param {function} finallyCallback  成功/失败都会执行回调函数，例如控制一些visible显示隐藏
      * */
     downLoadData(params: DownloadParams) {
-        const { url, payload, finallyCallback, successCallback, errorCallback } = params;
-        fetch(url, { method: 'POST', body: JSON.stringify(payload) })
+        const { url, payload, headers, finallyCallback, successCallback, errorCallback } = params;
+        fetch(url, { method: 'POST', body: JSON.stringify(payload), headers })
             .then((response) => {
                 if (response.status !== 200) return errorCallback(response);
                 const contentType = response.headers.get('Content-type') || '';
