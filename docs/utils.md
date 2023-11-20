@@ -342,13 +342,16 @@ Utils.removeEmpty({ a: 'test', b: undefined, c: { d: undefined } }) // { a: 'tes
 如果不传文件名fileName，会从`response`的`Content-disposition`读取
 
 ```js
+const headers = new Header();
+headers.set('X-Project-ID', 111);
 downLoadData({
     url: 'downloadUrl',
     payload: { a: 1, b: 2 },
+    headers,
     fileName: 'test.pdf',
     successCallback: () => message.info('下载成功'),
     errorCallback: () => message.error('下载失败'),
-    finallyCallback: () => this.setState({ visiable: false })
+    finallyCallback: () => this.setState({ visible: false })
 })
 ```
 
