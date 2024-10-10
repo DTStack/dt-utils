@@ -56,13 +56,16 @@ class LocalIndexedDB {
                     console.log('Open indexedDB success!');
                 };
 
+                // onupgradeneeded -> transaction.oncomplete -> onsuccess
                 request.onupgradeneeded = function (e: any) {
                     console.log('openDb.onupgradeneeded', e);
                     self._db = request.result;
                     if (!self._db.objectStoreNames.contains(self._storeName)) {
-                        self._db.createObjectStore(self._storeName);
+                        const objectStore = self._db.createObjectStore(self._storeName);
+                        objectStore.transaction.oncomplete = function () {
+                            resolve(request.result);
+                        };
                     }
-                    resolve(request.result);
                 };
 
                 request.onblocked = function (e: any) {

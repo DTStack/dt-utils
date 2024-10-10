@@ -29,7 +29,7 @@ const request = LocalIndexedDB.open(数据库名, 数据库版本);
 request.onsuccess = function(event) {
   // Do something with request.result!
 };
-request.onupgradeneeded = function(evevt) {
+request.onupgradeneeded = function(event) {
  // 当创建新数据库或增加现有数据库的版本号
 }
 request.onblocked = function(event) {
