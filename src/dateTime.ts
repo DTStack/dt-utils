@@ -4,6 +4,19 @@
  */
 
 import dayjs from 'dayjs';
+import timezone from 'dayjs/plugin/timezone'; // ES 2015
+import utc from 'dayjs/plugin/utc'; // ES 2015
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
+// 默认时区
+const DEFAULT_TIMEZONE = 'Asia/Shanghai';
+/**
+ * 将时间转换为默认时区
+ * @param {string | number | Date} time - 输入时间
+ * @return {dayjs.Dayjs} 带时区的Dayjs对象
+ */
+const toLocalTime = (...args) => dayjs(...args).tz(DEFAULT_TIMEZONE);
 
 /**
  * 时间处理
@@ -15,7 +28,7 @@ const dateTime = {
      * @return {string}
      */
     formatDateTime(timeData: string | number | Date) {
-        return dayjs(timeData).format('YYYY-MM-DD HH:mm:ss');
+        return toLocalTime(timeData).format('YYYY-MM-DD HH:mm:ss');
     },
     /**
      * 返回 YYYY-MM-DD 格式化的字符串
@@ -23,7 +36,7 @@ const dateTime = {
      * @return {string}
      */
     formatDate(timeData: string | number | Date) {
-        return dayjs(timeData).format('YYYY-MM-DD');
+        return toLocalTime(timeData).format('YYYY-MM-DD');
     },
     /**
      * 返回 YYYY-MM-DD HH:mm 格式化的字符串
@@ -31,7 +44,7 @@ const dateTime = {
      * @return {string}
      */
     formatDateHours(timeData: string | number | Date) {
-        return dayjs(timeData).format('YYYY-MM-DD HH:mm');
+        return toLocalTime(timeData).format('YYYY-MM-DD HH:mm');
     },
     /**
      * 返回 MM-DD HH:mm 格式化的字符串
@@ -39,7 +52,7 @@ const dateTime = {
      * @return {string}
      */
     formatDayHours(timeData: string | number | Date) {
-        return dayjs(timeData).format('MM-DD HH:mm');
+        return toLocalTime(timeData).format('MM-DD HH:mm');
     },
     /**
      * 返回 HH:mm 格式化的字符串
@@ -47,7 +60,7 @@ const dateTime = {
      * @return {string}
      */
     formatHours(timeData: string | number | Date) {
-        return dayjs(timeData).format('HH:mm');
+        return toLocalTime(timeData).format('HH:mm');
     },
     /**
      * 返回 HH:mm:ss 格式化的字符串
@@ -55,7 +68,7 @@ const dateTime = {
      * @return {string}
      */
     formatMinute(timeData: string | number | Date) {
-        return dayjs(timeData).format('HH:mm:ss');
+        return toLocalTime(timeData).format('HH:mm:ss');
     },
     /**
      * 把秒转换成 HH[h]mm[m]ss[s] 的格式
