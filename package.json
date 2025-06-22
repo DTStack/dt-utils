@@ -34,7 +34,8 @@
         "prepublishOnly": "yarn eslint & yarn test & yarn changelog & yarn build",
         "docs:dev": "vitepress dev docs",
         "docs:build": "typedoc && vitepress build docs",
-        "docs:serve": "vitepress serve docs"
+        "docs:serve": "vitepress serve docs",
+        "docs:deploy": "npm run docs:build && gh-pages -d ./docs/.vitepress/dist"
     },
     "devDependencies": {
         "@babel/core": "^7.26.0",
@@ -48,6 +49,7 @@
         "commitlint": "^19.5.0",
         "conventional-changelog-cli": "^2.0.31",
         "docsify-cli": "^4.4.4",
+        "gh-pages": "^6.3.0",
         "husky": "^9.1.6",
         "jest": "^29.7.0",
         "jest-environment-jsdom": "^29.7.0",

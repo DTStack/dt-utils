@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress';
 export default defineConfig({
     title: 'Dt-utils',
     description: '袋鼠云前端常用工具库',
+    base: '/dt-utils/',
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
         nav: [
@@ -29,6 +30,6 @@ export default defineConfig({
             },
         ],
 
-        socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
+        socialLinks: [{ icon: 'github', link: 'https://github.com/DTStack/dt-utils' }],
     },
 });
