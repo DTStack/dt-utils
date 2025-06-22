@@ -1,0 +1,124 @@
+[
+  {
+    "text": "Conversion",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "fromBase64",
+        "link": "/api/functions/fromBase64.md"
+      },
+      {
+        "text": "toBase64",
+        "link": "/api/functions/toBase64.md"
+      },
+      {
+        "text": "toPercent",
+        "link": "/api/functions/toPercent.md"
+      },
+      {
+        "text": "toSortOrder",
+        "link": "/api/functions/toSortOrder.md"
+      },
+      {
+        "text": "toThousand",
+        "link": "/api/functions/toThousand.md"
+      }
+    ]
+  },
+  {
+    "text": "Environment Detection",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "checkBrowserSupport",
+        "link": "/api/functions/checkBrowserSupport.md"
+      },
+      {
+        "text": "isMacOS",
+        "link": "/api/functions/isMacOS.md"
+      },
+      {
+        "text": "isMobile",
+        "link": "/api/functions/isMobile.md"
+      },
+      {
+        "text": "isWindows",
+        "link": "/api/functions/isWindows.md"
+      }
+    ]
+  },
+  {
+    "text": "Formatting",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "formatBytes",
+        "link": "/api/functions/formatBytes.md"
+      },
+      {
+        "text": "formatDateTime",
+        "link": "/api/functions/formatDateTime.md"
+      },
+      {
+        "text": "formatSecond",
+        "link": "/api/functions/formatSecond.md"
+      }
+    ]
+  },
+  {
+    "text": "Storage",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "localDB",
+        "link": "/api/classes/localDB.md"
+      },
+      {
+        "text": "LocalIndexedDB",
+        "link": "/api/classes/LocalIndexedDB.md"
+      },
+      {
+        "text": "sessionDB",
+        "link": "/api/classes/sessionDB.md"
+      }
+    ]
+  },
+  {
+    "text": "Utils",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "copy",
+        "link": "/api/functions/copy.md"
+      },
+      {
+        "text": "downloadFile",
+        "link": "/api/functions/downloadFile.md"
+      },
+      {
+        "text": "generateUrlWithQuery",
+        "link": "/api/functions/generateUrlWithQuery.md"
+      },
+      {
+        "text": "getKey",
+        "link": "/api/functions/getKey.md"
+      },
+      {
+        "text": "getQueryParameters",
+        "link": "/api/functions/getQueryParameters.md"
+      },
+      {
+        "text": "getTypeOfValue",
+        "link": "/api/functions/getTypeOfValue.md"
+      },
+      {
+        "text": "shouldRender",
+        "link": "/api/functions/shouldRender.md"
+      },
+      {
+        "text": "trim",
+        "link": "/api/functions/trim.md"
+      }
+    ]
+  }
+]
