@@ -1,0 +1,16 @@
+{
+    "plugin": ["typedoc-plugin-markdown", "typedoc-vitepress-theme", "typedoc-plugin-frontmatter"],
+    "docsRoot": "./docs",
+    "out": "./docs/api",
+    "name": "dt-utils",
+    "entryPoints": ["src/index.ts", "./CHANGELOG.md"],
+    "theme": "default",
+    "exclude": ["**/*.test.ts", "**/node_modules/**"],
+    "tsconfig": "tsconfig.json",
+    "sidebar": {
+        "autoConfiguration": true,
+        "format": "vitepress",
+        "pretty": true,
+        "collapsed": true
+    }
+}

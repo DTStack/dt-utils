@@ -2,7 +2,8 @@
     "compilerOptions": {
         /* 基础配置 */
         "target": "esnext",
-        "lib": ["dom", "DOM.Iterable", "esnext"],
+        "module": "esnext",
+        "lib": ["DOM", "DOM.Iterable", "ESNext"],
         "removeComments": false,
         "declaration": true,
         "sourceMap": true,
@@ -15,8 +16,15 @@
         "baseUrl": ".",
         "outDir": "./lib",
         "esModuleInterop": true,
-        "moduleResolution": "node",
-        "resolveJsonModule": true
+        "moduleResolution": "Node",
+        "resolveJsonModule": true,
+        "typeRoots": ["node", "node_modules/@types"],
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true
     },
-    "include": ["src"]
+    "ts-node": {
+        "esm": true
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": ["src/**/__test__/**"]
 }
