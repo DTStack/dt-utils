@@ -6,6 +6,7 @@ yarn-error.log*
 lerna-debug.log*
 node_modules/
 .cache/
+docs/.vitepress/cache/
 dist
 lib
 temp

@@ -28,10 +28,10 @@
         "prettier:fix": "npx prettier --write src/**/*.{js,jsx,json,ts}",
         "eslint": "npx eslint --ext .js,.ts ./src",
         "eslint:fix": "npx eslint --fix --ext .js,.ts ./src",
-        "test": "jest --no-chche",
+        "test": "jest --no-cache",
         "release": "./scripts/release.sh",
         "commit": "git-cz",
-        "prepublishOnly": "yarn eslint & yarn test & yarn changelog & yarn build",
+        "prepublishOnly": "pnpm eslint && pnpm test && pnpm changelog && pnpm build",
         "docs:dev": "vitepress dev docs",
         "docs:build": "typedoc && vitepress build docs",
         "docs:serve": "vitepress serve docs",
@@ -48,7 +48,7 @@
         "commitizen": "^4.3.1",
         "commitlint": "^19.5.0",
         "conventional-changelog-cli": "^2.0.31",
-        "docsify-cli": "^4.4.4",
+        "cz-conventional-changelog": "^3.3.0",
         "gh-pages": "^6.3.0",
         "husky": "^9.1.6",
         "jest": "^29.7.0",
@@ -91,6 +91,7 @@
             "npm run eslint:fix"
         ]
     },
+    "packageManager": "pnpm@6.32.12",
     "keywords": [
         "utils"
     ]

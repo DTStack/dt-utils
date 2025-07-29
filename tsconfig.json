@@ -1,12 +1,11 @@
 {
     "compilerOptions": {
         /* 基础配置 */
-        "target": "esnext",
+        "target": "es5",
         "module": "esnext",
         "lib": ["DOM", "DOM.Iterable", "ESNext"],
         "removeComments": false,
         "declaration": true,
-        "sourceMap": true,
 
         /* 强类型检查配置 */
         "strict": true,
