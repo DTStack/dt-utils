@@ -121,7 +121,7 @@ type FormatPattern = DateTimeFormat | string;
  */
 export const formatDateTime = (
     date: DateTimeInput,
-    format: FormatPattern
+    format: FormatPattern = DateTimeFormat.STANDARD
 ): string | dayjs.Dayjs => {
     const isValidFormat = Object.values<string>(DateTimeFormat).includes(format);
 

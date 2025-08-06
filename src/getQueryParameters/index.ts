@@ -42,7 +42,7 @@ const getQueryParameters = <T extends Record<string, string | null | undefined>>
     const searchParams = new URLSearchParams(search);
     const paramValue = {};
 
-    for (const [key, value] of searchParams.entries()) {
+    searchParams.forEach((value, key) => {
         if (value === 'null') {
             paramValue[key] = null;
         } else if (value === 'undefined') {
@@ -54,7 +54,7 @@ const getQueryParameters = <T extends Record<string, string | null | undefined>>
                 paramValue[key] = value;
             }
         }
-    }
+    });
 
     return paramValue as T;
 };
