@@ -1,5 +1,5 @@
 /**
- * LocalIndexedDB
+ * IndexedDB
  *
  * @deprecated
  * @category Storage
@@ -34,7 +34,7 @@
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB|MDN IndexedDB Usage Guide}
  * @see {@link https://caniuse.com/#feat=indexeddb|Browser Compatibility}
  */
-class LocalIndexedDB {
+class IndexedDB {
     private _db!: IDBDatabase;
     private _version!: number;
     private _database!: string;
@@ -88,7 +88,7 @@ class LocalIndexedDB {
              * because of the same version can't trigger onupgradeneeded event which will occur
              * object stores was not found exception.
              */
-            const request = indexedDB.open(this._database, this._version);
+            const request = window.indexedDB.open(this._database, this._version);
 
             request.onsuccess = () => {
                 this._db = request.result;
@@ -204,4 +204,4 @@ class LocalIndexedDB {
     }
 }
 
-export default LocalIndexedDB;
+export default IndexedDB;

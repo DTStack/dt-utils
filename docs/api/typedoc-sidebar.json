@@ -70,16 +70,16 @@
     "collapsed": true,
     "items": [
       {
-        "text": "localDB",
-        "link": "/api/classes/localDB.md"
+        "text": "IndexedDB",
+        "link": "/api/classes/IndexedDB.md"
       },
       {
-        "text": "LocalIndexedDB",
-        "link": "/api/classes/LocalIndexedDB.md"
+        "text": "LocalDB",
+        "link": "/api/classes/LocalDB.md"
       },
       {
-        "text": "sessionDB",
-        "link": "/api/classes/sessionDB.md"
+        "text": "SessionDB",
+        "link": "/api/classes/SessionDB.md"
       }
     ]
   },
