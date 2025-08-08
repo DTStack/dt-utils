@@ -4,9 +4,9 @@
 
 > **fromBase64**(`value`): `string`
 
-Defined in: [fromBase64/index.ts:22](https://github.com/jin-sir/dt-utils/blob/f5e2bf17c0444dcdd22c5806b287ffaa85e9e0ca/src/fromBase64/index.ts#L22)
+Defined in: [fromBase64/index.ts:22](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/fromBase64/index.ts#L22)
 
-converts a Base64 string to a UTF-8 string.
+将 Base64 字符串转换为 UTF-8 字符串。
 
 ## Parameters
 
@@ -14,22 +14,22 @@ converts a Base64 string to a UTF-8 string.
 
 `string`
 
-— Base64 string. Both normal and URL-safe are supported
+— Base64 字符串。支持标准格式和 URL 安全格式
 
 ## Returns
 
 `string`
 
-— UTF-8 string
+— UTF-8 字符串
 
 ## Example
 
 ```typescript
 import { fromBase64 } from 'dt-utils';
 
-// Decode base64 string
+// 解码 base64 字符串
 fromBase64('SGVsbG8gV29ybGQ=') // => 'Hello World'
 
-// Decode base64 string with unicode characters
+// 解码包含 unicode 字符的 base64 字符串
 fromBase64('5L2g5aW977yB') // => '你好！'
 ```

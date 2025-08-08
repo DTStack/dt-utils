@@ -4,10 +4,10 @@
 
 > **shouldRender**(`target`): `void`
 
-Defined in: [shouldRender/index.ts:24](https://github.com/jin-sir/dt-utils/blob/f5e2bf17c0444dcdd22c5806b287ffaa85e9e0ca/src/shouldRender/index.ts#L24)
+Defined in: [shouldRender/index.ts:55](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/shouldRender/index.ts#L55)
 
-A class decorator that automatically implements shouldComponentUpdate for React components
-by performing deep equality checks on props and state.
+一个类装饰器，通过对 props 和 state 进行深度相等性检查，
+自动为 React 组件实现 shouldComponentUpdate。
 
 ## Parameters
 
@@ -15,7 +15,7 @@ by performing deep equality checks on props and state.
 
 `any`
 
-The target class to be decorated
+要被装饰的目标类
 
 ## Returns
 
@@ -23,7 +23,7 @@ The target class to be decorated
 
 ## Deprecated
 
-This decorator is deprecated. Consider using React.memo() or React.PureComponent instead.
+该装饰器已废弃。建议使用 React.memo() 或 React.PureComponent 代替。
 
 ## Example
 

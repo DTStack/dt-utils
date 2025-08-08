@@ -4,9 +4,9 @@
 
 > **copy**(`text`): `Promise`\<`boolean`\>
 
-Defined in: [copy/index.ts:46](https://github.com/jin-sir/dt-utils/blob/f5e2bf17c0444dcdd22c5806b287ffaa85e9e0ca/src/copy/index.ts#L46)
+Defined in: [copy/index.ts:46](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/copy/index.ts#L46)
 
-A robust cross-browser clipboard utility function.
+浏览器剪贴板复制工具函数。
 
 ## Parameters
 
@@ -14,32 +14,32 @@ A robust cross-browser clipboard utility function.
 
 `string`
 
-The text content to copy
+要复制的文本内容
 
 ## Returns
 
 `Promise`\<`boolean`\>
 
-Copy operation result
-  - Resolves to true if copy succeeds
-  - Resolves to false if copy fails
+复制操作结果
+  - 复制成功时返回 true
+  - 复制失败时返回 false
 
 ## Description
 
-This function provides a consistent and reliable way to copy text to the clipboard across different browsers.
-It leverages the modern Clipboard API when available, falling back to the execCommand('copy') method for legacy browsers.
+提供一个一致且可靠的方式来在不同浏览器中复制文本到剪贴板。
+它优先使用现代的 Clipboard API，当不可用时会降级使用 execCommand('copy') 方法来支持旧版浏览器。
 
 ## Example
 
 ```typescript
 import { copy } from 'dt-utils';
 
-// Simple copy
+// 简单复制
 const text = "Hello, clipboard!";
 const success = await copy(text);
 console.log(success ? "Copied!" : "Copy failed");
 
-// Copy with error handling
+// 带错误处理的复制
 try {
   const text = "Sensitive data";
   if (await copy(text)) {
@@ -51,7 +51,7 @@ try {
   handleError(error);
 }
 
-// Copy in button click handler
+// 在按钮点击处理程序中复制
 button.addEventListener('click', async () => {
   const success = await copy('Click to copy text');
   button.textContent = success ? 'Copied!' : 'Try again';

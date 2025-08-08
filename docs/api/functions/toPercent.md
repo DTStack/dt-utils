@@ -4,9 +4,9 @@
 
 > **toPercent**(`num`, `precision?`): `string`
 
-Defined in: [toPercent/index.ts:34](https://github.com/jin-sir/dt-utils/blob/f5e2bf17c0444dcdd22c5806b287ffaa85e9e0ca/src/toPercent/index.ts#L34)
+Defined in: [toPercent/index.ts:34](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/toPercent/index.ts#L34)
 
-Formats a number as a percentage string.
+将数字格式化为百分比字符串。
 
 ## Parameters
 
@@ -14,40 +14,40 @@ Formats a number as a percentage string.
 
 `number`
 
-The decimal number to be converted to percentage
+要转换为百分比的十进制数
 
 ### precision?
 
 `number` = `2`
 
-The number of decimal places to round to (default: 2)
+要四舍五入到的小数位数（默认值：2）
 
 ## Returns
 
 `string`
 
-A formatted percentage string with the specified precision
+具有指定精度的格式化百分比字符串
 
 ## Description
 
-This function converts a decimal number to a percentage string representation.
+将十进制数转换为百分比字符串表示。
 
 ## Example
 
 ```typescript
 import { toPercent } from 'dt-utils';
 
-// Basic usage
+// 基本用法
 toPercent(0.1234)      // => "12.34%"
 
-// Custom precision
+// 自定义精度
 toPercent(0.1234, 1)   // => "12.3%"
 toPercent(1.2345, 3)   // => "123.345%"
 
-// Handling negative numbers
+// 处理负数
 toPercent(-0.089, 1)   // => "-8.9%"
 
-// Edge cases
+// 边界情况
 toPercent(0.00000001)  // => "0%"
 toPercent(NaN)         // => "0%"
 toPercent(Infinity)    // => "0%"

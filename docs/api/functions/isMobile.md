@@ -4,36 +4,36 @@
 
 > **isMobile**(): `boolean`
 
-Defined in: [isMobile/index.ts:30](https://github.com/jin-sir/dt-utils/blob/f5e2bf17c0444dcdd22c5806b287ffaa85e9e0ca/src/isMobile/index.ts#L30)
+Defined in: [isMobile/index.ts:30](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/isMobile/index.ts#L30)
 
-Checks if device is mobile.
+检查设备是否为移动设备。
 
 ## Returns
 
 `boolean`
 
-Returns `true` if device is mobile, else `false`.
+如果设备是移动设备则返回 `true`，否则返回 `false`。
 
 ## Description
 
-This function uses a comprehensive regex pattern to identify mobile devices, including
-smartphones, tablets, and other mobile platforms.
+该函数使用 http://detectmobilebrowsers.com/ 提供的正则表达式模式来识别移动设备，包括
+智能手机、平板电脑和其他移动平台。
 
 ## Example
 
 ```typescript
 import { isMobile } from 'dt-utils';
 
-// On a desktop browser
+// 在桌面浏览器上
 isMobile(); // => false
 
-// On an iPhone
+// 在 iPhone 上
 isMobile(); // => true
 
-// On an iPad
+// 在 iPad 上
 isMobile(); // => true
 
-// When running in a non-browser environment
+// 在非浏览器环境中运行时
 isMobile(); // => false
 ```
 

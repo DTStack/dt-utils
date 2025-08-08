@@ -1,55 +1,57 @@
-[dt-utils](../globals.md) / sessionDB
+[dt-utils](../globals.md) / SessionDB
 
-# Class: sessionDB
+# Class: SessionDB
 
-Defined in: [sessionDB/index.ts:44](https://github.com/jin-sir/dt-utils/blob/f5e2bf17c0444dcdd22c5806b287ffaa85e9e0ca/src/sessionDB/index.ts#L44)
+Defined in: [sessionDB/index.ts:45](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/sessionDB/index.ts#L45)
 
-A utility class for managing browser's session storage with type-safe methods
+一个用于管理浏览器 Session 存储的工具类，提供类型安全的方法
 
 ## Description
 
-SessionDB provides a convenient interface for interacting with the browser's sessionStorage API.
-It supports storing and retrieving various data types, including objects and arrays, with automatic
-JSON serialization/deserialization.
+SessionDB 为浏览器的 sessionStorage API 提供了一个包装器，具有以下附加功能：
+- 类型安全的数据存储和检索
+- 自动 JSON 序列化/反序列化
+- 批量操作支持
+- 可选择性清除带例外项
 
 ## Example
 
 ```typescript
 import { SessionDB } from 'dt-utils';
 
-// Store a simple value
+// 存储简单值
 SessionDB.set('username', 'john_doe');
 
-// Store an object
+// 存储对象
 SessionDB.set('userProfile', {
   id: 123,
   name: 'John Doe',
   preferences: { theme: 'dark' }
 });
 
-// Store multiple items at once
+// 一次存储多个项目
 SessionDB.set({
   token: 'abc123',
   lastLogin: new Date().toISOString()
 });
 
-// Retrieve stored data
+// 检索存储的数据
 const username = SessionDB.get('username'); // => 'john_doe'
 const profile = SessionDB.get('userProfile'); // => { id: 123, ... }
 
-// Remove specific items
+// 删除特定项目
 SessionDB.remove('username');
-SessionDB.remove(['token', 'lastLogin']); // Remove multiple items
+SessionDB.remove(['token', 'lastLogin']); // 删除多个项目
 
-// Clear all items except specified keys
-SessionDB.clear(['userProfile']); // Keeps only userProfile
+// 清除所有项目，除了指定的键
+SessionDB.clear(['userProfile']); // 只保留 userProfile
 ```
 
 ## Constructors
 
 ### Constructor
 
-> **new sessionDB**(): `SessionDB`
+> **new SessionDB**(): `SessionDB`
 
 #### Returns
 
@@ -61,9 +63,9 @@ SessionDB.clear(['userProfile']); // Keeps only userProfile
 
 > `static` **clear**(`except?`): `void`
 
-Defined in: [sessionDB/index.ts:106](https://github.com/jin-sir/dt-utils/blob/f5e2bf17c0444dcdd22c5806b287ffaa85e9e0ca/src/sessionDB/index.ts#L106)
+Defined in: [sessionDB/index.ts:107](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/sessionDB/index.ts#L107)
 
-Clears the sessionStorage while optionally preserving specific keys.
+清除 sessionStorage，同时可以选择性地保留特定的键。
 
 #### Parameters
 
@@ -71,8 +73,8 @@ Clears the sessionStorage while optionally preserving specific keys.
 
 `string`[]
 
-An optional array of keys to keep in sessionStorage.
-If provided, only the keys not in this array will be removed.
+要在 sessionStorage 中保留的键的可选数组。
+如果提供了该参数，只有不在此数组中的键会被删除。
 
 #### Returns
 
@@ -84,9 +86,9 @@ If provided, only the keys not in this array will be removed.
 
 > `static` **get**(`key`): `any`
 
-Defined in: [sessionDB/index.ts:77](https://github.com/jin-sir/dt-utils/blob/f5e2bf17c0444dcdd22c5806b287ffaa85e9e0ca/src/sessionDB/index.ts#L77)
+Defined in: [sessionDB/index.ts:78](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/sessionDB/index.ts#L78)
 
-Retrieves data from sessionStorage by key
+通过键从 sessionStorage 检索数据
 
 #### Parameters
 
@@ -94,13 +96,13 @@ Retrieves data from sessionStorage by key
 
 `string`
 
-Unique identifier for the data to be retrieved
+要检索的数据的唯一标识符
 
 #### Returns
 
 `any`
 
-- Returns the stored data, which can be a string or an object
+- 返回存储的数据，可以是字符串或对象
 
 ***
 
@@ -108,15 +110,15 @@ Unique identifier for the data to be retrieved
 
 > `static` **remove**(`key`): `void`
 
-Defined in: [sessionDB/index.ts:92](https://github.com/jin-sir/dt-utils/blob/f5e2bf17c0444dcdd22c5806b287ffaa85e9e0ca/src/sessionDB/index.ts#L92)
+Defined in: [sessionDB/index.ts:93](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/sessionDB/index.ts#L93)
 
-Deletes data from sessionStorage by key
+通过键从 sessionStorage 删除数据
 
 #### Parameters
 
 ##### key
 
-Unique identifier for the data to be deleted
+要删除的数据的唯一标识符
 
 `string` | `string`[]
 
@@ -132,9 +134,9 @@ Unique identifier for the data to be deleted
 
 > `static` **set**(`items`): `void`
 
-Defined in: [sessionDB/index.ts:49](https://github.com/jin-sir/dt-utils/blob/f5e2bf17c0444dcdd22c5806b287ffaa85e9e0ca/src/sessionDB/index.ts#L49)
+Defined in: [sessionDB/index.ts:50](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/sessionDB/index.ts#L50)
 
-Adds multiple items to sessionStorage
+向 sessionStorage 添加多个项目
 
 ##### Parameters
 
@@ -142,7 +144,7 @@ Adds multiple items to sessionStorage
 
 `Record`\<`string`, `any`\>
 
-An object where keys are sessionStorage keys and values are the values to be stored
+一个对象，其中键是 sessionStorage 的键，值是要存储的值
 
 ##### Returns
 
@@ -152,9 +154,9 @@ An object where keys are sessionStorage keys and values are the values to be sto
 
 > `static` **set**(`key`, `value`): `void`
 
-Defined in: [sessionDB/index.ts:55](https://github.com/jin-sir/dt-utils/blob/f5e2bf17c0444dcdd22c5806b287ffaa85e9e0ca/src/sessionDB/index.ts#L55)
+Defined in: [sessionDB/index.ts:56](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/sessionDB/index.ts#L56)
 
-Stores data value by key in sessionStorage
+通过键在 sessionStorage 中存储数据值
 
 ##### Parameters
 
@@ -162,13 +164,13 @@ Stores data value by key in sessionStorage
 
 `string`
 
-Unique identifier for the stored data
+存储数据的唯一标识符
 
 ###### value
 
 `any`
 
-The data to be stored, can be of any type
+要存储的数据，可以是任何类型
 
 ##### Returns
 

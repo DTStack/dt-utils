@@ -4,9 +4,9 @@
 
 > **trim**(`str`): `string`
 
-Defined in: [trim/index.ts:27](https://github.com/jin-sir/dt-utils/blob/f5e2bf17c0444dcdd22c5806b287ffaa85e9e0ca/src/trim/index.ts#L27)
+Defined in: [trim/index.ts:27](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/trim/index.ts#L27)
 
-Removes leading and trailing whitespace characters from a string.
+移除字符串首尾的空白字符。
 
 ## Parameters
 
@@ -14,30 +14,30 @@ Removes leading and trailing whitespace characters from a string.
 
 `string`
 
-The string to trim
+需要处理的字符串
 
 ## Returns
 
 `string`
 
-The trimmed string, or the original value if input is not a string
+处理后的字符串，如果输入不是字符串则返回原始值
 
 ## Description
 
-Handles various Unicode whitespace characters including spaces, tabs, and no-break spaces.
+处理各种 Unicode 空白字符，包括空格、制表符和不换行空格。
 
 ## Example
 
 ```typescript
 import { trim } from 'dt-utils';
 
-// Removes leading and trailing whitespace characters
+// 移除首尾的空白字符
 trim('  hello world  '); // => 'hello world'
 trim('\t\nhello\r  '); // => 'hello'
 
-// handles full-width spaces
+// 处理全角空格
 trim('　hello　'); // => 'hello'
 
-// returns original value for non-strings
+// 非字符串类型返回原始值
 trim(123); // => 123
 ```

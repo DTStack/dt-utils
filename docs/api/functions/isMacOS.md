@@ -4,28 +4,28 @@
 
 > **isMacOS**(): `boolean`
 
-Defined in: [isMacOS/index.ts:24](https://github.com/jin-sir/dt-utils/blob/f5e2bf17c0444dcdd22c5806b287ffaa85e9e0ca/src/isMacOS/index.ts#L24)
+Defined in: [isMacOS/index.ts:23](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/isMacOS/index.ts#L23)
 
-Check if the current operating system is macOS.
+检查当前操作系统是否为 macOS。
 
 ## Returns
 
 `boolean`
 
-Returns `true` if running on macOS, `false` otherwise
+如果在 macOS 上运行返回 `true`，否则返回 `false`
 
 ## Example
 
 ```typescript
 import { isMacOS } from 'dt-utils';
 
-// Check if current OS is macOS
+// 检查当前系统是否为 macOS
 if (isMacOS()) {
-  console.log('Running on macOS');
+  console.log('运行在 macOS 上');
 } else {
-  console.log('Not running on macOS');
+  console.log('不是运行在 macOS 上');
 }
 
-// Direct usage
+// 直接使用
 const isOnMac = isMacOS(); // => true/false
 ```

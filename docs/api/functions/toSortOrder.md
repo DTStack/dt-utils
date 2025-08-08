@@ -4,10 +4,9 @@
 
 > **toSortOrder**(`order`): `undefined` \| `"asc"` \| `"desc"`
 
-Defined in: [toSortOrder/index.ts:20](https://github.com/jin-sir/dt-utils/blob/f5e2bf17c0444dcdd22c5806b287ffaa85e9e0ca/src/toSortOrder/index.ts#L20)
+Defined in: [toSortOrder/index.ts:19](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/toSortOrder/index.ts#L19)
 
-Converts sorting direction terms commonly used in frontend frameworks (like Ant Design)
-to standard SQL ordering terms.
+将前端框架（如 Ant Design）中常用的排序方向术语转换为标准的 SQL 排序术语。
 
 ## Parameters
 
@@ -15,13 +14,13 @@ to standard SQL ordering terms.
 
 `string`
 
-The order string to convert ('ascend' or 'descend')
+要转换的排序字符串（'ascend' 或 'descend'）
 
 ## Returns
 
 `undefined` \| `"asc"` \| `"desc"`
 
-The corresponding SQL order string ('asc' or 'desc'), or undefined if input is empty/invalid
+对应的 SQL 排序字符串（'asc' 或 'desc'），如果输入为空或无效则返回 undefined
 
 ## Example
 

@@ -4,9 +4,9 @@
 
 > **formatDateTime**(`date`, `format`): `string` \| `Dayjs`
 
-Defined in: [formatDateTime/index.ts:122](https://github.com/jin-sir/dt-utils/blob/f5e2bf17c0444dcdd22c5806b287ffaa85e9e0ca/src/formatDateTime/index.ts#L122)
+Defined in: [formatDateTime/index.ts:120](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/formatDateTime/index.ts#L120)
 
-A powerful date-time formatting utility that handles various input types and formatting patterns.
+一个日期时间格式化工具，可处理各种输入类型和格式化模式。
 
 ## Parameters
 
@@ -14,51 +14,51 @@ A powerful date-time formatting utility that handles various input types and for
 
 `DateTimeInput`
 
-Input date value, supports multiple formats:
-  - Date object: new Date()
-  - Timestamp: 1674633600000
-  - ISO string: "2023-01-15T14:30:00"
-  - dayjs object: dayjs()
+输入日期值，支持多种格式：
+  - Date对象: new Date()
+  - 时间戳: 1674633600000
+  - ISO字符串: "2023-01-15T14:30:00"
+  - dayjs对象: dayjs()
 
 ### format
 
-`string`
+`string` = `DateTimeFormat.STANDARD`
 
-Desired output format:
-  - Use DateTimeFormat enum for consistent formatting
-  - Or provide custom format string
+期望的输出格式：
+  - 使用DateTimeFormat枚举以保持一致的格式化
+  - 或提供自定义格式字符串
 
 ## Returns
 
 `string` \| `Dayjs`
 
-Formatted date string or dayjs object
+格式化后的日期字符串或 dayjs 实例对象
 
 ## Description
 
-This function formats a date or timestamp into a string using the specified format.
-It supports various input types and formatting patterns.
+将日期或时间戳格式化为指定格式的字符串。
+支持多种输入类型和格式化模式。
 
 ## Example
 
 ```typescript
 import { formatDateTime } from 'dt-utils';
 
-// Standard date format
+// 标准日期格式
 formatDateTime(new Date(), DateTimeFormat.STANDARD)  // "2024-03-21 15:30:45"
 
-// Format from timestamp
+// 从时间戳格式化
 formatDateTime(1674633600000, DateTimeFormat.DATE_TIME)  // "2023-01-25 10:00"
 
-// Format with month name
+// 格式化月份名称
 formatDateTime("2023-01-15", DateTimeFormat.MONTH_NAME)  // "January"
 
-// 12-hour time format
+// 12小时制时间格式
 formatDateTime(new Date(), DateTimeFormat.TIME_12)  // "03:30:45 PM"
 
-// Full weekday name
+// 完整星期几名称
 formatDateTime(new Date(), DateTimeFormat.WEEKDAY)  // "Thursday"
 
-// Custom format
+// 自定义格式
 formatDateTime(new Date(), "dddd, MMMM D, YYYY")  // dayjs.Dayjs
 ```

@@ -4,9 +4,9 @@
 
 > **formatSecond**(`secondTime`): `string`
 
-Defined in: [formatSecond/index.ts:28](https://github.com/jin-sir/dt-utils/blob/f5e2bf17c0444dcdd22c5806b287ffaa85e9e0ca/src/formatSecond/index.ts#L28)
+Defined in: [formatSecond/index.ts:28](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/formatSecond/index.ts#L28)
 
-Converts seconds into a time format (HH[h]mm[m]ss[s])
+将秒数转换为时间格式 (HH[h]mm[m]ss[s])
 
 ## Parameters
 
@@ -14,29 +14,29 @@ Converts seconds into a time format (HH[h]mm[m]ss[s])
 
 `number` = `0`
 
-Number of seconds to be converted
+需要转换的秒数
 
 ## Returns
 
 `string`
 
-Formatted time string with hours (h), minutes (m), and seconds (s)
+格式化后的时间字符串，包含小时(h)、分钟(m)和秒(s)
 
 ## Example
 
 ```typescript
 import { formatSecond } from 'dt-utils';
 
-// Basic usage
+// 基本用法
 formatSecond(3661)   // => '1h1m1s'
 formatSecond(59)     // => '59s'
 formatSecond(0)      // => '0s'
 
-// Handle large numbers
+// 处理大数字
 formatSecond(7323)   // => '2h2m3s'
 formatSecond(3600)   // => '1h'
 
-// Handle edge cases
+// 处理边界情况
 formatSecond(-1)     // => '0s'
 formatSecond(NaN)    // => '0s'
 formatSecond()       // => '0s'

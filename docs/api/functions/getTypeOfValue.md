@@ -4,9 +4,9 @@
 
 > **getTypeOfValue**(`value`): `string`
 
-Defined in: [getTypeOfValue/index.ts:37](https://github.com/jin-sir/dt-utils/blob/f5e2bf17c0444dcdd22c5806b287ffaa85e9e0ca/src/getTypeOfValue/index.ts#L37)
+Defined in: [getTypeOfValue/index.ts:36](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/getTypeOfValue/index.ts#L36)
 
-Returns the type of a value as a lowercase string.
+以小写字符串形式返回值的类型。
 
 ## Parameters
 
@@ -14,37 +14,36 @@ Returns the type of a value as a lowercase string.
 
 `any`
 
-The value to check the type of
+需要检查类型的值
 
 ## Returns
 
 `string`
 
-The lowercase type string
+小写的类型字符串
 
 ## Description
 
-A utility function that determines the precise type of any JavaScript value.
-Returns the lowercase string representation of the value's type.
+用于确定 JavaScript 值的精确类型，返回该值类型的小写字符串表示。
 
 ## Example
 
 ```typescript
 import { getTypeOfValue } from 'dt-utils';
 
-// Basic types
+// 基本类型
 getTypeOfValue(42);           // => 'number'
 getTypeOfValue('hello');      // => 'string'
 getTypeOfValue(true);         // => 'boolean'
 getTypeOfValue(undefined);    // => 'undefined'
 getTypeOfValue(null);         // => 'null'
 
-// Complex types
+// 复杂类型
 getTypeOfValue([1, 2, 3]);    // => 'array'
 getTypeOfValue({});           // => 'object'
 getTypeOfValue(() => {});     // => 'function'
 
-// Built-in objects
+// 内置对象
 getTypeOfValue(new Date());   // => 'date'
 getTypeOfValue(/regex/);      // => 'regexp'
 getTypeOfValue(new Error());  // => 'error'

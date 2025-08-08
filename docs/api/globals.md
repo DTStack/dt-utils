@@ -1,31 +1,10 @@
 # dt-utils
 
-## Conversion
-
-- [fromBase64](functions/fromBase64.md)
-- [toBase64](functions/toBase64.md)
-- [toPercent](functions/toPercent.md)
-- [toSortOrder](functions/toSortOrder.md)
-- [toThousand](functions/toThousand.md)
-
-## Environment Detection
-
-- [checkBrowserSupport](functions/checkBrowserSupport.md)
-- [isMacOS](functions/isMacOS.md)
-- [isMobile](functions/isMobile.md)
-- [isWindows](functions/isWindows.md)
-
-## Formatting
-
-- [formatBytes](functions/formatBytes.md)
-- [formatDateTime](functions/formatDateTime.md)
-- [formatSecond](functions/formatSecond.md)
-
 ## Storage
 
-- [localDB](classes/localDB.md)
-- [~~LocalIndexedDB~~](classes/LocalIndexedDB.md)
-- [sessionDB](classes/sessionDB.md)
+- [~~IndexedDB~~](classes/IndexedDB.md)
+- [LocalDB](classes/LocalDB.md)
+- [SessionDB](classes/SessionDB.md)
 
 ## Utils
 
@@ -37,3 +16,24 @@
 - [getTypeOfValue](functions/getTypeOfValue.md)
 - [~~shouldRender~~](functions/shouldRender.md)
 - [trim](functions/trim.md)
+
+## 格式化
+
+- [formatBytes](functions/formatBytes.md)
+- [formatDateTime](functions/formatDateTime.md)
+- [formatSecond](functions/formatSecond.md)
+
+## 环境检测
+
+- [checkBrowserSupport](functions/checkBrowserSupport.md)
+- [isMacOS](functions/isMacOS.md)
+- [isMobile](functions/isMobile.md)
+- [isWindows](functions/isWindows.md)
+
+## 转换
+
+- [fromBase64](functions/fromBase64.md)
+- [toBase64](functions/toBase64.md)
+- [toPercent](functions/toPercent.md)
+- [toSortOrder](functions/toSortOrder.md)
+- [toThousand](functions/toThousand.md)
