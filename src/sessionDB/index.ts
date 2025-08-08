@@ -1,56 +1,57 @@
 import getTypeOfValue from '../getTypeOfValue';
-
 /**
- *  A utility class for managing browser's session storage with type-safe methods
+ * 一个用于管理浏览器 Session 存储的工具类，提供类型安全的方法
  *
  * @category Storage
  * @description
- * SessionDB provides a convenient interface for interacting with the browser's sessionStorage API.
- * It supports storing and retrieving various data types, including objects and arrays, with automatic
- * JSON serialization/deserialization.
+ * SessionDB 为浏览器的 sessionStorage API 提供了一个包装器，具有以下附加功能：
+ * - 类型安全的数据存储和检索
+ * - 自动 JSON 序列化/反序列化
+ * - 批量操作支持
+ * - 可选择性清除带例外项
  *
  * @example
  * ```typescript
  * import { SessionDB } from 'dt-utils';
  *
- * // Store a simple value
+ * // 存储简单值
  * SessionDB.set('username', 'john_doe');
  *
- * // Store an object
+ * // 存储对象
  * SessionDB.set('userProfile', {
  *   id: 123,
  *   name: 'John Doe',
  *   preferences: { theme: 'dark' }
  * });
  *
- * // Store multiple items at once
+ * // 一次存储多个项目
  * SessionDB.set({
  *   token: 'abc123',
  *   lastLogin: new Date().toISOString()
  * });
  *
- * // Retrieve stored data
+ * // 检索存储的数据
  * const username = SessionDB.get('username'); // => 'john_doe'
  * const profile = SessionDB.get('userProfile'); // => { id: 123, ... }
  *
- * // Remove specific items
+ * // 删除特定项目
  * SessionDB.remove('username');
- * SessionDB.remove(['token', 'lastLogin']); // Remove multiple items
+ * SessionDB.remove(['token', 'lastLogin']); // 删除多个项目
  *
- * // Clear all items except specified keys
- * SessionDB.clear(['userProfile']); // Keeps only userProfile
+ * // 清除所有项目，除了指定的键
+ * SessionDB.clear(['userProfile']); // 只保留 userProfile
  * ```
  */
 class SessionDB {
     /**
-     * Adds multiple items to sessionStorage
-     * @param {Record<string, any>} items - An object where keys are sessionStorage keys and values are the values to be stored
+     * 向 sessionStorage 添加多个项目
+     * @param {Record<string, any>} items - 一个对象，其中键是 sessionStorage 的键，值是要存储的值
      */
     static set(items: Record<string, any>): void;
     /**
-     * Stores data value by key in sessionStorage
-     * @param {string} key - Unique identifier for the stored data
-     * @param {any} value - The data to be stored, can be of any type
+     * 通过键在 sessionStorage 中存储数据值
+     * @param {string} key - 存储数据的唯一标识符
+     * @param {any} value - 要存储的数据，可以是任何类型
      */
     static set(key: string, value: any): void;
     static set(...args: any[]) {
@@ -70,9 +71,9 @@ class SessionDB {
     }
 
     /**
-     * Retrieves data from sessionStorage by key
-     * @param {string} key - Unique identifier for the data to be retrieved
-     * @return {any} - Returns the stored data, which can be a string or an object
+     * 通过键从 sessionStorage 检索数据
+     * @param {string} key - 要检索的数据的唯一标识符
+     * @return {any} - 返回存储的数据，可以是字符串或对象
      */
     static get(key: string) {
         const str = window.sessionStorage.getItem(key);
@@ -86,8 +87,8 @@ class SessionDB {
     }
 
     /**
-     * Deletes data from sessionStorage by key
-     * @param {string} key - Unique identifier for the data to be deleted
+     * 通过键从 sessionStorage 删除数据
+     * @param {string} key - 要删除的数据的唯一标识符
      */
     static remove(key: string | string[]) {
         if (typeof key === 'string') {
@@ -98,10 +99,10 @@ class SessionDB {
     }
 
     /**
-     * Clears the sessionStorage while optionally preserving specific keys.
+     * 清除 sessionStorage，同时可以选择性地保留特定的键。
      *
-     * @param {string[]} [except] - An optional array of keys to keep in sessionStorage.
-     * If provided, only the keys not in this array will be removed.
+     * @param {string[]} [except] - 要在 sessionStorage 中保留的键的可选数组。
+     * 如果提供了该参数，只有不在此数组中的键会被删除。
      */
     static clear(except?: string[]) {
         if (except?.length) {
@@ -112,5 +113,4 @@ class SessionDB {
         }
     }
 }
-
 export default SessionDB;

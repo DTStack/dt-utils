@@ -4,35 +4,35 @@
  * @deprecated
  * @category Storage
  * @description
- * This class provides a wrapper for IndexedDB, a low-level API for client-side storage of significant amounts of structured data, including files/blobs.
- * It allows you to store and retrieve data in a structured format, and to query and manipulate that data using a variety of methods.
+ * 这个类为 IndexedDB 提供了一个包装器，IndexedDB 是一个用于客户端存储大量结构化数据（包括文件/二进制对象）的 API。
+ * 它允许你以结构化格式存储和检索数据，并使用各种方法查询和操作这些数据。
  *
  * @example
  * ```typescript
  * import { LocalIndexedDB } from 'dt-utils';
  *
- * // Initialize database
+ * // 初始化数据库
  * const db = new LocalIndexedDB('userDB', 1, 'users');
  * await db.open();
  *
- * // Add data
+ * // 添加数据
  * await db.add('user1', { name: 'John', age: 30 });
  *
- * // Get data
+ * // 获取数据
  * const user = await db.get('user1');
  *
- * // Update data
+ * // 更新数据
  * await db.set('user1', { name: 'John', age: 31 });
  *
- * // Delete data
+ * // 删除数据
  * await db.delete('user1');
  *
- * // Clear all data
+ * // 清空所有数据
  * await db.clear();
  * ```
  *
- * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB|MDN IndexedDB Usage Guide}
- * @see {@link https://caniuse.com/#feat=indexeddb|Browser Compatibility}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB|MDN IndexedDB 使用指南}
+ * @see {@link https://caniuse.com/#feat=indexeddb|浏览器兼容性}
  */
 class IndexedDB {
     private _db!: IDBDatabase;
@@ -64,8 +64,8 @@ class IndexedDB {
     }
 
     /**
-     * Open the database indicated in the constructor function.
-     * This method returns a Promise that resolves to the db instance.
+     * 打开在构造函数中指定的数据库。
+     * 此方法返回一个 Promise，解析为数据库实例。
      */
     public async open(): Promise<IDBDatabase> {
         if (this._db) {

@@ -3,28 +3,28 @@ import { toBase64 as _toBase64 } from 'js-base64';
 import getTypeOfValue from '../getTypeOfValue';
 
 /**
- * Converts a value to a Base64-encoded string.
+ * 将值转换为Base64编码的字符串。
  *
- * @category Conversion
+ * @category 转换
  *
- * @param {File | Blob | string} value - The value to convert to Base64. Supports File, string, or other primitive types
- * @returns {Promise<string | null | undefined>} A Promise that resolves with the Base64-encoded string. Returns original value if input is null/undefined
+ * @param {File | Blob | string} value - 需要转换为Base64的值。支持File、string或其他原始类型
+ * @returns {Promise<string | null | undefined>} 返回一个Promise，解析为Base64编码的字符串。如果输入为null/undefined则返回原始值
  *
  * @example
  * ```typescript
  * import { toBase64 } from 'dt-utils';
  *
- * // Convert string to Base64
+ * // 将字符串转换为Base64
  * const str = 'Hello World';
  * const base64Str = await toBase64(str);
  * console.log(base64Str); // 'SGVsbG8gV29ybGQ='
  *
- * // Convert File to Base64
+ * // 将文件转换为Base64
  * const file = new File(['file content'], 'test.txt');
  * const base64File = await toBase64(file);
  * console.log(base64File); // 'data:text/plain;base64,ZmlsZSBjb250ZW50'
  *
- * // Handle null value
+ * // 处理null值
  * const result = await toBase64(null);
  * console.log(result); // null
  * ```

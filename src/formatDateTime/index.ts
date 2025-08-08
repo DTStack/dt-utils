@@ -1,121 +1,119 @@
 import dayjs from 'dayjs';
-
 /**
  * @enum
- * Enumeration of date and time format patterns
- * Provides standardized format tokens for consistent date/time formatting
+ * 日期和时间格式模式的枚举
+ * 提供标准化的格式标记以实现一致的日期/时间格式化
  */
 export enum DateTimeFormat {
-    // Year Formats
-    /** Represents year in 4 digits (e.g. 2024) */
+    // 年份格式
+    /** 表示4位数年份 (例如 2024) */
     YEAR = 'YYYY',
-    /** Represents year in 2 digits (e.g. 24) */
+    /** 表示2位数年份 (例如 24) */
     YEAR_SHORT = 'YY',
 
-    // Month Formats
-    /** Represents month with leading zero (01-12) */
+    // 月份格式
+    /** 表示带前导零的月份 (01-12) */
     MONTH = 'MM',
-    /** Represents month without leading zero (1-12) */
+    /** 表示不带前导零的月份 (1-12) */
     MONTH_SHORT = 'M',
-    /** Represents full month name (e.g. January) */
+    /** 表示完整月份名称 (例如 January) */
     MONTH_NAME = 'MMMM',
-    /** Represents abbreviated month name (e.g. Jan) */
+    /** 表示缩写月份名称 (例如 Jan) */
     MONTH_NAME_SHORT = 'MMM',
 
-    // Date Formats
-    /** Represents day of month with leading zero (01-31) */
+    // 日期格式
+    /** 表示带前导零的月份中的日期 (01-31) */
     DAY = 'DD',
-    /** Represents day of month without leading zero (1-31) */
+    /** 表示不带前导零的月份中的日期 (1-31) */
     DAY_SHORT = 'D',
-    /** Represents full weekday name (e.g. Monday) */
+    /** 表示完整星期几名称 (例如 Monday) */
     WEEKDAY = 'dddd',
-    /** Represents abbreviated weekday name (e.g. Mon) */
+    /** 表示缩写星期几名称 (例如 Mon) */
     WEEKDAY_SHORT = 'ddd',
 
-    // Time Formats
-    /** Represents hour in 24-hour format with leading zero (00-23) */
+    // 时间格式
+    /** 表示24小时制带前导零的小时 (00-23) */
     HOUR = 'HH',
-    /** Represents hour in 24-hour format without leading zero (0-23) */
+    /** 表示24小时制不带前导零的小时 (0-23) */
     HOUR_SHORT = 'H',
-    /** Represents hour in 12-hour format with leading zero (01-12) */
+    /** 表示12小时制带前导零的小时 (01-12) */
     HOUR_12 = 'hh',
-    /** Represents hour in 12-hour format without leading zero (1-12) */
+    /** 表示12小时制不带前导零的小时 (1-12) */
     HOUR_12_SHORT = 'h',
-    /** Represents minutes with leading zero (00-59) */
+    /** 表示带前导零的分钟 (00-59) */
     MINUTE = 'mm',
-    /** Represents minutes without leading zero (0-59) */
+    /** 表示不带前导零的分钟 (0-59) */
     MINUTE_SHORT = 'm',
-    /** Represents seconds with leading zero (00-59) */
+    /** 表示带前导零的秒数 (00-59) */
     SECOND = 'ss',
-    /** Represents seconds without leading zero (0-59) */
+    /** 表示不带前导零的秒数 (0-59) */
     SECOND_SHORT = 's',
 
-    // Timezone Formats
-    /** Represents timezone offset (e.g. +07:00) */
+    // 时区格式
+    /** 表示时区偏移 (例如 +07:00) */
     TIMEZONE = 'Z',
-    /** Represents ISO format timezone offset (e.g. +0700) */
+    /** 表示ISO格式的时区偏移 (例如 +0700) */
     TIMEZONE_ISO = 'ZZ',
 
-    // Commonly Used Combined Formats
-    /** Standard datetime format (e.g. 2024-03-21 15:30:45) */
+    // 常用组合格式
+    /** 标准日期时间格式 (例如 2024-03-21 15:30:45) */
     STANDARD = 'YYYY-MM-DD HH:mm:ss',
-    /** ISO 8601 compliant format (e.g. 2024-03-21T15:30:45+0700) */
+    /** ISO 8601兼容格式 (例如 2024-03-21T15:30:45+0700) */
     ISO = 'YYYY-MM-DDTHH:mm:ssZ',
-    /** Date only format (e.g. 2024-03-21) */
+    /** 仅日期格式 (例如 2024-03-21) */
     DATE = 'YYYY-MM-DD',
-    /** 24-hour time format (e.g. 15:30:45) */
+    /** 24小时制时间格式 (例如 15:30:45) */
     TIME = 'HH:mm:ss',
-    /** 12-hour time format with meridiem (e.g. 03:30:45 PM) */
+    /** 带午前/午后的12小时制时间格式 (例如 03:30:45 PM) */
     TIME_12 = 'hh:mm:ss A',
-    /** Date with 24-hour time (e.g. 2024-03-21 15:30) */
+    /** 带24小时制时间的日期 (例如 2024-03-21 15:30) */
     DATE_TIME = 'YYYY-MM-DD HH:mm',
-    /** Date with 12-hour time and meridiem (e.g. 2024-03-21 03:30 PM) */
+    /** 带12小时制时间和午前/午后的日期 (例如 2024-03-21 03:30 PM) */
     DATE_TIME_12 = 'YYYY-MM-DD hh:mm A',
-    /** Complete ISO datetime format (e.g. 2024-03-21T15:30:45+0700) */
+    /** 完整的ISO日期时间格式 (例如 2024-03-21T15:30:45+0700) */
     FULL_DATETIME_ISO = 'YYYY-MM-DDTHH:mm:ssZ',
 }
 
 type DateTimeInput = string | number | Date | dayjs.Dayjs;
 type FormatPattern = DateTimeFormat | string;
-
 /**
- * A powerful date-time formatting utility that handles various input types and formatting patterns.
+ * 一个日期时间格式化工具，可处理各种输入类型和格式化模式。
  *
- * @category Formatting
+ * @category 格式化
  * @description
- * This function formats a date or timestamp into a string using the specified format.
- * It supports various input types and formatting patterns.
+ * 将日期或时间戳格式化为指定格式的字符串。
+ * 支持多种输入类型和格式化模式。
  *
- * @param {DateTimeInput} date - Input date value, supports multiple formats:
- *   - Date object: new Date()
- *   - Timestamp: 1674633600000
- *   - ISO string: "2023-01-15T14:30:00"
- *   - dayjs object: dayjs()
- * @param {FormatPattern} format - Desired output format:
- *   - Use DateTimeFormat enum for consistent formatting
- *   - Or provide custom format string
- * @returns {string | dayjs.Dayjs} Formatted date string or dayjs object
+ * @param {DateTimeInput} date - 输入日期值，支持多种格式：
+ *   - Date对象: new Date()
+ *   - 时间戳: 1674633600000
+ *   - ISO字符串: "2023-01-15T14:30:00"
+ *   - dayjs对象: dayjs()
+ * @param {FormatPattern} format - 期望的输出格式：
+ *   - 使用DateTimeFormat枚举以保持一致的格式化
+ *   - 或提供自定义格式字符串
+ * @returns {string | dayjs.Dayjs} 格式化后的日期字符串或 dayjs 实例对象
  *
  * @example
  * ```typescript
  * import { formatDateTime } from 'dt-utils';
  *
- * // Standard date format
+ * // 标准日期格式
  * formatDateTime(new Date(), DateTimeFormat.STANDARD)  // "2024-03-21 15:30:45"
  *
- * // Format from timestamp
+ * // 从时间戳格式化
  * formatDateTime(1674633600000, DateTimeFormat.DATE_TIME)  // "2023-01-25 10:00"
  *
- * // Format with month name
+ * // 格式化月份名称
  * formatDateTime("2023-01-15", DateTimeFormat.MONTH_NAME)  // "January"
  *
- * // 12-hour time format
+ * // 12小时制时间格式
  * formatDateTime(new Date(), DateTimeFormat.TIME_12)  // "03:30:45 PM"
  *
- * // Full weekday name
+ * // 完整星期几名称
  * formatDateTime(new Date(), DateTimeFormat.WEEKDAY)  // "Thursday"
  *
- * // Custom format
+ * // 自定义格式
  * formatDateTime(new Date(), "dddd, MMMM D, YYYY")  // dayjs.Dayjs
  * ```
  */

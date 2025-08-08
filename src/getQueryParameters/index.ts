@@ -1,37 +1,37 @@
 /**
- * Parses query parameters from a given search string.
+ * 从给定的搜索字符串中解析查询参数。
  *
  * @category Utils
  * @description
- * Extracts and parses query parameters from a URL search string into a typed object.
- * Handles special string values:
- * - 'null' is converted to null
- * - 'undefined' is converted to undefined
- * - JSON-parsable strings are automatically parsed (e.g. numbers, booleans)
- * - Other values remain as strings
+ * 从 URL 搜索字符串中提取并解析查询参数到一个类型化对象中。
+ * 处理特殊字符串值：
+ * - 'null' 会被转换为 null
+ * - 'undefined' 会被转换为 undefined
+ * - 可以被 JSON 解析的字符串会被自动解析（例如数字、布尔值）
+ * - 其他值保持字符串形式
  *
- * @param {string} search - The search string (e.g., location.search).
- * @returns {Record<string, string | null | undefined>} - An object containing the query parameters.
+ * @param {string} search - 搜索字符串（例如 location.search）。
+ * @returns {Record<string, string | null | undefined>} - 包含查询参数的对象。
  *
  * @example
  * ```typescript
  * import { getQueryParameters } from 'dt-utils';
  *
- * // Basic usage
+ * // 基本用法
  * const search = '?name=john&age=25';
  * getQueryParameters(search); // => { name: "john", age: 25 }
  *
- * // Handling special values
+ * // 处理特殊值
  * const search = '?isActive=true&count=null&status=undefined';
  * getQueryParameters(search); // => { isActive: true, count: null, status: undefined }
  *
- * // With type inference
+ * // 类型推断
  * interface QueryParams {
  *   page: string;
  *   limit: number;
  * }
  * const params = getQueryParameters<QueryParams>('?page=home&limit=10');
- * // params.page is string, params.limit is number
+ * // params.page 是字符串类型, params.limit 是数字类型
  * ```
  */
 const getQueryParameters = <T extends Record<string, string | null | undefined>>(

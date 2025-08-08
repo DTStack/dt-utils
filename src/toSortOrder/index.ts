@@ -1,11 +1,10 @@
 /**
- * Converts sorting direction terms commonly used in frontend frameworks (like Ant Design)
- * to standard SQL ordering terms.
+ * 将前端框架（如 Ant Design）中常用的排序方向术语转换为标准的 SQL 排序术语。
  *
- * @category Conversion
+ * @category 转换
  *
- * @param {string} order - The order string to convert ('ascend' or 'descend')
- * @returns {string | undefined} The corresponding SQL order string ('asc' or 'desc'), or undefined if input is empty/invalid
+ * @param {string} order - 要转换的排序字符串（'ascend' 或 'descend'）
+ * @returns {string | undefined} 对应的 SQL 排序字符串（'asc' 或 'desc'），如果输入为空或无效则返回 undefined
  *
  * @example
  * ```typescript

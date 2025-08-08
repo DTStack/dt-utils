@@ -1,23 +1,23 @@
 import { nanoid } from 'nanoid';
 
 /**
- * Generates a unique key using nanoid
+ * 使用 nanoid 生成唯一键值
  *
  * @category Utils
  * @description
- * Generates a random unique key with specified length using nanoid library
+ * 使用 nanoid 库生成指定长度的随机唯一键值
  *
- * @param {number} size - The length of the generated key
- * @returns {string} A random string with the specified length
+ * @param {number} size - 生成的键值长度
+ * @returns {string} 指定长度的随机字符串
  *
  * @example
  * ```typescript
  * import { getKey } from 'dt-utils';
  *
- * // Generate a key with length of 10
+ * // 生成长度为10的键值
  * getKey(10) // => "nf5oc2mw3p"
  *
- * // Generate a key with length of 5
+ * // 生成长度为5的键值
  * getKey(5) // => "a4b2x"
  * ```
  */

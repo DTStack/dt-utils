@@ -1,10 +1,10 @@
 /**
- * Compare two version numbers
+ * 比较两个版本号
  *
  * @private
- * @param version1 First version number
- * @param version2 Second version number
- * @returns {number} Returns 1 if version1 > version2, returns -1 if version1 < version2, returns 0 if equal
+ * @param version1 第一个版本号
+ * @param version2 第二个版本号
+ * @returns {number} 当 version1 > version2 时返回 1 ，当 version1 < version2 时返回 -1 ，相等时返回 0
  */
 function compareVersions(version1: string, version2: string): number {
     const v1Parts = version1.split('.').map(Number);

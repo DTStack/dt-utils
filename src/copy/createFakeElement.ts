@@ -1,19 +1,17 @@
 /**
- * Creates a temporary textarea element for clipboard operations
- * This element is positioned off-screen and used as an intermediary for copying text
- * when the Clipboard API is not available
+ * 创建一个用于剪贴板操作的临时文本区域元素
  *
  * @private
- * @param {string} value - Text content to be copied to clipboard
- * @returns {HTMLTextAreaElement} A configured textarea element ready for clipboard operations
+ * @param {string} value - 要复制到剪贴板的文本内容
+ * @returns {HTMLTextAreaElement} 一个配置好的、可用于剪贴板操作的文本区域元素
  */
 function createFakeElement(value: string): HTMLTextAreaElement {
     const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
     const fakeElement = document.createElement('textarea');
 
     /**
-     * Prevent zooming on iOS and reset box model
-     * Move element out of screen horizontally
+     * 防止在iOS上缩放并重置盒模型
+     * 将元素水平移出屏幕
      */
     Object.assign(fakeElement.style, {
         visibility: 'hidden',

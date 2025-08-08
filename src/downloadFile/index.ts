@@ -5,36 +5,41 @@ export interface DownloadOptions extends Omit<RequestInit, 'body' | 'method'> {
 }
 
 /**
- * Downloads a file from the specified URL using a POST request
+ * 从指定 URL 下载文件
  *
  * @category Utils
  * @description
- * This function sends a POST request to the specified URL with the provided data.
- * The response is expected to be a file. If the response is successful, the file is downloaded
- * with the specified filename. If the response is not successful, an error is thrown.
+ * 通过向指定 URL 发送 HTTP 请求（默认为 POST 方法）来下载文件。
  *
- * Note: This function assumes that the server responds with a file. If the server responds
- * with a different content type, an error will be thrown.
+ * 主要功能：
+ * - 支持自定义请求数据和下载文件名
+ * - 自动从响应头获取文件名（如果未指定）
+ * - 处理下载失败的错误情况
  *
- * @param {string} url - The URL to download the file from
- * @param {RequestData} data - The data to be sent in the request body (optional)
- * @param {DownloadOptions} options - Request options including optional fileName
- * @returns {Promise<Response>} Promise that resolves with the fetch Response object
+ * 注意事项：
+ * - 服务端必须返回文件流，若返回 JSON 格式将抛出错误
+ * - 下载失败时会返回原始响应对象以便进一步处理
+ * - 仅支持浏览器环境，依赖 document API
+ *
+ * @param {string} url - 下载文件的目标 URL
+ * @param {RequestData} data - POST 请求携带的数据对象（可选）
+ * @param {DownloadOptions} options - 下载配置项，可包含自定义文件名和其他 fetch 选项
+ * @returns {Promise<Response>} 返回原始响应对象的 Promise
  *
  * @example
  * ```typescript
  * import { downloadFile } from 'dt-utils';
  *
- * // Basic usage
+ * // 基本用法
  * await downloadFile('https://api.example.com/download', { id: 123 });
  *
- * // With custom filename
+ * // 使用自定义文件名
  * await downloadFile('https://api.example.com/download',
  *   { id: 123 },
  *   { fileName: 'custom.pdf' }
  * );
  *
- * // With additional fetch options
+ * // 使用额外的 fetch 选项
  * await downloadFile('https://api.example.com/download',
  *   { id: 123 },
  *   {

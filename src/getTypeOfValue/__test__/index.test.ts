@@ -1,5 +1,4 @@
-import getTypeOfValue from "..";
-
+import getTypeOfValue from '..';
 
 describe('getTypeOfValue', () => {
     it('should return "number" for numeric values', () => {

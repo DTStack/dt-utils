@@ -1,29 +1,29 @@
 /**
- * Formats a number as a percentage string.
+ * 将数字格式化为百分比字符串。
  *
- * @category Conversion
+ * @category 转换
  * @description
- * This function converts a decimal number to a percentage string representation.
+ * 将十进制数转换为百分比字符串表示。
  *
- * @param {number} num - The decimal number to be converted to percentage
- * @param {number} [precision=2] - The number of decimal places to round to (default: 2)
- * @returns {string} A formatted percentage string with the specified precision
+ * @param {number} num - 要转换为百分比的十进制数
+ * @param {number} [precision=2] - 要四舍五入到的小数位数（默认值：2）
+ * @returns {string} 具有指定精度的格式化百分比字符串
  *
  * @example
  * ```typescript
  * import { toPercent } from 'dt-utils';
  *
- * // Basic usage
+ * // 基本用法
  * toPercent(0.1234)      // => "12.34%"
  *
- * // Custom precision
+ * // 自定义精度
  * toPercent(0.1234, 1)   // => "12.3%"
  * toPercent(1.2345, 3)   // => "123.345%"
  *
- * // Handling negative numbers
+ * // 处理负数
  * toPercent(-0.089, 1)   // => "-8.9%"
  *
- * // Edge cases
+ * // 边界情况
  * toPercent(0.00000001)  // => "0%"
  * toPercent(NaN)         // => "0%"
  * toPercent(Infinity)    // => "0%"

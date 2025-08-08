@@ -1,26 +1,26 @@
 /* eslint-disable no-irregular-whitespace */
 /**
- * Removes leading and trailing whitespace characters from a string.
+ * 移除字符串首尾的空白字符。
  *
  * @category Utils
  * @description
- * Handles various Unicode whitespace characters including spaces, tabs, and no-break spaces.
+ * 处理各种 Unicode 空白字符，包括空格、制表符和不换行空格。
  *
- * @param {string} str - The string to trim
- * @returns {string} The trimmed string, or the original value if input is not a string
+ * @param {string} str - 需要处理的字符串
+ * @returns {string} 处理后的字符串，如果输入不是字符串则返回原始值
  *
  * @example
  * ```typescript
  * import { trim } from 'dt-utils';
  *
- * // Removes leading and trailing whitespace characters
+ * // 移除首尾的空白字符
  * trim('  hello world  '); // => 'hello world'
  * trim('\t\nhello\r  '); // => 'hello'
  *
- * // handles full-width spaces
+ * // 处理全角空格
  * trim('　hello　'); // => 'hello'
  *
- * // returns original value for non-strings
+ * // 非字符串类型返回原始值
  * trim(123); // => 123
  * ```
  */

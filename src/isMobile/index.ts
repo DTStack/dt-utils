@@ -1,27 +1,27 @@
 /**
- * Checks if device is mobile.
+ * 检查设备是否为移动设备。
  *
- * @category Environment Detection
+ * @category 环境检测
  * @description
- * This function uses a comprehensive regex pattern to identify mobile devices, including
- * smartphones, tablets, and other mobile platforms.
+ * 该函数使用 http://detectmobilebrowsers.com/ 提供的正则表达式模式来识别移动设备，包括
+ * 智能手机、平板电脑和其他移动平台。
  *
- * @returns {boolean} Returns `true` if device is mobile, else `false`.
+ * @returns {boolean} 如果设备是移动设备则返回 `true`，否则返回 `false`。
  *
  * @example
  * ```typescript
  * import { isMobile } from 'dt-utils';
  *
- * // On a desktop browser
+ * // 在桌面浏览器上
  * isMobile(); // => false
  *
- * // On an iPhone
+ * // 在 iPhone 上
  * isMobile(); // => true
  *
- * // On an iPad
+ * // 在 iPad 上
  * isMobile(); // => true
  *
- * // When running in a non-browser environment
+ * // 在非浏览器环境中运行时
  * isMobile(); // => false
  * ```
  *

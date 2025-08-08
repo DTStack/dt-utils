@@ -1,27 +1,27 @@
 /**
- * Converts a number or string to a formatted string with thousand separators.
+ * 将数字或字符串转换为带千位分隔符的格式化字符串
  *
- * @category Conversion
+ * @category 转换
  * @description
- * This function takes a number or string input and returns a formatted string with commas as thousand separators.
- * Handles both integer and decimal numbers.
+ * 接收一个数字或字符串输入，返回一个使用逗号作为千位分隔符的格式化字符串。
+ * 可以处理整数和小数。
  *
- * @param {string | number} num - The number or string to be formatted
- * @returns {string} A string with thousand separators added
+ * @param {string | number} num - 需要格式化的数字或字符串
+ * @returns {string} 添加了千位分隔符的字符串
  *
  * @example
  * ```typescript
  * import { toThousand } from 'dt-utils';
  *
- * // Format integers
+ * // 格式化整数
  * toThousand(1234567)     // => '1,234,567'
  * toThousand('1234567')   // => '1,234,567'
  *
- * // Format decimals
+ * // 格式化小数
  * toThousand(12345.67)    // => '12,345.67'
  * toThousand('12345.67')  // => '12,345.67'
  *
- * // Handle edge cases
+ * // 处理边界情况
  * toThousand(0)           // => '0'
  * toThousand('')          // => '0'
  * ```

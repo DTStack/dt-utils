@@ -1,25 +1,25 @@
 /**
- * Converts seconds into a time format (HH[h]mm[m]ss[s])
+ * 将秒数转换为时间格式 (HH[h]mm[m]ss[s])
  *
- * @category Formatting
+ * @category 格式化
  *
- * @param {number} secondTime - Number of seconds to be converted
- * @returns {string} Formatted time string with hours (h), minutes (m), and seconds (s)
+ * @param {number} secondTime - 需要转换的秒数
+ * @returns {string} 格式化后的时间字符串，包含小时(h)、分钟(m)和秒(s)
  *
  * @example
  * ```typescript
  * import { formatSecond } from 'dt-utils';
  *
- * // Basic usage
+ * // 基本用法
  * formatSecond(3661)   // => '1h1m1s'
  * formatSecond(59)     // => '59s'
  * formatSecond(0)      // => '0s'
  *
- * // Handle large numbers
+ * // 处理大数字
  * formatSecond(7323)   // => '2h2m3s'
  * formatSecond(3600)   // => '1h'
  *
- * // Handle edge cases
+ * // 处理边界情况
  * formatSecond(-1)     // => '0s'
  * formatSecond(NaN)    // => '0s'
  * formatSecond()       // => '0s'
