@@ -24,6 +24,7 @@
     "homepage": "https://dtstack.github.io/dt-utils/",
     "scripts": {
         "build": "tsc",
+        "lint": "npm run eslint && npm run prettier",
         "prettier": "npx prettier --check 'src/**/*.{js,jsx,json,ts}'",
         "prettier:fix": "npx prettier --write 'src/**/*.{js,jsx,json,ts}'",
         "eslint": "npx eslint --ext .js,.ts ./src",
@@ -55,6 +56,7 @@
         "jest-environment-jsdom": "^29.7.0",
         "ko-lint-config": "^2.2.18",
         "lint-staged": "^9.5.0",
+        "prettier": "^3.6.2",
         "standard-version": "^9.5.0",
         "ts-jest": "^29.2.5",
         "ts-node": "^10.9.2",

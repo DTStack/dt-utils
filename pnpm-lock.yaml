@@ -24,6 +24,7 @@ specifiers:
   lint-staged: ^9.5.0
   lodash-es: ^4.17.21
   nanoid: ^5.1.5
+  prettier: ^3.6.2
   standard-version: ^9.5.0
   ts-jest: ^29.2.5
   ts-node: ^10.9.2
@@ -62,6 +63,7 @@ devDependencies:
   jest-environment-jsdom: 29.7.0
   ko-lint-config: 2.2.21_jest@29.7.0+typescript@4.7.4
   lint-staged: 9.5.0
+  prettier: 3.6.2
   standard-version: 9.5.0
   ts-jest: 29.4.0_a58e60deb6ef69ce66c69a7d41ff8570
   ts-node: 10.9.2_typescript@4.7.4
@@ -8237,6 +8239,12 @@ packages:
   /prettier/2.7.1:
     resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
     engines: {node: '>=10.13.0'}
+    hasBin: true
+    dev: true
+
+  /prettier/3.6.2:
+    resolution: {integrity: sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ==}
+    engines: {node: '>=14'}
     hasBin: true
     dev: true
 

@@ -26,8 +26,8 @@ git pull origin $branch
 echo "Current pull origin $branch."
 
 
-echo "yarn prepublishOnly"
-yarn prepublishOnly
+echo "pnpm prepublishOnly"
+pnpm prepublishOnly
 
 
 # Auto generate version number and tag

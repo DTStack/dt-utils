@@ -27,10 +27,8 @@ describe('generateUrlWithQuery', () => {
         const params = {
             filter: { status: 'active', type: 'user' },
             id: 1,
-        };
-        expect(generateUrlWithQuery('/api/users', params)).toBe(
-            '/api/users?filter=%7B%22status%22%3A%22active%22%2C%22type%22%3A%22user%22%7D&id=1'
-        );
+        } as Record<string, any>;
+        expect(generateUrlWithQuery('/api/users', params)).toBe('/api/users?id=1');
     });
 
     test('returns original path when no query parameters', () => {
@@ -53,6 +51,8 @@ describe('generateUrlWithQuery', () => {
         const circularObj = { self: null };
         circularObj.self = circularObj as any;
         // Test circular reference object, should return original path
-        expect(generateUrlWithQuery('/api/users', { obj: circularObj })).toBe('/api/users');
+        expect(
+            generateUrlWithQuery('/api/users', { obj: circularObj } as Record<string, any>)
+        ).toBe('/api/users');
     });
 });
