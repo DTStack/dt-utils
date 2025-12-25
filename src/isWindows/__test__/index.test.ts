@@ -2,7 +2,6 @@ import UAParser from 'ua-parser-js';
 
 import isWindows from '../index';
 
-// 模拟 UAParser
 jest.mock('ua-parser-js');
 
 describe('isWindows', () => {
