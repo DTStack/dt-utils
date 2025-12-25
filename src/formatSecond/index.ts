@@ -4,6 +4,7 @@
  * @category 格式化
  *
  * @param {number} secondTime - 需要转换的秒数
+ * @param {boolean} padZero - 是否使用 HH[h]mm[m]ss[s] 格式
  * @returns {string} 格式化后的时间字符串，包含小时(h)、分钟(m)和秒(s)
  *
  * @example
@@ -23,36 +24,30 @@
  * formatSecond(-1)     // => '0s'
  * formatSecond(NaN)    // => '0s'
  * formatSecond()       // => '0s'
+ *
+ * // 使用 HH[h]mm[m]ss[s] 格式
+ * formatSecond(3661)   // => '01h01m01s'
+ * formatSecond(60)     // => '01m'
+ * formatSecond(0)      // => '00s'
  * ```
  */
-const formatSecond = (secondTime = 0): string => {
+export const formatSecond = (secondTime = 0, padZero = false): string => {
     if (typeof secondTime !== 'number' || isNaN(secondTime) || secondTime <= 0) {
-        return '0s';
+        return padZero ? '00s' : '0s';
     }
 
-    const absSeconds = Math.floor(secondTime);
+    const totalSeconds = Math.floor(secondTime);
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
 
-    if (absSeconds === 0) {
-        return '0s';
-    }
-
-    const TIME_UNITS = {
-        h: 3600,
-        m: 60,
-        s: 1,
-    };
-
-    const hours = Math.floor(absSeconds / TIME_UNITS.h);
-    const minutes = Math.floor((absSeconds % TIME_UNITS.h) / TIME_UNITS.m);
-    const seconds = absSeconds % TIME_UNITS.m;
+    const pad = (num: number) => (padZero ? String(num).padStart(2, '0') : String(num));
 
     const parts: string[] = [];
-
-    if (hours > 0) parts.push(`${hours}h`);
-    if (minutes > 0) parts.push(`${minutes}m`);
-    if (seconds > 0 || parts.length === 0) parts.push(`${seconds}s`);
+    if (hours > 0) parts.push(`${pad(hours)}h`);
+    if (minutes > 0) parts.push(`${pad(minutes)}m`);
+    if (seconds > 0 || parts.length === 0) parts.push(`${pad(seconds)}s`);
 
     return parts.join('');
 };
-
 export default formatSecond;

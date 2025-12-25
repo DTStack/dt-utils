@@ -60,4 +60,13 @@ describe('formatSecond', () => {
         expect(formatSecond(-3661)).toBe('0s');
         expect(formatSecond(-60)).toBe('0s');
     });
+
+    // Test padZero
+    test('should correctly format time with zero-padded hours, minutes and seconds', () => {
+        expect(formatSecond(3661, true)).toBe('01h01m01s');
+        expect(formatSecond(3600, true)).toBe('01h');
+        expect(formatSecond(60, true)).toBe('01m');
+        expect(formatSecond(1, true)).toBe('01s');
+        expect(formatSecond(0, true)).toBe('00s');
+    });
 });
