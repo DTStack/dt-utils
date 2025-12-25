@@ -9,10 +9,10 @@
  *
  * @example
  * ```typescript
- * import { LocalIndexedDB } from 'dt-utils';
+ * import { IndexedDB } from 'dt-utils';
  *
  * // 初始化数据库
- * const db = new LocalIndexedDB('userDB', 1, 'users');
+ * const db = new IndexedDB('userDB', 1, 'users');
  * await db.open();
  *
  * // 添加数据
