@@ -12,17 +12,17 @@ import { nanoid } from 'nanoid';
  *
  * @example
  * ```typescript
- * import { getKey } from 'dt-utils';
+ * import { generateUniqueId } from 'dt-utils';
  *
  * // 生成长度为10的键值
- * getKey(10) // => "nf5oc2mw3p"
+ * generateUniqueId(10) // => "nf5oc2mw3p"
  *
  * // 生成长度为5的键值
- * getKey(5) // => "a4b2x"
+ * generateUniqueId(5) // => "a4b2x"
  * ```
  */
-const getKey = (size: number): string => {
+const generateUniqueId = (size: number): string => {
     return nanoid(size);
 };
 
-export default getKey;
+export default generateUniqueId;
