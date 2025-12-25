@@ -5,8 +5,8 @@ import { fromBase64 as _fromBase64 } from 'js-base64';
  *
  * @category 转换
  *
- * @param {string} value — Base64 字符串。支持标准格式和 URL 安全格式
- * @returns {string} — UTF-8 字符串
+ * @param {string} value - Base64 字符串。支持标准格式和 URL 安全格式
+ * @returns {string} - UTF-8 字符串
  *
  * @example
  * ```typescript
