@@ -23,8 +23,7 @@ import UAParser from 'ua-parser-js';
 const isMacOS = (): boolean => {
     const parser = new UAParser();
     const result = parser.getOS();
-
-    return result.name === 'macOS';
+    return result.name === 'Mac OS';
 };
 
 export default isMacOS;
