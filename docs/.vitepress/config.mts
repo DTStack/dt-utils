@@ -7,20 +7,17 @@ export default defineConfig({
     base: '/dt-utils/',
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
-        nav: [
-            { text: 'Guide', link: '/quickstart' },
-            { text: 'Documents', link: '/api/globals' },
-        ],
+        nav: [{ text: '文档', link: '/quickstart' }],
         sidebar: [
             {
-                text: 'Guide',
+                text: '简介',
                 items: [
-                    { text: 'Quick Start', link: '/quickstart' },
-                    { text: 'contribution', link: '/contribution' },
+                    { text: '快速开始', link: '/quickstart' },
+                    { text: '贡献指南', link: '/contribution' },
                 ],
             },
             {
-                text: 'Functions',
+                text: '工具方法',
                 link: '/api/globals',
                 items: [...require('../api/typedoc-sidebar.json')],
             },

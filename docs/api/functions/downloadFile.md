@@ -4,7 +4,7 @@
 
 > **downloadFile**(`url`, `data`, `options`): `Promise`\<`Response`\>
 
-Defined in: [downloadFile/index.ts:54](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/downloadFile/index.ts#L54)
+Defined in: [downloadFile/index.ts:54](https://github.com/DTStack/dt-utils/blob/master/src/downloadFile/index.ts#L54)
 
 从指定 URL 下载文件
 

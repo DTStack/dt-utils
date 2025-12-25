@@ -2,7 +2,7 @@
 
 # Class: ~~IndexedDB~~
 
-Defined in: [indexedDB/index.ts:37](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/indexedDB/index.ts#L37)
+Defined in: [indexedDB/index.ts:37](https://github.com/DTStack/dt-utils/blob/master/src/indexedDB/index.ts#L37)
 
 IndexedDB
 
@@ -16,10 +16,10 @@ IndexedDB
 ## Example
 
 ```typescript
-import { LocalIndexedDB } from 'dt-utils';
+import { IndexedDB } from 'dt-utils';
 
 // 初始化数据库
-const db = new LocalIndexedDB('userDB', 1, 'users');
+const db = new IndexedDB('userDB', 1, 'users');
 await db.open();
 
 // 添加数据
@@ -49,7 +49,7 @@ await db.clear();
 
 > **new IndexedDB**(`database`, `version`, `storeName`, `openLog`): `IndexedDB`
 
-Defined in: [indexedDB/index.ts:51](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/indexedDB/index.ts#L51)
+Defined in: [indexedDB/index.ts:51](https://github.com/DTStack/dt-utils/blob/master/src/indexedDB/index.ts#L51)
 
 Constructor for a new indexedDB object
 
@@ -89,7 +89,7 @@ Whether to log indexedDB changes
 
 > **add**\<`T`\>(`key`, `value`): `Promise`\<`IDBRequest`\<`any`\>\>
 
-Defined in: [indexedDB/index.ts:149](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/indexedDB/index.ts#L149)
+Defined in: [indexedDB/index.ts:149](https://github.com/DTStack/dt-utils/blob/master/src/indexedDB/index.ts#L149)
 
 #### Type Parameters
 
@@ -117,7 +117,7 @@ Defined in: [indexedDB/index.ts:149](https://github.com/jin-sir/dt-utils/blob/c8
 
 > **clear**(): `Promise`\<`IDBRequest`\<`any`\>\>
 
-Defined in: [indexedDB/index.ts:171](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/indexedDB/index.ts#L171)
+Defined in: [indexedDB/index.ts:171](https://github.com/DTStack/dt-utils/blob/master/src/indexedDB/index.ts#L171)
 
 #### Returns
 
@@ -129,7 +129,7 @@ Defined in: [indexedDB/index.ts:171](https://github.com/jin-sir/dt-utils/blob/c8
 
 > **delete**(`key`): `Promise`\<`IDBRequest`\<`any`\>\>
 
-Defined in: [indexedDB/index.ts:166](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/indexedDB/index.ts#L166)
+Defined in: [indexedDB/index.ts:166](https://github.com/DTStack/dt-utils/blob/master/src/indexedDB/index.ts#L166)
 
 #### Parameters
 
@@ -147,7 +147,7 @@ Defined in: [indexedDB/index.ts:166](https://github.com/jin-sir/dt-utils/blob/c8
 
 > **get**\<`T`\>(`key`): `Promise`\<`T`\>
 
-Defined in: [indexedDB/index.ts:160](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/indexedDB/index.ts#L160)
+Defined in: [indexedDB/index.ts:160](https://github.com/DTStack/dt-utils/blob/master/src/indexedDB/index.ts#L160)
 
 #### Type Parameters
 
@@ -171,7 +171,7 @@ Defined in: [indexedDB/index.ts:160](https://github.com/jin-sir/dt-utils/blob/c8
 
 > **open**(): `Promise`\<`IDBDatabase`\>
 
-Defined in: [indexedDB/index.ts:70](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/indexedDB/index.ts#L70)
+Defined in: [indexedDB/index.ts:70](https://github.com/DTStack/dt-utils/blob/master/src/indexedDB/index.ts#L70)
 
 打开在构造函数中指定的数据库。
 此方法返回一个 Promise，解析为数据库实例。
@@ -186,7 +186,7 @@ Defined in: [indexedDB/index.ts:70](https://github.com/jin-sir/dt-utils/blob/c80
 
 > **set**\<`T`\>(`key`, `value`): `Promise`\<`IDBRequest`\<`any`\>\>
 
-Defined in: [indexedDB/index.ts:154](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/indexedDB/index.ts#L154)
+Defined in: [indexedDB/index.ts:154](https://github.com/DTStack/dt-utils/blob/master/src/indexedDB/index.ts#L154)
 
 #### Type Parameters
 

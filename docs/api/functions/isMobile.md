@@ -4,7 +4,7 @@
 
 > **isMobile**(): `boolean`
 
-Defined in: [isMobile/index.ts:30](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/isMobile/index.ts#L30)
+Defined in: [isMobile/index.ts:30](https://github.com/DTStack/dt-utils/blob/master/src/isMobile/index.ts#L30)
 
 检查设备是否为移动设备。
 

@@ -4,7 +4,7 @@
 
 > **formatDateTime**(`date`, `format`): `string` \| `Dayjs`
 
-Defined in: [formatDateTime/index.ts:120](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/formatDateTime/index.ts#L120)
+Defined in: [formatDateTime/index.ts:120](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L120)
 
 一个日期时间格式化工具，可处理各种输入类型和格式化模式。
 

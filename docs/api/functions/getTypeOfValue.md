@@ -4,7 +4,7 @@
 
 > **getTypeOfValue**(`value`): `string`
 
-Defined in: [getTypeOfValue/index.ts:36](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/getTypeOfValue/index.ts#L36)
+Defined in: [getTypeOfValue/index.ts:36](https://github.com/DTStack/dt-utils/blob/master/src/getTypeOfValue/index.ts#L36)
 
 以小写字符串形式返回值的类型。
 

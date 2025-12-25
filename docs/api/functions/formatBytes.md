@@ -4,7 +4,7 @@
 
 > **formatBytes**(`value`, `decimals?`): `FormattedBytes`
 
-Defined in: [formatBytes/index.ts:49](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/formatBytes/index.ts#L49)
+Defined in: [formatBytes/index.ts:49](https://github.com/DTStack/dt-utils/blob/master/src/formatBytes/index.ts#L49)
 
 将字节数值格式化为带单位的字符串表示。
 

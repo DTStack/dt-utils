@@ -4,7 +4,7 @@
 
 > **generateUrlWithQuery**(`pathname`, `queryParams`): `string`
 
-Defined in: [generateUrlWithQuery/index.ts:32](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/generateUrlWithQuery/index.ts#L32)
+Defined in: [generateUrlWithQuery/index.ts:32](https://github.com/DTStack/dt-utils/blob/master/src/generateUrlWithQuery/index.ts#L32)
 
 生成带查询参数的 URL
 

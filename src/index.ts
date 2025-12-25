@@ -9,7 +9,7 @@ export { default as checkBrowserSupport } from './checkBrowserSupport';
 export { default as copy } from './copy';
 export { default as downloadFile } from './downloadFile';
 export { default as formatBytes } from './formatBytes';
-export { default as formatDateTime } from './formatDateTime';
+export { DateTimeFormat, default as formatDateTime } from './formatDateTime';
 export { default as formatSecond } from './formatSecond';
 export { default as fromBase64 } from './fromBase64';
 export { default as generateUniqueId } from './generateUniqueId';

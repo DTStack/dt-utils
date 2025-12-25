@@ -30,12 +30,12 @@
         "link": "/api/functions/downloadFile.md"
       },
       {
-        "text": "generateUrlWithQuery",
-        "link": "/api/functions/generateUrlWithQuery.md"
+        "text": "generateUniqueId",
+        "link": "/api/functions/generateUniqueId.md"
       },
       {
-        "text": "getKey",
-        "link": "/api/functions/getKey.md"
+        "text": "generateUrlWithQuery",
+        "link": "/api/functions/generateUrlWithQuery.md"
       },
       {
         "text": "getQueryParameters",
@@ -52,6 +52,16 @@
       {
         "text": "trim",
         "link": "/api/functions/trim.md"
+      }
+    ]
+  },
+  {
+    "text": "枚举\n日期和时间格式模式的枚举\n提供标准化的格式标记以实现一致的日期/时间格式化",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "DateTimeFormat",
+        "link": "/api/enumerations/DateTimeFormat.md"
       }
     ]
   },

@@ -4,7 +4,7 @@
 
 > **getQueryParameters**\<`T`\>(`search`): `T`
 
-Defined in: [getQueryParameters/index.ts:37](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/getQueryParameters/index.ts#L37)
+Defined in: [getQueryParameters/index.ts:37](https://github.com/DTStack/dt-utils/blob/master/src/getQueryParameters/index.ts#L37)
 
 从给定的搜索字符串中解析查询参数。
 

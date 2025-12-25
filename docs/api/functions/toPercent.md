@@ -4,7 +4,7 @@
 
 > **toPercent**(`num`, `precision?`): `string`
 
-Defined in: [toPercent/index.ts:34](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/toPercent/index.ts#L34)
+Defined in: [toPercent/index.ts:34](https://github.com/DTStack/dt-utils/blob/master/src/toPercent/index.ts#L34)
 
 将数字格式化为百分比字符串。
 

@@ -4,7 +4,7 @@
 
 > **toThousand**(`num`): `string`
 
-Defined in: [toThousand/index.ts:29](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/toThousand/index.ts#L29)
+Defined in: [toThousand/index.ts:29](https://github.com/DTStack/dt-utils/blob/master/src/toThousand/index.ts#L29)
 
 将数字或字符串转换为带千位分隔符的格式化字符串
 

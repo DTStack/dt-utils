@@ -4,7 +4,7 @@
 
 > **checkBrowserSupport**(`browsers`): `boolean`
 
-Defined in: [checkBrowserSupport/index.ts:51](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/checkBrowserSupport/index.ts#L51)
+Defined in: [checkBrowserSupport/index.ts:51](https://github.com/DTStack/dt-utils/blob/master/src/checkBrowserSupport/index.ts#L51)
 
 检查当前浏览器是否满足最低版本要求
 

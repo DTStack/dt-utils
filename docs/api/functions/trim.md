@@ -4,7 +4,7 @@
 
 > **trim**(`str`): `string`
 
-Defined in: [trim/index.ts:27](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/trim/index.ts#L27)
+Defined in: [trim/index.ts:27](https://github.com/DTStack/dt-utils/blob/master/src/trim/index.ts#L27)
 
 移除字符串首尾的空白字符。
 

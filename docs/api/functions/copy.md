@@ -4,7 +4,7 @@
 
 > **copy**(`text`): `Promise`\<`boolean`\>
 
-Defined in: [copy/index.ts:46](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/copy/index.ts#L46)
+Defined in: [copy/index.ts:46](https://github.com/DTStack/dt-utils/blob/master/src/copy/index.ts#L46)
 
 浏览器剪贴板复制工具函数。
 

@@ -4,7 +4,7 @@
 
 > **toBase64**(`value`): `Promise`\<`undefined` \| `null` \| `string`\>
 
-Defined in: [toBase64/index.ts:32](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/toBase64/index.ts#L32)
+Defined in: [toBase64/index.ts:32](https://github.com/DTStack/dt-utils/blob/master/src/toBase64/index.ts#L32)
 
 将值转换为Base64编码的字符串。
 

@@ -4,7 +4,7 @@
 
 > **isWindows**(): `boolean`
 
-Defined in: [isWindows/index.ts:25](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/isWindows/index.ts#L25)
+Defined in: [isWindows/index.ts:25](https://github.com/DTStack/dt-utils/blob/master/src/isWindows/index.ts#L25)
 
 检查当前操作系统是否为 Windows。
 

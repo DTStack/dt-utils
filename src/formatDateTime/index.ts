@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 /**
- * @enum
+ * @category 枚举
  * 日期和时间格式模式的枚举
  * 提供标准化的格式标记以实现一致的日期/时间格式化
  */

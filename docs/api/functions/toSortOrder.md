@@ -4,7 +4,7 @@
 
 > **toSortOrder**(`order`): `undefined` \| `"asc"` \| `"desc"`
 
-Defined in: [toSortOrder/index.ts:19](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/toSortOrder/index.ts#L19)
+Defined in: [toSortOrder/index.ts:19](https://github.com/DTStack/dt-utils/blob/master/src/toSortOrder/index.ts#L19)
 
 将前端框架（如 Ant Design）中常用的排序方向术语转换为标准的 SQL 排序术语。
 

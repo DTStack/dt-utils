@@ -2,7 +2,7 @@
 
 # Class: SessionDB
 
-Defined in: [sessionDB/index.ts:45](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/sessionDB/index.ts#L45)
+Defined in: [sessionDB/index.ts:45](https://github.com/DTStack/dt-utils/blob/master/src/sessionDB/index.ts#L45)
 
 一个用于管理浏览器 Session 存储的工具类，提供类型安全的方法
 
@@ -63,7 +63,7 @@ SessionDB.clear(['userProfile']); // 只保留 userProfile
 
 > `static` **clear**(`except?`): `void`
 
-Defined in: [sessionDB/index.ts:107](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/sessionDB/index.ts#L107)
+Defined in: [sessionDB/index.ts:107](https://github.com/DTStack/dt-utils/blob/master/src/sessionDB/index.ts#L107)
 
 清除 sessionStorage，同时可以选择性地保留特定的键。
 
@@ -86,7 +86,7 @@ Defined in: [sessionDB/index.ts:107](https://github.com/jin-sir/dt-utils/blob/c8
 
 > `static` **get**(`key`): `any`
 
-Defined in: [sessionDB/index.ts:78](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/sessionDB/index.ts#L78)
+Defined in: [sessionDB/index.ts:78](https://github.com/DTStack/dt-utils/blob/master/src/sessionDB/index.ts#L78)
 
 通过键从 sessionStorage 检索数据
 
@@ -110,7 +110,7 @@ Defined in: [sessionDB/index.ts:78](https://github.com/jin-sir/dt-utils/blob/c80
 
 > `static` **remove**(`key`): `void`
 
-Defined in: [sessionDB/index.ts:93](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/sessionDB/index.ts#L93)
+Defined in: [sessionDB/index.ts:93](https://github.com/DTStack/dt-utils/blob/master/src/sessionDB/index.ts#L93)
 
 通过键从 sessionStorage 删除数据
 
@@ -134,7 +134,7 @@ Defined in: [sessionDB/index.ts:93](https://github.com/jin-sir/dt-utils/blob/c80
 
 > `static` **set**(`items`): `void`
 
-Defined in: [sessionDB/index.ts:50](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/sessionDB/index.ts#L50)
+Defined in: [sessionDB/index.ts:50](https://github.com/DTStack/dt-utils/blob/master/src/sessionDB/index.ts#L50)
 
 向 sessionStorage 添加多个项目
 
@@ -154,7 +154,7 @@ Defined in: [sessionDB/index.ts:50](https://github.com/jin-sir/dt-utils/blob/c80
 
 > `static` **set**(`key`, `value`): `void`
 
-Defined in: [sessionDB/index.ts:56](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/sessionDB/index.ts#L56)
+Defined in: [sessionDB/index.ts:56](https://github.com/DTStack/dt-utils/blob/master/src/sessionDB/index.ts#L56)
 
 通过键在 sessionStorage 中存储数据值
 

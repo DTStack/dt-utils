@@ -12,5 +12,6 @@
         "format": "vitepress",
         "pretty": true,
         "collapsed": true
-    }
+    },
+    "sourceLinkTemplate": "https://github.com/DTStack/dt-utils/blob/master/{path}#L{line}"
 }

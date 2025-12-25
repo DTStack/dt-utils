@@ -4,7 +4,7 @@
 
 > **fromBase64**(`value`): `string`
 
-Defined in: [fromBase64/index.ts:22](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/fromBase64/index.ts#L22)
+Defined in: [fromBase64/index.ts:22](https://github.com/DTStack/dt-utils/blob/master/src/fromBase64/index.ts#L22)
 
 将 Base64 字符串转换为 UTF-8 字符串。
 
@@ -14,13 +14,13 @@ Defined in: [fromBase64/index.ts:22](https://github.com/jin-sir/dt-utils/blob/c8
 
 `string`
 
-— Base64 字符串。支持标准格式和 URL 安全格式
+Base64 字符串。支持标准格式和 URL 安全格式
 
 ## Returns
 
 `string`
 
-— UTF-8 字符串
+- UTF-8 字符串
 
 ## Example
 

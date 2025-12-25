@@ -2,7 +2,7 @@
 
 # Class: LocalDB
 
-Defined in: [localDB/index.ts:36](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/localDB/index.ts#L36)
+Defined in: [localDB/index.ts:36](https://github.com/DTStack/dt-utils/blob/master/src/localDB/index.ts#L36)
 
 一个用于管理浏览器 localStorage 的增强功能工具类
 
@@ -55,7 +55,7 @@ LocalDB.clear(['theme', 'language']);
 
 > `static` **clear**(`except?`): `void`
 
-Defined in: [localDB/index.ts:93](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/localDB/index.ts#L93)
+Defined in: [localDB/index.ts:93](https://github.com/DTStack/dt-utils/blob/master/src/localDB/index.ts#L93)
 
 清除 localStorage，同时可以选择性地保留特定的键
 
@@ -78,7 +78,7 @@ Defined in: [localDB/index.ts:93](https://github.com/jin-sir/dt-utils/blob/c80bd
 
 > `static` **get**(`key`): `any`
 
-Defined in: [localDB/index.ts:68](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/localDB/index.ts#L68)
+Defined in: [localDB/index.ts:68](https://github.com/DTStack/dt-utils/blob/master/src/localDB/index.ts#L68)
 
 通过键名从 localStorage 中获取数据
 
@@ -102,7 +102,7 @@ Defined in: [localDB/index.ts:68](https://github.com/jin-sir/dt-utils/blob/c80bd
 
 > `static` **remove**(`key`): `void`
 
-Defined in: [localDB/index.ts:83](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/localDB/index.ts#L83)
+Defined in: [localDB/index.ts:83](https://github.com/DTStack/dt-utils/blob/master/src/localDB/index.ts#L83)
 
 通过键名从 localStorage 中删除数据
 
@@ -126,7 +126,7 @@ Defined in: [localDB/index.ts:83](https://github.com/jin-sir/dt-utils/blob/c80bd
 
 > `static` **set**(`items`): `void`
 
-Defined in: [localDB/index.ts:41](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/localDB/index.ts#L41)
+Defined in: [localDB/index.ts:41](https://github.com/DTStack/dt-utils/blob/master/src/localDB/index.ts#L41)
 
 向 localStorage 添加多个项目
 
@@ -146,7 +146,7 @@ Defined in: [localDB/index.ts:41](https://github.com/jin-sir/dt-utils/blob/c80bd
 
 > `static` **set**(`key`, `value`): `void`
 
-Defined in: [localDB/index.ts:47](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/localDB/index.ts#L47)
+Defined in: [localDB/index.ts:47](https://github.com/DTStack/dt-utils/blob/master/src/localDB/index.ts#L47)
 
 通过键名在 localStorage 中存储数据值
 

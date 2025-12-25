@@ -2,9 +2,9 @@
 
 # Function: formatSecond()
 
-> **formatSecond**(`secondTime`): `string`
+> **formatSecond**(`secondTime`, `padZero`): `string`
 
-Defined in: [formatSecond/index.ts:28](https://github.com/jin-sir/dt-utils/blob/c80bde9fd6bdabc77e6c76035f655925caf5e8af/src/formatSecond/index.ts#L28)
+Defined in: [formatSecond/index.ts:34](https://github.com/DTStack/dt-utils/blob/master/src/formatSecond/index.ts#L34)
 
 将秒数转换为时间格式 (HH[h]mm[m]ss[s])
 
@@ -15,6 +15,12 @@ Defined in: [formatSecond/index.ts:28](https://github.com/jin-sir/dt-utils/blob/
 `number` = `0`
 
 需要转换的秒数
+
+### padZero
+
+`boolean` = `false`
+
+是否使用 HH[h]mm[m]ss[s] 格式
 
 ## Returns
 
@@ -40,4 +46,9 @@ formatSecond(3600)   // => '1h'
 formatSecond(-1)     // => '0s'
 formatSecond(NaN)    // => '0s'
 formatSecond()       // => '0s'
+
+// 使用 HH[h]mm[m]ss[s] 格式
+formatSecond(3661)   // => '01h01m01s'
+formatSecond(60)     // => '01m'
+formatSecond(0)      // => '00s'
 ```
