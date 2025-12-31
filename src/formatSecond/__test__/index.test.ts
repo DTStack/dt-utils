@@ -62,11 +62,30 @@ describe('formatSecond', () => {
     });
 
     // Test padZero
-    test('should correctly format time with zero-padded hours, minutes and seconds', () => {
-        expect(formatSecond(3661, true)).toBe('01h01m01s');
-        expect(formatSecond(3600, true)).toBe('01h');
-        expect(formatSecond(60, true)).toBe('01m');
-        expect(formatSecond(1, true)).toBe('01s');
-        expect(formatSecond(0, true)).toBe('00s');
+    test('pads hour, minute and second with zero', () => {
+        expect(formatSecond(3661, { padZero: true })).toBe('01h01m01s');
+        expect(formatSecond(60, { padZero: true })).toBe('01m');
+        expect(formatSecond(5, { padZero: true })).toBe('05s');
+    });
+
+    test('pads zero second correctly', () => {
+        expect(formatSecond(0, { padZero: true })).toBe('00s');
+    });
+
+    // Custom units
+    test('supports chinese units', () => {
+        expect(
+            formatSecond(1106, {
+                units: { h: '小时', m: '分', s: '秒' },
+            })
+        ).toBe('18分26秒');
+    });
+
+    test('supports partial units override', () => {
+        expect(
+            formatSecond(61, {
+                units: { m: 'min', s: 'sec' },
+            })
+        ).toBe('1min1sec');
     });
 });

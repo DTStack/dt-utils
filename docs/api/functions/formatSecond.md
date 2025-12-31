@@ -2,11 +2,16 @@
 
 # Function: formatSecond()
 
-> **formatSecond**(`secondTime`, `padZero`): `string`
+> **formatSecond**(`secondTime`, `options?`): `string`
 
-Defined in: [formatSecond/index.ts:34](https://github.com/DTStack/dt-utils/blob/master/src/formatSecond/index.ts#L34)
+Defined in: [formatSecond/index.ts:75](https://github.com/DTStack/dt-utils/blob/master/src/formatSecond/index.ts#L75)
 
-将秒数转换为时间格式 (HH[h]mm[m]ss[s])
+将秒数格式化为可读的时间字符串。
+
+支持：
+- 自定义时间单位（h / m / s）
+- 数值补零（padZero）
+- 通过 format 模板输出（如 HH:mm:ss）
 
 ## Parameters
 
@@ -14,41 +19,52 @@ Defined in: [formatSecond/index.ts:34](https://github.com/DTStack/dt-utils/blob/
 
 `number` = `0`
 
-需要转换的秒数
+需要转换的秒数（小于等于 0、NaN、非数字将视为 0）
 
-### padZero
+### options?
 
-`boolean` = `false`
+`FormatSecondOptions` = `{}`
 
-是否使用 HH[h]mm[m]ss[s] 格式
+格式化选项
 
 ## Returns
 
 `string`
 
-格式化后的时间字符串，包含小时(h)、分钟(m)和秒(s)
+格式化后的时间字符串
 
 ## Example
 
-```typescript
+```ts
 import { formatSecond } from 'dt-utils';
 
-// 基本用法
-formatSecond(3661)   // => '1h1m1s'
-formatSecond(59)     // => '59s'
-formatSecond(0)      // => '0s'
+// 基本用法（默认单位：h / m / s）
+formatSecond(3661)  // => '1h1m1s'
 
-// 处理大数字
-formatSecond(7323)   // => '2h2m3s'
-formatSecond(3600)   // => '1h'
+formatSecond(59)  // => '59s'
 
-// 处理边界情况
-formatSecond(-1)     // => '0s'
-formatSecond(NaN)    // => '0s'
-formatSecond()       // => '0s'
+formatSecond(0)  // => '0s'
 
-// 使用 HH[h]mm[m]ss[s] 格式
-formatSecond(3661)   // => '01h01m01s'
-formatSecond(60)     // => '01m'
-formatSecond(0)      // => '00s'
+// 补零
+formatSecond(3661, { padZero: true })  // => '01h01m01s'
+
+formatSecond(60, { padZero: true })  // => '01m'
+
+// 自定义单位（中文）
+formatSecond(1106, {
+  units: { h: '小时', m: '分', s: '秒' },
+})  // => '18分26秒'
+
+// 使用 format 模板（运行时长）
+formatSecond(12078, {
+  format: 'HH:mm:ss',
+  padZero: true,
+})  // => '03:21:18'
+
+// 边界情况
+formatSecond(-1)  // => '0s'
+
+formatSecond(NaN)  // => '0s'
+
+formatSecond()  // => '0s'
 ```
