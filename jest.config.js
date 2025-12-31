@@ -9,4 +9,5 @@ module.exports = {
     testPathIgnorePatterns: ['/node_modules/'],
     testMatch: ['**/__test__/**/(*.)+test.[jt]s?(x)'],
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
+    setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
 };
