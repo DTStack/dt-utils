@@ -44,6 +44,36 @@ describe('localDB', () => {
         expect(localDB.get('testKey')).toBeNull();
     });
 
+    test('remove multiple keys', () => {
+        localDB.set('token', 'abc123');
+        localDB.set('lastLogin', '2024-01-01');
+
+        localDB.remove(['token', 'lastLogin']);
+
+        expect(localDB.get('token')).toBeNull();
+        expect(localDB.get('lastLogin')).toBeNull();
+    });
+
+    test('should do nothing when removing non-existing keys', () => {
+        localDB.set('userProfile', 'test');
+
+        expect(() => {
+            localDB.remove(['not-exist-1', 'not-exist-2']);
+        }).not.toThrow();
+
+        expect(localDB.get('userProfile')).toBe('test');
+    });
+    test('should safely handle empty array input', () => {
+        localDB.set('token', 'abc123');
+
+        expect(() => {
+            localDB.remove([]);
+        }).not.toThrow();
+
+        expect(localDB.get('token')).toBe('abc123');
+        expect(localDB.get('token')).toBe('abc123');
+    });
+
     test('clear removes all keys', () => {
         localDB.set('key1', 'value1');
         localDB.set('key2', 'value2');
