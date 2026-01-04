@@ -12,7 +12,7 @@ Defined in: [generateUniqueId/index.ts:24](https://github.com/DTStack/dt-utils/b
 
 ### size
 
-`number`
+`number` = `8`
 
 生成的键值长度
 

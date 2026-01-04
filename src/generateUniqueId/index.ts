@@ -21,7 +21,7 @@ import { nanoid } from 'nanoid';
  * generateUniqueId(5) // => "a4b2x"
  * ```
  */
-const generateUniqueId = (size: number): string => {
+const generateUniqueId = (size = 8): string => {
     return nanoid(size);
 };
 
