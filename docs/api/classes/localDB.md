@@ -2,7 +2,7 @@
 
 # Class: LocalDB
 
-Defined in: [localDB/index.ts:36](https://github.com/DTStack/dt-utils/blob/master/src/localDB/index.ts#L36)
+Defined in: [localDB/index.ts:45](https://github.com/DTStack/dt-utils/blob/master/src/localDB/index.ts#L45)
 
 一个用于管理浏览器 localStorage 的增强功能工具类
 
@@ -13,6 +13,16 @@ LocalDB 为浏览器的 localStorage API 提供了一个包装器，具有以下
 - 自动 JSON 序列化/反序列化
 - 批量操作支持
 - 可选择性清除带例外项
+
+## Methods
+
+| 方法名 | 描述 | 参数 | 返回值 |
+|------|------|------|--------|
+| `set(items: Record<string, any>)` | 向 localStorage 添加多个项目 | `items: Record<string, any>` - 键值对对象 | `void` |
+| `set(key: string, value: any)` | 通过键名在 localStorage 中存储单个数据值（如果 value 为 null/undefined，则删除该键） | `key: string` - 存储的唯一标识符 <br> `value: any` - 要存储的数据 | `void` |
+| `get` | 通过键名从 localStorage 中获取数据 | `key: string` - 要获取数据的唯一标识符 | `any`（可能是对象或字符串，找不到返回 null） |
+| `remove` | 通过键名从 localStorage 中删除数据 | `key: string` - 要删除数据的唯一标识符 | `void` |
+| `clear` | 清除 localStorage，可以选择性保留特定键 | `except?: string[]` - 可选的要保留的键数组 | `void` |
 
 ## Example
 
@@ -38,132 +48,3 @@ LocalDB.remove('user');
 // 清除除指定键外的所有数据
 LocalDB.clear(['theme', 'language']);
 ```
-
-## Constructors
-
-### Constructor
-
-> **new LocalDB**(): `LocalDB`
-
-#### Returns
-
-`LocalDB`
-
-## Methods
-
-### clear()
-
-> `static` **clear**(`except?`): `void`
-
-Defined in: [localDB/index.ts:93](https://github.com/DTStack/dt-utils/blob/master/src/localDB/index.ts#L93)
-
-清除 localStorage，同时可以选择性地保留特定的键
-
-#### Parameters
-
-##### except?
-
-`string`[]
-
-可选的要在 localStorage 中保留的键名数组。
-如果提供了这个参数，只有不在这个数组中的键会被删除。
-
-#### Returns
-
-`void`
-
-***
-
-### get()
-
-> `static` **get**(`key`): `any`
-
-Defined in: [localDB/index.ts:68](https://github.com/DTStack/dt-utils/blob/master/src/localDB/index.ts#L68)
-
-通过键名从 localStorage 中获取数据
-
-#### Parameters
-
-##### key
-
-`string`
-
-要获取数据的唯一标识符
-
-#### Returns
-
-`any`
-
-- 返回存储的数据，可以是字符串或对象
-
-***
-
-### remove()
-
-> `static` **remove**(`key`): `void`
-
-Defined in: [localDB/index.ts:83](https://github.com/DTStack/dt-utils/blob/master/src/localDB/index.ts#L83)
-
-通过键名从 localStorage 中删除数据
-
-#### Parameters
-
-##### key
-
-`string`
-
-要删除数据的唯一标识符
-
-#### Returns
-
-`void`
-
-***
-
-### set()
-
-#### Call Signature
-
-> `static` **set**(`items`): `void`
-
-Defined in: [localDB/index.ts:41](https://github.com/DTStack/dt-utils/blob/master/src/localDB/index.ts#L41)
-
-向 localStorage 添加多个项目
-
-##### Parameters
-
-###### items
-
-`Record`\<`string`, `any`\>
-
-一个对象，其中键是 localStorage 的键名，值是要存储的数据
-
-##### Returns
-
-`void`
-
-#### Call Signature
-
-> `static` **set**(`key`, `value`): `void`
-
-Defined in: [localDB/index.ts:47](https://github.com/DTStack/dt-utils/blob/master/src/localDB/index.ts#L47)
-
-通过键名在 localStorage 中存储数据值
-
-##### Parameters
-
-###### key
-
-`string`
-
-存储数据的唯一标识符
-
-###### value
-
-`any`
-
-要存储的数据，可以是任何类型
-
-##### Returns
-
-`void`

@@ -7,7 +7,7 @@ hero:
   text: "袋鼠云前端常用工具库"
   actions:
     - theme: brand
-      text: Quick Start
+      text: 快速开始
       link: /quickstart
     - theme: alt
       text: Github

@@ -7,6 +7,16 @@
  * 这个类为 IndexedDB 提供了一个包装器，IndexedDB 是一个用于客户端存储大量结构化数据（包括文件/二进制对象）的 API。
  * 它允许你以结构化格式存储和检索数据，并使用各种方法查询和操作这些数据。
  *
+ * @Methods
+ * | 方法名 | 描述 | 参数 | 返回值 |
+ * |------|------|------|--------|
+ * | `open` | 打开数据库连接 | — | `Promise<IDBDatabase>` |
+ * | `add` | 添加一个新的键值对到对象存储中 | `key: IDBValidKey` <br> `value: any` | `Promise<void>` |
+ * | `set` | 更新对象存储中已存在的键值对 | `key: IDBValidKey` <br> `value: any` | `Promise<void>` |
+ * | `get` | 从对象存储中检索指定键的值 | `key: IDBValidKey` | `Promise<any>` |
+ * | `delete` | 从对象存储中删除指定键对应的数据 | `key: IDBValidKey` | `Promise<void>` |
+ * | `clear` | 清空对象存储中的所有数据 | — | `Promise<void>` |
+ *
  * @example
  * ```typescript
  * import { IndexedDB } from 'dt-utils';
@@ -42,11 +52,11 @@ class IndexedDB {
     private _openLog!: boolean;
 
     /**
-     * Constructor for a new indexedDB object
-     * @param database Database name
-     * @param version Database version
-     * @param storeName Store object name
-     * @param openLog Whether to log indexedDB changes
+     * 创建一个新的 IndexedDB 对象
+     * @param database 数据库名称
+     * @param version 数据库版本
+     * @param storeName 对象存储名称
+     * @param openLog 是否记录 IndexedDB 的变更日志
      */
     constructor(database: string, version: number, storeName: string, openLog = false) {
         if (!this.checkBrowserSupport()) {
@@ -64,6 +74,7 @@ class IndexedDB {
     }
 
     /**
+     * @hidden
      * 打开在构造函数中指定的数据库。
      * 此方法返回一个 Promise，解析为数据库实例。
      */
@@ -146,28 +157,33 @@ class IndexedDB {
         return transaction.objectStore(storeName);
     }
 
+    /** @hidden */
     public async add<T>(key: string, value: T): Promise<IDBRequest> {
         await this.ensureConnection();
         return this.executeStoreOperation((store) => store.add(value, key));
     }
 
+    /** @hidden */
     public async set<T>(key: string, value: T): Promise<IDBRequest> {
         await this.ensureConnection();
         this.log('IndexedDB set', key, value);
         return this.executeStoreOperation((store) => store.put(value, key));
     }
 
+    /** @hidden */
     public async get<T>(key: string): Promise<T> {
         await this.ensureConnection();
         this.log('IndexedDB get', key);
         return this.executeStoreOperation<T>((store) => store.get(key));
     }
 
+    /** @hidden */
     public async delete(key: string): Promise<IDBRequest> {
         await this.ensureConnection();
         return this.executeStoreOperation((store) => store.delete(key));
     }
 
+    /** @hidden */
     public async clear(): Promise<IDBRequest> {
         await this.ensureConnection();
         return this.executeStoreOperation((store) => store.clear());

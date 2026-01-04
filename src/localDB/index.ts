@@ -9,6 +9,15 @@
  * - 批量操作支持
  * - 可选择性清除带例外项
  *
+ * @Methods
+ * | 方法名 | 描述 | 参数 | 返回值 |
+ * |------|------|------|--------|
+ * | `set(items: Record<string, any>)` | 向 localStorage 添加多个项目 | `items: Record<string, any>` - 键值对对象 | `void` |
+ * | `set(key: string, value: any)` | 通过键名在 localStorage 中存储单个数据值（如果 value 为 null/undefined，则删除该键） | `key: string` - 存储的唯一标识符 <br> `value: any` - 要存储的数据 | `void` |
+ * | `get` | 通过键名从 localStorage 中获取数据 | `key: string` - 要获取数据的唯一标识符 | `any`（可能是对象或字符串，找不到返回 null） |
+ * | `remove` | 通过键名从 localStorage 中删除数据 | `key: string` - 要删除数据的唯一标识符 | `void` |
+ * | `clear` | 清除 localStorage，可以选择性保留特定键 | `except?: string[]` - 可选的要保留的键数组 | `void` |
+ *
  * @example
  * ```typescript
  * import { LocalDB } from 'dt-utils';
@@ -35,11 +44,17 @@
  */
 class LocalDB {
     /**
+     * @hidden
+     */
+    constructor() {}
+    /**
+     * @hidden
      * 向 localStorage 添加多个项目
      * @param items - 一个对象，其中键是 localStorage 的键名，值是要存储的数据
      */
     static set(items: Record<string, any>): void;
     /**
+     * @hidden
      * 通过键名在 localStorage 中存储数据值
      * @param {string} key - 存储数据的唯一标识符
      * @param {any} value - 要存储的数据，可以是任何类型
@@ -61,6 +76,7 @@ class LocalDB {
         }
     }
     /**
+     * @hidden
      * 通过键名从 localStorage 中获取数据
      * @param {string} key - 要获取数据的唯一标识符
      * @return {any} - 返回存储的数据，可以是字符串或对象
@@ -77,6 +93,7 @@ class LocalDB {
     }
 
     /**
+     * @hidden
      * 通过键名从 localStorage 中删除数据
      * @param {string} key - 要删除数据的唯一标识符
      */
@@ -85,6 +102,7 @@ class LocalDB {
     }
 
     /**
+     * @hidden
      * 清除 localStorage，同时可以选择性地保留特定的键
      *
      * @param {string[]} [except] - 可选的要在 localStorage 中保留的键名数组。

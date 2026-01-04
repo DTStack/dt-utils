@@ -2,7 +2,7 @@
 
 # Class: ~~IndexedDB~~
 
-Defined in: [indexedDB/index.ts:37](https://github.com/DTStack/dt-utils/blob/master/src/indexedDB/index.ts#L37)
+Defined in: [indexedDB/index.ts:47](https://github.com/DTStack/dt-utils/blob/master/src/indexedDB/index.ts#L47)
 
 IndexedDB
 
@@ -12,6 +12,17 @@ IndexedDB
 
 这个类为 IndexedDB 提供了一个包装器，IndexedDB 是一个用于客户端存储大量结构化数据（包括文件/二进制对象）的 API。
 它允许你以结构化格式存储和检索数据，并使用各种方法查询和操作这些数据。
+
+## Methods
+
+| 方法名 | 描述 | 参数 | 返回值 |
+|------|------|------|--------|
+| `open` | 打开数据库连接 | — | `Promise<IDBDatabase>` |
+| `add` | 添加一个新的键值对到对象存储中 | `key: IDBValidKey` <br> `value: any` | `Promise<void>` |
+| `set` | 更新对象存储中已存在的键值对 | `key: IDBValidKey` <br> `value: any` | `Promise<void>` |
+| `get` | 从对象存储中检索指定键的值 | `key: IDBValidKey` | `Promise<any>` |
+| `delete` | 从对象存储中删除指定键对应的数据 | `key: IDBValidKey` | `Promise<void>` |
+| `clear` | 清空对象存储中的所有数据 | — | `Promise<void>` |
 
 ## Example
 
@@ -49,9 +60,9 @@ await db.clear();
 
 > **new IndexedDB**(`database`, `version`, `storeName`, `openLog`): `IndexedDB`
 
-Defined in: [indexedDB/index.ts:51](https://github.com/DTStack/dt-utils/blob/master/src/indexedDB/index.ts#L51)
+Defined in: [indexedDB/index.ts:61](https://github.com/DTStack/dt-utils/blob/master/src/indexedDB/index.ts#L61)
 
-Constructor for a new indexedDB object
+创建一个新的 IndexedDB 对象
 
 #### Parameters
 
@@ -59,151 +70,26 @@ Constructor for a new indexedDB object
 
 `string`
 
-Database name
+数据库名称
 
 ##### version
 
 `number`
 
-Database version
+数据库版本
 
 ##### storeName
 
 `string`
 
-Store object name
+对象存储名称
 
 ##### openLog
 
 `boolean` = `false`
 
-Whether to log indexedDB changes
+是否记录 IndexedDB 的变更日志
 
 #### Returns
 
 `IndexedDB`
-
-## Methods
-
-### ~~add()~~
-
-> **add**\<`T`\>(`key`, `value`): `Promise`\<`IDBRequest`\<`any`\>\>
-
-Defined in: [indexedDB/index.ts:149](https://github.com/DTStack/dt-utils/blob/master/src/indexedDB/index.ts#L149)
-
-#### Type Parameters
-
-##### T
-
-`T`
-
-#### Parameters
-
-##### key
-
-`string`
-
-##### value
-
-`T`
-
-#### Returns
-
-`Promise`\<`IDBRequest`\<`any`\>\>
-
-***
-
-### ~~clear()~~
-
-> **clear**(): `Promise`\<`IDBRequest`\<`any`\>\>
-
-Defined in: [indexedDB/index.ts:171](https://github.com/DTStack/dt-utils/blob/master/src/indexedDB/index.ts#L171)
-
-#### Returns
-
-`Promise`\<`IDBRequest`\<`any`\>\>
-
-***
-
-### ~~delete()~~
-
-> **delete**(`key`): `Promise`\<`IDBRequest`\<`any`\>\>
-
-Defined in: [indexedDB/index.ts:166](https://github.com/DTStack/dt-utils/blob/master/src/indexedDB/index.ts#L166)
-
-#### Parameters
-
-##### key
-
-`string`
-
-#### Returns
-
-`Promise`\<`IDBRequest`\<`any`\>\>
-
-***
-
-### ~~get()~~
-
-> **get**\<`T`\>(`key`): `Promise`\<`T`\>
-
-Defined in: [indexedDB/index.ts:160](https://github.com/DTStack/dt-utils/blob/master/src/indexedDB/index.ts#L160)
-
-#### Type Parameters
-
-##### T
-
-`T`
-
-#### Parameters
-
-##### key
-
-`string`
-
-#### Returns
-
-`Promise`\<`T`\>
-
-***
-
-### ~~open()~~
-
-> **open**(): `Promise`\<`IDBDatabase`\>
-
-Defined in: [indexedDB/index.ts:70](https://github.com/DTStack/dt-utils/blob/master/src/indexedDB/index.ts#L70)
-
-打开在构造函数中指定的数据库。
-此方法返回一个 Promise，解析为数据库实例。
-
-#### Returns
-
-`Promise`\<`IDBDatabase`\>
-
-***
-
-### ~~set()~~
-
-> **set**\<`T`\>(`key`, `value`): `Promise`\<`IDBRequest`\<`any`\>\>
-
-Defined in: [indexedDB/index.ts:154](https://github.com/DTStack/dt-utils/blob/master/src/indexedDB/index.ts#L154)
-
-#### Type Parameters
-
-##### T
-
-`T`
-
-#### Parameters
-
-##### key
-
-`string`
-
-##### value
-
-`T`
-
-#### Returns
-
-`Promise`\<`IDBRequest`\<`any`\>\>

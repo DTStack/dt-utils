@@ -10,6 +10,15 @@ import getTypeOfValue from '../getTypeOfValue';
  * - 批量操作支持
  * - 可选择性清除带例外项
  *
+ * @Methods
+ * | 方法名 | 描述 | 参数 | 返回值 |
+ * |------|------|------|--------|
+ * | `set(items: Record<string, any>)` | 向 sessionStorage 添加多个项目 | `items: Record<string, any>` - 键值对对象 | `void` |
+ * | `set(key: string, value: any)` | 通过键名在 sessionStorage 中存储单个数据值（如果 value 为 null/undefined，则删除该键） | `key: string` - 存储的唯一标识符 <br> `value: any` - 要存储的数据 | `void` |
+ * | `get` | 通过键名从 sessionStorage 中获取数据 | `key: string` - 要获取数据的唯一标识符 | `any`（可能是对象或字符串，找不到返回 null） |
+ * | `remove` | 通过键名从 sessionStorage 中删除数据 | `key: string | string[]` - 要删除数据的唯一标识符 | `void` |
+ * | `clear` | 清除 sessionStorage，可以选择性保留特定键 | `except?: string[]` - 可选的要保留的键数组 | `void` |
+ *
  * @example
  * ```typescript
  * import { SessionDB } from 'dt-utils';
@@ -44,11 +53,17 @@ import getTypeOfValue from '../getTypeOfValue';
  */
 class SessionDB {
     /**
+     * @hidden
+     */
+    constructor() {}
+    /**
+     * @hidden
      * 向 sessionStorage 添加多个项目
      * @param {Record<string, any>} items - 一个对象，其中键是 sessionStorage 的键，值是要存储的值
      */
     static set(items: Record<string, any>): void;
     /**
+     * @hidden
      * 通过键在 sessionStorage 中存储数据值
      * @param {string} key - 存储数据的唯一标识符
      * @param {any} value - 要存储的数据，可以是任何类型
@@ -71,6 +86,7 @@ class SessionDB {
     }
 
     /**
+     * @hidden
      * 通过键从 sessionStorage 检索数据
      * @param {string} key - 要检索的数据的唯一标识符
      * @return {any} - 返回存储的数据，可以是字符串或对象
@@ -87,8 +103,9 @@ class SessionDB {
     }
 
     /**
+     * @hidden
      * 通过键从 sessionStorage 删除数据
-     * @param {string} key - 要删除的数据的唯一标识符
+     * @param {string | string[]} key - 要删除的数据的唯一标识符
      */
     static remove(key: string | string[]) {
         if (typeof key === 'string') {
@@ -99,6 +116,7 @@ class SessionDB {
     }
 
     /**
+     * @hidden
      * 清除 sessionStorage，同时可以选择性地保留特定的键。
      *
      * @param {string[]} [except] - 要在 sessionStorage 中保留的键的可选数组。
