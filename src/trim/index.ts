@@ -29,7 +29,10 @@ const trim = (str: string): string => {
         return str;
     }
 
-    return str.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+    return str
+        .trim()
+        .replace(/^[\s\uFEFF\xA0]+/g, '')
+        .replace(/[\s\uFEFF\xA0]+$/g, '');
 };
 
 export default trim;
