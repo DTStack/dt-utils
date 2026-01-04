@@ -31,8 +31,8 @@
  * await db.clear();
  * ```
  *
- * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB|MDN IndexedDB 使用指南}
- * @see {@link https://caniuse.com/#feat=indexeddb|浏览器兼容性}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB | MDN IndexedDB 使用指南}
+ * @see {@link https://caniuse.com/#feat=indexeddb | 浏览器兼容性}
  */
 class IndexedDB {
     private _db!: IDBDatabase;

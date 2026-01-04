@@ -40,8 +40,8 @@ await db.clear();
 
 ## See
 
- - [IndexedDB 使用指南](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB|MDN)
- - [https://caniuse.com/#feat=indexeddb\|浏览器兼容性](https://caniuse.com/#feat=indexeddb|浏览器兼容性)
+ - [MDN IndexedDB 使用指南](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+ - [浏览器兼容性](https://caniuse.com/#feat=indexeddb)
 
 ## Constructors
 
