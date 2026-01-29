@@ -32,7 +32,7 @@
         "test": "jest --no-cache",
         "release": "./scripts/release.sh",
         "commit": "git-cz",
-        "prepublishOnly": "pnpm eslint && pnpm test && pnpm changelog && pnpm build",
+        "prepublishOnly": "pnpm eslint && pnpm test && pnpm build",
         "docs:dev": "vitepress dev docs",
         "docs:build": "typedoc && vitepress build docs",
         "docs:serve": "vitepress serve docs",
