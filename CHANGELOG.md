@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/DTStack/dt-utils/compare/v1.5.0...v2.0.0) (2026-01-29)
+
+
+### Features
+
+* **dt-utils:** refactor the dt-utils ([#105](https://github.com/DTStack/dt-utils/issues/105)) ([c96bb7c](https://github.com/DTStack/dt-utils/commit/c96bb7c62a4b4effadfad0ba9d6cb113e083a88d))
+* update cache actions/checkout's version ([cdac32a](https://github.com/DTStack/dt-utils/commit/cdac32a61744aabfb169a7741e236c40e475f5f0))
+
+
+### Bug Fixes
+
+* [#100](https://github.com/DTStack/dt-utils/issues/100) await IndexedDB open ([b1c6fc6](https://github.com/DTStack/dt-utils/commit/b1c6fc6d4a8bf9036d2033505868ae87ef895ffa))
+
 ## [1.5.0](https://github.com/DTStack/dt-utils/compare/v1.4.0...v1.5.0) (2023-11-20)
 
 
