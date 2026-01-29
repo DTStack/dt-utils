@@ -1,0 +1,134 @@
+name: CI
+
+on:
+    push:
+        branches: [master]
+    pull_request:
+        branches: [master]
+
+jobs:
+    setup:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 16.x
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 6.32.12
+                  run_install: false
+
+            - name: Get pnpm store directory
+              id: pnpm-cache
+              shell: bash
+              run: |
+                  echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+            - name: Cache pnpm store
+              uses: actions/cache@v4
+              with:
+                  path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+                  key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+                  restore-keys: |
+                      ${{ runner.os }}-pnpm-store-
+
+            - name: Install dependencies
+              shell: bash
+              run: pnpm install
+
+    prettier:
+        needs: setup
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 16.x
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 6.32.12
+                  run_install: false
+
+            - run: pnpm install
+
+            - name: Run Prettier
+              run: pnpm prettier
+
+    eslint:
+        needs: setup
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 16.x
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 6.32.12
+                  run_install: false
+
+            - run: pnpm install
+
+            - name: Run ESLint
+              run: pnpm eslint
+
+    test:
+        needs: setup
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 16.x
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 6.32.12
+                  run_install: false
+            - run: pnpm install
+
+            - name: Set up timezone
+              uses: zcong1993/setup-timezone@master
+              with:
+                  timezone: Asia/Shanghai
+
+            - name: Run Tests
+              run: pnpm test
+
+    build:
+        needs: [setup, prettier, eslint, test]
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 16.x
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 6.32.12
+                  run_install: false
+
+            - run: pnpm install
+
+            - name: Run Build
+              run: pnpm build
