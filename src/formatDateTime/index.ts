@@ -1,4 +1,18 @@
-import dayjs from 'dayjs';
+import baseDayJs from 'dayjs';
+import timezone from 'dayjs/plugin/timezone'; // ES 2015
+import utc from 'dayjs/plugin/utc'; // ES 2015
+
+baseDayJs.extend(utc);
+baseDayJs.extend(timezone);
+// 默认时区
+const DEFAULT_TIMEZONE = 'Asia/Shanghai';
+/**
+ * 将时间转换为默认时区
+ * @param {string | number | Date} time - 输入时间
+ * @return {dayjs.Dayjs} 带时区的Dayjs对象
+ */
+const dayjs = (...args) => baseDayJs(...args).tz(DEFAULT_TIMEZONE);
+
 /**
  * @category 枚举
  * 日期和时间格式模式的枚举
@@ -74,7 +88,7 @@ export enum DateTimeFormat {
     FULL_DATETIME_ISO = 'YYYY-MM-DDTHH:mm:ssZ',
 }
 
-type DateTimeInput = string | number | Date | dayjs.Dayjs;
+type DateTimeInput = string | number | Date | baseDayJs.Dayjs;
 type FormatPattern = DateTimeFormat | string;
 /**
  * 一个日期时间格式化工具，可处理各种输入类型和格式化模式。
@@ -120,7 +134,7 @@ type FormatPattern = DateTimeFormat | string;
 export const formatDateTime = (
     date: DateTimeInput,
     format: FormatPattern = DateTimeFormat.STANDARD
-): string | dayjs.Dayjs => {
+): string | baseDayJs.Dayjs => {
     const isValidFormat = Object.values<string>(DateTimeFormat).includes(format);
 
     if (!isValidFormat) {
