@@ -56,6 +56,16 @@
     ]
   },
   {
+    "text": "工具函数",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "isEmpty",
+        "link": "/api/functions/isEmpty.md"
+      }
+    ]
+  },
+  {
     "text": "枚举\n日期和时间格式模式的枚举\n提供标准化的格式标记以实现一致的日期/时间格式化",
     "collapsed": true,
     "items": [
