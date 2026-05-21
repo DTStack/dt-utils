@@ -15,6 +15,7 @@
         "baseUrl": ".",
         "outDir": "./lib",
         "esModuleInterop": true,
+        "isolatedModules": true,
         "moduleResolution": "Node",
         "resolveJsonModule": true,
         "typeRoots": ["node", "node_modules/@types"],
