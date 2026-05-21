@@ -38,6 +38,10 @@
         "link": "/api/functions/generateUrlWithQuery.md"
       },
       {
+        "text": "getQueryParameter",
+        "link": "/api/functions/getQueryParameter.md"
+      },
+      {
         "text": "getQueryParameters",
         "link": "/api/functions/getQueryParameters.md"
       },

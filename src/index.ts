@@ -14,6 +14,7 @@ export { default as formatSecond } from './formatSecond';
 export { default as fromBase64 } from './fromBase64';
 export { default as generateUniqueId } from './generateUniqueId';
 export { default as generateUrlWithQuery } from './generateUrlWithQuery';
+export { default as getQueryParameter } from './getQueryParameter';
 export { default as getQueryParameters } from './getQueryParameters';
 export { default as getTypeOfValue } from './getTypeOfValue';
 export { default as IndexedDB } from './indexedDB';

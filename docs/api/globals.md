@@ -12,6 +12,7 @@
 - [downloadFile](functions/downloadFile.md)
 - [generateUniqueId](functions/generateUniqueId.md)
 - [generateUrlWithQuery](functions/generateUrlWithQuery.md)
+- [getQueryParameter](functions/getQueryParameter.md)
 - [getQueryParameters](functions/getQueryParameters.md)
 - [getTypeOfValue](functions/getTypeOfValue.md)
 - [~~shouldRender~~](functions/shouldRender.md)
