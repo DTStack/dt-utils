@@ -4,6 +4,10 @@
     "collapsed": true,
     "items": [
       {
+        "text": "Cookies",
+        "link": "/api/classes/Cookies.md"
+      },
+      {
         "text": "IndexedDB",
         "link": "/api/classes/IndexedDB.md"
       },

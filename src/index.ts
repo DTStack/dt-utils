@@ -1,11 +1,11 @@
 // ========== export some dependencies ==========
 export { default as dayjs } from 'dayjs';
 export * as idb from 'idb';
-export { default as Cookie } from 'js-cookie';
 export * as lodash from 'lodash-es';
 
 // ========== export utils ==========
 export { default as checkBrowserSupport } from './checkBrowserSupport';
+export { default as Cookies } from './cookies';
 export { default as copy } from './copy';
 export { default as downloadFile } from './downloadFile';
 export { default as formatBytes } from './formatBytes';

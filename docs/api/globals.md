@@ -2,6 +2,7 @@
 
 ## Storage
 
+- [Cookies](classes/Cookies.md)
 - [~~IndexedDB~~](classes/IndexedDB.md)
 - [LocalDB](classes/LocalDB.md)
 - [SessionDB](classes/SessionDB.md)
