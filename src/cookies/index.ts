@@ -18,7 +18,7 @@ const DEFAULT_OPTIONS = {
  * | 方法名 | 描述 | 参数 | 返回值 | 使用方式 |
  * |------|------|------|--------|--------|
  * | `get` | 读取指定名称的 Cookie 值；不传名称时返回所有 Cookie | `name?: string` - Cookie 名称 | `string \| undefined \| Record<string, string>` | `Cookies.get('username')` |
- * | `set` | 设置 Cookie，并自动合并默认配置 | `name: string` - Cookie 名称 <br> `value: string` - Cookie 值 <br> `options?: JSCookies.CookieAttributes` - 可选配置 | `void` | `Cookies.set('username', 'john', { expires: 7 })` |
+ * | `set` | 设置 Cookie，并自动合并默认配置 | `name: string` - Cookie 名称 <br> `value: string` - Cookie 值 <br> `options?: JSCookies.CookieAttributes` - 可选配置 <br> `pairs: Record<string, string>` - 批量键值对 | `void` | `Cookies.set('username', 'john', { expires: 7 })` <br> `Cookies.set({ token: '123', user: 'tom' })` |
  * | `remove` | 删除指定名称的 Cookie，并自动合并默认配置 | `name: string \| string[]` - Cookie 名称 <br> `options?: JSCookies.CookieAttributes` - 可选配置 | `void` | `Cookies.remove('username')` |
  * | `clear` | 清除 Cookie，可以选择性保留特定键 | `except?: string[]` - 可选的要保留的键数组 | `void` | `Cookies.clear(['username'])` |
  *
@@ -34,6 +34,9 @@ const DEFAULT_OPTIONS = {
  *
  * // 设置 Cookie
  * Cookies.set('username', 'john', { expires: 7 });
+ *
+ * // 批量设置 Cookie
+ * Cookies.set({ token: '123', user: 'tom' });
  *
  * // 读取 Cookie
  * const username = Cookies.get('username');
@@ -72,11 +75,31 @@ class Cookies {
      * @hidden
      * 设置 Cookie，并合并默认根路径配置。
      */
-    static set(name: string, value: string, options?: JSCookies.CookieAttributes) {
-        JSCookies.set(name, value, {
-            ...DEFAULT_OPTIONS,
-            ...options,
-        });
+    static set(name: string, value: string, options?: JSCookies.CookieAttributes): void;
+    /**
+     * @hidden
+     * 批量设置 Cookie，并合并默认根路径配置。
+     */
+    static set(pairs: Record<string, string>, options?: JSCookies.CookieAttributes): void;
+    static set(
+        nameOrPairs: string | Record<string, string>,
+        valueOrOptions?: string | JSCookies.CookieAttributes,
+        options?: JSCookies.CookieAttributes
+    ) {
+        if (typeof nameOrPairs === 'string') {
+            JSCookies.set(nameOrPairs, valueOrOptions as string, {
+                ...DEFAULT_OPTIONS,
+                ...options,
+            });
+        } else if (getTypeOfValue(nameOrPairs) === 'object') {
+            const opts = (valueOrOptions as JSCookies.CookieAttributes) ?? {};
+            Object.entries(nameOrPairs).forEach(([k, v]) =>
+                JSCookies.set(k, v, {
+                    ...DEFAULT_OPTIONS,
+                    ...opts,
+                })
+            );
+        }
     }
 
     /**
@@ -89,7 +112,7 @@ class Cookies {
                 ...DEFAULT_OPTIONS,
                 ...options,
             });
-        } else if (getTypeOfValue(name) === 'array') {
+        } else if (Array.isArray(name)) {
             name.forEach((k) =>
                 JSCookies.remove(k, {
                     ...DEFAULT_OPTIONS,

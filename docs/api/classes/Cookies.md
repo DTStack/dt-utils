@@ -2,7 +2,7 @@
 
 # Class: Cookies
 
-Defined in: [cookies/index.ts:51](https://github.com/DTStack/dt-utils/blob/master/src/cookies/index.ts#L51)
+Defined in: [cookies/index.ts:54](https://github.com/DTStack/dt-utils/blob/master/src/cookies/index.ts#L54)
 
 统一封装的 Cookie 操作工具集。
 
@@ -16,7 +16,7 @@ Defined in: [cookies/index.ts:51](https://github.com/DTStack/dt-utils/blob/maste
 | 方法名 | 描述 | 参数 | 返回值 | 使用方式 |
 |------|------|------|--------|--------|
 | `get` | 读取指定名称的 Cookie 值；不传名称时返回所有 Cookie | `name?: string` - Cookie 名称 | `string \| undefined \| Record<string, string>` | `Cookies.get('username')` |
-| `set` | 设置 Cookie，并自动合并默认配置 | `name: string` - Cookie 名称 <br> `value: string` - Cookie 值 <br> `options?: JSCookies.CookieAttributes` - 可选配置 | `void` | `Cookies.set('username', 'john', { expires: 7 })` |
+| `set` | 设置 Cookie，并自动合并默认配置 | `name: string` - Cookie 名称 <br> `value: string` - Cookie 值 <br> `options?: JSCookies.CookieAttributes` - 可选配置 <br> `pairs: Record<string, string>` - 批量键值对 | `void` | `Cookies.set('username', 'john', { expires: 7 })` <br> `Cookies.set({ token: '123', user: 'tom' })` |
 | `remove` | 删除指定名称的 Cookie，并自动合并默认配置 | `name: string \| string[]` - Cookie 名称 <br> `options?: JSCookies.CookieAttributes` - 可选配置 | `void` | `Cookies.remove('username')` |
 | `clear` | 清除 Cookie，可以选择性保留特定键 | `except?: string[]` - 可选的要保留的键数组 | `void` | `Cookies.clear(['username'])` |
 
@@ -33,6 +33,9 @@ const username = Cookies.get('username');
 
 // 设置 Cookie
 Cookies.set('username', 'john', { expires: 7 });
+
+// 批量设置 Cookie
+Cookies.set({ token: '123', user: 'tom' });
 
 // 读取 Cookie
 const username = Cookies.get('username');

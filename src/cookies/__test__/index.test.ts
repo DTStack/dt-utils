@@ -119,6 +119,30 @@ describe('Cookies utils', () => {
             expect(Cookies.get('token')).toBe('123');
             expect(document.cookie).toContain('token=123');
         });
+
+        it('should set multiple cookies from a record', () => {
+            Cookies.set({ token: '123', user: 'tom' });
+
+            expect(Cookies.get('token')).toBe('123');
+            expect(Cookies.get('user')).toBe('tom');
+        });
+
+        it('should set multiple cookies from a record with shared options', () => {
+            Cookies.set({ token: '123', user: 'tom' }, { sameSite: 'Lax' });
+
+            expect(Cookies.get('token')).toBe('123');
+            expect(Cookies.get('user')).toBe('tom');
+        });
+
+        it('should set multiple cookies from a record with expires option', () => {
+            const futureDate = new Date();
+            futureDate.setDate(futureDate.getDate() + 7);
+
+            Cookies.set({ token: '123', user: 'tom' }, { expires: futureDate });
+
+            expect(Cookies.get('token')).toBe('123');
+            expect(Cookies.get('user')).toBe('tom');
+        });
     });
 
     describe('remove', () => {
