@@ -12,7 +12,7 @@ Defined in: [getQueryParameters/index.ts:37](https://github.com/DTStack/dt-utils
 
 ### T
 
-`T` *extends* `Record`\<`string`, `undefined` \| `null` \| `string`\>
+`T` *extends* `Record`\<`string`, `undefined` \| `null` \| `string` \| `number` \| `boolean`\>
 
 ## Parameters
 
