@@ -1,5 +1,7 @@
 import { isEmpty as _isEmpty, isPlainObject } from 'lodash-es';
 
+import getTypeOfValue from '../getTypeOfValue';
+
 /**
  * 检查一个值是否为空。空值包括：null、undefined、空字符串、空数组和空对象。
  *
@@ -22,8 +24,6 @@ import { isEmpty as _isEmpty, isPlainObject } from 'lodash-es';
  * isEmpty({ a: 1 }); // false
  * isEmpty(new Map()); // false
  * isEmpty(new Set()); // false
- * isEmpty(new WeakMap()); // false
- * isEmpty(new WeakSet()); // false
  * isEmpty(new Date()); // false
  * isEmpty(new RegExp()); // false
  * isEmpty(new Error()); // false
@@ -43,11 +43,11 @@ const isEmpty = (value: unknown): boolean => {
         return true;
     }
 
-    if (Array.isArray(value)) {
-        return value.length === 0;
+    if (getTypeOfValue(value) === 'array') {
+        return _isEmpty(value);
     }
 
-    if (isPlainObject(value)) {
+    if (isPlainObject(value) || ['map', 'set'].includes(getTypeOfValue(value))) {
         return _isEmpty(value);
     }
 

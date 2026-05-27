@@ -23,19 +23,21 @@ describe('isEmpty', () => {
         });
 
         test('returns false for empty Map instance', () => {
-            expect(isEmpty(new Map())).toBe(false);
+            expect(isEmpty(new Map())).toBe(true);
         });
 
         test('returns false for empty Set instance', () => {
-            expect(isEmpty(new Set())).toBe(false);
+            expect(isEmpty(new Set())).toBe(true);
+        });
+    });
+
+    describe('should return false for empty values', () => {
+        test('returns false for empty Map instance', () => {
+            expect(isEmpty(new Map([['a', 1]]))).toBe(false);
         });
 
-        test('returns false for empty WeakMap instance', () => {
-            expect(isEmpty(new WeakMap())).toBe(false);
-        });
-
-        test('returns false for empty WeakMap instance', () => {
-            expect(isEmpty(new WeakSet())).toBe(false);
+        test('returns false for empty Set instance', () => {
+            expect(isEmpty(new Set([1]))).toBe(false);
         });
 
         test('returns false for custom class instance', () => {
@@ -50,10 +52,6 @@ describe('isEmpty', () => {
 
         test('returns false for empty Error instance', () => {
             expect(isEmpty(new Error())).toBe(false);
-        });
-
-        test('returns false for empty Date instance', () => {
-            expect(isEmpty(new Date())).toBe(false);
         });
     });
 

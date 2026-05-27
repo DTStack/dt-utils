@@ -37,8 +37,6 @@ isEmpty([1, 2, 3]); // false
 isEmpty({ a: 1 }); // false
 isEmpty(new Map()); // false
 isEmpty(new Set()); // false
-isEmpty(new WeakMap()); // false
-isEmpty(new WeakSet()); // false
 isEmpty(new Date()); // false
 isEmpty(new RegExp()); // false
 isEmpty(new Error()); // false
