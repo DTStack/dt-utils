@@ -17,6 +17,7 @@ export { default as generateUrlWithQuery } from './generateUrlWithQuery';
 export { default as getQueryParameters } from './getQueryParameters';
 export { default as getTypeOfValue } from './getTypeOfValue';
 export { default as IndexedDB } from './indexedDB';
+export { default as isEmpty } from './isEmpty';
 export { default as isMacOS } from './isMacOS';
 export { default as isMobile } from './isMobile';
 export { default as isWindows } from './isWindows';

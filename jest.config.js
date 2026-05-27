@@ -1,11 +1,17 @@
 module.exports = {
     preset: 'ts-jest',
     testEnvironment: 'jsdom',
-    globals: {
-        'ts-jest': {
-            isolatedModules: true,
-        },
+    transform: {
+        '^.+\\.[tj]s$': [
+            'ts-jest',
+            {
+                tsconfig: {
+                    allowJs: true,
+                },
+            },
+        ],
     },
+    transformIgnorePatterns: ['/node_modules/(?!(?:\\.pnpm/lodash-es@|lodash-es/))'],
     testPathIgnorePatterns: ['/node_modules/'],
     testMatch: ['**/__test__/**/(*.)+test.[jt]s?(x)'],
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
