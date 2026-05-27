@@ -34,29 +34,37 @@
  * // params.page 是字符串类型, params.limit 是数字类型
  * ```
  */
-const getQueryParameters = <T extends Record<string, string | null | undefined>>(
+const getQueryParameters = <T extends Record<string, string | null | undefined | number | boolean>>(
     search: string
 ): T => {
     if (!search) return {} as T;
 
-    const searchParams = new URLSearchParams(search);
-    const paramValue = {};
+    try {
+        const searchParams = new URLSearchParams(search);
+        const paramValue = {};
 
-    searchParams.forEach((value, key) => {
-        if (value === 'null') {
-            paramValue[key] = null;
-        } else if (value === 'undefined') {
-            paramValue[key] = undefined;
-        } else {
-            try {
-                paramValue[key] = JSON.parse(value);
-            } catch (error) {
-                paramValue[key] = value;
+        searchParams.forEach((value, key) => {
+            if (value === 'null') {
+                paramValue[key] = null;
+            } else if (value === 'undefined') {
+                paramValue[key] = undefined;
+            } else {
+                try {
+                    paramValue[key] = JSON.parse(value);
+                } catch (error) {
+                    paramValue[key] = value;
+                }
             }
-        }
-    });
+        });
 
-    return paramValue as T;
+        return paramValue as T;
+    } catch (error: unknown) {
+        console.error(
+            'Error parsing query parameters:',
+            error instanceof Error ? error.message : error
+        );
+        return {} as T;
+    }
 };
 
 export default getQueryParameters;
