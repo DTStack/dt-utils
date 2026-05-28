@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/DTStack/dt-utils/compare/v1.5.0...v2.1.0) (2026-05-28)
+
+
+### Features
+
+* add getQueryParameter utility function ([#107](https://github.com/DTStack/dt-utils/issues/107)) ([215eb42](https://github.com/DTStack/dt-utils/commit/215eb424c8b5e47a982f07f8cfefea84fd0cae51))
+* add isEmpty utility function ([#106](https://github.com/DTStack/dt-utils/issues/106)) ([40722a7](https://github.com/DTStack/dt-utils/commit/40722a72934cfac918f338ac2b28773b6ac7072a))
+* **dt-utils:** refactor the dt-utils ([#105](https://github.com/DTStack/dt-utils/issues/105)) ([c96bb7c](https://github.com/DTStack/dt-utils/commit/c96bb7c62a4b4effadfad0ba9d6cb113e083a88d))
+* encapsulate unified cookie utility based on js-cookie ([#108](https://github.com/DTStack/dt-utils/issues/108)) ([af56460](https://github.com/DTStack/dt-utils/commit/af5646080e8a78e11b6c4bcc1d96f1bf2fb51e6f))
+* update cache actions/checkout's version ([cdac32a](https://github.com/DTStack/dt-utils/commit/cdac32a61744aabfb169a7741e236c40e475f5f0))
+
+
+### Bug Fixes
+
+* [#100](https://github.com/DTStack/dt-utils/issues/100) await IndexedDB open ([b1c6fc6](https://github.com/DTStack/dt-utils/commit/b1c6fc6d4a8bf9036d2033505868ae87ef895ffa))
+
 ## [2.0.0](https://github.com/DTStack/dt-utils/compare/v1.5.0...v2.0.0) (2026-01-29)
 
 
