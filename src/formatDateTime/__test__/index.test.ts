@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 
-import formatDateTime, { DateTimeFormat } from '..';
+import formatDateTime, { DateTimeFormat } from '../';
 
 describe('formatDateTime', () => {
     const testDate = new Date('2023-05-15T14:30:45');
@@ -92,6 +92,9 @@ describe('formatDateTime', () => {
         // Year boundaries
         const yearMin = new Date('0001-01-01T00:00:00');
         expect(formatDateTime(yearMin, DateTimeFormat.YEAR)).toBe('0001');
+        expect(formatDateTime(yearMin, DateTimeFormat.DATE)).toBe('0001-01-01');
+        expect(formatDateTime(yearMin, DateTimeFormat.DATE_TIME_12)).toBe('0001-01-01 12:00 AM');
+        expect(formatDateTime(yearMin, DateTimeFormat.STANDARD)).toBe('0001-01-01 00:00:00');
 
         const yearMax = new Date('9999-12-31T23:59:59');
         expect(formatDateTime(yearMax, DateTimeFormat.YEAR)).toBe('9999');

@@ -1,4 +1,17 @@
 import dayjs from 'dayjs';
+import timezone from 'dayjs/plugin/timezone'; // ES 2015
+import utc from 'dayjs/plugin/utc'; // ES 2015
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
+// 默认时区：东八时区 (Asia/Shanghai)
+const DEFAULT_TIMEZONE = 'Asia/Shanghai';
+/**
+ * 将时间转换为默认时区
+ * @param {string | number | Date} time - 输入时间
+ * @return {dayjs.Dayjs} 带时区的Dayjs对象
+ */
+dayjs.tz.setDefault(DEFAULT_TIMEZONE);
 /**
  * @category 枚举
  * 日期和时间格式模式的枚举
@@ -117,16 +130,107 @@ type FormatPattern = DateTimeFormat | string;
  * formatDateTime(new Date(), "dddd, MMMM D, YYYY")  // dayjs.Dayjs
  * ```
  */
+/**
+ * Helper function to convert date to default timezone
+ */
+const toDefaultTz = (date: DateTimeInput): dayjs.Dayjs => {
+    // 如果已经是 dayjs 对象且支持 tz，直接转换到默认时区
+    if ((date as any) && typeof (date as any).tz === 'function') {
+        return (date as any).tz(DEFAULT_TIMEZONE);
+    }
+    // 否则使用 dayjs.tz 将输入解析为默认时区的 dayjs 对象
+    // 对于无效日期，dayjs.tz 可能会抛出错误，此时降级到普通 dayjs
+    try {
+        return (dayjs as any).tz(date, DEFAULT_TIMEZONE);
+    } catch {
+        return dayjs(date);
+    }
+};
+
+/**
+ * Normalize input to native Date object
+ */
+const getNativeDate = (date: DateTimeInput): Date | null => {
+    if ((date as any) && typeof (date as any).toDate === 'function') {
+        return (date as any).toDate();
+    } else if (date instanceof Date) {
+        return date as Date;
+    } else {
+        const d = new Date(date as any);
+        return Number.isNaN(d.getTime()) ? null : d;
+    }
+};
+
+/**
+ * Check if a date is an edge-case year (year < 1900)
+ * Edge-case years may have parsing inconsistencies in dayjs/timezone
+ */
+const isEdgeCaseYear = (date: DateTimeInput): boolean => {
+    const nativeDate = getNativeDate(date);
+    if (!nativeDate) return false;
+    return nativeDate.getFullYear() < 1900;
+};
+
+/**
+ * Format native Date object using dayjs-like format string
+ * Leverages dayjs for standard tokens, only customizing where needed
+ */
+const formatNativeDate = (nativeDate: Date, format: string): string => {
+    const pad = (num: number, len = 2) => String(num).padStart(len, '0');
+    const d = nativeDate;
+    // 使用dayjs进行标准格式化
+    const dayjsInstance = dayjs(d);
+    // 只维护自定义tokens，主要用于处理时区格式，因为原生Date对象不支持dayjs的时区功能
+    const customTokens: Record<string, () => string> = {
+        // 时区 Z 替换成 +08:00 格式
+        Z: () => {
+            const offset = d.getTimezoneOffset();
+            const sign = offset <= 0 ? '+' : '-';
+            const h = Math.abs(Math.floor(offset / 60));
+            const m = Math.abs(offset % 60);
+            return `${sign}${pad(h)}:${pad(m)}`;
+        },
+        // 时区 ZZ 替换成 +0800 格式
+        ZZ: () => {
+            const offset = d.getTimezoneOffset();
+            const sign = offset <= 0 ? '+' : '-';
+            const h = Math.abs(Math.floor(offset / 60));
+            const m = Math.abs(offset % 60);
+            return `${sign}${pad(h)}${pad(m)}`;
+        },
+    };
+
+    // 通过长度将 tokens 排序，避免 Z 早于 ZZ 这种情况
+    const sortedCustomTokens = Object.keys(customTokens).sort((a, b) => b.length - a.length);
+    let result = format;
+    for (const token of sortedCustomTokens) {
+        const regex = new RegExp(token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+        result = result.replace(regex, customTokens[token]());
+    }
+    result = dayjsInstance.format(result);
+
+    return result;
+};
+
 export const formatDateTime = (
     date: DateTimeInput,
     format: FormatPattern = DateTimeFormat.STANDARD
 ): string | dayjs.Dayjs => {
     const isValidFormat = Object.values<string>(DateTimeFormat).includes(format);
-
     if (!isValidFormat) {
-        return dayjs(date);
+        return toDefaultTz(date);
     }
-    return dayjs(date).format(format);
+
+    // 检测是否为极早年份（< 1900）：边缘情况年份可能存在解析问题，因此需要特殊处理
+    if (isEdgeCaseYear(date)) {
+        const nativeDate = getNativeDate(date);
+        if (!nativeDate) {
+            return 'Invalid Date';
+        }
+        return formatNativeDate(nativeDate, format as string);
+    }
+
+    return toDefaultTz(date).format(format);
 };
 
 export default formatDateTime;
