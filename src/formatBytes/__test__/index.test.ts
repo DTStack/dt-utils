@@ -12,6 +12,11 @@ describe('formatBytes', () => {
             expect(formatBytes(-1024)).toBe('Invalid value');
         });
 
+        test('should handle numeric string inputs', () => {
+            expect(formatBytes('1024')).toBe('1 KB');
+            expect(formatBytes('0')).toBe('0 B');
+        });
+
         test('should return 0 B for zero', () => {
             expect(formatBytes(0)).toBe('0 B');
         });
@@ -21,6 +26,13 @@ describe('formatBytes', () => {
         test('should correctly convert bytes (B)', () => {
             expect(formatBytes(1)).toBe('1 B');
             expect(formatBytes(1023)).toBe('1023 B');
+        });
+
+        test('should handle fractional bytes (0 < value < 1)', () => {
+            expect(formatBytes(0.5)).toBe('0.5 B');
+            expect(formatBytes(0.1)).toBe('0.1 B');
+            expect(formatBytes(0.123, 3)).toBe('0.123 B');
+            expect(formatBytes(0.999)).toBe('1 B');
         });
 
         test('should correctly convert kilobytes (KB)', () => {

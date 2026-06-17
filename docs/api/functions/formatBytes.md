@@ -12,9 +12,9 @@ Defined in: [formatBytes/index.ts:49](https://github.com/DTStack/dt-utils/blob/m
 
 ### value
 
-`number`
-
 要格式化的字节数值
+
+`string` | `number`
 
 ### decimals?
 
