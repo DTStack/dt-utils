@@ -44,7 +44,7 @@ const generateUrlWithQuery = (pathname: string, queryParams: QueryParams = {}): 
         const params = new URLSearchParams();
 
         Object.entries(filteredParams).forEach(([key, value]) => {
-            if (['string', 'number', 'boolean'].includes(getTypeOfValue(value))) {
+            if (['string', 'number', 'boolean', 'array'].includes(getTypeOfValue(value))) {
                 params.append(key, String(value));
             }
         });

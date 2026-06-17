@@ -55,4 +55,14 @@ describe('generateUrlWithQuery', () => {
             generateUrlWithQuery('/api/users', { obj: circularObj } as Record<string, any>)
         ).toBe('/api/users');
     });
+
+    test('handles array type parameters', () => {
+        const params = {
+            ids: [1, 2, 3],
+            tags: ['a', 'b'],
+        } as Record<string, any>;
+        expect(generateUrlWithQuery('/api/users', params)).toBe(
+            '/api/users?ids=1%2C2%2C3&tags=a%2Cb'
+        );
+    });
 });
