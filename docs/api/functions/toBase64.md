@@ -2,25 +2,7 @@
 
 # Function: toBase64()
 
-> **toBase64**(`value`): `Promise`\<`undefined` \| `null` \| `string`\>
-
-Defined in: [toBase64/index.ts:32](https://github.com/DTStack/dt-utils/blob/master/src/toBase64/index.ts#L32)
-
 将值转换为Base64编码的字符串。
-
-## Parameters
-
-### value
-
-需要转换为Base64的值。支持File、string或其他原始类型
-
-`string` | `Blob` | `File`
-
-## Returns
-
-`Promise`\<`undefined` \| `null` \| `string`\>
-
-返回一个Promise，解析为Base64编码的字符串。如果输入为null/undefined则返回原始值
 
 ## Example
 
@@ -41,3 +23,47 @@ console.log(base64File); // 'data:text/plain;base64,ZmlsZSBjb250ZW50'
 const result = await toBase64(null);
 console.log(result); // null
 ```
+
+## Call Signature
+
+> **toBase64**(`value`): `undefined` \| `string`
+
+Defined in: [toBase64/index.ts:9](https://github.com/DTStack/dt-utils/blob/master/src/toBase64/index.ts#L9)
+
+将字符串转换为Base64编码的字符串。
+
+### Parameters
+
+#### value
+
+需要转换为Base64的字符串，支持null/undefined
+
+`undefined` | `null` | `string`
+
+### Returns
+
+`undefined` \| `string`
+
+Base64编码的字符串，如果输入为null/undefined则返回undefined
+
+## Call Signature
+
+> **toBase64**(`value`): `Promise`\<`null` \| `string` \| `ArrayBuffer`\>
+
+Defined in: [toBase64/index.ts:17](https://github.com/DTStack/dt-utils/blob/master/src/toBase64/index.ts#L17)
+
+将File或Blob对象转换为Base64编码的Data URL。
+
+### Parameters
+
+#### value
+
+需要转换为Base64的File或Blob对象
+
+`Blob` | `File`
+
+### Returns
+
+`Promise`\<`null` \| `string` \| `ArrayBuffer`\>
+
+Promise，解析为Base64编码的Data URL字符串
