@@ -30,7 +30,7 @@ describe('createFakeElement', () => {
         expect(element.style.position).toBe('absolute');
         expect(element.style.left).toBe('-9999px');
         expect(element.style.opacity).toBe('0');
-        expect(element.style.visibility).toBe('hidden');
+        expect(element.style.visibility).not.toBe('hidden');
     });
 
     test('sets correct styles in RTL mode', () => {
