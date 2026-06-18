@@ -1,6 +1,6 @@
 import getTypeOfValue from '../getTypeOfValue';
 
-type QueryValue = string | number | boolean | null | undefined;
+type QueryValue = string | number | boolean | any[] | null | undefined;
 type QueryParams = Record<string, QueryValue>;
 
 /**
@@ -23,10 +23,22 @@ type QueryParams = Record<string, QueryValue>;
  * generateUrlWithQuery('/api/users', { id: 123 }) // => '/api/users?id=123'
  *
  * // 多个参数
- * generateUrlWithQuery('/search', { q: 'test', page: 1, sort: 'desc' }) // => '/search?q=test&page=1&sort=desc'
+ * generateUrlWithQuery('/search', { q: 'test', page: 1, sort: 'desc', tags: ['active', 'user'] }) // => '/search?q=test&page=1&sort=desc&tags=active,user'
  *
  * // 处理无效值
- * generateUrlWithQuery('/api/data', { id: 123, name: null, status: undefined }) // => '/api/data?id=123'
+ * generateUrlWithQuery('/api/data', { id: 123, name: null, status: undefined, empty: '', emptyArray: [] }) // => '/api/data?id=123'
+ *
+ * // 数组类型参数
+ * generateUrlWithQuery('/api/users', { ids: [1, 2, 3], tags: ['a', 'b'] }) // => '/api/users?ids=1,2,3&tags=a,b'
+ *
+ * // 嵌套数组（会被扁平化）
+ * generateUrlWithQuery('/api/data', { matrix: [[1, 2], [3, 4]] }) // => '/api/data?matrix=1,2,3,4'
+ *
+ * // 混合类型数组
+ * generateUrlWithQuery('/api/data', { mixed: [1, 'two', true, null, undefined] }) // => '/api/data?mixed=1,two,true,,'
+ *
+ * // 复杂类型数组（使用 toString() 转换）
+ * generateUrlWithQuery('/api/data', { objects: [{ a: 1 }, { b: 2 }] }) // => '/api/data?objects=[object Object],[object Object]'
  * ```
  */
 const generateUrlWithQuery = (pathname: string, queryParams: QueryParams = {}): string => {
@@ -45,7 +57,8 @@ const generateUrlWithQuery = (pathname: string, queryParams: QueryParams = {}): 
 
         Object.entries(filteredParams).forEach(([key, value]) => {
             if (['string', 'number', 'boolean', 'array'].includes(getTypeOfValue(value))) {
-                params.append(key, String(value));
+                const stringValue = String(value);
+                stringValue && params.append(key, stringValue);
             }
         });
 
