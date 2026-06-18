@@ -14,7 +14,7 @@ import getQueryParameters from '../getQueryParameters';
  *
  * @param {string} name - 要获取的查询参数名
  * @param {string} [url] - 目标 URL，若未提供则使用当前页面的 window.location.href
- * @returns {string | null | undefined | number | boolean} - 解析后的查询参数值
+ * @returns {string | number | boolean | undefined | null} - 解析后的查询参数值
  *
  * @example
  * ```typescript
@@ -30,13 +30,23 @@ import getQueryParameters from '../getQueryParameters';
  * // 不传入 url 时使用当前页面 URL
  * // 若当前页面 URL 为 https://current.com?page=home&limit=10
  * getQueryParameter('limit'); // => 10
+ *
+ * // 从 hash 片段解析参数
+ * getQueryParameter('page', 'https://example.com/#/hash?page=home&limit=10'); // => "home"
  * ```
  */
 const getQueryParameter = (name: string, url?: string) => {
     try {
         const targetUrl = url || window.location.href;
-        const search = new URL(targetUrl).search;
-        const params = getQueryParameters(search);
+        const parsedUrl = new URL(targetUrl);
+        let params = getQueryParameters(parsedUrl.search);
+
+        if (parsedUrl.hash.includes('?')) {
+            const hashSearch = parsedUrl.hash.slice(parsedUrl.hash.indexOf('?') + 1);
+            const hashParams = getQueryParameters(hashSearch);
+
+            params = { ...hashParams, ...params };
+        }
 
         return params[name];
     } catch (error: unknown) {
