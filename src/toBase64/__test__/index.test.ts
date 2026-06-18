@@ -32,12 +32,10 @@ describe('toBase64', () => {
         ) {
             setTimeout(() => {
                 if (this.onerror) {
-                    this.onerror(
-                        new ProgressEvent('error') as unknown as ProgressEvent<FileReader>
-                    );
+                    this.onerror(new ProgressEvent('error') as ProgressEvent<FileReader>);
                 }
             });
         });
-        await expect(toBase64(mockBlob)).rejects.toBeDefined();
+        await expect(toBase64(mockBlob)).rejects.toBeInstanceOf(ProgressEvent);
     });
 });
