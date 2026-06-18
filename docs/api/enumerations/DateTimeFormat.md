@@ -59,16 +59,6 @@ Defined in: [formatDateTime/index.ts:29](https://github.com/DTStack/dt-utils/blo
 
 ***
 
-### FULL\_DATETIME\_ISO
-
-> **FULL\_DATETIME\_ISO**: `"YYYY-MM-DDTHH:mm:ssZ"`
-
-Defined in: [formatDateTime/index.ts:75](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L75)
-
-完整的ISO日期时间格式 (例如 2024-03-21T15:30:45+0700)
-
-***
-
 ### HOUR
 
 > **HOUR**: `"HH"`
@@ -109,9 +99,9 @@ Defined in: [formatDateTime/index.ts:39](https://github.com/DTStack/dt-utils/blo
 
 ***
 
-### ISO
+### ISO\_DATETIME
 
-> **ISO**: `"YYYY-MM-DDTHH:mm:ssZ"`
+> **ISO\_DATETIME**: `"YYYY-MM-DDTHH:mm:ssZ"`
 
 Defined in: [formatDateTime/index.ts:63](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L63)
 

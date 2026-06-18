@@ -33,7 +33,7 @@ console.log(dt.format('YYYY-MM-DD'));  // 可进行链式操作
 
 > **formatDateTime**(`date`, `format?`): `string`
 
-Defined in: [formatDateTime/index.ts:91](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L91)
+Defined in: [formatDateTime/index.ts:95](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L95)
 
 将日期时间格式化为指定格式的字符串。
 
@@ -51,9 +51,9 @@ Defined in: [formatDateTime/index.ts:91](https://github.com/DTStack/dt-utils/blo
 
 #### format?
 
-[`DateTimeFormat`](../enumerations/DateTimeFormat.md)
-
 使用DateTimeFormat枚举以保持一致的格式化
+
+`"s"` | `"YYYY"` | `"YY"` | `"MM"` | `"M"` | `"MMMM"` | `"MMM"` | `"DD"` | `"D"` | `"dddd"` | `"ddd"` | `"HH"` | `"H"` | `"hh"` | `"h"` | `"mm"` | `"m"` | `"ss"` | `"Z"` | `"ZZ"` | `"YYYY-MM-DD HH:mm:ss"` | `"YYYY-MM-DDTHH:mm:ssZ"` | `"YYYY-MM-DD"` | `"HH:mm:ss"` | `"hh:mm:ss A"` | `"YYYY-MM-DD HH:mm"` | `"YYYY-MM-DD hh:mm A"`
 
 ### Returns
 
@@ -65,7 +65,7 @@ Defined in: [formatDateTime/index.ts:91](https://github.com/DTStack/dt-utils/blo
 
 > **formatDateTime**(`date`, `format?`): `Dayjs`
 
-Defined in: [formatDateTime/index.ts:104](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L104)
+Defined in: [formatDateTime/index.ts:108](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L108)
 
 将日期时间转换为dayjs对象，用于自定义格式处理。
 

@@ -60,7 +60,7 @@ export enum DateTimeFormat {
     /** 标准日期时间格式 (例如 2024-03-21 15:30:45) */
     STANDARD = 'YYYY-MM-DD HH:mm:ss',
     /** ISO 8601兼容格式 (例如 2024-03-21T15:30:45+0700) */
-    ISO = 'YYYY-MM-DDTHH:mm:ssZ',
+    ISO_DATETIME = 'YYYY-MM-DDTHH:mm:ssZ',
     /** 仅日期格式 (例如 2024-03-21) */
     DATE = 'YYYY-MM-DD',
     /** 24小时制时间格式 (例如 15:30:45) */
@@ -71,11 +71,15 @@ export enum DateTimeFormat {
     DATE_TIME = 'YYYY-MM-DD HH:mm',
     /** 带12小时制时间和午前/午后的日期 (例如 2024-03-21 03:30 PM) */
     DATE_TIME_12 = 'YYYY-MM-DD hh:mm A',
-    /** 完整的ISO日期时间格式 (例如 2024-03-21T15:30:45+0700) */
-    FULL_DATETIME_ISO = 'YYYY-MM-DDTHH:mm:ssZ',
+}
+
+/** 检查字符串是否为DateTimeFormat枚举值 */
+function isDateTimeFormat(format: string): format is DateTimeFormat {
+    return Object.values<string>(DateTimeFormat).includes(format);
 }
 
 type DateTimeInput = string | number | Date | dayjs.Dayjs;
+type DateTimeFormatString = `${DateTimeFormat}`;
 
 /**
  * 将日期时间格式化为指定格式的字符串。
@@ -88,7 +92,7 @@ type DateTimeInput = string | number | Date | dayjs.Dayjs;
  * @param {DateTimeFormat} format - 使用DateTimeFormat枚举以保持一致的格式化
  * @returns {string} 格式化后的日期字符串
  */
-export function formatDateTime(date: DateTimeInput, format?: DateTimeFormat): string;
+export function formatDateTime(date: DateTimeInput, format?: DateTimeFormatString): string;
 
 /**
  * 将日期时间转换为dayjs对象，用于自定义格式处理。
@@ -102,7 +106,6 @@ export function formatDateTime(date: DateTimeInput, format?: DateTimeFormat): st
  * @returns {dayjs.Dayjs} dayjs实例对象，可进行链式操作
  */
 export function formatDateTime(date: DateTimeInput, format?: string): dayjs.Dayjs;
-
 /**
  * 一个日期时间格式化工具，可处理各种输入类型和格式化模式。
  *
@@ -133,9 +136,7 @@ export function formatDateTime(date: DateTimeInput, format?: string): dayjs.Dayj
  * ```
  */
 export function formatDateTime(date: DateTimeInput, format: string = DateTimeFormat.STANDARD) {
-    const isValidFormat = Object.values<string>(DateTimeFormat).includes(format);
-
-    if (!isValidFormat) {
+    if (!isDateTimeFormat(format)) {
         return dayjs(date);
     }
     return dayjs(date).format(format);

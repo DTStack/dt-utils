@@ -62,11 +62,8 @@ describe('formatDateTime', () => {
         const dateTime12Result = formatDateTime(testDate, DateTimeFormat.DATE_TIME_12);
         expect(dateTime12Result).toMatch(/2023-05-15 02:30 (AM|PM)/);
 
-        const isoResult = formatDateTime(testDate, DateTimeFormat.ISO);
+        const isoResult = formatDateTime(testDate, DateTimeFormat.ISO_DATETIME);
         expect(isoResult).toMatch(/2023-05-15T14:30:45[+-]\d{2}:\d{2}|Z/);
-
-        const fullDatetimeISOResult = formatDateTime(testDate, DateTimeFormat.FULL_DATETIME_ISO);
-        expect(fullDatetimeISOResult).toMatch(/2023-05-15T14:30:45[+-]\d{2}:\d{2}|Z/);
     });
 
     test('should handle different date input types', () => {
