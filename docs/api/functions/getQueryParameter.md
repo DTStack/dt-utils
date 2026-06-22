@@ -4,7 +4,7 @@
 
 > **getQueryParameter**(`name`, `url?`): `undefined` \| `null` \| `string` \| `number` \| `boolean`
 
-Defined in: [getQueryParameter/index.ts:35](https://github.com/DTStack/dt-utils/blob/master/src/getQueryParameter/index.ts#L35)
+Defined in: [getQueryParameter/index.ts:38](https://github.com/DTStack/dt-utils/blob/master/src/getQueryParameter/index.ts#L38)
 
 从给定的 URL 中获取指定查询参数的值。
 
@@ -52,4 +52,7 @@ getQueryParameter('count', 'https://example.com?isActive=true&count=null'); // =
 // 不传入 url 时使用当前页面 URL
 // 若当前页面 URL 为 https://current.com?page=home&limit=10
 getQueryParameter('limit'); // => 10
+
+// 从 hash 片段解析参数
+getQueryParameter('page', 'https://example.com/#/hash?page=home&limit=10'); // => "home"
 ```
