@@ -11,17 +11,17 @@ import { toBase64 } from 'dt-utils';
 
 // 将字符串转换为Base64
 const str = 'Hello World';
-const base64Str = await toBase64(str);
+const base64Str = toBase64(str);
 console.log(base64Str); // 'SGVsbG8gV29ybGQ='
+
+// 处理null值
+const result = toBase64(null);
+console.log(result); // null
 
 // 将文件转换为Base64
 const file = new File(['file content'], 'test.txt');
 const base64File = await toBase64(file);
 console.log(base64File); // 'data:text/plain;base64,ZmlsZSBjb250ZW50'
-
-// 处理null值
-const result = await toBase64(null);
-console.log(result); // null
 ```
 
 ## Call Signature
