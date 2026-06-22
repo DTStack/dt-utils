@@ -14,7 +14,6 @@ function createFakeElement(value: string): HTMLTextAreaElement {
      * 将元素水平移出屏幕
      */
     Object.assign(fakeElement.style, {
-        visibility: 'hidden',
         opacity: '0',
         position: 'absolute',
         top: `${window.pageYOffset || document.documentElement.scrollTop}px`,
