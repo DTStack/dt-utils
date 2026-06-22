@@ -17,7 +17,7 @@ type FormattedBytes = `${number} ${ByteUnit}` | 'Invalid value' | '0 B';
  * - 当输入为负数、NaN或Infinity时，返回"Invalid value"
  * - 当输入为0时，返回"0 B"
  *
- * @param {number} value - 要格式化的字节数值
+ * @param {number | string} value - 要格式化的字节数值
  * @param {number} [decimals=2] - 结果保留的小数位数，默认为2位
  * @returns {FormattedBytes} 格式化后的字符串，例如"1.5 MB"。若输入无效则返回"Invalid value"
  *
@@ -46,18 +46,19 @@ type FormattedBytes = `${number} ${ByteUnit}` | 'Invalid value' | '0 B';
  *
  * @see {@link https://en.wikipedia.org/wiki/Byte#Multiple-byte_units} 查看更多关于字节单位的信息
  */
-const formatBytes = (value: number, decimals = 2): FormattedBytes => {
-    if (!Number.isFinite(value)) return 'Invalid value';
-    if (value < 0) return 'Invalid value';
-    if (value === 0) return '0 B';
+const formatBytes = (value: number | string, decimals = 2): FormattedBytes => {
+    const normalizedValue = Number(value);
+    if (!Number.isFinite(normalizedValue)) return 'Invalid value';
+    if (normalizedValue < 0) return 'Invalid value';
+    if (normalizedValue === 0) return '0 B';
 
     const UNITS = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'] as const;
     const BYTES_PER_UNIT = 1024;
 
-    const unitLevel = Math.floor(Math.log(value) / Math.log(BYTES_PER_UNIT));
+    const unitLevel = Math.max(0, Math.floor(Math.log(normalizedValue) / Math.log(BYTES_PER_UNIT)));
     const normalizedLevel = Math.min(unitLevel, UNITS.length - 1);
 
-    const finalValue = value / Math.pow(BYTES_PER_UNIT, normalizedLevel);
+    const finalValue = normalizedValue / Math.pow(BYTES_PER_UNIT, normalizedLevel);
     const formattedValue = Number(finalValue.toFixed(decimals)).toString();
 
     return `${formattedValue} ${UNITS[normalizedLevel]}` as FormattedBytes;
