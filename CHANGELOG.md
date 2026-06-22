@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.1](https://github.com/DTStack/dt-utils/compare/v2.1.0...v2.1.1) (2026-06-22)
+
+
+### Features
+
+* add array type support for query parameters ([#113](https://github.com/DTStack/dt-utils/issues/113)) ([80f7dfa](https://github.com/DTStack/dt-utils/commit/80f7dfa2ea4f588a978e517ca4385cd7dd3fde69))
+* support query parameters in hash fragment ([#111](https://github.com/DTStack/dt-utils/issues/111)) ([75047ac](https://github.com/DTStack/dt-utils/commit/75047ac8a196681cb30669f48d2148756394ea13))
+
+
+### Bug Fixes
+
+* fix copy operation not working ([#109](https://github.com/DTStack/dt-utils/issues/109)) ([48cdb15](https://github.com/DTStack/dt-utils/commit/48cdb152d81e0359541e31c310ab9e6d1f485b53))
+* handle edge cases for invalid and negative values ([#110](https://github.com/DTStack/dt-utils/issues/110)) ([3bbac17](https://github.com/DTStack/dt-utils/commit/3bbac17f7f6ba2ed6cbdb6a1cbf33b03a0b5d3f3))
+* improve type safety and support synchronous return for strings ([#114](https://github.com/DTStack/dt-utils/issues/114)) ([7ea7003](https://github.com/DTStack/dt-utils/commit/7ea7003b633bafa0dabbe703fbd5ea6c4f756ab0))
+* improve type safety with function overloads ([#112](https://github.com/DTStack/dt-utils/issues/112)) ([1f7c3c0](https://github.com/DTStack/dt-utils/commit/1f7c3c0a02351eb463a24104c443914f38ffb673))
+
 ## [2.1.0](https://github.com/DTStack/dt-utils/compare/v1.5.0...v2.1.0) (2026-05-28)
 
 
