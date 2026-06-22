@@ -2,7 +2,10 @@
 
 # Enumeration: DateTimeFormat
 
-Defined in: [formatDateTime/index.ts:7](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L7)
+Defined in: [formatDateTime/index.ts:8](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L8)
+
+日期和时间格式模式的枚举
+提供标准化的格式标记以实现一致的日期/时间格式化
 
 ## Enumeration Members
 
@@ -10,7 +13,7 @@ Defined in: [formatDateTime/index.ts:7](https://github.com/DTStack/dt-utils/blob
 
 > **DATE**: `"YYYY-MM-DD"`
 
-Defined in: [formatDateTime/index.ts:64](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L64)
+Defined in: [formatDateTime/index.ts:65](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L65)
 
 仅日期格式 (例如 2024-03-21)
 
@@ -20,7 +23,7 @@ Defined in: [formatDateTime/index.ts:64](https://github.com/DTStack/dt-utils/blo
 
 > **DATE\_TIME**: `"YYYY-MM-DD HH:mm"`
 
-Defined in: [formatDateTime/index.ts:70](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L70)
+Defined in: [formatDateTime/index.ts:71](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L71)
 
 带24小时制时间的日期 (例如 2024-03-21 15:30)
 
@@ -30,7 +33,7 @@ Defined in: [formatDateTime/index.ts:70](https://github.com/DTStack/dt-utils/blo
 
 > **DATE\_TIME\_12**: `"YYYY-MM-DD hh:mm A"`
 
-Defined in: [formatDateTime/index.ts:72](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L72)
+Defined in: [formatDateTime/index.ts:73](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L73)
 
 带12小时制时间和午前/午后的日期 (例如 2024-03-21 03:30 PM)
 
@@ -40,7 +43,7 @@ Defined in: [formatDateTime/index.ts:72](https://github.com/DTStack/dt-utils/blo
 
 > **DAY**: `"DD"`
 
-Defined in: [formatDateTime/index.ts:26](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L26)
+Defined in: [formatDateTime/index.ts:27](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L27)
 
 表示带前导零的月份中的日期 (01-31)
 
@@ -50,19 +53,9 @@ Defined in: [formatDateTime/index.ts:26](https://github.com/DTStack/dt-utils/blo
 
 > **DAY\_SHORT**: `"D"`
 
-Defined in: [formatDateTime/index.ts:28](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L28)
+Defined in: [formatDateTime/index.ts:29](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L29)
 
 表示不带前导零的月份中的日期 (1-31)
-
-***
-
-### FULL\_DATETIME\_ISO
-
-> **FULL\_DATETIME\_ISO**: `"YYYY-MM-DDTHH:mm:ssZ"`
-
-Defined in: [formatDateTime/index.ts:74](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L74)
-
-完整的ISO日期时间格式 (例如 2024-03-21T15:30:45+0700)
 
 ***
 
@@ -70,7 +63,7 @@ Defined in: [formatDateTime/index.ts:74](https://github.com/DTStack/dt-utils/blo
 
 > **HOUR**: `"HH"`
 
-Defined in: [formatDateTime/index.ts:36](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L36)
+Defined in: [formatDateTime/index.ts:37](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L37)
 
 表示24小时制带前导零的小时 (00-23)
 
@@ -80,7 +73,7 @@ Defined in: [formatDateTime/index.ts:36](https://github.com/DTStack/dt-utils/blo
 
 > **HOUR\_12**: `"hh"`
 
-Defined in: [formatDateTime/index.ts:40](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L40)
+Defined in: [formatDateTime/index.ts:41](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L41)
 
 表示12小时制带前导零的小时 (01-12)
 
@@ -90,7 +83,7 @@ Defined in: [formatDateTime/index.ts:40](https://github.com/DTStack/dt-utils/blo
 
 > **HOUR\_12\_SHORT**: `"h"`
 
-Defined in: [formatDateTime/index.ts:42](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L42)
+Defined in: [formatDateTime/index.ts:43](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L43)
 
 表示12小时制不带前导零的小时 (1-12)
 
@@ -100,17 +93,17 @@ Defined in: [formatDateTime/index.ts:42](https://github.com/DTStack/dt-utils/blo
 
 > **HOUR\_SHORT**: `"H"`
 
-Defined in: [formatDateTime/index.ts:38](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L38)
+Defined in: [formatDateTime/index.ts:39](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L39)
 
 表示24小时制不带前导零的小时 (0-23)
 
 ***
 
-### ISO
+### ISO\_DATETIME
 
-> **ISO**: `"YYYY-MM-DDTHH:mm:ssZ"`
+> **ISO\_DATETIME**: `"YYYY-MM-DDTHH:mm:ssZ"`
 
-Defined in: [formatDateTime/index.ts:62](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L62)
+Defined in: [formatDateTime/index.ts:63](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L63)
 
 ISO 8601兼容格式 (例如 2024-03-21T15:30:45+0700)
 
@@ -120,7 +113,7 @@ ISO 8601兼容格式 (例如 2024-03-21T15:30:45+0700)
 
 > **MINUTE**: `"mm"`
 
-Defined in: [formatDateTime/index.ts:44](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L44)
+Defined in: [formatDateTime/index.ts:45](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L45)
 
 表示带前导零的分钟 (00-59)
 
@@ -130,7 +123,7 @@ Defined in: [formatDateTime/index.ts:44](https://github.com/DTStack/dt-utils/blo
 
 > **MINUTE\_SHORT**: `"m"`
 
-Defined in: [formatDateTime/index.ts:46](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L46)
+Defined in: [formatDateTime/index.ts:47](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L47)
 
 表示不带前导零的分钟 (0-59)
 
@@ -140,7 +133,7 @@ Defined in: [formatDateTime/index.ts:46](https://github.com/DTStack/dt-utils/blo
 
 > **MONTH**: `"MM"`
 
-Defined in: [formatDateTime/index.ts:16](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L16)
+Defined in: [formatDateTime/index.ts:17](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L17)
 
 表示带前导零的月份 (01-12)
 
@@ -150,7 +143,7 @@ Defined in: [formatDateTime/index.ts:16](https://github.com/DTStack/dt-utils/blo
 
 > **MONTH\_NAME**: `"MMMM"`
 
-Defined in: [formatDateTime/index.ts:20](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L20)
+Defined in: [formatDateTime/index.ts:21](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L21)
 
 表示完整月份名称 (例如 January)
 
@@ -160,7 +153,7 @@ Defined in: [formatDateTime/index.ts:20](https://github.com/DTStack/dt-utils/blo
 
 > **MONTH\_NAME\_SHORT**: `"MMM"`
 
-Defined in: [formatDateTime/index.ts:22](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L22)
+Defined in: [formatDateTime/index.ts:23](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L23)
 
 表示缩写月份名称 (例如 Jan)
 
@@ -170,7 +163,7 @@ Defined in: [formatDateTime/index.ts:22](https://github.com/DTStack/dt-utils/blo
 
 > **MONTH\_SHORT**: `"M"`
 
-Defined in: [formatDateTime/index.ts:18](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L18)
+Defined in: [formatDateTime/index.ts:19](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L19)
 
 表示不带前导零的月份 (1-12)
 
@@ -180,7 +173,7 @@ Defined in: [formatDateTime/index.ts:18](https://github.com/DTStack/dt-utils/blo
 
 > **SECOND**: `"ss"`
 
-Defined in: [formatDateTime/index.ts:48](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L48)
+Defined in: [formatDateTime/index.ts:49](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L49)
 
 表示带前导零的秒数 (00-59)
 
@@ -190,7 +183,7 @@ Defined in: [formatDateTime/index.ts:48](https://github.com/DTStack/dt-utils/blo
 
 > **SECOND\_SHORT**: `"s"`
 
-Defined in: [formatDateTime/index.ts:50](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L50)
+Defined in: [formatDateTime/index.ts:51](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L51)
 
 表示不带前导零的秒数 (0-59)
 
@@ -200,7 +193,7 @@ Defined in: [formatDateTime/index.ts:50](https://github.com/DTStack/dt-utils/blo
 
 > **STANDARD**: `"YYYY-MM-DD HH:mm:ss"`
 
-Defined in: [formatDateTime/index.ts:60](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L60)
+Defined in: [formatDateTime/index.ts:61](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L61)
 
 标准日期时间格式 (例如 2024-03-21 15:30:45)
 
@@ -210,7 +203,7 @@ Defined in: [formatDateTime/index.ts:60](https://github.com/DTStack/dt-utils/blo
 
 > **TIME**: `"HH:mm:ss"`
 
-Defined in: [formatDateTime/index.ts:66](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L66)
+Defined in: [formatDateTime/index.ts:67](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L67)
 
 24小时制时间格式 (例如 15:30:45)
 
@@ -220,7 +213,7 @@ Defined in: [formatDateTime/index.ts:66](https://github.com/DTStack/dt-utils/blo
 
 > **TIME\_12**: `"hh:mm:ss A"`
 
-Defined in: [formatDateTime/index.ts:68](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L68)
+Defined in: [formatDateTime/index.ts:69](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L69)
 
 带午前/午后的12小时制时间格式 (例如 03:30:45 PM)
 
@@ -230,7 +223,7 @@ Defined in: [formatDateTime/index.ts:68](https://github.com/DTStack/dt-utils/blo
 
 > **TIMEZONE**: `"Z"`
 
-Defined in: [formatDateTime/index.ts:54](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L54)
+Defined in: [formatDateTime/index.ts:55](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L55)
 
 表示时区偏移 (例如 +07:00)
 
@@ -240,7 +233,7 @@ Defined in: [formatDateTime/index.ts:54](https://github.com/DTStack/dt-utils/blo
 
 > **TIMEZONE\_ISO**: `"ZZ"`
 
-Defined in: [formatDateTime/index.ts:56](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L56)
+Defined in: [formatDateTime/index.ts:57](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L57)
 
 表示ISO格式的时区偏移 (例如 +0700)
 
@@ -250,7 +243,7 @@ Defined in: [formatDateTime/index.ts:56](https://github.com/DTStack/dt-utils/blo
 
 > **WEEKDAY**: `"dddd"`
 
-Defined in: [formatDateTime/index.ts:30](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L30)
+Defined in: [formatDateTime/index.ts:31](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L31)
 
 表示完整星期几名称 (例如 Monday)
 
@@ -260,7 +253,7 @@ Defined in: [formatDateTime/index.ts:30](https://github.com/DTStack/dt-utils/blo
 
 > **WEEKDAY\_SHORT**: `"ddd"`
 
-Defined in: [formatDateTime/index.ts:32](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L32)
+Defined in: [formatDateTime/index.ts:33](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L33)
 
 表示缩写星期几名称 (例如 Mon)
 
@@ -270,7 +263,7 @@ Defined in: [formatDateTime/index.ts:32](https://github.com/DTStack/dt-utils/blo
 
 > **YEAR**: `"YYYY"`
 
-Defined in: [formatDateTime/index.ts:10](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L10)
+Defined in: [formatDateTime/index.ts:11](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L11)
 
 表示4位数年份 (例如 2024)
 
@@ -280,6 +273,6 @@ Defined in: [formatDateTime/index.ts:10](https://github.com/DTStack/dt-utils/blo
 
 > **YEAR\_SHORT**: `"YY"`
 
-Defined in: [formatDateTime/index.ts:12](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L12)
+Defined in: [formatDateTime/index.ts:13](https://github.com/DTStack/dt-utils/blob/master/src/formatDateTime/index.ts#L13)
 
 表示2位数年份 (例如 24)

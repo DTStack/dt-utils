@@ -1,8 +1,9 @@
 import dayjs from 'dayjs';
 /**
- * @category 枚举
  * 日期和时间格式模式的枚举
  * 提供标准化的格式标记以实现一致的日期/时间格式化
+ *
+ * @category 枚举
  */
 export enum DateTimeFormat {
     // 年份格式
@@ -59,7 +60,7 @@ export enum DateTimeFormat {
     /** 标准日期时间格式 (例如 2024-03-21 15:30:45) */
     STANDARD = 'YYYY-MM-DD HH:mm:ss',
     /** ISO 8601兼容格式 (例如 2024-03-21T15:30:45+0700) */
-    ISO = 'YYYY-MM-DDTHH:mm:ssZ',
+    ISO_DATETIME = 'YYYY-MM-DDTHH:mm:ssZ',
     /** 仅日期格式 (例如 2024-03-21) */
     DATE = 'YYYY-MM-DD',
     /** 24小时制时间格式 (例如 15:30:45) */
@@ -70,33 +71,49 @@ export enum DateTimeFormat {
     DATE_TIME = 'YYYY-MM-DD HH:mm',
     /** 带12小时制时间和午前/午后的日期 (例如 2024-03-21 03:30 PM) */
     DATE_TIME_12 = 'YYYY-MM-DD hh:mm A',
-    /** 完整的ISO日期时间格式 (例如 2024-03-21T15:30:45+0700) */
-    FULL_DATETIME_ISO = 'YYYY-MM-DDTHH:mm:ssZ',
+}
+
+/** 检查字符串是否为DateTimeFormat枚举值 */
+function isDateTimeFormat(format: string): format is DateTimeFormat {
+    return Object.values<string>(DateTimeFormat).includes(format);
 }
 
 type DateTimeInput = string | number | Date | dayjs.Dayjs;
-type FormatPattern = DateTimeFormat | string;
+type DateTimeFormatString = `${DateTimeFormat}`;
+
 /**
- * 一个日期时间格式化工具，可处理各种输入类型和格式化模式。
- *
- * @category 格式化
- * @description
- * 将日期或时间戳格式化为指定格式的字符串。
- * 支持多种输入类型和格式化模式。
+ * 将日期时间格式化为指定格式的字符串。
  *
  * @param {DateTimeInput} date - 输入日期值，支持多种格式：
  *   - Date对象: new Date()
  *   - 时间戳: 1674633600000
  *   - ISO字符串: "2023-01-15T14:30:00"
  *   - dayjs对象: dayjs()
- * @param {FormatPattern} format - 期望的输出格式：
- *   - 使用DateTimeFormat枚举以保持一致的格式化
- *   - 或提供自定义格式字符串
- * @returns {string | dayjs.Dayjs} 格式化后的日期字符串或 dayjs 实例对象
+ * @param {DateTimeFormat} format - 使用DateTimeFormat枚举以保持一致的格式化
+ * @returns {string} 格式化后的日期字符串
+ */
+export function formatDateTime(date: DateTimeInput, format?: DateTimeFormatString): string;
+
+/**
+ * 将日期时间转换为dayjs对象，用于自定义格式处理。
+ *
+ * @param {DateTimeInput} date - 输入日期值，支持多种格式：
+ *   - Date对象: new Date()
+ *   - 时间戳: 1674633600000
+ *   - ISO字符串: "2023-01-15T14:30:00"
+ *   - dayjs对象: dayjs()
+ * @param {string} format - 自定义格式字符串（非DateTimeFormat枚举值）
+ * @returns {dayjs.Dayjs} dayjs实例对象，可进行链式操作
+ */
+export function formatDateTime(date: DateTimeInput, format?: string): dayjs.Dayjs;
+/**
+ * 一个日期时间格式化工具，可处理各种输入类型和格式化模式。
+ *
+ * @category 格式化
  *
  * @example
  * ```typescript
- * import { formatDateTime } from 'dt-utils';
+ * import { formatDateTime, DateTimeFormat } from 'dt-utils';
  *
  * // 标准日期格式
  * formatDateTime(new Date(), DateTimeFormat.STANDARD)  // "2024-03-21 15:30:45"
@@ -113,20 +130,16 @@ type FormatPattern = DateTimeFormat | string;
  * // 完整星期几名称
  * formatDateTime(new Date(), DateTimeFormat.WEEKDAY)  // "Thursday"
  *
- * // 自定义格式
- * formatDateTime(new Date(), "dddd, MMMM D, YYYY")  // dayjs.Dayjs
+ * // 自定义格式返回dayjs对象
+ * const dt = formatDateTime(new Date(), "dddd, MMMM D, YYYY");
+ * console.log(dt.format('YYYY-MM-DD'));  // 可进行链式操作
  * ```
  */
-export const formatDateTime = (
-    date: DateTimeInput,
-    format: FormatPattern = DateTimeFormat.STANDARD
-): string | dayjs.Dayjs => {
-    const isValidFormat = Object.values<string>(DateTimeFormat).includes(format);
-
-    if (!isValidFormat) {
+export function formatDateTime(date: DateTimeInput, format: string = DateTimeFormat.STANDARD) {
+    if (!isDateTimeFormat(format)) {
         return dayjs(date);
     }
     return dayjs(date).format(format);
-};
+}
 
 export default formatDateTime;
