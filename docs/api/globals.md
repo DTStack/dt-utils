@@ -10,6 +10,7 @@
 ## Utils
 
 - [copy](functions/copy.md)
+- [createPDFDownload](functions/createPDFDownload.md)
 - [downloadFile](functions/downloadFile.md)
 - [generateUniqueId](functions/generateUniqueId.md)
 - [generateUrlWithQuery](functions/generateUrlWithQuery.md)

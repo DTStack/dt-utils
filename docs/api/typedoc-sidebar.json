@@ -30,6 +30,10 @@
         "link": "/api/functions/copy.md"
       },
       {
+        "text": "createPDFDownload",
+        "link": "/api/functions/createPDFDownload.md"
+      },
+      {
         "text": "downloadFile",
         "link": "/api/functions/downloadFile.md"
       },
