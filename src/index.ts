@@ -7,6 +7,7 @@ export * as lodash from 'lodash-es';
 export { default as checkBrowserSupport } from './checkBrowserSupport';
 export { default as Cookies } from './cookies';
 export { default as copy } from './copy';
+export { default as createPDFDownload } from './createPDFDownload';
 export { default as downloadFile } from './downloadFile';
 export { default as formatBytes } from './formatBytes';
 export { DateTimeFormat, default as formatDateTime } from './formatDateTime';
